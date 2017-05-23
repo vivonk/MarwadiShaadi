@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Marwadi Shaadi</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="caste_array">
+        <item>Maheshwari</item>
+        <item>Agarwal</item>
+        <item>Jain</item>
+        <item>Khandelwal</item>
+        <item>Others</item>
+    </string-array>
+
+</resources>

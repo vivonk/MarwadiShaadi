@@ -12,4 +12,114 @@
         <item>Others</item>
     </string-array>
 
+    <string-array name="fstatus_array">
+        <item>Select Family Status</item>
+        <item>Affluent Class</item>
+        <item>Upper Middle Class</item>
+        <item>Middle Class</item>
+        <item>Lower Middle</item>
+    </string-array>
+
+    <string-array name="height_array">
+        <item>Select Height</item>
+        <item>4ft - 121 cm</item>
+        <item>4ft - 121 cm</item>
+        <item>4ft 1in - 124cm</item>
+        <item>4ft 2in - 127cm</item>
+        <item>4ft 3in - 129cm</item>
+        <item>4ft 4in - 132cm</item>
+        <item>4ft 5in - 134cm</item>
+        <item>4ft 6in - 137cm</item>
+        <item>4ft 7in - 139cm</item>
+        <item>4ft 8in - 142cm</item>
+        <item>4ft 9in - 144cm</item>
+        <item>4ft 10in - 147cm</item>
+        <item>4ft 11in - 149cm</item>
+        <item>5ft - 152cm</item>
+        <item>5ft 1in - 154cm</item>
+        <item>5ft 2in - 157cm</item>
+        <item>5ft 3in - 160cm</item>
+        <item>5ft 4in - 162cm</item>
+        <item>5ft 5in - 165cm</item>
+        <item>5ft 6in - 168cm</item>
+        <item>5ft 7in -170cm</item>
+        <item>5ft 8in - 172cm</item>
+        <item>5ft 9in - 175cm</item>
+        <item>5ft 10in - 177cm</item>
+        <item>5ft 11in - 180cm</item>
+        <item>6ft - 182cm</item>
+        <item>6ft 1in - 185cm</item>
+        <item>6ft 2in - 187cm</item>
+        <item>6ft 3in - 190cm</item>
+        <item>6ft 4in - 193cm</item>
+        <item>6ft 5in - 195cm</item>
+        <item>6ft 6in - 198cm</item>
+        <item>6ft 7in - 200cm</item>
+        <item>6ft 8in - 203cm</item>
+        <item>6ft 9in - 205cm</item>
+        <item>6ft 10in - 208cm</item>
+        <item>6ft 11in - 210cm</item>
+        <item>7ft - 213cm</item>
+        <item>7ft 1in - 215cm</item>
+        <item>7ft 2in - 218cm</item>
+        <item>7ft 3in - 221cm</item>
+        <item>7ft 4in - 223cm</item>
+        <item>7ft 5in - 226cm</item>
+        <item>7ft 6in - 228cm</item>
+        <item>7ft 7in - 231cm</item>
+        <item>7ft 8in - 233cm</item>
+        <item>7ft 9in - 236cm</item>
+        <item>7ft 10in - 238cm</item>
+        <item>7ft 11in - 241cm</item>
+    </string-array>
+
+    <string-array name="aincome_array">
+        <item>Select Annual Income</item>
+        <item>Upto 300000</item>
+        <item>300000 - 600000</item>
+        <item>600000 - 1000000</item>
+        <item>1000000 - 1500000</item>
+        <item>1500000 - 2000000</item>
+        <item>2000000 - 3000000</item>
+        <item>2000000 - 3000000</item>
+        <item>2000000 - 3000000</item>
+        <item>2000000 - 3000000</item>
+        <item>2000000 - 3000000</item>
+        <item>3000000 - 5000000</item>
+        <item>Above 5000000</item>
+    </string-array>
+
+    <string-array name="education_array">
+        <item>Select Education</item>
+        <item>Doctor</item>
+        <item>Engineer</item>
+        <item>CA/CS/ICWA</item>
+        <item>MBA/MCA/MS/MA/MSC/M.Arch</item>
+        <item>LLB/LLM</item>
+        <item>Postgraduate</item>
+        <item>Graduate</item>
+        <item>Undergraduate</item>
+    </string-array>
+
+    <string-array name="built_array">
+        <item>Select Built</item>
+        <item>Slim</item>
+        <item>Athletic</item>
+        <item>Average</item>
+        <item>Heavy</item>
+    </string-array>
+
+    <string-array name="status_array">
+        <item>Select Marital Status</item>
+        <item>Unmarried</item>
+        <item>Widow</item>
+        <item>Divorced</item>
+        <item>Widower</item>
+        <item>Seperated</item>
+    </string-array>
+
+    <string name="title_activity_advanced__signup__details">Advanced Signup Details</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
 </resources>

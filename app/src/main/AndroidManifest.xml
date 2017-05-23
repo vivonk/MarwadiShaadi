@@ -23,8 +23,7 @@
         </activity>
         <activity
             android:name=".forgot_password"
-            android:label="Forgot Password ? "
-            />
+            android:label="Forgot Password ? " />
         <activity
             android:name=".Signup"
             android:label="Signup" />
@@ -32,7 +31,11 @@
             android:name=".Login"
             android:label="Login" />
         <activity android:name=".Otp_Verification" />
-        <activity android:name=".signup_details"></activity>
+        <activity android:name=".signup_details" />
+        <activity
+            android:name=".Advanced_Signup_Details"
+            android:label="@string/title_activity_advanced__signup__details"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

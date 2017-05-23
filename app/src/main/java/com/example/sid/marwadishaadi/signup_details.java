@@ -1,6 +1,7 @@
 package com.example.sid.marwadishaadi;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.content.res.Resources;
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -57,6 +58,11 @@ public class signup_details extends AppCompatActivity implements DatePickerDialo
                 String date_of_birth = dob.getText().toString();
                 String mobile_number = mobile.getText().toString();
                 String user_caste = caste.getSelectedItem().toString();
+                String user_location = location.getText().toString();
+
+                Intent i = new Intent(signup_details.this,Advanced_Signup_Details.class);
+                startActivity(i);
+
 
             }
         });

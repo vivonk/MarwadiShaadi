@@ -21,12 +21,89 @@
     </string-array>
 
 
-    <string-array name="weight_array">
-        <item>Select Weight</item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+
+    <string-array name="ftype_array">
+        <item>Select Family Type</item>
+        <item>Joint</item>
+        <item>Nuclear</item>
+    </string-array>
+
+    <string-array name="fvalues_array">
+        <item>Select Family Values</item>
+        <item>Orthodox</item>
+        <item>Traditional</item>
+        <item>Modern</item>
+    </string-array>
+
+    <string-array name="diet_array">
+        <item>Select Diet</item>
+        <item>Jain</item>
+        <item>Veg</item>
+        <item>Non-Veg</item>
+        <item>Eggetarian</item>
+    </string-array>
+
+    <string-array name="smoking_array">
+        <item>Do you smoke ? </item>
+        <item>No</item>
+        <item>Light</item>
+        <item>Social</item>
+        <item>Regular</item>
+    </string-array>
+
+    <string-array name="drinking_array">
+        <item>Do you drink ? </item>
+        <item>No</item>
+        <item>Light</item>
+        <item>Social</item>
+        <item>Regular</item>
+    </string-array>
+
+    <string-array name="complexion_array">
+        <item>Select Complexion</item>
+        <item>Very Fair</item>
+        <item>Fair</item>
+        <item>Wheatish</item>
+        <item>Wheatish Brown</item>
+        <item>Dark</item>
+    </string-array>
+
+    <string-array name="physicalstatus_array">
+        <item>Select Physical Status</item>
+        <item>Physically challenged from birth</item>
+        <item>Physically challenged due to accident</item>
+        <item>Mentally challenged from birth</item>
+        <item>Mentally challenged due to accident</item>
+        <item>Physically abnormality affecting only looks</item>
+        <item>Physical abnormality affecting bodily functions</item>
+    </string-array>
+
+    <string-array name="manglik_array">
+        <item>Manglik ?</item>
+        <item>Yes</item>
+        <item>No</item>
+        <item>Don\'t know</item>
+    </string-array>
+
+    <string-array name="relation_name_array">
+        <item>Your Relation is of ?</item>
+        <item>Tauji</item>
+        <item>Masaji</item>
+        <item>Mamaji</item>
+        <item>Nanaji</item>
+        <item>Jijaji</item>
+        <item>Fupaji</item>
+        <item>Chachaji</item>
+        <item>Bhuwaji</item>
+        <item>Brother</item>
+        <item>Sister</item>
+    </string-array>
+
+    <string-array name="horoscope_array">
+        <item>Match Horoscope ?</item>
+        <item>Yes</item>
+        <item>No</item>
+        <item>Doesn\'t Matter</item>
     </string-array>
 
 

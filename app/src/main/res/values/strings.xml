@@ -20,6 +20,25 @@
         <item>Lower Middle</item>
     </string-array>
 
+
+    <string-array name="weight_array">
+        <item>Select Weight</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="designation_array">
+        <item>Select Designation</item>
+        <item>Employee</item>
+        <item>Director</item>
+        <item>Founder</item>
+        <item>Co-Founder</item>
+    </string-array>
+
+
     <string-array name="height_array">
         <item>Select Height</item>
         <item>4ft - 121 cm</item>

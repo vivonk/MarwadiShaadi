@@ -76,7 +76,7 @@
                 android:textColorHint="#747474"
                 android:textSize="20dp" />
 
-            <Button
+            <android.support.v7.widget.AppCompatButton
                 android:id="@+id/login"
                 style="?android:buttonBarButtonStyle"
                 android:layout_width="match_parent"

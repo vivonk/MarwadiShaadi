@@ -34,7 +34,7 @@
         <activity android:name=".signup_details" />
         <activity
             android:name=".Advanced_Signup_Details"
-            android:label="@string/title_activity_advanced__signup__details"
+            android:label="Basic Details"
             android:theme="@style/AppTheme"></activity>
     </application>
 

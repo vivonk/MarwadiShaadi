@@ -24,7 +24,7 @@
             android:layout_marginTop="200dp"
             android:orientation="vertical">
 
-            <!--
+
                         <com.facebook.login.widget.LoginButton
                             android:id="@+id/login_button"
                             android:layout_width="match_parent"
@@ -33,7 +33,6 @@
                             android:paddingBottom="14dp"
                             android:paddingTop="14dp"
                             />
-            -->
 
             <TextView
                 android:layout_width="match_parent"

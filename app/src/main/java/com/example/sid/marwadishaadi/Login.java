@@ -13,22 +13,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
-import com.facebook.HttpMethod;
-import com.facebook.Profile;
-import com.facebook.ProfileTracker;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 
@@ -60,50 +55,41 @@ public class Login extends AppCompatActivity {
         login = (Button ) findViewById(R.id.login);
         fblogin = (LoginButton) findViewById(R.id.fb_login_button);
 
-
+        fblogin.setReadPermissions(Arrays.asList("email"));
         fblogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
 
-                AccessToken accessToken = loginResult.getAccessToken();
-                String userid = accessToken.getUserId();
-
-
-
                 GraphRequest request = GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
                     @Override
                     public void onCompleted(JSONObject object, GraphResponse response) {
-                        String str = object.toString();
-                        Log.d("object",str);
+
+                        Log.d("object",object.toString());
+
+                        try {
+                            String first_name = object.getString("first_name");
+                            String last_name = object.getString("last_name");
+                            String gender = object.getString("gender");
+                            String name = object.getString("name");
+
+                            // check must be performed here
+                            //String email = object.getString("email");
+                            String birthday = object.getString("birthday");
+                            Toast.makeText(getApplicationContext(),first_name + last_name + gender + birthday,Toast.LENGTH_LONG).show();
+
+                            // MUST GO TO dashboard
+                            Intent i = new Intent(Login.this,Otp_Verification.class);
+                            startActivity(i);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
                     }
                 });
 
-
-               /* GraphRequest request = new GraphRequest(
-                        AccessToken.getCurrentAccessToken(),
-                        "/"+userid,
-                        null,
-                        HttpMethod.GET,
-                        new GraphRequest.Callback() {
-                            public void onCompleted(GraphResponse response) {
-
-                                JSONObject user = response.getJSONObject();
-                                try {
-                                    String str = user.toString();
-                                    Log.d("object",str);
-                                    String name = user.getString("name");
-                                    Toast.makeText(getApplicationContext(),name,Toast.LENGTH_LONG).show();
-
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-
-                            }
-                        }
-                );*/
-
                 Bundle parameters = new Bundle();
-                parameters.putString("fields","about,birthday,email,first_name,gender,last_name,middle_name,name,realtionship_status");
+                parameters.putString("fields", "id,about,birthday,middle_name,first_name,last_name,email,gender,name,relationship_status");
                 request.setParameters(parameters);
                 request.executeAsync();
             }
@@ -148,6 +134,9 @@ public class Login extends AppCompatActivity {
 
                 String email = login_email.getText().toString();
                 String pass = login_pass.getText().toString();
+                // @TODO to be changed
+                Intent intent = new Intent(Login.this, MyAccount.class);
+                startActivity(intent);
 
                 // rest
 

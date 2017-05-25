@@ -213,6 +213,9 @@
         <item>Seperated</item>
     </string-array>
 
+    <string name="facebook_app_id">1361344123954196</string>
+    <string name="fb_login_protocol_scheme">fb1361344123954196</string>
+
     <string name="title_activity_advanced__signup__details">Advanced Signup Details</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>

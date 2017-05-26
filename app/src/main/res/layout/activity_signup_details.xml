@@ -189,12 +189,10 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="50dp"
                 android:text="Next"
-                android:backgroundTint="@color/colorPrimary"
-                android:background="@drawable/button_simple_border"
                 android:textSize="20dp"
+                android:background="@color/colorPrimary"
                 android:layout_marginBottom="30dp"
                 android:layout_weight="0.5"
-                style="?android:buttonBarButtonStyle"
                 />
 
         </LinearLayout>

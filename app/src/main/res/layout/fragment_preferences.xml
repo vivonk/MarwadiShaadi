@@ -627,7 +627,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/advnext"
+                android:id="@+id/complete"
                 android:textColor="#fff"
                 android:textStyle="bold"
                 android:layout_marginRight="5dp"

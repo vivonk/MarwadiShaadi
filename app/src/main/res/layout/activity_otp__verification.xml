@@ -73,15 +73,12 @@
                         android:id="@+id/Submit_otp"
                         android:textColor="#fff"
                         android:layout_marginRight="5dp"
-                        android:backgroundTint="@color/colorPrimary"
                         android:text="Submit"
+                        android:background="@color/colorPrimary"
                         android:textStyle="bold"
                         android:elevation="5dp"
-
-                        android:background="@drawable/button_simple_border"
                         android:textSize="20dp"
                         android:layout_weight="0.5"
-                        style="?android:buttonBarButtonStyle"
                         />
 
 

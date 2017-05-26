@@ -60,7 +60,7 @@ public class signup_details extends AppCompatActivity implements DatePickerDialo
                 String user_caste = caste.getSelectedItem().toString();
                 String user_location = location.getText().toString();
 
-                Intent i = new Intent(signup_details.this,Otp_Verification.class);
+                Intent i = new Intent(signup_details.this,Advanced_Signup_Details.class);
                 startActivity(i);
 
 

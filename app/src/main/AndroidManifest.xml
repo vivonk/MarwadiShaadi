@@ -15,7 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -46,6 +46,7 @@
         <activity
             android:name=".forgot_password"
             android:label="Forgot Password ? " />
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".Signup"
             android:label="Signup" />
@@ -62,8 +63,24 @@
         <activity android:name=".MyAccount" />
         <activity
             android:name=".Dashboard"
-            android:label="@string/title_activity_navigation_drawer"
-            android:theme="@style/AppTheme"></activity>
+            android:label="Dashboard"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Feedback"
+            android:label="Feedback" />
+        <activity
+            android:name=".Settings"
+            android:label="Settings" />
+        <activity
+            android:name=".Blocked"
+            android:label="Blocked" />
+        <activity android:name=".Privacy_policy" />
+        <activity
+            android:name=".UserProfile"
+            android:label="@string/title_activity_user_profile"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".Payment_Policy" />
+        <activity android:name=".Notifications"></activity>
     </application>
 
 </manifest>

@@ -135,7 +135,7 @@ public class Login extends AppCompatActivity {
                 String email = login_email.getText().toString();
                 String pass = login_pass.getText().toString();
                 // @TODO to be changed
-                Intent intent = new Intent(Login.this, MyAccount.class);
+                Intent intent = new Intent(Login.this,Dashboard.class);
                 startActivity(intent);
 
                 // rest

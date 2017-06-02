@@ -22,7 +22,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-public class Advanced_Signup_Details extends AppCompatActivity implements ViewPager.OnPageChangeListener,BasicInfo.OnFragmentInteractionListener,Additional_Info.OnFragmentInteractionListener,Preferences.OnFragmentInteractionListener{
+
+public class Advanced_Signup_Details extends AppCompatActivity implements
+        ViewPager.OnPageChangeListener,
+        BasicInfo.OnFragmentInteractionListener,
+        Additional_Info.OnFragmentInteractionListener,
+        Preferences.OnFragmentInteractionListener{
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
@@ -37,7 +42,6 @@ public class Advanced_Signup_Details extends AppCompatActivity implements ViewPa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -60,6 +64,7 @@ public class Advanced_Signup_Details extends AppCompatActivity implements ViewPa
         tabLayout.getTabAt(0).setIcon(tabIcons[0]);
         tabLayout.getTabAt(1).setIcon(tabIcons[1]);
         tabLayout.getTabAt(2).setIcon(tabIcons[2]);
+
 
     }
 

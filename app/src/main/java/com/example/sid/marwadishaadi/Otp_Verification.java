@@ -38,6 +38,8 @@ public class Otp_Verification extends AppCompatActivity {
 
                 String user_otp = otp.getText().toString();
 
+                Intent i = new Intent(Otp_Verification.this,Membership.class);
+                startActivity(i);
                 // rest
             }
         });

@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:focusableInTouchMode="true"
     android:background="@drawable/slider3min"
-    android:fitsSystemWindows="true"
-    >
+    android:fitsSystemWindows="true">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -24,12 +24,15 @@
             android:orientation="vertical">
 
             <com.facebook.login.widget.LoginButton
+
+                facebook:com_facebook_login_text="Login with Facebook"
                             android:id="@+id/fb_login_button"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="20dp"
                             android:paddingBottom="14dp"
                             android:paddingTop="14dp"
+                            style="@style/FacebookLoginButton"
                 />
             <TextView
                 android:layout_width="match_parent"
@@ -98,7 +101,7 @@
                     android:text="Forgot Password ? "
                     android:textColor="#fff"
                     android:clickable="true"
-                    android:textSize="13dp"
+                    android:textSize="18dp"
                     android:textStyle="bold"
                     android:id="@+id/forgot_link" />
 
@@ -107,7 +110,7 @@
                     android:layout_height="match_parent"
                     android:text="Signup here"
                     android:textColor="#fff"
-                    android:textSize="13dp"
+                    android:textSize="18dp"
                     android:id="@+id/signup_link"
                     android:textStyle="bold"
                     android:clickable="true"

@@ -17,7 +17,7 @@ public class Membership extends AppCompatActivity {
     LinearLayout linear1,linear2,linear3,linear4,linear5,linear6;
     static int c = 0, c1 = 0, c2 = 0, c3 = 0, c4 = 0, c5 = 0, c6 = 0;
     String str;
-    TextView dash;
+    TextView dash,clear1,clear2,clear3,clear4,clear5,clear6;
     TextView amount;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +34,55 @@ public class Membership extends AppCompatActivity {
         gr5 = (RadioGroup) findViewById(R.id.gr5);
         gr6 = (RadioGroup) findViewById(R.id.gr6);
 
+
+        clear1 = (TextView) findViewById(R.id.g1reset);
+        clear2 = (TextView) findViewById(R.id.g2reset);
+        clear3 = (TextView) findViewById(R.id.g3reset);
+        clear4 = (TextView) findViewById(R.id.g4reset);
+        clear5 = (TextView) findViewById(R.id.g5reset);
+        clear6 = (TextView) findViewById(R.id.g6reset);
+
+        clear1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gr1.clearCheck();
+            }
+        });
+
+        clear2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gr2.clearCheck();
+            }
+        });
+
+        clear3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gr3.clearCheck();
+            }
+        });
+
+        clear4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gr4.clearCheck();
+            }
+        });
+
+        clear5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gr5.clearCheck();
+            }
+        });
+
+        clear6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gr6.clearCheck();
+            }
+        });
 
         radio1 = (RadioButton) findViewById(R.id.radio1);
         radio2 = (RadioButton) findViewById(R.id.radio2);

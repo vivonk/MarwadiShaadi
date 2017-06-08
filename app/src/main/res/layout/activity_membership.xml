@@ -44,14 +44,33 @@
                     android:layout_marginTop="10dp"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:textColor="#000"
-                        android:text="MAHESHWARI"
-                        android:textSize="20dp"
-                        android:layout_marginBottom="10dp"/>
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:textColor="#000"
+                            android:text="MAHESHWARI"
+                            android:textSize="20dp"
+                            android:layout_marginBottom="10dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:text="Clear"
+                            android:gravity="end"
+                            android:textSize="15dp"
+                            android:textColor="#2d2d2d"
+                            android:layout_marginRight="20dp"
+                            android:id="@+id/g1reset"/>
+
+                    </LinearLayout>
+
                     <RadioGroup
                         android:id="@+id/gr1"
                         android:layout_width="match_parent"
@@ -92,6 +111,11 @@
                     android:layout_marginTop="10dp"
                     android:orientation="vertical">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -100,6 +124,18 @@
                         android:textColor="#000"
                         android:textSize="20dp"
                         android:layout_marginBottom="10dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:text="Clear"
+                        android:gravity="end"
+                        android:textSize="15dp"
+                        android:textColor="#2d2d2d"
+                        android:layout_marginRight="20dp"
+                        android:id="@+id/g2reset"/>
+                    </LinearLayout>
                     <RadioGroup
                         android:id="@+id/gr2"
                         android:layout_width="match_parent"
@@ -142,7 +178,13 @@
                     android:layout_marginTop="10dp"
                     android:orientation="vertical">
 
-                    <TextView
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left"
@@ -150,6 +192,20 @@
                         android:textColor="#000"
                         android:textSize="20dp"
                         android:layout_marginBottom="10dp"/>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:text="Clear"
+                        android:gravity="end"
+                        android:textSize="15dp"
+                        android:textColor="#2d2d2d"
+                        android:layout_marginRight="20dp"
+                        android:id="@+id/g3reset"/>
+
+                    </LinearLayout>
                     <RadioGroup
                         android:id="@+id/gr3"
                         android:layout_width="match_parent"
@@ -191,14 +247,33 @@
                     android:layout_marginTop="10dp"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:text="KHANDELWAL"
-                        android:textColor="#000"
-                        android:textSize="20dp"
-                        android:layout_marginBottom="10dp"/>
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:text="KHANDELWAL"
+                            android:textColor="#000"
+                            android:textSize="20dp"
+                            android:layout_marginBottom="10dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:text="Clear"
+                            android:gravity="end"
+                            android:textSize="15dp"
+                            android:textColor="#2d2d2d"
+                            android:layout_marginRight="20dp"
+                            android:id="@+id/g4reset"/>
+                    </LinearLayout>
+
+
                     <RadioGroup
                         android:id="@+id/gr4"
                         android:layout_width="match_parent"
@@ -240,14 +315,34 @@
                     android:layout_marginTop="10dp"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:text="OTHER "
-                        android:textColor="#000"
-                        android:textSize="20dp"
-                        android:layout_marginBottom="10dp"/>
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:text="OTHER "
+                            android:textColor="#000"
+                            android:textSize="20dp"
+                            android:layout_marginBottom="10dp"/>
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:text="Clear"
+                            android:gravity="end"
+                            android:textSize="15dp"
+                            android:textColor="#2d2d2d"
+                            android:layout_marginRight="20dp"
+                            android:id="@+id/g5reset"/>
+
+                    </LinearLayout>
+
                     <RadioGroup
                         android:id="@+id/gr5"
                         android:layout_width="match_parent"
@@ -288,14 +383,34 @@
                     android:layout_marginTop="10dp"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:text="ALL "
-                        android:textSize="20dp"
-                        android:textColor="#000"
-                        android:layout_marginBottom="10dp"/>
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:text="ALL "
+                            android:textSize="20dp"
+                            android:textColor="#000"
+                            android:layout_marginBottom="10dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:text="Clear"
+                            android:gravity="end"
+                            android:textSize="15dp"
+                            android:textColor="#2d2d2d"
+                            android:layout_marginRight="20dp"
+                            android:id="@+id/g6reset"/>
+
+                    </LinearLayout>
+
                     <RadioGroup
                         android:id="@+id/gr6"
                         android:layout_width="match_parent"
@@ -334,7 +449,6 @@
         >
         <TextView
             android:textColor="#ffffff"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Total:"

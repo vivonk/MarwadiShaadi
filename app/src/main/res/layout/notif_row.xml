@@ -1,24 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp">
+    >
 
 
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:padding="6dp"
-        android:id="@+id/notifimage"
-        android:layout_width="wrap_content"
-        android:scaleType="centerCrop"
-        android:layout_height="match_parent"
-        android:src="@drawable/doctor" />
-
-    <TextView
-        android:id="@+id/notiftext"
-        android:layout_width="wrap_content"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal" android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Mervin has accepted your interest request"
-        android:textSize="18dp" />
+        android:layout_margin="10dp">
+        <ImageView
+            android:paddingLeft="6dp"
+            android:paddingRight="10dp"
+            android:id="@+id/notifimage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/notif_birthday" />
+
+        <TextView
+            android:id="@+id/notiftext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Mervin has accepted your interest request"
+            android:textSize="14dp"
+            android:clickable="true"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#59fb6542"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        >
+
+    </View>
+
 
 </LinearLayout>

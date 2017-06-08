@@ -1,6 +1,8 @@
-<ScrollView
+<android.support.v4.widget.NestedScrollView
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
@@ -39,73 +41,89 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:padding="6dp"
-                    android:text="Santosh Rane"
+                    android:text="Santosh Rane (Father)"
                     android:textColor="#2d2d2d"
-                    android:textSize="18dp" />
+                    android:textSize="16dp"
+                    android:drawableLeft="@drawable/profile_name"
+                    android:gravity="center_vertical"
+                    android:drawablePadding="10dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:padding="6dp"
-                    android:text="Employee at Universal Links"
+                    android:text="Employee at Universal Links (Father)"
                     android:textColor="#2d2d2d"
-                    android:textSize="18dp" />
+                    android:textSize="16dp"
+                    android:drawableLeft="@drawable/profile_designation"
+                    android:gravity="center_vertical"
+                    android:drawablePadding="10dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:padding="6dp"
                     android:text="Upper Middle Class Family"
                     android:textColor="#2d2d2d"
-                    android:textSize="18dp" />
+                    android:textSize="16dp"
+                    android:drawableLeft="@drawable/ic_action_profile_status"
+                    android:gravity="center_vertical"
+                    android:drawablePadding="10dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:padding="6dp"
-                    android:text="Nuclear &amp; Modern"
+                    android:text="Nuclear family with Modern values"
                     android:textColor="#2d2d2d"
-                    android:textSize="18dp" />
+                    android:textSize="16dp"
+                    android:drawableLeft="@drawable/ic_action_profile_value"
+                    android:gravity="center_vertical"
+                    android:drawablePadding="10dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:padding="6dp"
                     android:text="Natively from Goa"
                     android:textColor="#2d2d2d"
-                    android:textSize="18dp" />
+                    android:textSize="16dp"
+                    android:drawableLeft="@drawable/profile_location"
+                    android:gravity="center_vertical"
+                    android:drawablePadding="10dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:padding="6dp"
                     android:text="None (Subcaste)"
                     android:textColor="#2d2d2d"
-                    android:textSize="18dp" />
+                    android:textSize="16dp"
+                    android:drawableLeft="@drawable/profile_caste"
+                    android:gravity="center_vertical"
+                    android:drawablePadding="10dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:padding="6dp"
-                    android:text="Yashwant Rane"
+                    android:text="Yashwant Rane (Grandfather)"
                     android:textColor="#2d2d2d"
-                    android:textSize="18dp" />
+                    android:textSize="16dp"
+                    android:drawableLeft="@drawable/profile_name"
+                    android:gravity="center_vertical"
+                    android:drawablePadding="10dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:padding="6dp"
                     android:text="Rane (Mama's Surname)"
                     android:textColor="#2d2d2d"
-                    android:textSize="18dp" />
+                    android:textSize="16dp"
+                    android:drawableLeft="@drawable/profile_name"
+                    android:gravity="center_vertical"
+                    android:drawablePadding="10dp"/>
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -139,51 +157,61 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:padding="6dp"
                     android:text="Brother"
                     android:textColor="#2d2d2d"
-                    android:textSize="18dp" />
+                    android:textSize="16dp"
+                    android:drawableLeft="@drawable/profile_name"
+                    android:gravity="center_vertical"
+                    android:drawablePadding="10dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:padding="6dp"
                     android:text="Mervin Dalmet"
                     android:textColor="#2d2d2d"
-                    android:textSize="18dp" />
+                    android:textSize="16dp"
+                    android:drawableLeft="@drawable/profile_name"
+                    android:gravity="center_vertical"
+                    android:drawablePadding="10dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Employee at Shaadi.com"
-                    android:textSize="18dp"
-                    android:padding="6dp"
+                    android:textSize="16dp"
                     android:textColor="#2d2d2d"
                     android:layout_marginBottom="10dp"
+                    android:drawableLeft="@drawable/profile_designation"
+                    android:gravity="center_vertical"
+                    android:drawablePadding="10dp"
                     />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Lives in Mumbai,Maharashtra,India"
-                    android:textSize="18dp"
-                    android:padding="6dp"
+                    android:textSize="16dp"
                     android:textColor="#2d2d2d"
                     android:layout_marginBottom="10dp"
+                    android:drawableLeft="@drawable/profile_location"
+                    android:gravity="center_vertical"
+                    android:drawablePadding="10dp"
                     />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:padding="6dp"
                     android:text="Contact him at 9004918906"
                     android:textColor="#2d2d2d"
-                    android:textSize="18dp" />
+                    android:textSize="16dp"
+                    android:drawableLeft="@drawable/profile_contact"
+                    android:gravity="center_vertical"
+                    android:drawablePadding="10dp"/>
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
     </LinearLayout>
-</ScrollView>
+</android.support.v4.widget.NestedScrollView>

@@ -77,7 +77,6 @@
                         android:layout_height="wrap_content"
                         android:layout_width="match_parent"
                         android:scrollbars="vertical"
-                        android:id="@+id/aboutme"
                         android:inputType="textMultiLine"
                         android:ems="10"
                         android:background="#fff"
@@ -97,7 +96,6 @@
                         android:drawableLeft="@drawable/hobby"
                         android:drawablePadding="10dp"
                         android:padding="6dp"
-                        android:id="@+id/hobbies"
                         android:inputType="textImeMultiLine"
                         android:ems="10"
                         android:background="#fff"
@@ -113,7 +111,6 @@
                         android:drawableLeft="@drawable/grandpa"
                         android:drawablePadding="10dp"
                         android:padding="6dp"
-                        android:id="@+id/grandfname"
                         android:inputType="textPersonName"
                         android:ems="10"
                         android:background="#fff"
@@ -123,7 +120,6 @@
                     <Spinner
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/ftype"
                         android:padding="10dp"
                         android:entries="@array/ftype_array"
                         android:textSize="20dp"
@@ -133,7 +129,6 @@
                     <Spinner
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/fvalues"
                         android:padding="10dp"
                         android:textSize="16dp"
                         android:entries="@array/fvalues_array"
@@ -150,7 +145,6 @@
                         android:drawableLeft="@drawable/userlocation"
                         android:drawablePadding="10dp"
                         android:padding="6dp"
-                        android:id="@+id/nativeplace"
                         android:inputType="textPersonName"
                         android:ems="10"
                         android:background="#fff"
@@ -167,7 +161,6 @@
                         android:drawableLeft="@drawable/caste"
                         android:drawablePadding="10dp"
                         android:padding="6dp"
-                        android:id="@+id/subcaste"
                         android:inputType="textPersonName"
                         android:ems="10"
                         android:background="#fff"
@@ -224,7 +217,6 @@
                         android:drawableLeft="@drawable/institute"
                         android:drawablePadding="10dp"
                         android:padding="6dp"
-                        android:id="@+id/highests_degree"
                         android:inputType="textPersonName"
                         android:ems="10"
                         android:background="#fff"
@@ -241,7 +233,6 @@
                         android:drawablePadding="10dp"
                         android:padding="6dp"
                         android:background="#fff"
-                        android:id="@+id/locate"
                         android:ems="10"
                         />
 
@@ -289,7 +280,6 @@
                     <Spinner
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/diet_status"
                         android:padding="10dp"
                         android:textSize="20dp"
                         android:entries="@array/diet_array"
@@ -299,7 +289,6 @@
                     <Spinner
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/smoke_status"
                         android:padding="10dp"
                         android:textSize="20dp"
                         android:entries="@array/smoking_array"
@@ -309,7 +298,6 @@
                     <Spinner
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/drink_status"
                         android:padding="10dp"
                         android:textSize="20dp"
                         android:entries="@array/drinking_array"
@@ -359,7 +347,6 @@
                     <Spinner
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/complexion_status"
                         android:padding="10dp"
                         android:textSize="20dp"
                         android:entries="@array/complexion_array"
@@ -369,7 +356,6 @@
                     <Spinner
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/physical_status"
                         android:padding="10dp"
                         android:textSize="20dp"
                         android:entries="@array/physicalstatus_array"
@@ -387,7 +373,6 @@
                         android:drawableLeft="@drawable/weight"
                         android:drawablePadding="10dp"
                         android:padding="6dp"
-                        android:id="@+id/weight"
                         android:inputType="textEmailAddress"
                         android:clickable="true"
                         android:ems="10"
@@ -480,7 +465,6 @@
                         android:drawableLeft="@drawable/gotra"
                         android:drawablePadding="10dp"
                         android:padding="6dp"
-                        android:id="@+id/highest_degree"
                         android:inputType="textPersonName"
                         android:ems="10"
                         android:background="#fff"
@@ -489,7 +473,6 @@
                     <Spinner
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/manglik_status"
                         android:padding="10dp"
                         android:textSize="20dp"
                         android:entries="@array/manglik_array"
@@ -499,7 +482,6 @@
                     <Spinner
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/horoscope_status"
                         android:padding="10dp"
                         android:textSize="20dp"
                         android:entries="@array/horoscope_array"
@@ -549,7 +531,6 @@
                     <Spinner
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/relation_name_status"
                         android:padding="10dp"
                         android:textSize="20dp"
                         android:entries="@array/relation_name_array"
@@ -583,7 +564,6 @@
                         android:drawableLeft="@drawable/occupation"
                         android:drawablePadding="10dp"
                         android:padding="6dp"
-                        android:id="@+id/your_occupation"
                         android:inputType="textPersonName"
                         android:ems="10"
                         android:background="#fff"
@@ -600,7 +580,6 @@
                         android:drawablePadding="10dp"
                         android:padding="6dp"
                         android:background="#fff"
-                        android:id="@+id/locations"
                         android:ems="10"
                         />
 

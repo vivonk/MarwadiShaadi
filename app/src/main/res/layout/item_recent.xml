@@ -1,0 +1,93 @@
+<android.support.v7.widget.CardView
+    app:cardCornerRadius="10dp"
+    android:layout_margin="5dp"
+    android:elevation="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:layout_height="366dp">
+
+            <ImageView
+                android:id="@+id/recentUserImage"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile" />
+
+            <TextView
+                android:id="@+id/recentTextViewName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recentUserImage"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:paddingTop="4dp"
+                android:textStyle="bold"
+                android:text="Siddhesh Rane,"
+                android:textColor="#2d2d2d"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/recentTextViewAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recentUserImage"
+                android:layout_toRightOf="@+id/recentTextViewName"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:paddingTop="4dp"
+                android:text="20 yrs"
+                android:textStyle="bold"
+                android:textColor="#2d2d2d"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/recentTextViewEducation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recentTextViewName"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:paddingTop="4dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:text="B.Tech,"
+                android:textColor="#2d2d2d"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/recentTextViewCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recentTextViewName"
+                android:layout_toRightOf="@+id/recentTextViewEducation"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:paddingTop="4dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:text="Mumbai"
+                android:textColor="#2d2d2d"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/recentTextViewLastOnline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:background="@color/colorPrimary"
+                android:padding="5dp"
+                android:textStyle="bold"
+                android:text="20 hrs ago"
+                android:textColor="@android:color/white"
+                android:textSize="13dp" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>

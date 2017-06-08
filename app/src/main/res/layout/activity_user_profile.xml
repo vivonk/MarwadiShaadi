@@ -1,77 +1,77 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:fab="http://schemas.android.com/tools"
     android:fitsSystemWindows="true"
-    tools:context="com.example.sid.marwadishaadi.UserProfile">
+    android:layout_height="match_parent">
 
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar"
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:id="@+id/appbar"
         android:fitsSystemWindows="true"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
+            app:expandedTitleTextAppearance="@android:color/transparent"
             app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            app:layout_scrollFlags="scroll|enterAlways">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/lannister"
-                    android:scaleType="centerCrop"/>
+            <com.synnapps.carouselview.CarouselView
+                android:id="@+id/carouselView"
+                android:layout_width="match_parent"
+                android:layout_height="256dp"
+                app:fillColor="#FFFFFFFF"
+                app:pageColor="#00000000"
+                app:radius="3dp"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:layout_collapseMode="pin"
+                app:strokeColor="#FF777777"
+                app:strokeWidth="0.5dp"/>
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
+                app:layout_collapseMode="pin"
                 android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="parallax"
-                app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-            <ImageView
-                android:id="@+id/profile_user_preferences"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:layout_marginTop="290dp"
-                android:src="@drawable/ic_heart_name" />
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                />
 
         </android.support.design.widget.CollapsingToolbarLayout>
+<!--
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/ic_add_black_24dp"
+            fab:fab_colorNormal="@color/app_primary"
+            fab:fab_colorPressed="@color/app_primary_pressed"
+            fab:fab_colorRipple="@color/app_ripple"/>-->
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/profile_tabs"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="bottom"
+            app:tabIndicatorColor="@android:color/white"
+            app:tabIndicatorHeight="2dp"
+            app:tabTextColor="@android:color/white"
+            android:background="?attr/colorPrimary"
+            app:tabMode="scrollable"/>
 
     </android.support.design.widget.AppBarLayout>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_gravity="bottom"
-        app:layout_anchor="@+id/app_bar"
-        app:layout_anchorGravity="bottom"
-       >
-
-    <android.support.design.widget.TabLayout
-        android:id="@+id/profile_tabs"
-        app:tabMode="scrollable"
-        android:background="@color/colorPrimary"
-        app:tabIndicatorHeight="1dp"
-        app:tabSelectedTextColor="#fff"
-        app:tabTextColor="#fff"
-        app:tabIndicatorColor="@color/colorPrimary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    </FrameLayout>
-
     <android.support.v4.view.ViewPager
         android:id="@+id/profile_container"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
 </android.support.design.widget.CoordinatorLayout>

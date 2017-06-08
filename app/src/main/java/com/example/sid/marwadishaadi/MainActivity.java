@@ -6,18 +6,18 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 
-import com.example.sid.marwadishaadi.Intro_Slides.Intro1;
-import com.example.sid.marwadishaadi.Intro_Slides.Intro2;
+import com.example.sid.marwadishaadi.Intro_Slides.Intro1Fragment;
+import com.example.sid.marwadishaadi.Intro_Slides.Intro2Fragment;
 import com.github.paolorotolo.appintro.AppIntro2;
 
-public class MainActivity extends AppIntro2 implements Intro1.OnFragmentInteractionListener,Intro2.OnFragmentInteractionListener{
+public class MainActivity extends AppIntro2 implements Intro1Fragment.OnFragmentInteractionListener,Intro2Fragment.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addSlide(new Intro1());
-        addSlide(new Intro2());
+        addSlide(new Intro1Fragment());
+        addSlide(new Intro2Fragment());
         showStatusBar(false);
 
         // Hide Skip/Done button.

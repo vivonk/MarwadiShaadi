@@ -1,0 +1,151 @@
+<android.support.v4.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="23 yrs to 27 yrs"
+                    android:textSize="16dp"
+                    android:gravity="center_vertical"
+                    android:textColor="#2d2d2d"
+                    android:layout_marginBottom="10dp"
+                    android:drawableLeft="@drawable/profile_name"
+                    android:drawablePadding="10dp"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5 ft 4 inch to 5 ft 10 inch"
+                    android:textSize="16dp"
+                    android:textColor="#2d2d2d"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="10dp"
+                    android:drawableLeft="@drawable/profile_height"
+                    android:drawablePadding="10dp"
+                    />
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" android:orientation="horizontal"
+    android:layout_marginBottom="10dp"
+    android:gravity="center_vertical">
+    <ImageView
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:paddingRight="8dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:src="@drawable/profile_complexion"
+        />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fair, Wheatish Brown,Very Fair"
+                    android:textSize="16dp"
+                    android:textColor="#2d2d2d"
+                    android:gravity="center_vertical"
+                    />
+
+</LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Slim, Athletic"
+                    android:textSize="16dp"
+                    android:textColor="#2d2d2d"
+                    android:layout_marginBottom="10dp"
+                    android:drawableLeft="@drawable/profile_built"
+                    android:gravity="center_vertical"
+                    android:drawablePadding="10dp"
+                    />
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Not physically Challenged"
+                    android:textSize="16dp"
+                    android:textColor="#2d2d2d"
+                    android:layout_marginBottom="10dp"
+                    android:drawableLeft="@drawable/profile_physical_status"
+                    android:drawablePadding="10dp"
+                    android:gravity="center_vertical"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Engineer/Doctor/MBA"
+                    android:textSize="16dp"
+                    android:textColor="#2d2d2d"
+                    android:layout_marginBottom="10dp"
+                    android:drawableLeft="@drawable/profile_edu"
+                    android:drawablePadding="10dp"
+                    android:gravity="center_vertical"
+                    />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Profession,Job,Business"
+                    android:textSize="16dp"
+                    android:textColor="#2d2d2d"
+                    android:layout_marginBottom="10dp"
+                    android:drawableLeft="@drawable/profile_designation"
+                    android:drawablePadding="10dp"
+                    android:gravity="center_vertical"
+                    />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Never Married"
+                    android:textSize="16dp"
+                    android:textColor="#2d2d2d"
+                    android:layout_marginBottom="10dp"
+                    android:drawableLeft="@drawable/profile_marital"
+                    android:drawablePadding="10dp"
+                    android:gravity="center_vertical"
+                    />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="INR 15L to 20L"
+                    android:textSize="16dp"
+                    android:textColor="#2d2d2d"
+                    android:layout_marginBottom="10dp"
+                    android:drawableLeft="@drawable/profile_income"
+                    android:drawablePadding="10dp"
+                    android:gravity="center_vertical"
+                    />
+            </LinearLayout>
+    </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>

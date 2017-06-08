@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sid.marwadishaadi.Forgot_Password.ForgotPasswordActivity;
+import com.example.sid.marwadishaadi.Otp_Verification.Otp_Verification;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -112,7 +114,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(Login.this,forgot_password.class);
+                Intent i = new Intent(Login.this,ForgotPasswordActivity.class);
                 startActivity(i);
 
             }

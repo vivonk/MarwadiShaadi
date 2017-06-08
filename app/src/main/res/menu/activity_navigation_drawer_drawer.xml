@@ -3,54 +3,84 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/interest"
-            android:icon="@drawable/ic_favorite_black_24dp"
+            android:id="@+id/nav_interest"
+            android:icon="@drawable/ic_action_drawer_interest"
             android:title="Interest"/>
 
         <item
-            android:id="@+id/inbox"
-            android:icon="@drawable/ic_email_black_24dp"
+            android:id="@+id/nav_inbox"
+            android:icon="@drawable/ic_action_inbox"
             android:title="Inbox"/>
 
         <item
-            android:id="@+id/search"
-            android:icon="@drawable/ic_search_black_24dp"
+            android:id="@+id/nav_search"
+            android:icon="@drawable/ic_action_drawer_search"
             android:title="Search"/>
 
     </group>
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_home_black_24dp"
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_action_home"
             android:title="Home" />
         <item
             android:id="@+id/nav_notifications"
-            android:icon="@drawable/ic_notifications_none_black_24dp"
+            android:icon="@drawable/ic_action_drawer_notification"
             android:title="Notifications" />
         <item
             android:id="@+id/nav_membership"
-            android:icon="@drawable/membership1"
+            android:icon="@drawable/ic_action_membership"
             android:title="Membership" />
         <item
             android:id="@+id/nav_settings"
-            android:icon="@drawable/ic_settings_black_24dp"
+            android:icon="@drawable/ic_action_settings"
             android:title="Settings" />
+
+        <item
+            android:icon="@drawable/ic_action_rate"
+            android:title="Rate Us" />
+        <item
+            android:id="@+id/nav_feedback"
+            android:icon="@drawable/ic_action_feedback"
+            android:title="Send Feedback" />
 
         <item
             android:id="@+id/nav_more"
             android:icon="@drawable/ic_expand_more_black_24dp"
             android:title="More" />
 
+    </group>
+
+    <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_rate_us"
-            android:icon="@drawable/ic_stars_black_24dp"
-            android:title="Rate Us" />
+            android:id="@+id/nav_about_us"
+            android:icon="@drawable/ic_action_about_us"
+            android:visible="false"
+            android:title="About Us" />
         <item
-            android:id="@+id/nav_feedback"
-            android:icon="@drawable/ic_feedback_black_24dp"
-            android:title="Send Feedback" />
+            android:id="@+id/nav_faq"
+            android:icon="@drawable/ic_action_faq"
+            android:visible="false"
+            android:title="Faq" />
+        <item
+            android:id="@+id/nav_privacy_policy"
+            android:icon="@drawable/ic_action_privacy"
+            android:visible="false"
+            android:title="Privacy Policy" />
+        <item
+            android:id="@+id/nav_payment_policy"
+            android:icon="@drawable/ic_action_payment"
+            android:visible="false"
+            android:title="Payment Policy" />
+
+        <item
+            android:id="@+id/nav_contact_us"
+            android:icon="@drawable/ic_action_contact"
+            android:visible="false"
+            android:title="Contact Us" />
 
     </group>
+
 
 
 </menu>

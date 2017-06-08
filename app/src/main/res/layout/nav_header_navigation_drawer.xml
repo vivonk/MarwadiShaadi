@@ -13,11 +13,11 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:scaleType="centerCrop"
         android:src="@drawable/profile"
+        android:id="@+id/user_dp"
         app:civ_border_color="@android:color/white"
         app:civ_border_width="0.5dp" />
 

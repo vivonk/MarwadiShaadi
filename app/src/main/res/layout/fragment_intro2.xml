@@ -3,13 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.sid.marwadishaadi.Intro_Slides.Intro2">
+    tools:context="com.example.sid.marwadishaadi.Intro_Slides.Intro2Fragment">
 
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/s_img"
         android:src="@drawable/slider2min"
         android:scaleType="centerCrop"/>
 

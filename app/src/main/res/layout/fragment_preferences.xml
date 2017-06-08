@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:id="@+id/partner_preference"
-    android:layout_width="match_parent"
+<ScrollView android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -85,7 +84,6 @@
         </RelativeLayout>
 
         <LinearLayout
-            android:id="@+id/spinner_partner_height"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -145,21 +143,18 @@
 
 
         <LinearLayout
-            android:id="@+id/complexion"
             android:layout_width="match_parent"
             android:weightSum="2"
             android:padding="10dp"
             android:layout_height="wrap_content">
 
             <CheckBox
-                android:id="@+id/check_very_fair"
                 android:layout_width="0dp"
                 android:text="Very Fair"
                 android:layout_weight="1"
                 android:layout_height="wrap_content" />
 
             <CheckBox
-                android:id="@+id/check_fair"
                 android:text="Fair"
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -167,21 +162,18 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/complexion2"
             android:layout_width="match_parent"
             android:padding="10dp"
             android:weightSum="2"
             android:layout_height="wrap_content">
 
             <CheckBox
-                android:id="@+id/check_wheatish"
                 android:text="Wheatish"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
 
             <CheckBox
-                android:id="@+id/check_wheatish_brown"
                 android:text="Wheatish Brown"
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -190,13 +182,11 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/complexion3"
             android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <CheckBox
-                android:id="@+id/check_dark"
                 android:layout_width="wrap_content"
                 android:text="Dark"
                 android:layout_height="wrap_content" />
@@ -216,14 +206,12 @@
 
 
         <LinearLayout
-            android:id="@+id/body_type"
             android:weightSum="2"
             android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <CheckBox
-                android:id="@+id/check_slim"
                 android:text="Slim"
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -231,7 +219,6 @@
 
 
             <CheckBox
-                android:id="@+id/check_athletic"
                 android:text="Athletic"
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -245,7 +232,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <CheckBox
-                android:id="@+id/check_average"
                 android:text="Average"
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -253,7 +239,6 @@
 
 
             <CheckBox
-                android:id="@+id/check_heavy"
                 android:text="Heavy"
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -280,7 +265,6 @@
             android:drawableLeft="@drawable/userlocation"
             android:drawablePadding="10dp"
             android:background="#fff"
-            android:id="@+id/locate"
             android:ems="10"
             />
 
@@ -309,7 +293,6 @@
             android:scrollbars="horizontal">
 
             <LinearLayout
-                android:id="@+id/list_scroll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clickable="true"
@@ -536,7 +519,6 @@
             android:layout_height="wrap_content">
 
             <CheckBox
-                android:id="@+id/check_profession"
                 android:text="Profession"
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -544,7 +526,6 @@
 
 
             <CheckBox
-                android:id="@+id/check_job"
                 android:text="Job"
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -562,7 +543,6 @@
             android:layout_height="wrap_content">
 
             <CheckBox
-                android:id="@+id/check_retired"
                 android:text="Retired"
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -570,7 +550,6 @@
 
 
             <CheckBox
-                android:id="@+id/check_business"
                 android:text="Business"
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -584,14 +563,12 @@
             android:padding="10dp"
             android:layout_height="wrap_content">
             <CheckBox
-                android:id="@+id/check_not_employed"
                 android:text="Not Employed"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
 
             <CheckBox
-                android:id="@+id/check_studying_not_employed"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:text="Studying-Not Employed"
@@ -607,7 +584,6 @@
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/ftype"
                 android:padding="10dp"
                 android:entries="@array/status_array"
                 android:textSize="20dp"
@@ -617,7 +593,6 @@
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/fvalues"
                 android:padding="10dp"
                 android:textSize="16dp"
                 android:entries="@array/aincome_array"

@@ -121,7 +121,6 @@
                         android:layout_marginTop="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/male"
                         android:layout_weight="1" />
 
                     <RadioButton
@@ -129,7 +128,6 @@
                         android:layout_marginTop="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/female"
                         android:layout_weight="1" />
                 </RadioGroup>
 

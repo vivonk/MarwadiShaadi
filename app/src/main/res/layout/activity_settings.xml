@@ -1,85 +1,125 @@
-<android.support.v7.widget.CardView
-    app:cardCornerRadius="10dp"
-    android:layout_margin="10dp"
-    android:elevation="10dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:padding="10dp"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-   <android.support.v7.widget.SwitchCompat
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:textAlignment="textStart"
-        android:id="@+id/switchNot"
-        app:switchPadding="100dp"
-        android:text="Notifications"
-        android:textSize="20dp"
-        android:layout_margin="10dp"
-        />
+        <android.support.v7.widget.SwitchCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="textStart"
+            android:id="@+id/switchNot"
+            app:switchPadding="100dp"
+            android:text="Notifications"
+            android:drawableLeft="@drawable/setting_notif"
+            android:drawablePadding="10dp"
+            android:textSize="16dp"
+            />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:textAlignment="textStart"
-        android:id="@+id/reset_password"
-        android:layout_margin="10dp"
-        android:text="Reset password"
-        android:clickable="true"
-        android:textSize="20dp"
-        android:textColor="#000"
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_margin="10dp"
+            android:background="#59fb6542">
+        </View>
 
-        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/reset_password"
+            android:text="Reset password"
+            android:clickable="true"
+            android:textSize="16dp"
+            android:textColor="#000"
+            android:drawableLeft="@drawable/setting_reset"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:textAlignment="textStart"
-        android:layout_margin="10dp"
-        android:id="@+id/deactivate_acc"
-        android:clickable="true"
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_margin="10dp"
+            android:background="#59fb6542">
+        </View>
 
-        android:text="Deactivate account"
-        android:textSize="20dp"
-        android:textColor="#000"
-        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/deactivate_acc"
+            android:clickable="true"
+            android:text="Deactivate account"
+            android:textSize="16dp"
+            android:textColor="#000"
+            android:drawableLeft="@drawable/setting_deactivate"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:textAlignment="textStart"
-        android:id="@+id/delete_acc"
-        android:layout_margin="10dp"
-        android:text="Delete account"
-        android:textSize="20dp"
-        android:clickable="true"
-        android:textColor="#000"
-        />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_margin="10dp"
+            android:background="#59fb6542">
+        </View>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:textAlignment="textStart"
-        android:id="@+id/blocked"
-        android:layout_margin="10dp"
-        android:text="Blocked"
-        android:clickable="true"
-        android:textSize="20dp"
-        android:textColor="#000"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/delete_acc"
+            android:text="Delete account"
+            android:clickable="true"
+            android:textSize="16dp"
+            android:textColor="#000"
+            android:drawableLeft="@drawable/setting_delete"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            />
 
-        />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_margin="10dp"
+            android:background="#59fb6542">
+        </View>
 
-</LinearLayout>
-</android.support.v7.widget.CardView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/blocked"
+            android:text="Blocked"
+            android:clickable="true"
+            android:textSize="16dp"
+            android:textColor="#000"
+            android:drawableLeft="@drawable/setting_blocked"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_margin="10dp"
+            android:background="#59fb6542">
+        </View>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Logout"
+            android:text="Logout"
+            android:clickable="true"
+            android:textSize="16dp"
+            android:textColor="#000"
+            android:drawableLeft="@drawable/setting_logout"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            />
+    </LinearLayout>

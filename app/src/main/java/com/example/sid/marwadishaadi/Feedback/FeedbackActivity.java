@@ -2,6 +2,7 @@ package com.example.sid.marwadishaadi.Feedback;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -35,14 +36,8 @@ public class FeedbackActivity extends AppCompatActivity {
         fftext=(EditText) findViewById(R.id.edt_feedback);
         send=(Button) findViewById(R.id.sendFeedback);
         email_response = (CheckBox) findViewById(R.id.email_response);
+        fftext.setBackgroundResource(R.drawable.edit_text_border);
 
-        // TODO: 30-May-17 change border of edit text on key press
-      fftext.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-          @Override
-          public void onFocusChange(View v, boolean hasFocus) {
-              fftext.setBackgroundResource(R.drawable.edit_text_border);
-          }
-      });
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,8 +46,13 @@ public class FeedbackActivity extends AppCompatActivity {
                 if (email_response.isChecked()){
                     email_response_required = true;
                 }
-                String subject = "FeedbackActivity";
-                String feedback=fftext.getText().toString();
+
+                String phone_details = getPhoneDetails();
+                String bodyuser = "\n\n\n\n\nUser Device details\n-----------------------\n" + phone_details;
+                String username = "Siddhesh Rane";
+                String userid ="S123";
+                String subject = "Feedback from user " + username + " ( " + userid + " ) ";
+                String feedback=fftext.getText().toString() + bodyuser;
                 if(!feedback.trim().isEmpty())
                 {
 
@@ -67,10 +67,37 @@ public class FeedbackActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    Toast.makeText(getApplicationContext(), "Please Enter Text in FeedbackActivity Details", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Please Enter Text in Feedback Details", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
+    }
+
+    public String getPhoneDetails(){
+
+        String  details =  "VERSION.RELEASE : "+Build.VERSION.RELEASE
+                +"\nVERSION.INCREMENTAL : "+Build.VERSION.INCREMENTAL
+                +"\nVERSION.SDK.NUMBER : "+Build.VERSION.SDK_INT
+                +"\nBOARD : "+Build.BOARD
+                +"\nBOOTLOADER : "+Build.BOOTLOADER
+                +"\nBRAND : "+Build.BRAND
+                +"\nCPU_ABI : "+Build.CPU_ABI
+                +"\nCPU_ABI2 : "+Build.CPU_ABI2
+                +"\nDISPLAY : "+Build.DISPLAY
+                +"\nFINGERPRINT : "+Build.FINGERPRINT
+                +"\nHARDWARE : "+Build.HARDWARE
+                +"\nHOST : "+Build.HOST
+                +"\nID : "+Build.ID
+                +"\nMANUFACTURER : "+Build.MANUFACTURER
+                +"\nMODEL : "+Build.MODEL
+                +"\nPRODUCT : "+Build.PRODUCT
+                +"\nSERIAL : "+Build.SERIAL
+                +"\nTAGS : "+Build.TAGS
+                +"\nTIME : "+Build.TIME
+                +"\nTYPE : "+Build.TYPE
+                +"\nUNKNOWN : "+Build.UNKNOWN
+                +"\nUSER : "+Build.USER;
+        return details;
     }
 }

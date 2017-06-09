@@ -56,7 +56,7 @@
                         android:padding="6dp"
                         android:focusable="false"
                         android:focusableInTouchMode="false"
-                        android:textColor="#747474"
+                        android:textColor="#000"
                         android:background="@null"
                         android:layout_marginTop="15dp"
                         android:text="About Me"
@@ -67,7 +67,7 @@
                     <EditText
                         android:layout_marginTop="15dp"
                         android:textSize="16dp"
-                        android:hint="Write about yourself..."
+                        android:hint="I am a very loving person. I love animals. I am foodie. I am hard working and loyal ..."
                         android:textColorHint="#747474"
                         android:padding="6dp"
                         android:lines="8"
@@ -91,7 +91,7 @@
                         android:gravity="top|left"
                         android:minLines="1"
                         android:textSize="16dp"
-                        android:hint="Hobbies/Interest"
+                        android:hint="Hobbies/Interest (Reading, Cooking)"
                         android:textColorHint="#747474"
                         android:drawableLeft="@drawable/hobby"
                         android:drawablePadding="10dp"
@@ -156,7 +156,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:textSize="16dp"
-                        android:hint="Subcaste ( If any )"
+                        android:hint="Subcaste ( Shwetambar )"
                         android:textColorHint="#747474"
                         android:drawableLeft="@drawable/caste"
                         android:drawablePadding="10dp"
@@ -212,7 +212,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:textSize="16dp"
-                        android:hint="Institute Name"
+                        android:hint="Institute Name (IIT, BITS)"
                         android:textColorHint="#747474"
                         android:drawableLeft="@drawable/institute"
                         android:drawablePadding="10dp"
@@ -367,17 +367,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
-                        android:hint="Weight"
-                        android:textSize="16dp"
-                        android:textColorHint="#747474"
+                        android:background="#fff"
+                        android:clickable="true"
                         android:drawableLeft="@drawable/weight"
                         android:drawablePadding="10dp"
-                        android:padding="6dp"
-                        android:inputType="textEmailAddress"
-                        android:clickable="true"
                         android:ems="10"
-                        android:background="#fff"
-                        />
+                        android:hint="Weight"
+                        android:inputType="number"
+                        android:padding="6dp"
+                        android:textColorHint="#747474"
+                        android:textSize="16dp" />
 
 
 
@@ -621,7 +620,7 @@
             android:text="Almost there!"
             android:background="@color/colorPrimary"
             android:textSize="20dp"
-            android:layout_marginBottom="60dp"
+            android:layout_marginBottom="80dp"
             android:layout_weight="0.5"
             />
     </LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.sid.marwadishaadi;
 
+import android.graphics.Color;
 import android.net.Uri;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -21,6 +22,9 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 
 public class Advanced_Signup_Details extends AppCompatActivity implements
@@ -28,7 +32,7 @@ public class Advanced_Signup_Details extends AppCompatActivity implements
         BasicInfo.OnFragmentInteractionListener,
         Additional_Info.OnFragmentInteractionListener,
         Preferences.OnFragmentInteractionListener{
-
+    private TabLayout tabLayout;
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
     private ViewPager mViewPager;
@@ -58,7 +62,7 @@ public class Advanced_Signup_Details extends AppCompatActivity implements
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mViewPager.setOnPageChangeListener(this);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
         tabLayout.getTabAt(0).setIcon(tabIcons[0]);
@@ -81,7 +85,13 @@ public class Advanced_Signup_Details extends AppCompatActivity implements
 
     @Override
     public void onPageSelected(int position) {
-
+        try {
+            tabLayout.getTabAt(position).getCustomView().setBackgroundColor(Color.parseColor("#FE3202"));
+        }
+        catch(NullPointerException npe)
+        {
+            Toast.makeText(getApplicationContext(),"Null Pointer Exception", Toast.LENGTH_SHORT).show();
+        }
         switch (position){
             case 0:
                 getSupportActionBar().setTitle("Basic Details");

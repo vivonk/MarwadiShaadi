@@ -5,6 +5,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
+        android:focusableInTouchMode="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="1dp"
@@ -127,30 +128,38 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:textSize="16dp"
-                        android:hint="Highest Degree"
+                        android:hint="Highest Degree(B.Tech,B.Com,MBA)"
                         android:textColorHint="#747474"
-                        android:drawableLeft="@drawable/occupation"
                         android:drawablePadding="10dp"
-                        android:padding="6dp"
+                        android:padding="10dp"
                         android:inputType="textPersonName"
                         android:ems="10"
+                        android:layout_marginLeft="10dp"
                         android:background="#fff"
                         />
-
-                    <EditText
+                    <Spinner
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:textSize="16dp"
-                        android:hint="Occupation"
-                        android:textColorHint="#747474"
-                        android:drawableLeft="@drawable/occupation"
-                        android:drawablePadding="10dp"
-                        android:padding="6dp"
-                        android:inputType="textPersonName"
-                        android:ems="10"
-                        android:background="#fff"
-                        />
+                        android:layout_height="match_parent"
+                        android:padding="10dp"
+                        android:entries="@array/occupation_array"
+                        android:textSize="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_weight="1" />
+                      <EditText
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_marginTop="15dp"
+                         android:textSize="16dp"
+                         android:hint="Company's Name"
+                         android:textColorHint="#747474"
+                         android:drawablePadding="10dp"
+                         android:padding="10dp"
+                         android:inputType="textPersonName"
+                         android:ems="10"
+                          android:layout_marginLeft="10dp"
+                         android:background="#fff"
+                         />
+
 
                     <Spinner
                         android:layout_width="match_parent"
@@ -172,20 +181,7 @@
                         android:layout_weight="1" />
 
 
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:textSize="16dp"
-                        android:hint="Company's Name"
-                        android:textColorHint="#747474"
-                        android:drawableLeft="@drawable/company"
-                        android:drawablePadding="10dp"
-                        android:padding="6dp"
-                        android:inputType="textPersonName"
-                        android:ems="10"
-                        android:background="#fff"
-                        />
+
 
 </LinearLayout>
     </android.support.v7.widget.CardView>
@@ -231,9 +227,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:hint="Father's Name"
-                    android:drawableLeft="@drawable/lastname"
                     android:drawablePadding="10dp"
-                    android:padding="6dp"
+                    android:padding="10dp"
+                    android:layout_marginLeft="10dp"
                     android:textColorHint="#747474"
                     android:textSize="16dp"
                     android:id="@+id/first_name"
@@ -242,21 +238,14 @@
                     android:background="#fff"
                     />
 
-                <EditText
+                <Spinner
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:textSize="16dp"
-                    android:hint="Father's Occupation"
-                    android:textColorHint="#747474"
-                    android:drawableLeft="@drawable/occupation"
-                    android:drawablePadding="10dp"
-                    android:padding="6dp"
-                    android:id="@+id/last_name"
-                    android:inputType="textPersonName"
-                    android:ems="10"
-                    android:background="#fff"
-                    />
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:entries="@array/father_occupation_array"
+                    android:textSize="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1" />
 
                 <Spinner
                     android:layout_width="match_parent"
@@ -282,7 +271,7 @@
             android:text="Next"
             android:background="@color/colorPrimary"
             android:textSize="20dp"
-            android:layout_marginBottom="60dp"
+            android:layout_marginBottom="80dp"
             android:layout_weight="0.5"
             />
     </LinearLayout>

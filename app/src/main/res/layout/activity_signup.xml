@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:focusableInTouchMode="true"
     android:background="@drawable/slider3min"
-    android:fitsSystemWindows="true"
-    >
+    android:fitsSystemWindows="true">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -26,6 +25,8 @@
 
 
                         <com.facebook.login.widget.LoginButton
+                            facebook:com_facebook_login_text="Register with Facebook"
+
                             android:id="@+id/login_button"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

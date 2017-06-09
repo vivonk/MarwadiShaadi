@@ -42,7 +42,7 @@ public class Otp_Verification extends AppCompatActivity {
         otp = (EditText) findViewById(R.id.user_otp);
         submit = (Button) findViewById(R.id.Submit_otp);
         call_us = (TextView) findViewById(R.id.call_us);
-        resend_otp=(TextView)findViewById(R.id.resend_otp);
+//        resend_otp=(TextView)findViewById(R.id.resend_otp);
         new SendingSMS().execute("8006467951");
 
 

@@ -6,7 +6,9 @@
     android:background="#eee">
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/scrollViewAdv1"
+        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -21,6 +23,7 @@
                 android:text="Search by ID/Name"
                 android:textAllCaps="false"
                 android:paddingLeft="6dp"
+                android:focusable="true"
                 android:paddingRight="6dp"
                 android:background="@layout/button_border_less_radius"
                 android:textSize="16dp"
@@ -45,289 +48,269 @@
                 android:textSize="16dp"
                 android:layout_marginBottom="10dp"
                 />
-
-            <android.support.v7.widget.CardView
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/basic_search"
-                app:cardCornerRadius="4dp"
-                android:layout_margin="8dp"
-                android:elevation="10dp"
+                android:layout_height="match_parent"
+                android:id="@+id/scrollViewAdv"
                 >
-                <LinearLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:textAlignment="textStart"
-                        android:text="Age"
-                        android:layout_marginLeft="6dp"
-                        android:layout_marginTop="10dp"
-                        android:textSize="16dp"
-                        android:textStyle="italic"
-                        android:layout_weight="1"
-                        />
-
-                    <RelativeLayout
+                    android:id="@+id/basic_search"
+                    app:cardCornerRadius="4dp"
+                    android:focusable="true"
+                    android:layout_margin="8dp"
+                    android:elevation="10dp"
+                    >
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:padding="6dp"
                         android:layout_height="wrap_content"
-                        android:clipChildren="false">
+                        android:orientation="vertical">
 
-                        <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
-                            android:id="@+id/rangeSeekbar"
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerHorizontal="true"
+                            android:textAlignment="textStart"
+                            android:text="Age"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginTop="10dp"
+                            android:textSize="16dp"
+                            android:textStyle="italic"
+                            android:layout_weight="1"
+                            />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:padding="6dp"
+                            android:layout_height="wrap_content"
+                            android:clipChildren="false">
+
+                            <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
+                                android:id="@+id/rangeSeekbar"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:bar_color="#fb6542"
+                                app:bar_highlight_color="#fb6542"
+                                app:corner_radius="2"
+                                app:data_type="_integer"
+                                android:focusable="true"
+                                app:left_thumb_color="#fb6542"
+                                app:left_thumb_color_pressed="#fb6542"
+                                app:max_value="71"
+                                app:min_value="18"
+                                app:right_thumb_color="#fb6542"
+                                app:right_thumb_color_pressed="#fb6542" />
+
+                            <TextView
+                                android:id="@+id/textMin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/rangeSeekbar"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="5dp"
+                                android:textColor="#000"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/textMax"
+                                android:focusable="true"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_below="@id/rangeSeekbar"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginTop="5dp"
+                                android:textColor="#000"
+                                android:textSize="16dp" />
+
+                        </RelativeLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_margin="20dp"
+                            android:background="#59fb6542">
+                        </View>
+                        <LinearLayout
+                            android:id="@+id/spinner_partner_height"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            app:bar_color="#fb6542"
-                            app:bar_highlight_color="#fb6542"
-                            app:corner_radius="2"
-                            app:data_type="_integer"
-                            app:left_thumb_color="#fb6542"
-                            app:left_thumb_color_pressed="#fb6542"
-                            app:max_value="71"
-                            app:min_value="18"
-                            app:right_thumb_color="#fb6542"
-                            app:right_thumb_color_pressed="#fb6542" />
+                            android:orientation="vertical"
+                            >
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:textAlignment="textStart"
+                                android:text="Height ( From - To )"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginLeft="6dp"
+                                android:focusable="true"
+                                android:textSize="16dp"
+                                android:textStyle="italic"
+                                />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="2"
+                            >
+                            <Spinner
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginTop="10dp"
+                                android:entries="@array/height_array"
+                                />
 
+                            <Spinner
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginTop="10dp"
+                                android:entries="@array/height_array"
+                                />
+                        </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_margin="20dp"
+                            android:background="#59fb6542">
+                        </View>
                         <TextView
-                            android:id="@+id/textMin"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/rangeSeekbar"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="5dp"
-                            android:textColor="#000"
-                            android:textSize="16sp" />
+                            android:layout_centerHorizontal="true"
+                            android:textAlignment="textStart"
+                            android:text="Community"
+                            android:focusable="true"
+                            android:textSize="16dp"
+                            android:layout_marginLeft="6dp"
+                            android:textStyle="italic"
+                            android:layout_marginTop="20dp"
+                            />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/search_user_caste"
+                            android:focusable="false"
+                            android:layout_marginLeft="6dp"
+                            android:textSize="16dp"
+                            android:hint="Choose community"
+                            android:background="@drawable/edit_text_border"
+                            />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_margin="20dp"
+                            android:background="#59fb6542">
+                        </View>
 
                         <TextView
-                            android:id="@+id/textMax"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_below="@id/rangeSeekbar"
-                            android:layout_marginEnd="10dp"
-                            android:layout_marginTop="5dp"
-                            android:textColor="#000"
-                            android:textSize="16dp" />
+                            android:layout_centerHorizontal="true"
+                            android:textAlignment="textStart"
+                            android:text="State"
+                            android:textSize="16dp"
+                            android:textStyle="italic"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginTop="20dp"
+                            />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="5"
+                            >
+                            <EditText
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="Type State"
+                                android:textSize="16dp"
+                                android:textColorHint="#747474"
+                                android:drawableLeft="@drawable/userlocation"
+                                android:drawablePadding="10dp"
+                                android:background="#fff"
+                                android:inputType="text"
+                                android:clickable="true"
+                                android:layout_weight="4"
 
-                    </RelativeLayout>
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.5dp"
-                        android:layout_margin="20dp"
-                        android:background="#59fb6542">
-                    </View>
-                    <LinearLayout
-                        android:id="@+id/spinner_partner_height"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        >
+                                android:id="@+id/search_state"
+                                android:ems="10"
+                                />
+                            <Button
+                                android:layout_width="30sp"
+                                android:layout_height="30sp"
+                                android:id="@+id/search_add_state"
+                                android:text="+"
+                                android:textColor="#eee"
+                                android:textSize="20sp"
+                                android:background="@layout/circular_button"/>
+
+
+                        </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_margin="20dp"
+                            android:background="#59fb6542">
+                        </View>
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:id="@+id/text_view_search_add_state"
+                            android:textStyle="bold"
+                            android:paddingLeft="10dp"
+                            />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
                             android:textAlignment="textStart"
-                            android:text="Height ( From - To )"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginLeft="6dp"
+                            android:text="Sort by"
                             android:textSize="16dp"
                             android:textStyle="italic"
-                            />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:weightSum="2"
-                        >
-                        <Spinner
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginTop="10dp"
-                            android:entries="@array/height_array"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="6dp"
                             />
 
                         <Spinner
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:id="@+id/spinner_sort_by"
+                            android:padding="10dp"
+                            android:textSize="16dp"
+                            android:entries="@array/sort_by_array"
                             android:layout_marginTop="10dp"
-                            android:entries="@array/height_array"
-                            />
-                    </LinearLayout>
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.5dp"
-                        android:layout_margin="20dp"
-                        android:background="#59fb6542">
-                    </View>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:textAlignment="textStart"
-                        android:text="Community"
-                        android:textSize="16dp"
-                        android:layout_marginLeft="6dp"
-                        android:textStyle="italic"
-                        android:layout_marginTop="20dp"
-                        />
+                            android:layout_weight="1" />
 
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/search_user_caste"
-                        android:focusable="false"
-                        android:layout_marginLeft="6dp"
-                        android:textSize="16dp"
-                        android:hint="Choose community"
-                        android:background="@drawable/edit_text_border"
-                        />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.5dp"
-                        android:layout_margin="20dp"
-                        android:background="#59fb6542">
-                    </View>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:textAlignment="textStart"
-                        android:text="State"
-                        android:textSize="16dp"
-                        android:textStyle="italic"
-                        android:layout_marginLeft="6dp"
-                        android:layout_marginTop="20dp"
-                        />
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:weightSum="5"
-                        >
-                        <EditText
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:hint="Type State"
-                            android:textSize="16dp"
-                            android:textColorHint="#747474"
-                            android:drawableLeft="@drawable/userlocation"
-                            android:drawablePadding="10dp"
-                            android:background="#fff"
-                            android:inputType="text"
-                            android:clickable="true"
-                            android:layout_weight="4"
-                            android:id="@+id/search_state"
-                            android:ems="10"
-                            />
-                        <Button
-                            android:layout_width="30sp"
-                            android:layout_height="30sp"
-                            android:id="@+id/search_add_state"
-                            android:text="+"
-                            android:textColor="#eee"
-                            android:textSize="20sp"
-                            android:background="@layout/circular_button"/>
 
 
                     </LinearLayout>
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.5dp"
-                        android:layout_margin="20dp"
-                        android:background="#59fb6542">
-                    </View>
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:id="@+id/text_view_search_add_state"
-                        android:textStyle="bold"
-                        android:paddingLeft="10dp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:textAlignment="textStart"
-                        android:text="City"
-                        android:textSize="16dp"
-                        android:textStyle="italic"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="6dp"
-                        />
+                </android.support.v7.widget.CardView>
+            </ScrollView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:text="Advanced Search"
+                android:layout_marginTop="10dp"
+                android:id="@+id/collapse"
+                android:clickable="true"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:background="@layout/button_border_less_radius"
+                />
 
-                    <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/spinner_search_city"
-                        android:padding="10dp"
-                        android:textSize="16dp"
-                        android:entries="@array/caste_array"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1" />
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.5dp"
-                        android:layout_margin="20dp"
-                        android:background="#59fb6542">
-                    </View>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:textAlignment="textStart"
-                        android:text="Sort by"
-                        android:textSize="16dp"
-                        android:textStyle="italic"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="6dp"
-                        />
-
-                    <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/spinner_sort_by"
-                        android:padding="10dp"
-                        android:textSize="16dp"
-                        android:entries="@array/sort_by_array"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.5dp"
-                        android:layout_margin="20dp"
-                        android:background="#59fb6542">
-                    </View>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                 >
-
-                        <CheckBox
-                            android:id="@+id/search_only_photo"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:text="View only Photos"
-                            android:textStyle="italic"
-                            android:textSize="16dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginLeft="6dp"
-                            android:layout_marginBottom="20dp"/>
-                    </LinearLayout>
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -348,6 +331,27 @@
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
                             android:textAlignment="textStart"
+                            android:text="City"
+                            android:textSize="16dp"
+                            android:textStyle="italic"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="6dp"
+                            />
+
+                        <Spinner
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/spinner_search_city"
+                            android:padding="10dp"
+                            android:textSize="16dp"
+                            android:entries="@array/caste_array"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:textAlignment="textStart"
                             android:text="Marital Status"
                             android:textSize="16dp"
                             android:textStyle="italic"
@@ -361,7 +365,7 @@
                             android:textSize="20dp"
                             android:entries="@array/status_array"
                             android:layout_marginTop="10dp"
-                             />
+                            />
 
                         <View
                             android:layout_width="match_parent"
@@ -983,6 +987,7 @@
 
                 </android.support.v7.widget.CardView>
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 </android.support.design.widget.CoordinatorLayout>

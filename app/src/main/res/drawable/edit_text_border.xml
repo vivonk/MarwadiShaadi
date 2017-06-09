@@ -15,11 +15,13 @@
     <item android:state_enabled="true">
         <shape android:padding="10dp"
             android:shape="rectangle">
-            <solid android:color="#FFFFFF" />
+            <solid android:color="#00ffffff" />
             <corners android:bottomLeftRadius="15dp"
                 android:bottomRightRadius="15dp"
                 android:topLeftRadius="15dp"
                 android:topRightRadius="15dp" />
         </shape>
     </item>
-    </selector>
+</selector>
+
+

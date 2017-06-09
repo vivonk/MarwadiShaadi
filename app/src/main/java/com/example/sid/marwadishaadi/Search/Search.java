@@ -1,9 +1,11 @@
 package com.example.sid.marwadishaadi.Search;
 
+import android.animation.ObjectAnimator;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
@@ -23,30 +25,54 @@ public class Search extends AppCompatActivity {
     EditText spinnerCastSearch;
     Button mOpenIDSearchButton;
     private static int casebreak;
-    TextView statetextView;
+    TextView statetextView,tvCollapse;
+    CardView advCV;
     Button addButton;
     private static final String TAG = "Search";
     ListView castList;
     EditText autoCompleteState;
     static String  addTextState,addPrevious="";
     public SQLiteDatabase db;
-
+    boolean tvCollapsestate=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-
+        tvCollapse=(TextView)findViewById(R.id.collapse);
         addButton=(Button)findViewById(R.id.search_add_state);
         statetextView=(TextView)findViewById(R.id.text_view_search_add_state);
         spinnerCastSearch=(EditText) findViewById(R.id.search_user_caste);
         autoCompleteState=(EditText)findViewById(R.id.search_state);
+        advCV=(CardView)findViewById(R.id.advanced_search);
         final CrystalRangeSeekbar rangeSeekbar = (CrystalRangeSeekbar) findViewById(R.id.rangeSeekbar);
 // get min and max text view
         final TextView tvMin = (TextView) findViewById(R.id.textMin);
         final TextView tvMax = (TextView) findViewById(R.id.textMax);
         rangeSeekbar.setMinValue(18);
         rangeSeekbar.setMaxValue(71);
+        advCV.setVisibility(View.GONE);
+        tvCollapsestate=false;
+
+
 // set listener
+        tvCollapse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(tvCollapsestate)
+                {
+                    advCV.setVisibility(View.GONE);
+                    tvCollapsestate=false;
+                }
+                else if(!tvCollapsestate)
+                {
+                    advCV.setVisibility(View.VISIBLE);
+                    advCV.setFocusable(true);
+                    tvCollapsestate=true;
+                }
+
+            }
+        });
+
         rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
             @Override
             public void valueChanged(Number minValue, Number maxValue) {

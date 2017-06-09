@@ -152,9 +152,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                app:fab_colorNormal="#386AFF"
-                app:fab_colorPressed="#386AFF"
-                app:fab_colorRipple="#386AFF"
+                app:fab_colorNormal="#DA0469"
+                app:fab_colorPressed="#da0469"
+                app:fab_colorRipple="#da0469"
                 android:src="@drawable/fab_edit_profile"
                 app:fab_label="Edit Profile"
                 style="@style/MenuButtonsStyle" />

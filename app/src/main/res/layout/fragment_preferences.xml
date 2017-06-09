@@ -2,7 +2,10 @@
 <ScrollView android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
     <android.support.v7.widget.CardView
         app:cardCornerRadius="4dp"
         android:layout_margin="8dp"
@@ -22,10 +25,10 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
@@ -38,52 +41,57 @@
             android:textSize="18dp"
             android:textStyle="italic"
             />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:padding="10dp"
-            android:layout_height="wrap_content"
-            android:clipChildren="false">
-
-            <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
-                android:id="@+id/rangeSeekbar"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:bar_color="#fb6542"
-                app:bar_highlight_color="#fb6542"
-                app:corner_radius="2"
-                app:data_type="_integer"
-                app:left_thumb_color="#fb6542"
-                app:left_thumb_color_pressed="#fb6542"
-                app:max_value="71"
-                app:min_value="18"
-                app:right_thumb_color="#fb6542"
-                app:right_thumb_color_pressed="#fb6542" />
-
+                android:orientation="horizontal">
             <TextView
+                android:layout_marginLeft="10dp"
                 android:id="@+id/textMin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/rangeSeekbar"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
                 android:textColor="#000"
                 android:textSize="16sp" />
-
             <TextView
                 android:id="@+id/textMax"
+                android:layout_weight="1"
+                android:layout_marginRight="10dp"
+                android:textAlignment="textEnd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/rangeSeekbar"
-                android:layout_marginEnd="10dp"
-                android:layout_marginTop="5dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@+id/rangeSeekbar"
                 android:textColor="#000"
                 android:textSize="16dp" />
+            </LinearLayout>
 
-        </RelativeLayout>
 
-        <LinearLayout
+
+
+
+                <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
+                    android:id="@+id/rangeSeekbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    app:bar_color="#fb6542"
+                    app:bar_highlight_color="#fb6542"
+                    app:corner_radius="2"
+                    app:data_type="_integer"
+                    app:left_thumb_color="#fb6542"
+                    app:left_thumb_color_pressed="#fb6542"
+                    app:max_value="71"
+                    app:min_value="18"
+                    app:right_thumb_color="#fb6542"
+                    app:right_thumb_color_pressed="#fb6542" />
+
+
+
+
+            <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -599,24 +607,31 @@
                 android:layout_marginTop="20dp"
                />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/complete"
-                android:textColor="#fff"
-                android:textStyle="bold"
-                android:layout_marginRight="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="20dp"
-                android:text="Complete"
-                android:background="@color/colorPrimary"
-                android:textSize="20dp"
-                android:layout_marginBottom="50dp"
-                android:layout_weight="0.5"
-                />
+
         </LinearLayout>
-    </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+
+
 
     </android.support.v7.widget.CardView>
-    </android.support.v7.widget.CardView>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/complete"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:text="Complete"
+        android:background="@color/colorPrimary"
+        android:textSize="20dp"
+        android:layout_marginBottom="80dp"
+        android:layout_weight="0.5"
+        />
+</LinearLayout>
+
   </ScrollView>

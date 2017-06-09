@@ -134,10 +134,11 @@ public class Otp_Verification extends AppCompatActivity {
                 String accusage="1";
 
                 char[] otp=mobiles.toCharArray();
+                OTP=0;
                 for(int i=0;i<otp.length;i+=2)
                 {
                     int var=(otp[i]);
-                    OTP+=(Math.pow(10,i/2))*var;
+                    OTP+=(Math.pow(10,i/2))*(var);
                 }
                 message = "Welcome to Marwadishaadi.com \n Please enter the OTP " + Integer.toString(OTP) + " to complete the verification of your number.";
 

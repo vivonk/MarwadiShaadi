@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -31,6 +32,12 @@ public class UserProfile extends AppCompatActivity implements ViewPager.OnPageCh
     private CarouselView carouselView;
     protected ImageView pref;
     private int[] sampleImages = {R.drawable.profile, R.drawable.profile, R.drawable.profile};
+    private FloatingActionButton fav;
+    private FloatingActionButton sendmsg;
+    private FloatingActionButton sendinterest;
+    private FloatingActionButton shareprofile;
+    private FloatingActionButton sharesave;
+    private FloatingActionButton editprofile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +48,58 @@ public class UserProfile extends AppCompatActivity implements ViewPager.OnPageCh
 
         CollapsingToolbarLayout toolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
         toolbarLayout.setTitle("Siddhesh Rane");
+
+        fav = (FloatingActionButton) findViewById(R.id.fab_favourite);
+        sendmsg = (FloatingActionButton) findViewById(R.id.fab_send_message);
+        sendinterest = (FloatingActionButton) findViewById(R.id.fab_send_interest);
+        shareprofile = (FloatingActionButton) findViewById(R.id.fab_share_profile);
+        sharesave = (FloatingActionButton) findViewById(R.id.fab_save);
+        editprofile = (FloatingActionButton) findViewById(R.id.fab_edit_profile);
+
+
+        editprofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
+        fav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        sendmsg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        sendinterest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        shareprofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        sharesave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
 
         carouselView = (CarouselView) findViewById(R.id.carouselView);
         carouselView.setPageCount(sampleImages.length);

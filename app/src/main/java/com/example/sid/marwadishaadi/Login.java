@@ -55,7 +55,7 @@ public class Login extends AppCompatActivity {
         login_email = (EditText) findViewById(R.id.login_email);
         login_pass = (EditText) findViewById(R.id.login_password);
         login = (Button ) findViewById(R.id.login);
-        fblogin = (LoginButton) findViewById(R.id.fb_login_button);
+       /* fblogin = (LoginButton) findViewById(R.id.fb_login_button);
 
         fblogin.setReadPermissions(Arrays.asList("email"));
         fblogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
@@ -105,7 +105,7 @@ public class Login extends AppCompatActivity {
             public void onError(FacebookException error) {
 
             }
-        });
+        });*/
 
         forgot = (TextView) findViewById(R.id.forgot_link);
         signup = (TextView) findViewById(R.id.signup_link);

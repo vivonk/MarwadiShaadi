@@ -22,7 +22,7 @@
             android:layout_marginRight="16dp"
             android:layout_marginTop="200dp"
             android:orientation="vertical">
-
+<!--
             <com.facebook.login.widget.LoginButton
 
                 facebook:com_facebook_login_text="Login with Facebook"
@@ -33,7 +33,7 @@
                             android:paddingBottom="14dp"
                             android:paddingTop="14dp"
                             style="@style/FacebookLoginButton"
-                />
+                />-->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

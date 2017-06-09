@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.sid.marwadishaadi.About_Us.AboutUsActivity;
+import com.example.sid.marwadishaadi.Chat.DefaultDialogsActivity;
 import com.example.sid.marwadishaadi.Contact_Us.ContactUsActivity;
 import com.example.sid.marwadishaadi.Dashboard_Favourites.FavouritesFragment;
 import com.example.sid.marwadishaadi.Dashboard_Interest.InterestActivity;
@@ -111,6 +112,10 @@ public class Dashboard extends AppCompatActivity
         Menu menu = navigationView.getMenu();
         int id = item.getItemId();
         if (id == R.id.nav_inbox) {
+            Intent i = new Intent(Dashboard.this, DefaultDialogsActivity.class);
+            startActivity(i);
+            overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
+
 
         }else if (id == R.id.nav_search){
             Intent i = new Intent(Dashboard.this,Search.class);

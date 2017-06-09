@@ -87,6 +87,12 @@
         <activity android:name=".About_Us.AboutUsActivity" />
         <activity android:name=".Contact_Us.ContactUsActivity" />
         <activity android:name=".Faq.FaqActivity"></activity>
+
+
+        <!--Chat Activities -->
+        <activity android:name=".Chat.DefaultDialogsActivity" android:label="Inbox"/>
+        <activity android:name=".Chat.DefaultMessagesActivity"/>
+
     </application>
 
 </manifest>

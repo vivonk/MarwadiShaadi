@@ -1,13 +1,17 @@
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <LinearLayout
         android:orientation="vertical"
         android:padding="10dp"
+        android:animateLayoutChanges="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <android.support.v7.widget.SwitchCompat
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="textStart"
             android:id="@+id/switchNot"
@@ -26,7 +30,7 @@
         </View>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/reset_password"
             android:text="Reset password"
@@ -47,7 +51,7 @@
         </View>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/deactivate_acc"
             android:clickable="true"
@@ -68,7 +72,7 @@
         </View>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/delete_acc"
             android:text="Delete account"
@@ -89,7 +93,7 @@
         </View>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/blocked"
             android:text="Blocked"
@@ -110,7 +114,143 @@
         </View>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/more"
+            android:text="More"
+            android:clickable="true"
+            android:textSize="16dp"
+            android:textColor="#000"
+            android:drawableLeft="@drawable/setting_blocked"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_margin="10dp"
+            android:background="#59fb6542">
+        </View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/morelayout"
+            android:visibility="gone"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/faq"
+                android:text="Faq"
+                android:clickable="true"
+                android:textSize="16dp"
+                android:textColor="#000"
+                android:drawableLeft="@drawable/ic_action_faq"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_margin="10dp"
+                android:background="#59fb6542">
+            </View>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/aboutus"
+                android:text="About Us"
+                android:clickable="true"
+                android:textSize="16dp"
+                android:textColor="#000"
+                android:drawableLeft="@drawable/ic_action_about_us"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_margin="10dp"
+                android:background="#59fb6542">
+            </View>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/privacypolicy"
+                android:text="Privacy Policy"
+                android:clickable="true"
+                android:textSize="16dp"
+                android:textColor="#000"
+                android:drawableLeft="@drawable/ic_action_privacy"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_margin="10dp"
+                android:background="#59fb6542">
+            </View>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/contactus"
+                android:text="Contact Us"
+                android:clickable="true"
+                android:textSize="16dp"
+                android:textColor="#000"
+                android:drawableLeft="@drawable/ic_action_contact"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_margin="10dp"
+                android:background="#59fb6542">
+            </View>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/paymentpolicy"
+                android:text="Payment Policy"
+                android:clickable="true"
+                android:textSize="16dp"
+                android:textColor="#000"
+                android:drawableLeft="@drawable/ic_action_payment"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_margin="10dp"
+                android:background="#59fb6542">
+            </View>
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/Logout"
             android:text="Logout"
@@ -123,3 +263,4 @@
             android:layout_marginTop="10dp"
             />
     </LinearLayout>
+</ScrollView>

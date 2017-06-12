@@ -52,7 +52,6 @@ public class Dashboard extends AppCompatActivity
     private DashboardSectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
     private ImageView userdp;
-    private boolean more = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,25 +117,11 @@ public class Dashboard extends AppCompatActivity
             startActivity(i);
             overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
 
-
         }else if (id == R.id.nav_search){
             Intent i = new Intent(Dashboard.this,Search.class);
             startActivity(i);
             overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
 
-        }else if (id == R.id.nav_faq){
-            Intent i = new Intent(Dashboard.this,FaqActivity.class);
-            startActivity(i);
-            overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
-
-        }else if(id == R.id.nav_contact_us){
-            Intent i = new Intent(Dashboard.this,ContactUsActivity.class);
-            startActivity(i);
-            overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
-        }else if (id == R.id.nav_about_us){
-            Intent i = new Intent(Dashboard.this,AboutUsActivity.class);
-            startActivity(i);
-            overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
         }else if (id == R.id.nav_home){
                 onBackPressed();
         }else if (id == R.id.nav_interest){
@@ -157,59 +142,16 @@ public class Dashboard extends AppCompatActivity
             Intent i = new Intent(Dashboard.this,SettingsActivity.class);
             startActivity(i);
             overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
-        }else if(id == R.id.nav_more){
-                more = true;
-                if (!menu.findItem(R.id.nav_about_us).isVisible()){
-                    menu.findItem(R.id.nav_about_us).setVisible(true);
-                }else{
-                    menu.findItem(R.id.nav_about_us).setVisible(false);
-                }
-
-            if (!menu.findItem(R.id.nav_contact_us).isVisible()){
-                menu.findItem(R.id.nav_contact_us).setVisible(true);
-            }else{
-                menu.findItem(R.id.nav_contact_us).setVisible(false);
-            }
-
-            if (!menu.findItem(R.id.nav_faq).isVisible()){
-                menu.findItem(R.id.nav_faq).setVisible(true);
-            }else{
-                menu.findItem(R.id.nav_faq).setVisible(false);
-            }
-
-            if (!menu.findItem(R.id.nav_privacy_policy).isVisible()){
-                menu.findItem(R.id.nav_privacy_policy).setVisible(true);
-            }else{
-                menu.findItem(R.id.nav_privacy_policy).setVisible(false);
-            }
-
-            if (!menu.findItem(R.id.nav_payment_policy).isVisible()){
-                menu.findItem(R.id.nav_payment_policy).setVisible(true);
-            }else{
-                menu.findItem(R.id.nav_payment_policy).setVisible(false);
-            }
-
         }else if (id == R.id.nav_feedback){
             Intent i = new Intent(Dashboard.this,FeedbackActivity.class);
             startActivity(i);
             overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
-        }else if (id == R.id.nav_payment_policy){
-            Intent i = new Intent(Dashboard.this,PaymentPolicyActivity.class);
-            startActivity(i);
-            overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
-        }else if (id == R.id.nav_privacy_policy){
-            Intent i = new Intent(Dashboard.this,PrivacyPolicyActivity.class);
-            startActivity(i);
-            overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
         }
 
-        if(!more){
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             drawer.closeDrawer(GravityCompat.START);
-            more=false;
             return true;
-        }
-        return true;
+
     }
 
     @Override

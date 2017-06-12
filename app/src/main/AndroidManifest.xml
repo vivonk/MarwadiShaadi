@@ -87,11 +87,16 @@
         <activity android:name=".About_Us.AboutUsActivity" />
         <activity android:name=".Contact_Us.ContactUsActivity" />
         <activity android:name=".Faq.FaqActivity"></activity>
+        <activity android:name=".UpgradeMembership"></activity>
+
 
 
         <!--Chat Activities -->
         <activity android:name=".Chat.DefaultDialogsActivity" android:label="Inbox"/>
         <activity android:name=".Chat.DefaultMessagesActivity"/>
+        <activity android:name=".Chat2.Messaging"/>
+        <activity android:name=".Chat2.InboxActivity"/>
+
 
     </application>
 

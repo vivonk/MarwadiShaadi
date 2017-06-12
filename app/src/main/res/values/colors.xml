@@ -23,5 +23,14 @@
     <color name="red">#e94f4f</color>
     <color name="brown">#4e342e</color>
 
+    <color name="maheshwari">#4D9ccbff</color>
+    <color name="agarwal">#4Dff979e</color>
+    <color name="jain">#4DE0A8F0</color>
+    <color name="khandelwal">#4Dacff9c</color>
+    <color name="others">#4Dfffc9c</color>
+    <color name="all">#4DFEC3B5</color>
+
+
+
 
 </resources>

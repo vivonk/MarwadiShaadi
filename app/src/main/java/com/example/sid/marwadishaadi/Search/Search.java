@@ -25,7 +25,7 @@ public class Search extends AppCompatActivity {
     EditText spinnerCastSearch;
     Button mOpenIDSearchButton;
     private static int casebreak;
-    TextView statetextView,tvCollapse;
+    TextView statetextView;
     CardView advCV;
     Button addButton;
     private static final String TAG = "Search";
@@ -38,7 +38,6 @@ public class Search extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        tvCollapse=(TextView)findViewById(R.id.collapse);
         addButton=(Button)findViewById(R.id.search_add_state);
         statetextView=(TextView)findViewById(R.id.text_view_search_add_state);
         spinnerCastSearch=(EditText) findViewById(R.id.search_user_caste);
@@ -50,28 +49,10 @@ public class Search extends AppCompatActivity {
         final TextView tvMax = (TextView) findViewById(R.id.textMax);
         rangeSeekbar.setMinValue(18);
         rangeSeekbar.setMaxValue(71);
-        advCV.setVisibility(View.GONE);
-        tvCollapsestate=false;
 
 
 // set listener
-        tvCollapse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(tvCollapsestate)
-                {
-                    advCV.setVisibility(View.GONE);
-                    tvCollapsestate=false;
-                }
-                else if(!tvCollapsestate)
-                {
-                    advCV.setVisibility(View.VISIBLE);
-                    advCV.setFocusable(true);
-                    tvCollapsestate=true;
-                }
 
-            }
-        });
 
         rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
             @Override

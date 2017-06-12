@@ -2,18 +2,22 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-    <TextView
-        android:layout_margin="10dp"
-        android:text="SKIP"
-        android:id="@+id/skip"
-        android:textColor="@color/colorPrimary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:text="Skip"
+        android:textSize="12dp"
+        android:background="@layout/button_border_corner_circle_"
+        android:textAllCaps="false"
         android:layout_gravity="top|right"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:textColor="#fff"
         />
 
     <ScrollView
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp">
@@ -76,93 +80,30 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+
                         <RadioButton
                             android:id="@+id/radio1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3 Months - ₹1000"/>
+                            android:text="3 Months - ₹1000" />
+
                         <RadioButton
                             android:id="@+id/radio2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="6 Months - ₹2000"/>
+                            android:text="6 Months - ₹2000" />
+
                         <RadioButton
                             android:id="@+id/radio3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="12 Months - ₹2500"/>
-
+                            android:text="12 Months - ₹2500" />
 
 
                     </RadioGroup>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="6dp"
-                android:elevation="10dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:text="JAIN"
-                        android:textColor="#000"
-                        android:textSize="20dp"
-                        android:layout_marginBottom="10dp"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:clickable="true"
-                        android:text="Clear"
-                        android:gravity="end"
-                        android:textSize="15dp"
-                        android:textColor="#2d2d2d"
-                        android:layout_marginRight="20dp"
-                        android:id="@+id/g2reset"/>
-                    </LinearLayout>
-                    <RadioGroup
-                        android:id="@+id/gr2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <RadioButton
-                            android:id="@+id/radio4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="3 Months - ₹1000"/>
-                        <RadioButton
-                            android:id="@+id/radio5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="6 Months - ₹2000"/>
-                        <RadioButton
-                            android:id="@+id/radio6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="12 Months - ₹2500"/>
-
-
-
-                    </RadioGroup>
-
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
@@ -223,6 +164,72 @@
                             android:text="6 Months - ₹2000"/>
                         <RadioButton
                             android:id="@+id/radio9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12 Months - ₹2500"/>
+
+
+
+                    </RadioGroup>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:elevation="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:text="JAIN"
+                            android:textColor="#000"
+                            android:textSize="20dp"
+                            android:layout_marginBottom="10dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:text="Clear"
+                            android:gravity="end"
+                            android:textSize="15dp"
+                            android:textColor="#2d2d2d"
+                            android:layout_marginRight="20dp"
+                            android:id="@+id/g2reset"/>
+                    </LinearLayout>
+                    <RadioGroup
+                        android:id="@+id/gr2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <RadioButton
+                            android:id="@+id/radio4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3 Months - ₹1000"/>
+                        <RadioButton
+                            android:id="@+id/radio5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="6 Months - ₹2000"/>
+                        <RadioButton
+                            android:id="@+id/radio6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="12 Months - ₹2500"/>
@@ -480,8 +487,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
+            android:textSize="16dp"
             android:layout_marginTop="5dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginRight="10dp"
+            android:textStyle="bold"
             android:background="@color/colorPrimary"
             />
 

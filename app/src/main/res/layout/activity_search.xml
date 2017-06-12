@@ -1,9 +1,9 @@
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#eee">
+    >
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,7 +12,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:focusableInTouchMode="true"
+            >
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -48,11 +50,7 @@
                 android:textSize="16dp"
                 android:layout_marginBottom="10dp"
                 />
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/scrollViewAdv"
-                >
+
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -80,55 +78,56 @@
                             android:layout_weight="1"
                             />
 
-                        <RelativeLayout
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:padding="6dp"
                             android:layout_height="wrap_content"
-                            android:clipChildren="false">
-
-                            <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
-                                android:id="@+id/rangeSeekbar"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                app:bar_color="#fb6542"
-                                app:bar_highlight_color="#fb6542"
-                                app:corner_radius="2"
-                                app:data_type="_integer"
-                                android:focusable="true"
-                                app:left_thumb_color="#fb6542"
-                                app:left_thumb_color_pressed="#fb6542"
-                                app:max_value="71"
-                                app:min_value="18"
-                                app:right_thumb_color="#fb6542"
-                                app:right_thumb_color_pressed="#fb6542" />
-
+                            android:orientation="horizontal">
                             <TextView
+                                android:layout_marginLeft="10dp"
                                 android:id="@+id/textMin"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/rangeSeekbar"
-                                android:layout_marginStart="10dp"
-                                android:layout_marginTop="5dp"
+                                android:layout_weight="1"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentStart="true"
                                 android:textColor="#000"
                                 android:textSize="16sp" />
-
                             <TextView
                                 android:id="@+id/textMax"
-                                android:focusable="true"
+                                android:layout_weight="1"
+                                android:layout_marginRight="10dp"
+                                android:textAlignment="textEnd"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_alignParentRight="true"
-                                android:layout_below="@id/rangeSeekbar"
-                                android:layout_marginEnd="10dp"
-                                android:layout_marginTop="5dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignTop="@+id/rangeSeekbar"
                                 android:textColor="#000"
                                 android:textSize="16dp" />
+                        </LinearLayout>
 
-                        </RelativeLayout>
+
+
+
+
+                        <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
+                            android:id="@+id/rangeSeekbar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            app:bar_color="#1a000000"
+                            app:bar_highlight_color="#fb6542"
+                            app:corner_radius="2"
+                            app:data_type="_integer"
+                            app:left_thumb_color="@color/colorPrimary"
+                            app:left_thumb_color_pressed="@color/colorPrimary"
+                            app:max_value="71"
+                            app:min_value="18"
+                            app:right_thumb_color="@color/colorPrimary"
+                            app:right_thumb_color_pressed="@color/colorPrimary" />
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="0.5dp"
-                            android:layout_margin="20dp"
+                            android:layout_margin="10dp"
                             android:background="#59fb6542">
                         </View>
                         <LinearLayout
@@ -174,7 +173,7 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="0.5dp"
-                            android:layout_margin="20dp"
+                            android:layout_margin="10dp"
                             android:background="#59fb6542">
                         </View>
                         <TextView
@@ -198,13 +197,13 @@
                             android:layout_marginLeft="6dp"
                             android:textSize="16dp"
                             android:hint="Choose community"
-                            android:background="@drawable/edit_text_border"
+                            android:background="#fff"
                             />
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="0.5dp"
-                            android:layout_margin="20dp"
+                            android:layout_margin="10dp"
                             android:background="#59fb6542">
                         </View>
 
@@ -237,7 +236,6 @@
                                 android:inputType="text"
                                 android:clickable="true"
                                 android:layout_weight="4"
-
                                 android:id="@+id/search_state"
                                 android:ems="10"
                                 />
@@ -255,7 +253,7 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="0.5dp"
-                            android:layout_margin="20dp"
+                            android:layout_margin="10dp"
                             android:background="#59fb6542">
                         </View>
                         <TextView
@@ -265,193 +263,6 @@
                             android:textStyle="bold"
                             android:paddingLeft="10dp"
                             />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:textAlignment="textStart"
-                            android:text="Sort by"
-                            android:textSize="16dp"
-                            android:textStyle="italic"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginLeft="6dp"
-                            />
-
-                        <Spinner
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/spinner_sort_by"
-                            android:padding="10dp"
-                            android:textSize="16dp"
-                            android:entries="@array/sort_by_array"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="1" />
-
-
-
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-            </ScrollView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textAlignment="center"
-                android:text="Advanced Search"
-                android:layout_marginTop="10dp"
-                android:id="@+id/collapse"
-                android:clickable="true"
-                android:textColor="#ffffff"
-                android:textSize="18sp"
-                android:layout_marginBottom="10dp"
-                android:padding="10dp"
-                android:textStyle="bold"
-                android:background="@layout/button_border_less_radius"
-                />
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/advanced_search"
-                    app:cardCornerRadius="4dp"
-                    android:layout_margin="8dp"
-                    android:elevation="10dp"
-                    >
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:textAlignment="textStart"
-                            android:text="City"
-                            android:textSize="16dp"
-                            android:textStyle="italic"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginLeft="6dp"
-                            />
-
-                        <Spinner
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/spinner_search_city"
-                            android:padding="10dp"
-                            android:textSize="16dp"
-                            android:entries="@array/caste_array"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="1" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:textAlignment="textStart"
-                            android:text="Marital Status"
-                            android:textSize="16dp"
-                            android:textStyle="italic"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginLeft="6dp"
-                            />
-                        <Spinner
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:id="@+id/search_Marital_status"
-                            android:textSize="20dp"
-                            android:entries="@array/status_array"
-                            android:layout_marginTop="10dp"
-                            />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="0.5dp"
-                            android:layout_margin="20dp"
-                            android:background="#59fb6542">
-                        </View>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:textAlignment="textStart"
-                            android:text="Family Status"
-                            android:textSize="16dp"
-                            android:textStyle="italic"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginLeft="6dp"
-                            />
-                        <Spinner
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:id="@+id/search_Family_status"
-                            android:textSize="16dp"
-                            android:entries="@array/fstatus_array"
-                            android:layout_marginTop="10dp"/>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="0.5dp"
-                            android:layout_margin="20dp"
-                            android:background="#59fb6542">
-                        </View>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:textAlignment="textStart"
-                            android:text="Manglik"
-                            android:textSize="16dp"
-                            android:textStyle="italic"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginLeft="6dp"
-                            />
-                        <Spinner
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:id="@+id/search_manglik_status"
-                            android:textSize="16dp"
-                            android:entries="@array/manglik_array"
-                            android:layout_marginTop="10dp" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="0.5dp"
-                            android:layout_margin="20dp"
-                            android:background="#59fb6542">
-                        </View>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:textAlignment="textStart"
-                            android:text="Children"
-                            android:textSize="16dp"
-                            android:textStyle="italic"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginLeft="6dp"
-                            />
-
-                        <Spinner
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:id="@+id/search_children"
-                            android:textSize="16dp"
-                            android:entries="@array/children_array"
-                            android:layout_marginTop="10dp"/>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="0.5dp"
-                            android:layout_margin="20dp"
-                            android:background="#59fb6542">
-                        </View>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -689,305 +500,471 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="0.5dp"
-                            android:layout_margin="20dp"
+                            android:layout_margin="10dp"
                             android:background="#59fb6542">
                         </View>
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
                             android:textAlignment="textStart"
-                            android:text="Occupation"
+                            android:text="Sort by"
                             android:textSize="16dp"
                             android:textStyle="italic"
                             android:layout_marginTop="20dp"
                             android:layout_marginLeft="6dp"
                             />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:weightSum="2"
-                            android:layout_height="wrap_content">
-
-                            <CheckBox
-                                android:id="@+id/check_profession"
-                                android:text="Profession"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content" />
-
-                            <CheckBox
-                                android:id="@+id/check_job"
-                                android:text="Job"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content" />
-
-                        </LinearLayout>
-
-
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:weightSum="2"
-                            android:layout_height="wrap_content">
-
-                            <CheckBox
-                                android:id="@+id/check_retired"
-                                android:text="Retired"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content" />
-
-
-                            <CheckBox
-                                android:id="@+id/check_business"
-                                android:text="Business"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content" />
-
-                        </LinearLayout>
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:weightSum="2"
-                            android:layout_height="wrap_content">
-                            <CheckBox
-                                android:id="@+id/check_not_employed"
-                                android:text="Not Employed"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content" />
-
-                            <CheckBox
-                                android:id="@+id/check_studying_not_employed"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:text="Studying-Not Employed"
-                                android:layout_height="match_parent" />
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="0.5dp"
-                            android:layout_margin="20dp"
-                            android:background="#59fb6542">
-                        </View>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:textAlignment="textStart"
-                            android:text="Annual Income"
-                            android:textSize="16dp"
-                            android:textStyle="italic"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginLeft="6dp"
-                            />
                         <Spinner
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:id="@+id/search_Annual_income"
-                            android:entries="@array/aincome_array"
-                            android:textSize="16dp"
-                            android:layout_marginTop="10dp" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="0.5dp"
-                            android:layout_margin="20dp"
-                            android:background="#59fb6542">
-                        </View>
-
-                        <TextView
-                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:textAlignment="textStart"
-                            android:text="Complexion"
-                            android:textSize="16dp"
-                            android:textStyle="italic"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginLeft="6dp"
-                            />
-
-                        <LinearLayout
-                            android:id="@+id/search_complexion"
-                            android:layout_width="match_parent"
-                            android:weightSum="2"
-                            android:padding="10dp"
-                            android:layout_height="wrap_content">
-
-                            <CheckBox
-                                android:id="@+id/search_check_very_fair"
-                                android:layout_width="0dp"
-                                android:text="Very Fair"
-                                android:layout_weight="1"
-                                android:layout_height="wrap_content" />
-
-                            <CheckBox
-                                android:id="@+id/search_check_fair"
-                                android:text="Fair"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content" />
-                        </LinearLayout>
-
-
-                        <LinearLayout
-                            android:id="@+id/search_complexion2"
-                            android:layout_width="match_parent"
-                            android:weightSum="2"
-                            android:padding="10dp"
-                            android:layout_height="wrap_content">
-
-                            <CheckBox
-                                android:id="@+id/search_check_wheatish"
-                                android:text="Wheatish"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content" />
-
-                            <CheckBox
-                                android:id="@+id/search_check_wheatish_brown"
-                                android:text="Wheatish Brown"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content" />
-
-                        </LinearLayout>
-
-
-                        <LinearLayout
-                            android:id="@+id/search_complexion3"
-                            android:padding="10dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <CheckBox
-                                android:id="@+id/search_check_dark"
-                                android:layout_width="wrap_content"
-                                android:text="Dark"
-                                android:layout_height="wrap_content" />
-                        </LinearLayout>
-
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="0.5dp"
-                            android:layout_margin="20dp"
-                            android:background="#59fb6542">
-                        </View>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:textAlignment="textStart"
-                            android:text="Body Type"
-                            android:layout_marginTop="20dp"
+                            android:id="@+id/spinner_sort_by"
                             android:layout_marginLeft="6dp"
                             android:textSize="16dp"
-                            android:textStyle="italic"
-                            />
-
-
-                        <LinearLayout
-                            android:id="@+id/search_body_type"
-                            android:weightSum="2"
-                            android:padding="10dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <CheckBox
-                                android:id="@+id/search_check_slim"
-                                android:text="Slim"
-                                android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:layout_height="wrap_content" />
-
-
-                            <CheckBox
-                                android:id="@+id/search_check_athletic"
-                                android:text="Athletic"
-                                android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:layout_height="wrap_content" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:weightSum="2"
-                            android:padding="10dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <CheckBox
-                                android:id="@+id/search_check_average"
-                                android:text="Average"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content" />
-
-
-                            <CheckBox
-                                android:id="@+id/search_check_heavy"
-                                android:text="Heavy"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content" />
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="0.5dp"
-                            android:layout_margin="20dp"
-                            android:background="#59fb6542">
-                        </View>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:textAlignment="textStart"
-                            android:text="Physical Status"
-                            android:textSize="16dp"
-                            android:textStyle="italic"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginLeft="6dp"
-                            />
-                        <Spinner
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:id="@+id/spinner_search_physical_status"
-                            android:entries="@array/physicalstatus_array"
-                            android:textSize="16dp"
+                            android:entries="@array/sort_by_array"
                             android:layout_marginTop="10dp"
-                            />
-                        <Button
-                            android:layout_width="92dp"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/search_Submit"
-                            android:textColor="#fff"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginRight="5dp"
-                            android:layout_gravity="center"
-                            android:text="Search"
-                            android:elevation="5dp"
-                            android:textAllCaps="false"
-                            android:background="@layout/button_border_corner_circle_"
-                            android:textSize="20dp"
-                            android:layout_marginBottom="20dp"
-                            />
+                            android:layout_weight="1" />
+
+
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/advanced_search"
+                app:cardCornerRadius="4dp"
+                android:layout_margin="8dp"
+                android:elevation="10dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:textAlignment="textStart"
+                        android:text="City"
+                        android:textSize="16dp"
+                        android:textStyle="italic"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="6dp"
+                        />
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/spinner_search_city"
+                        android:padding="10dp"
+                        android:textSize="16dp"
+                        android:entries="@array/caste_array"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:textAlignment="textStart"
+                        android:text="Marital Status"
+                        android:textSize="16dp"
+                        android:textStyle="italic"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="6dp"
+                        />
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/search_Marital_status"
+                        android:textSize="20dp"
+                        android:entries="@array/status_array"
+                        android:layout_marginTop="10dp"
+                        />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_margin="10dp"
+                        android:background="#59fb6542">
+                    </View>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:textAlignment="textStart"
+                        android:text="Family Status"
+                        android:textSize="16dp"
+                        android:textStyle="italic"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="6dp"
+                        />
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/search_Family_status"
+                        android:textSize="16dp"
+                        android:entries="@array/fstatus_array"
+                        android:layout_marginTop="10dp"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_margin="10dp"
+                        android:background="#59fb6542">
+                    </View>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:textAlignment="textStart"
+                        android:text="Manglik"
+                        android:textSize="16dp"
+                        android:textStyle="italic"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="6dp"
+                        />
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/search_manglik_status"
+                        android:textSize="16dp"
+                        android:entries="@array/manglik_array"
+                        android:layout_marginTop="10dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_margin="10dp"
+                        android:background="#59fb6542">
+                    </View>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:textAlignment="textStart"
+                        android:text="Children"
+                        android:textSize="16dp"
+                        android:textStyle="italic"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="6dp"
+                        />
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/search_children"
+                        android:textSize="16dp"
+                        android:entries="@array/children_array"
+                        android:layout_marginTop="10dp"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_margin="10dp"
+                        android:background="#59fb6542">
+                    </View>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:textAlignment="textStart"
+                        android:text="Occupation"
+                        android:textSize="16dp"
+                        android:textStyle="italic"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="6dp"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:weightSum="2"
+                        android:layout_height="wrap_content">
+
+                        <CheckBox
+                            android:id="@+id/check_profession"
+                            android:text="Profession"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+
+                        <CheckBox
+                            android:id="@+id/check_job"
+                            android:text="Job"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+
                     </LinearLayout>
 
 
-                </android.support.v7.widget.CardView>
-            </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:weightSum="2"
+                        android:layout_height="wrap_content">
+
+                        <CheckBox
+                            android:id="@+id/check_retired"
+                            android:text="Retired"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+
+
+                        <CheckBox
+                            android:id="@+id/check_business"
+                            android:text="Business"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:weightSum="2"
+                        android:layout_height="wrap_content">
+                        <CheckBox
+                            android:id="@+id/check_not_employed"
+                            android:text="Not Employed"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+
+                        <CheckBox
+                            android:id="@+id/check_studying_not_employed"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:text="Studying-Not Employed"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_margin="10dp"
+                        android:background="#59fb6542">
+                    </View>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:textAlignment="textStart"
+                        android:text="Annual Income"
+                        android:textSize="16dp"
+                        android:textStyle="italic"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="6dp"
+                        />
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/search_Annual_income"
+                        android:entries="@array/aincome_array"
+                        android:textSize="16dp"
+                        android:layout_marginTop="10dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_margin="10dp"
+                        android:background="#59fb6542">
+                    </View>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:textAlignment="textStart"
+                        android:text="Complexion"
+                        android:textSize="16dp"
+                        android:textStyle="italic"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="6dp"
+                        />
+
+                    <LinearLayout
+                        android:id="@+id/search_complexion"
+                        android:layout_width="match_parent"
+                        android:weightSum="2"
+                        android:padding="10dp"
+                        android:layout_height="wrap_content">
+
+                        <CheckBox
+                            android:id="@+id/search_check_very_fair"
+                            android:layout_width="0dp"
+                            android:text="Very Fair"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content" />
+
+                        <CheckBox
+                            android:id="@+id/search_check_fair"
+                            android:text="Fair"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/search_complexion2"
+                        android:layout_width="match_parent"
+                        android:weightSum="2"
+                        android:padding="10dp"
+                        android:layout_height="wrap_content">
+
+                        <CheckBox
+                            android:id="@+id/search_check_wheatish"
+                            android:text="Wheatish"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+
+                        <CheckBox
+                            android:id="@+id/search_check_wheatish_brown"
+                            android:text="Wheatish Brown"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/search_complexion3"
+                        android:padding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <CheckBox
+                            android:id="@+id/search_check_dark"
+                            android:layout_width="wrap_content"
+                            android:text="Dark"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_margin="10dp"
+                        android:background="#59fb6542">
+                    </View>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:textAlignment="textStart"
+                        android:text="Body Type"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="6dp"
+                        android:textSize="16dp"
+                        android:textStyle="italic"
+                        />
+
+
+                    <LinearLayout
+                        android:id="@+id/search_body_type"
+                        android:weightSum="2"
+                        android:padding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <CheckBox
+                            android:id="@+id/search_check_slim"
+                            android:text="Slim"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content" />
+
+
+                        <CheckBox
+                            android:id="@+id/search_check_athletic"
+                            android:text="Athletic"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:weightSum="2"
+                        android:padding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <CheckBox
+                            android:id="@+id/search_check_average"
+                            android:text="Average"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+
+
+                        <CheckBox
+                            android:id="@+id/search_check_heavy"
+                            android:text="Heavy"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_margin="10dp"
+                        android:background="#59fb6542">
+                    </View>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:textAlignment="textStart"
+                        android:text="Physical Status"
+                        android:textSize="16dp"
+                        android:textStyle="italic"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="6dp"
+                        />
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/spinner_search_physical_status"
+                        android:entries="@array/physicalstatus_array"
+                        android:textSize="16dp"
+                        android:layout_marginTop="10dp"
+                        />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/search_Submit"
+                        android:textColor="#fff"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center"
+                        android:text="Search"
+                        android:elevation="5dp"
+                        android:textAllCaps="false"
+                        android:background="@layout/button_border_corner_circle_"
+                        android:textSize="20dp"
+                        android:layout_marginBottom="20dp"
+                        />
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
 
         </LinearLayout>
     </ScrollView>
-</android.support.design.widget.CoordinatorLayout>
+</LinearLayout>

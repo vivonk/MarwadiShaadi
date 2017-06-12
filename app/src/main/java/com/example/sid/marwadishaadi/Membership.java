@@ -16,6 +16,7 @@ public class Membership extends AppCompatActivity {
     RadioGroup gr1, gr2, gr3, gr4, gr5, gr6;
     LinearLayout linear1,linear2,linear3,linear4,linear5,linear6;
     static int c = 0, c1 = 0, c2 = 0, c3 = 0, c4 = 0, c5 = 0, c6 = 0;
+    int id;
     String str;
     TextView dash,clear1,clear2,clear3,clear4,clear5,clear6;
     TextView amount;
@@ -45,7 +46,12 @@ public class Membership extends AppCompatActivity {
         clear1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 gr1.clearCheck();
+                c=c2+c3+c4+c5;
+                c1=0;
+                amount.setText(String.valueOf(c));
+
             }
         });
 
@@ -53,6 +59,9 @@ public class Membership extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 gr2.clearCheck();
+                c=c1+c3+c4+c5;
+                c2=0;
+                amount.setText(String.valueOf(c));
             }
         });
 
@@ -60,6 +69,9 @@ public class Membership extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 gr3.clearCheck();
+                c=c2+c1+c4+c5;
+                c3=0;
+                amount.setText(String.valueOf(c));
             }
         });
 
@@ -67,6 +79,9 @@ public class Membership extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 gr4.clearCheck();
+                c=c2+c3+c1+c5;
+                c4=0;
+                amount.setText(String.valueOf(c));
             }
         });
 
@@ -74,6 +89,9 @@ public class Membership extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 gr5.clearCheck();
+                c=c2+c3+c4+c1;
+                c5=0;
+                amount.setText(String.valueOf(c));
             }
         });
 
@@ -81,6 +99,8 @@ public class Membership extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 gr6.clearCheck();
+                c=c6=0;
+                amount.setText(String.valueOf(c));
             }
         });
 

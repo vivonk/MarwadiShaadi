@@ -77,7 +77,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    app:bar_color="#fb6542"
+                    app:bar_color="@color/colorPrimary"
                     app:bar_highlight_color="#fb6542"
                     app:corner_radius="2"
                     app:data_type="_integer"

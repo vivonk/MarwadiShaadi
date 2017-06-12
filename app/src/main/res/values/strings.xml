@@ -173,6 +173,7 @@
 
     <string-array name="physicalstatus_array">
         <item>Select Physical Status</item>
+        <item>Normal</item>
         <item>Physically challenged from birth</item>
         <item>Physically challenged due to accident</item>
         <item>Mentally challenged from birth</item>
@@ -188,6 +189,12 @@
         <item>Don\'t know</item>
     </string-array>
 
+    <string-array name="manglik_search_array">
+        <item>Manglik ?</item>
+        <item>Yes</item>
+        <item>No</item>
+        <item>Doesn\'t matter</item>
+    </string-array>
     <string-array name="relation_name_array">
         <item>Choose your relation</item>
         <item>Tauji</item>
@@ -271,6 +278,61 @@
         <item>7ft 10in - 238cm</item>
         <item>7ft 11in - 241cm</item>
     </string-array>
+
+    <string-array name="height_search_array">
+        <item>Doesn\'t matter</item>
+        <item>4ft - 121 cm</item>
+        <item>4ft - 121 cm</item>
+        <item>4ft 1in - 124cm</item>
+        <item>4ft 2in - 127cm</item>
+        <item>4ft 3in - 129cm</item>
+        <item>4ft 4in - 132cm</item>
+        <item>4ft 5in - 134cm</item>
+        <item>4ft 6in - 137cm</item>
+        <item>4ft 7in - 139cm</item>
+        <item>4ft 8in - 142cm</item>
+        <item>4ft 9in - 144cm</item>
+        <item>4ft 10in - 147cm</item>
+        <item>4ft 11in - 149cm</item>
+        <item>5ft - 152cm</item>
+        <item>5ft 1in - 154cm</item>
+        <item>5ft 2in - 157cm</item>
+        <item>5ft 3in - 160cm</item>
+        <item>5ft 4in - 162cm</item>
+        <item>5ft 5in - 165cm</item>
+        <item>5ft 6in - 168cm</item>
+        <item>5ft 7in -170cm</item>
+        <item>5ft 8in - 172cm</item>
+        <item>5ft 9in - 175cm</item>
+        <item>5ft 10in - 177cm</item>
+        <item>5ft 11in - 180cm</item>
+        <item>6ft - 182cm</item>
+        <item>6ft 1in - 185cm</item>
+        <item>6ft 2in - 187cm</item>
+        <item>6ft 3in - 190cm</item>
+        <item>6ft 4in - 193cm</item>
+        <item>6ft 5in - 195cm</item>
+        <item>6ft 6in - 198cm</item>
+        <item>6ft 7in - 200cm</item>
+        <item>6ft 8in - 203cm</item>
+        <item>6ft 9in - 205cm</item>
+        <item>6ft 10in - 208cm</item>
+        <item>6ft 11in - 210cm</item>
+        <item>7ft - 213cm</item>
+        <item>7ft 1in - 215cm</item>
+        <item>7ft 2in - 218cm</item>
+        <item>7ft 3in - 221cm</item>
+        <item>7ft 4in - 223cm</item>
+        <item>7ft 5in - 226cm</item>
+        <item>7ft 6in - 228cm</item>
+        <item>7ft 7in - 231cm</item>
+        <item>7ft 8in - 233cm</item>
+        <item>7ft 9in - 236cm</item>
+        <item>7ft 10in - 238cm</item>
+        <item>7ft 11in - 241cm</item>
+    </string-array>
+
+
     <string-array name="aincome_array">
         <item>Select Annual Income</item>
         <item>Upto 3L</item>

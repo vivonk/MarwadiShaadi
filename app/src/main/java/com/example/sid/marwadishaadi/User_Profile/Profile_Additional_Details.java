@@ -25,7 +25,6 @@ public class Profile_Additional_Details extends Fragment {
     private TextView edit_about;
     private TextView edit_hobbies;
     private TextView edit_lifestyle;
-    private TextView edit_horoscope;
     private static  int casebreak;
     private OnFragmentInteractionListener mListener;
 
@@ -67,7 +66,6 @@ public class Profile_Additional_Details extends Fragment {
         View mview = inflater.inflate(R.layout.fragment_profile__additional__details, container, false);
         edit_about = (TextView) mview.findViewById(R.id.aboutme_clear);
         edit_hobbies=(TextView) mview.findViewById(R.id.hobbies_clear);
-        edit_horoscope=(TextView)mview.findViewById(R.id.horoscope_clear);
         edit_lifestyle=(TextView)mview.findViewById(R.id.lifestyle_clear);
 
 
@@ -99,14 +97,6 @@ public class Profile_Additional_Details extends Fragment {
             }
         });
 
-        edit_horoscope.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                 casebreak=24;
-                BottomSheetDialogFragment btm= new BottomSheet(2);
-                btm.show(getFragmentManager(),btm.getTag());
-            }
-        });
 
 
 

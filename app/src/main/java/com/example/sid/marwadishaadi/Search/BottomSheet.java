@@ -90,9 +90,6 @@ public class BottomSheet extends BottomSheetDialogFragment {
             case 23:
                 contentView = View.inflate(getContext(),R.layout.bottom_sheet_lifestyle,null);
                 break;
-            case 24:
-                contentView = View.inflate(getContext(),R.layout.bottom_sheet_horoscope,null);
-                break;
 
             // edit profile - family
             case 31:

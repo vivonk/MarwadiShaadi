@@ -79,7 +79,7 @@
             android:name=".Privacy_Policy.PrivacyPolicyActivity"
             android:label="Privacy Policy" />
         <activity
-            android:name=".User_Profile.UserProfile"
+            android:name=".User_Profile.UserProfileActivity"
             android:label="@string/title_activity_user_profile"
             android:theme="@style/AppTheme" />
         <activity
@@ -104,10 +104,10 @@
             android:name=".Faq.FaqActivity"
             android:label="Faq" />
         <activity
-            android:name=".UpgradeMembership"
+            android:name=".Dashboard_Membership.UpgradeMembershipActivity"
             android:label="Membership" />
         <activity
-            android:name=".EditPreferencesActivity"
+            android:name=".User_Profile.Edit_User_Profile.EditPreferencesActivity"
             android:label="Edit Partner Preferences" />
 
         <!-- Chat Activities -->
@@ -116,10 +116,10 @@
             android:label="Inbox" />
         <activity android:name=".Chat.DefaultMessagesActivity" />
         <activity
-            android:name=".SearchResultsActivity"
+            android:name=".Search.SearchResultsActivity"
             android:label="Search Results" />
-        <activity android:name=".EditPersonalDetailsActivity" />
-        <activity android:name=".EditFamilyDetailsActivity"></activity>
+        <activity android:name=".User_Profile.Edit_User_Profile.EditPersonalDetailsActivity" />
+        <activity android:name=".User_Profile.Edit_User_Profile.EditFamilyDetailsActivity"></activity>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.example.sid.marwadishaadi;
+package com.example.sid.marwadishaadi.Search;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.example.sid.marwadishaadi.Dashboard_Suggestions.SuggestionAdapter;
 import com.example.sid.marwadishaadi.Dashboard_Suggestions.SuggestionModel;
+import com.example.sid.marwadishaadi.R;
 
 import java.util.ArrayList;
 import java.util.List;

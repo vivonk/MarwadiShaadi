@@ -3,7 +3,6 @@ package com.example.sid.marwadishaadi.User_Profile;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import com.github.clans.fab.FloatingActionButton;
 
@@ -13,7 +12,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -26,10 +24,10 @@ import com.github.clans.fab.FloatingActionMenu;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 
-public class UserProfile extends AppCompatActivity implements ViewPager.OnPageChangeListener,
-        Profile_Personal_Details.OnFragmentInteractionListener,
-        Profile_Additional_Details.OnFragmentInteractionListener,
-        Profile_Family_Details.OnFragmentInteractionListener,PartnerPreferencesFragment.OnFragmentInteractionListener,
+public class UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener,
+        ProfilePersonalDetailsFragment.OnFragmentInteractionListener,
+        ProfileAdditionalDetailsFragment.OnFragmentInteractionListener,
+        ProfileFamilyDetailsFragment.OnFragmentInteractionListener,PartnerPreferencesFragment.OnFragmentInteractionListener,
         ImageListener{
 
     private ProfilePageAdapter profilePageAdapter;
@@ -136,7 +134,7 @@ public class UserProfile extends AppCompatActivity implements ViewPager.OnPageCh
 
                 View preferences_view = getLayoutInflater().inflate(R.layout.profile_preferences,null);
 
-                AlertDialog.Builder prefs = new AlertDialog.Builder(UserProfile.this);
+                AlertDialog.Builder prefs = new AlertDialog.Builder(UserProfileActivity.this);
                 prefs.setTitle("Partner Preferences");
                 prefs.setView(preferences_view);
 
@@ -188,14 +186,14 @@ public class UserProfile extends AppCompatActivity implements ViewPager.OnPageCh
 
             switch (position){
                 case 0:
-                    Profile_Personal_Details profile_personal_details = new Profile_Personal_Details();
-                    return profile_personal_details;
+                    ProfilePersonalDetailsFragment profile_personal_detailsFragment = new ProfilePersonalDetailsFragment();
+                    return profile_personal_detailsFragment;
                 case 1:
-                   Profile_Additional_Details profile_additional_details = new Profile_Additional_Details();
-                    return profile_additional_details;
+                   ProfileAdditionalDetailsFragment profile_additional_detailsFragment = new ProfileAdditionalDetailsFragment();
+                    return profile_additional_detailsFragment;
                 case 2:
-                    Profile_Family_Details profile_family_details = new Profile_Family_Details();
-                    return profile_family_details;
+                    ProfileFamilyDetailsFragment profile_family_detailsFragment = new ProfileFamilyDetailsFragment();
+                    return profile_family_detailsFragment;
                 case 3:
                     PartnerPreferencesFragment partnerPreferencesFragment= new PartnerPreferencesFragment();
                     return partnerPreferencesFragment;

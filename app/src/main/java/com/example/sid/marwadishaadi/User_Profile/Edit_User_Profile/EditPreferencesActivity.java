@@ -1,4 +1,4 @@
-package com.example.sid.marwadishaadi;
+package com.example.sid.marwadishaadi.User_Profile.Edit_User_Profile;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -17,6 +17,7 @@ import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener;
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarFinalValueListener;
 import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
 import com.example.sid.marwadishaadi.Otp_Verification.Otp_Verification;
+import com.example.sid.marwadishaadi.R;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 

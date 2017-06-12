@@ -10,8 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.sid.marwadishaadi.EditFamilyDetailsActivity;
-import com.example.sid.marwadishaadi.EditPreferencesActivity;
+import com.example.sid.marwadishaadi.User_Profile.Edit_User_Profile.EditFamilyDetailsActivity;
 import com.example.sid.marwadishaadi.R;
 import com.example.sid.marwadishaadi.Search.BottomSheet;
 
@@ -19,12 +18,12 @@ import com.example.sid.marwadishaadi.Search.BottomSheet;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Profile_Family_Details.OnFragmentInteractionListener} interface
+ * {@link ProfileFamilyDetailsFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Profile_Family_Details#newInstance} factory method to
+ * Use the {@link ProfileFamilyDetailsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Profile_Family_Details extends Fragment {
+public class ProfileFamilyDetailsFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -39,7 +38,7 @@ public class Profile_Family_Details extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public Profile_Family_Details() {
+    public ProfileFamilyDetailsFragment() {
         // Required empty public constructor
     }
 
@@ -49,11 +48,11 @@ public class Profile_Family_Details extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Profile_Family_Details.
+     * @return A new instance of fragment ProfileFamilyDetailsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static Profile_Family_Details newInstance(String param1, String param2) {
-        Profile_Family_Details fragment = new Profile_Family_Details();
+    public static ProfileFamilyDetailsFragment newInstance(String param1, String param2) {
+        ProfileFamilyDetailsFragment fragment = new ProfileFamilyDetailsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

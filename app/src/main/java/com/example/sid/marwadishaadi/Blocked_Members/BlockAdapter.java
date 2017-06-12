@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.sid.marwadishaadi.R;
-import com.example.sid.marwadishaadi.User_Profile.UserProfile;
+import com.example.sid.marwadishaadi.User_Profile.UserProfileActivity;
 
 import java.util.List;
 
@@ -95,7 +95,7 @@ public class BlockAdapter extends RecyclerView.Adapter<BlockAdapter.MyViewHolder
             @Override
             public void onClick(View v) {
 
-                        Intent i = new Intent(v.getRootView().getContext(),UserProfile.class);
+                        Intent i = new Intent(v.getRootView().getContext(),UserProfileActivity.class);
                         v.getRootView().getContext().startActivity(i);
             }
         });

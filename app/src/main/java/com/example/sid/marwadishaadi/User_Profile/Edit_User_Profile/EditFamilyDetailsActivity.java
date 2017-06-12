@@ -1,8 +1,10 @@
-package com.example.sid.marwadishaadi;
+package com.example.sid.marwadishaadi.User_Profile.Edit_User_Profile;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+
+import com.example.sid.marwadishaadi.R;
 
 public class EditFamilyDetailsActivity extends AppCompatActivity {
 

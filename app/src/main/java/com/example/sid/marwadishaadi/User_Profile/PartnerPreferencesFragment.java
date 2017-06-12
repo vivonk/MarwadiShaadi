@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.sid.marwadishaadi.EditPreferencesActivity;
+import com.example.sid.marwadishaadi.User_Profile.Edit_User_Profile.EditPreferencesActivity;
 import com.example.sid.marwadishaadi.R;
 
 /**

@@ -21,25 +21,20 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.sid.marwadishaadi.About_Us.AboutUsActivity;
 import com.example.sid.marwadishaadi.Chat.DefaultDialogsActivity;
-import com.example.sid.marwadishaadi.Chat2.InboxActivity;
-import com.example.sid.marwadishaadi.Chat2.Messaging;
-import com.example.sid.marwadishaadi.Contact_Us.ContactUsActivity;
 import com.example.sid.marwadishaadi.Dashboard_Favourites.FavouritesFragment;
 import com.example.sid.marwadishaadi.Dashboard_Interest.InterestActivity;
+import com.example.sid.marwadishaadi.Dashboard_Membership.UpgradeMembershipActivity;
 import com.example.sid.marwadishaadi.Dashboard_Recent_Profiles.RecentProfilesFragment;
 import com.example.sid.marwadishaadi.Dashboard_Reverse_Matching.Reverse_MatchingActivity;
 import com.example.sid.marwadishaadi.Dashboard_Suggestions.SuggestionsFragment;
 import com.example.sid.marwadishaadi.Dashboard_Super_Match.SuperMatchFragment;
-import com.example.sid.marwadishaadi.Faq.FaqActivity;
 import com.example.sid.marwadishaadi.Feedback.FeedbackActivity;
 import com.example.sid.marwadishaadi.Notifications.NotificationsActivity;
-import com.example.sid.marwadishaadi.Payment_Policy.PaymentPolicyActivity;
-import com.example.sid.marwadishaadi.Privacy_Policy.PrivacyPolicyActivity;
 import com.example.sid.marwadishaadi.Search.Search;
+import com.example.sid.marwadishaadi.Search.SearchResultsActivity;
 import com.example.sid.marwadishaadi.Settings.SettingsActivity;
-import com.example.sid.marwadishaadi.User_Profile.UserProfile;
+import com.example.sid.marwadishaadi.User_Profile.UserProfileActivity;
 
 public class Dashboard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
@@ -77,7 +72,7 @@ public class Dashboard extends AppCompatActivity
         userdp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Dashboard.this, UserProfile.class);
+                Intent i = new Intent(Dashboard.this, UserProfileActivity.class);
                 startActivity(i);
                 overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
             }
@@ -162,7 +157,7 @@ public class Dashboard extends AppCompatActivity
             startActivity(i);
             overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
         }else if(id == R.id.nav_membership){
-            Intent i = new Intent(Dashboard.this,UpgradeMembership.class);
+            Intent i = new Intent(Dashboard.this,UpgradeMembershipActivity.class);
             startActivity(i);
             overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
         }

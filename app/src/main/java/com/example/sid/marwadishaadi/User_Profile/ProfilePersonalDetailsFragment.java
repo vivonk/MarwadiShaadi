@@ -10,8 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.sid.marwadishaadi.EditPersonalDetailsActivity;
-import com.example.sid.marwadishaadi.EditPreferencesActivity;
+import com.example.sid.marwadishaadi.User_Profile.Edit_User_Profile.EditPersonalDetailsActivity;
 import com.example.sid.marwadishaadi.R;
 import com.example.sid.marwadishaadi.Search.BottomSheet;
 
@@ -19,12 +18,12 @@ import com.example.sid.marwadishaadi.Search.BottomSheet;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Profile_Personal_Details.OnFragmentInteractionListener} interface
+ * {@link ProfilePersonalDetailsFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Profile_Personal_Details#newInstance} factory method to
+ * Use the {@link ProfilePersonalDetailsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Profile_Personal_Details extends Fragment {
+public class ProfilePersonalDetailsFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -39,7 +38,7 @@ public class Profile_Personal_Details extends Fragment {
     private static int casebreak;
     private OnFragmentInteractionListener mListener;
 
-    public Profile_Personal_Details() {
+    public ProfilePersonalDetailsFragment() {
         // Required empty public constructor
     }
 
@@ -49,11 +48,11 @@ public class Profile_Personal_Details extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Profile_Personal_Details.
+     * @return A new instance of fragment ProfilePersonalDetailsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static Profile_Personal_Details newInstance(String param1, String param2) {
-        Profile_Personal_Details fragment = new Profile_Personal_Details();
+    public static ProfilePersonalDetailsFragment newInstance(String param1, String param2) {
+        ProfilePersonalDetailsFragment fragment = new ProfilePersonalDetailsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

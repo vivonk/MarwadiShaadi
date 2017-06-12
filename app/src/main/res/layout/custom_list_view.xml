@@ -16,4 +16,10 @@
         android:layout_height="match_parent">
 
     </ListView>
+
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/search_ok"
+        android:layout_margin="10dp"/>
 </LinearLayout>

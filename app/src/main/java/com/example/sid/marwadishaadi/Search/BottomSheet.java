@@ -69,6 +69,67 @@ public class BottomSheet extends BottomSheetDialogFragment {
                 contentView = View.inflate(getContext(),R.layout.bottom_sheet_search, null) ;
                 break;
 
+            case 3:
+                ArrayList<User> arrayOfUserss = new ArrayList<>();
+                String [] str1=getResources().getStringArray(R.array.status_search_array);
+                for(int i=0;i<str1.length;i++)
+                {
+                    User user=new User(str1[i],"null");
+                    arrayOfUserss.add(user);
+                }
+                UsersAdapter adapters = new UsersAdapter(getContext(), arrayOfUserss);
+                View msview = View.inflate(getContext(),R.layout.custom_list_view, null) ;
+                ListView listView1 = (ListView) msview.findViewById(R.id.list_view);
+                listView1.setAdapter(adapters);
+                contentView=msview;
+                break;
+
+            case 4:
+                ArrayList<User> arrayOfUsersq = new ArrayList<>();
+                String [] strq=getResources().getStringArray(R.array.fstatus_search_array);
+                for(int i=0;i<strq.length;i++)
+                {
+                    User user=new User(strq[i],"null");
+                    arrayOfUsersq.add(user);
+                }
+                UsersAdapter adapterq = new UsersAdapter(getContext(), arrayOfUsersq);
+                View mwview = View.inflate(getContext(),R.layout.custom_list_view, null) ;
+                ListView listView3 = (ListView) mwview.findViewById(R.id.list_view);
+                listView3.setAdapter(adapterq);
+                contentView=mwview;
+                break;
+
+            case 5:
+                ArrayList<User> arrayOfUsersa = new ArrayList<>();
+                String [] stra=getResources().getStringArray(R.array.aincome_search_array);
+                for(int i=0;i<stra.length;i++)
+                {
+                    User user=new User(stra[i],"null");
+                    arrayOfUsersa.add(user);
+                }
+                UsersAdapter adaptera = new UsersAdapter(getContext(), arrayOfUsersa);
+                View mqview = View.inflate(getContext(),R.layout.custom_list_view, null) ;
+                ListView listView4 = (ListView) mqview.findViewById(R.id.list_view);
+                listView4.setAdapter(adaptera);
+                contentView=mqview;
+                break;
+
+            case 6:
+                ArrayList<User> arrayOfUsersp = new ArrayList<>();
+                String [] strp=getResources().getStringArray(R.array.physicalstatus_search_array);
+                for(int i=0;i<strp.length;i++)
+                {
+                    User user=new User(strp[i],"null");
+                    arrayOfUsersp.add(user);
+                }
+                UsersAdapter adapterp = new UsersAdapter(getContext(), arrayOfUsersp);
+                View pview = View.inflate(getContext(),R.layout.custom_list_view, null) ;
+                ListView listView5 = (ListView) pview.findViewById(R.id.list_view);
+                listView5.setAdapter(adapterp);
+                contentView=pview;
+                break;
+
+
             // edit profile - personal details
             case 11:
                 contentView = View.inflate(getContext(),R.layout.bottom_sheet_personal,null);

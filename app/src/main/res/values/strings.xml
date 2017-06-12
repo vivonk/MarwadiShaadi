@@ -102,7 +102,7 @@
     <string name="payment51">Name : Marwadi Shaadi Matrimonial Services\nBank Name : Axis Bank\nBranch : Utalsar, Thane (W)\nA/c No. : 912020018030211\nIFSC : UTIB0000509</string>
     <string name="payment52">Cash deposit will attract extra charges.</string>
     <string name="address">Shop No. 11\nGovardhan Dham\nOpp. New ST Stand\nThane - 400 601\nMaharashtra, India.</string>
-    <string name="telephone">+91 022 6565 6900\n+91 902 211 2277\n+91 808 030 8628\n+91 730 393 8665\n+91 902 290 3322</string>
+    <string name="telephone">+91 902 211 2277\n+91 808 030 8628\n+91 730 393 8665\n+91 902 290 3322</string>
     <string name="fax">+91 022 2534 2786</string>
     <string name="email">info@marwadishaadi.com\nregistrations@marwadishaadi.com</string>
     <string name="skype">marwadi.shaadi</string>
@@ -124,6 +124,13 @@
         <item>Lower Middle</item>
     </string-array>
 
+    <string-array name="fstatus_search_array">
+        <item>Doesn\'t Matter</item>
+        <item>Affluent Class</item>
+        <item>Upper Middle Class</item>
+        <item>Middle Class</item>
+        <item>Lower Middle</item>
+    </string-array>
 
     <string-array name="ftype_array">
         <item>Select Family Type</item>
@@ -182,6 +189,17 @@
         <item>Physical abnormality affecting bodily functions</item>
     </string-array>
 
+    <string-array name="physicalstatus_search_array">
+        <item>Doesn\'t Matter</item>
+        <item>Normal</item>
+        <item>Physically challenged from birth</item>
+        <item>Physically challenged due to accident</item>
+        <item>Mentally challenged from birth</item>
+        <item>Mentally challenged due to accident</item>
+        <item>Physically abnormality affecting only looks</item>
+        <item>Physical abnormality affecting bodily functions</item>
+    </string-array>
+
     <string-array name="manglik_array">
         <item>Manglik ?</item>
         <item>Yes</item>
@@ -190,11 +208,11 @@
     </string-array>
 
     <string-array name="manglik_search_array">
-        <item>Manglik ?</item>
+        <item>Doesn\'t matter</item>
         <item>Yes</item>
         <item>No</item>
-        <item>Doesn\'t matter</item>
     </string-array>
+
     <string-array name="relation_name_array">
         <item>Choose your relation</item>
         <item>Tauji</item>
@@ -348,7 +366,24 @@
         <item>30L - 50L</item>
         <item>Above 50L</item>
     </string-array>
-    >
+
+
+    <string-array name="aincome_search_array">
+        <item>Doesn\'t Matter</item>
+        <item>Upto 3L</item>
+        <item>3L - 6L</item>
+        <item>6L - 10L</item>
+        <item>10L - 15L</item>
+        <item>15L - 20L</item>
+        <item>20L - 30L</item>
+        <item>20L - 30L</item>
+        <item>20L - 30L</item>
+        <item>20L - 30L</item>
+        <item>20L - 30L</item>
+        <item>30L - 50L</item>
+        <item>Above 50L</item>
+    </string-array>
+
 
     <string-array name="education_array">
         <item>Select Education</item>
@@ -394,6 +429,15 @@
 
     <string-array name="status_array">
         <item>Select Marital Status</item>
+        <item>Unmarried</item>
+        <item>Widow</item>
+        <item>Divorced</item>
+        <item>Widower</item>
+        <item>Seperated</item>
+    </string-array>
+
+    <string-array name="status_search_array">
+        <item>Doesn\'t Matter</item>
         <item>Unmarried</item>
         <item>Widow</item>
         <item>Divorced</item>

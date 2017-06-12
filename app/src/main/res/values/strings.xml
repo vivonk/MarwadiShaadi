@@ -278,10 +278,9 @@
         <item>7ft 10in - 238cm</item>
         <item>7ft 11in - 241cm</item>
     </string-array>
-<<<<<<< HEAD
 
     <string-array name="height_search_array">
-        <item>Doesn/'t matter</item>
+        <item>Doesn\'t matter</item>
         <item>4ft - 121 cm</item>
         <item>4ft - 121 cm</item>
         <item>4ft 1in - 124cm</item>
@@ -333,10 +332,8 @@
         <item>7ft 11in - 241cm</item>
     </string-array>
 
-  <string-array name="aincome_array">
-=======
+
     <string-array name="aincome_array">
->>>>>>> 2be488db5602d33077a80050e215409d42ba9785
         <item>Select Annual Income</item>
         <item>Upto 3L</item>
         <item>3L - 6L</item>

@@ -2,6 +2,7 @@ package com.example.sid.marwadishaadi.User_Profile;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.sid.marwadishaadi.R;
+import com.example.sid.marwadishaadi.Search.BottomSheet;
 
 
 /**
@@ -31,7 +33,7 @@ public class Profile_Personal_Details extends Fragment {
     private TextView edit_individual;
     private TextView edit_education;
     private TextView edit_profession;
-
+    private static int casebreak;
     private OnFragmentInteractionListener mListener;
 
     public Profile_Personal_Details() {
@@ -78,22 +80,28 @@ public class Profile_Personal_Details extends Fragment {
         edit_individual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                casebreak=11;
+                BottomSheetDialogFragment btm= new BottomSheet(1);
+                btm.show(getFragmentManager(),btm.getTag());
             }
         });
+
+        edit_education.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                casebreak=12;
+                BottomSheetDialogFragment btm= new BottomSheet(1);
+                btm.show(getFragmentManager(),btm.getTag());
+            }
+        });
+
 
         edit_profession.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-            }
-        });
-
-
-        edit_profession.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
+                casebreak=13;
+                BottomSheetDialogFragment btm= new BottomSheet(1);
+                btm.show(getFragmentManager(),btm.getTag());
             }
         });
 
@@ -137,5 +145,9 @@ public class Profile_Personal_Details extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+    public int getCasebreak()
+    {
+        return this.casebreak;
     }
 }

@@ -79,20 +79,37 @@
             android:label="@string/title_activity_user_profile"
             android:theme="@style/AppTheme" />
         <activity android:name=".Payment_Policy.PaymentPolicyActivity" />
-        <activity android:name=".Notifications.NotificationsActivity"  android:label="Notifications"/>
+        <activity
+            android:name=".Notifications.NotificationsActivity"
+            android:label="Notifications" />
         <activity android:name=".Search.Search" />
         <activity
             android:name=".Dashboard_Interest.InterestActivity"
             android:label="Interest" />
         <activity android:name=".About_Us.AboutUsActivity" />
         <activity android:name=".Contact_Us.ContactUsActivity" />
+<<<<<<< HEAD
         <activity android:name=".Faq.FaqActivity"></activity>
+        <activity android:name=".UpgradeMembership"></activity>
+
 
 
         <!--Chat Activities -->
         <activity android:name=".Chat.DefaultDialogsActivity" android:label="Inbox"/>
         <activity android:name=".Chat.DefaultMessagesActivity"/>
+        <activity android:name=".Chat2.Messaging"/>
+        <activity android:name=".Chat2.InboxActivity"/>
 
+=======
+        <activity android:name=".Faq.FaqActivity" />
+>>>>>>> 57585193874b8a022afc0e42ce627d7c306cf51f
+
+        <!-- Chat Activities -->
+        <activity
+            android:name=".Chat.DefaultDialogsActivity"
+            android:label="Inbox" />
+        <activity android:name=".Chat.DefaultMessagesActivity" />
+        <activity android:name=".EditPreferencesActivity"></activity>
     </application>
 
 </manifest>

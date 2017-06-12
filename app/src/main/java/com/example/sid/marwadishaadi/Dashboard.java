@@ -23,6 +23,8 @@ import android.widget.Toast;
 
 import com.example.sid.marwadishaadi.About_Us.AboutUsActivity;
 import com.example.sid.marwadishaadi.Chat.DefaultDialogsActivity;
+import com.example.sid.marwadishaadi.Chat2.InboxActivity;
+import com.example.sid.marwadishaadi.Chat2.Messaging;
 import com.example.sid.marwadishaadi.Contact_Us.ContactUsActivity;
 import com.example.sid.marwadishaadi.Dashboard_Favourites.FavouritesFragment;
 import com.example.sid.marwadishaadi.Dashboard_Interest.InterestActivity;
@@ -147,7 +149,7 @@ public class Dashboard extends AppCompatActivity
             startActivity(i);
             overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
         }else if(id == R.id.nav_membership){
-            Intent i = new Intent(Dashboard.this,Membership.class);
+            Intent i = new Intent(Dashboard.this,UpgradeMembership.class);
             startActivity(i);
             overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
         }

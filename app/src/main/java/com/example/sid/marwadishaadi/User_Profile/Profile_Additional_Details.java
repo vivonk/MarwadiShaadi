@@ -2,12 +2,15 @@ package com.example.sid.marwadishaadi.User_Profile;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.sid.marwadishaadi.R;
+import com.example.sid.marwadishaadi.Search.BottomSheet;
 
 public class Profile_Additional_Details extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -19,6 +22,10 @@ public class Profile_Additional_Details extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private TextView edit_about;
+    private TextView edit_hobbies;
+    private TextView edit_lifestyle;
+    private static  int casebreak;
     private OnFragmentInteractionListener mListener;
 
     public Profile_Additional_Details() {
@@ -56,7 +63,44 @@ public class Profile_Additional_Details extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile__additional__details, container, false);
+        View mview = inflater.inflate(R.layout.fragment_profile__additional__details, container, false);
+        edit_about = (TextView) mview.findViewById(R.id.aboutme_clear);
+        edit_hobbies=(TextView) mview.findViewById(R.id.hobbies_clear);
+        edit_lifestyle=(TextView)mview.findViewById(R.id.lifestyle_clear);
+
+
+        edit_about.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                casebreak=21;
+                BottomSheetDialogFragment btm= new BottomSheet(2);
+                btm.show(getFragmentManager(),btm.getTag());
+            }
+        });
+
+        edit_hobbies.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                casebreak=22;
+                BottomSheetDialogFragment btm= new BottomSheet(2);
+                btm.show(getFragmentManager(),btm.getTag());
+            }
+        });
+
+
+        edit_lifestyle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                casebreak=23;
+                BottomSheetDialogFragment btm= new BottomSheet(2);
+                btm.show(getFragmentManager(),btm.getTag());
+            }
+        });
+
+
+
+
+        return mview;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -96,5 +140,9 @@ public class Profile_Additional_Details extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+    public int getCasebreak()
+    {
+        return this.casebreak;
     }
 }

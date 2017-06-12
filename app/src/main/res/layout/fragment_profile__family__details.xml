@@ -28,15 +28,33 @@
                 android:layout_margin="16dp"
                 android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:text="Family"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1.8"
                     android:textColor="@color/colorPrimary"
                     android:textSize="20dp"
                     android:textStyle="italic" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:clickable="true"
+                    android:gravity="end|center_vertical"
+                    android:drawableLeft="@drawable/ic_user_edit"
+                    android:layout_marginRight="20dp"
+                    android:id="@+id/family_clear"/>
+
+                </LinearLayout>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -144,6 +162,12 @@
                 android:layout_margin="16dp"
                 android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -151,7 +175,19 @@
                     android:text="Relatives"
                     android:textColor="@color/colorPrimary"
                     android:textSize="20dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1.8"
                     android:textStyle="italic" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:clickable="true"
+                    android:gravity="end|center_vertical"
+                    android:drawableLeft="@drawable/ic_user_edit"
+                    android:layout_marginRight="20dp"
+                    android:id="@+id/relatives_clear"/>
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"

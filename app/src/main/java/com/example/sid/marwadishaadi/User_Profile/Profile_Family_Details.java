@@ -2,12 +2,15 @@ package com.example.sid.marwadishaadi.User_Profile;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.sid.marwadishaadi.R;
+import com.example.sid.marwadishaadi.Search.BottomSheet;
 
 
 /**
@@ -27,6 +30,9 @@ public class Profile_Family_Details extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private static int casebreak;
+    private TextView edit_family;
+    private TextView edit_relatives;
 
     private OnFragmentInteractionListener mListener;
 
@@ -65,7 +71,29 @@ public class Profile_Family_Details extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile__family__details, container, false);
+        View mview = inflater.inflate(R.layout.fragment_profile__family__details, container, false);
+        edit_family=(TextView)mview.findViewById(R.id.family_clear);
+        edit_relatives=(TextView)mview.findViewById(R.id.relatives_clear);
+
+        edit_family.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                casebreak=31;
+                BottomSheetDialogFragment btm= new BottomSheet(3);
+                btm.show(getFragmentManager(),btm.getTag());
+            }
+        });
+
+        edit_relatives.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                casebreak=32;
+                BottomSheetDialogFragment btm= new BottomSheet(3);
+                btm.show(getFragmentManager(),btm.getTag());
+            }
+        });
+
+        return mview;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -105,5 +133,9 @@ public class Profile_Family_Details extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+    public int getCasebreak()
+    {
+        return this.casebreak;
     }
 }

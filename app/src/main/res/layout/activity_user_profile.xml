@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     xmlns:fab="http://schemas.android.com/tools"
     android:fitsSystemWindows="true"
+    android:id="@+id/entire_ui"
     android:layout_height="match_parent">
 
     <android.support.design.widget.AppBarLayout
@@ -28,6 +29,9 @@
                 app:fillColor="#FFFFFFFF"
                 app:pageColor="#00000000"
                 app:radius="3dp"
+                app:indicatorGravity="end"
+                app:indicatorOrientation="vertical"
+                app:autoPlay="false"
                 app:layout_scrollFlags="scroll|enterAlways"
                 app:layout_collapseMode="pin"
                 app:strokeColor="#FF777777"
@@ -66,6 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_gravity="bottom|end"
         android:orientation="horizontal"
+        android:id="@+id/fabmenu"
         android:layout_height="wrap_content">
 
         <com.github.clans.fab.FloatingActionMenu
@@ -147,17 +152,6 @@
                 app:fab_label="Save as PDF"
                 style="@style/MenuButtonsStyle" />
 
-            <com.github.clans.fab.FloatingActionButton
-                android:id="@+id/fab_edit_profile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                app:fab_colorNormal="#DA0469"
-                app:fab_colorPressed="#da0469"
-                app:fab_colorRipple="#da0469"
-                android:src="@drawable/fab_edit_profile"
-                app:fab_label="Edit Profile"
-                style="@style/MenuButtonsStyle" />
 
         </com.github.clans.fab.FloatingActionMenu>
 

@@ -31,6 +31,9 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
+    //for chat
+    
+
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.github.paolorotolo:appintro:4.1.0'
@@ -43,11 +46,8 @@ dependencies {
     compile 'com.crystal:crystalrangeseekbar:1.1.1'
     compile 'com.facebook.android:facebook-android-sdk:4.+'
     compile 'com.android.support:support-vector-drawable:25.3.1'
-    testCompile 'junit:junit:4.12'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0-RC0'
-
-    //for chat
     compile 'com.github.stfalcon:chatkit:0.2.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
-
+    testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0-RC0'
 }

@@ -94,7 +94,7 @@ public class Search extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 casebreak=1;
-                BottomSheetDialogFragment btm= new BottomSheet();
+                BottomSheetDialogFragment btm= new BottomSheet(0);
                 btm.show(getSupportFragmentManager(),btm.getTag());
 
             }
@@ -107,7 +107,7 @@ public class Search extends AppCompatActivity {
             public void onClick(View view) {
                 casebreak=2;
                 //  Toast.makeText(getApplicationContext(),Integer.toString(getCasebreak())+" does this worked or not", Toast.LENGTH_LONG).show();
-                BottomSheetDialogFragment bottomSheetDialogFragment = new BottomSheet();
+                BottomSheetDialogFragment bottomSheetDialogFragment = new BottomSheet(0);
                 bottomSheetDialogFragment.show(getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
 
             }

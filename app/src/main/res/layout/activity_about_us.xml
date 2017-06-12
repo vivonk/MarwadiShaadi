@@ -10,6 +10,7 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/aboutus_toolbar"
         android:layout_width="match_parent"
+        android:theme="@style/MyToolbartheme"
         android:titleTextColor="@android:color/white"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"

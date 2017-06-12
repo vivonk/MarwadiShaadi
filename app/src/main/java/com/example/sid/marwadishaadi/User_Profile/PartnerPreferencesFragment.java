@@ -77,8 +77,7 @@ public class PartnerPreferencesFragment extends Fragment {
                 Intent i = new Intent(getContext(), EditPreferencesActivity.class);
                 startActivity(i);
                 getActivity().overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
-                /*BottomSheetDialogFragment bottomSheetDialogFragment = new EditPreferencesBottomSheet();
-                bottomSheetDialogFragment.show(getFragmentManager(), bottomSheetDialogFragment.getTag());*/
+
             }
         });
 

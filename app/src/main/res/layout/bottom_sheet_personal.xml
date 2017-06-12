@@ -25,6 +25,23 @@
                 android:layout_margin="16dp"
                 android:orientation="vertical">
 
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:textSize="20dp"
+                    android:entries="@array/status_array"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1" />
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:entries="@array/height_array"
+                    android:textSize="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1" />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -96,6 +113,14 @@
                     android:layout_marginTop="20dp"
                     android:layout_weight="1" />
 
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:textSize="20dp"
+                    android:entries="@array/complexion_array"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1" />
 
                 <Spinner
                     android:layout_width="match_parent"
@@ -112,6 +137,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/advnext"
                     android:textColor="#fff"
+                    android:textAllCaps="false"
                     android:textStyle="bold"
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"

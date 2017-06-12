@@ -1,5 +1,6 @@
 package com.example.sid.marwadishaadi.User_Profile;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.BottomSheetDialogFragment;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.sid.marwadishaadi.EditFamilyDetailsActivity;
+import com.example.sid.marwadishaadi.EditPreferencesActivity;
 import com.example.sid.marwadishaadi.R;
 import com.example.sid.marwadishaadi.Search.BottomSheet;
 
@@ -78,9 +81,9 @@ public class Profile_Family_Details extends Fragment {
         edit_family.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                casebreak=31;
-                BottomSheetDialogFragment btm= new BottomSheet(3);
-                btm.show(getFragmentManager(),btm.getTag());
+                Intent i = new Intent(getContext(), EditFamilyDetailsActivity.class);
+                startActivity(i);
+                getActivity().overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
             }
         });
 

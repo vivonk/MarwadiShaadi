@@ -39,7 +39,6 @@ public class UpgradeMembership extends AppCompatActivity {
         all = (CardView) findViewById(R.id.all);
 
         isMaheshwari = isAgarwal = isJain = isKhandelwal = isOthers = isAll = true;
-        isAll = false;
 
         if(!isMaheshwari)
         {

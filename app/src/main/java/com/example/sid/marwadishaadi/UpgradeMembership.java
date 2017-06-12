@@ -6,6 +6,7 @@ import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.Toolbar;
 import android.widget.Button;
 import android.widget.TextView;
 import android.view.View;
@@ -22,6 +23,13 @@ public class UpgradeMembership extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.upgrade_membership);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.upgrademembership_toolbar);
+        toolbar.setTitle("Membership");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         upgrade = (Button)findViewById(R.id.upgrade);
         maheshwari = (CardView) findViewById(R.id.maheshwari);
         agarwal = (CardView) findViewById(R.id.agarwal);
@@ -73,5 +81,10 @@ public class UpgradeMembership extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
+    }
 
 }

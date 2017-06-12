@@ -52,6 +52,10 @@ public class Dashboard extends AppCompatActivity
     private DashboardSectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
     private ImageView userdp;
+    private ImageView interest;
+    private ImageView inbox;
+    private ImageView search;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +82,39 @@ public class Dashboard extends AppCompatActivity
                 overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
             }
         });
+
+        interest = (ImageView)mview.findViewById(R.id.nav_interest);
+        interest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Dashboard.this, InterestActivity.class);
+                startActivity(i);
+                overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
+            }
+        });
+
+
+        inbox = (ImageView)mview.findViewById(R.id.nav_inbox);
+        inbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Dashboard.this, DefaultDialogsActivity.class);
+                startActivity(i);
+                overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
+            }
+        });
+
+
+        search = (ImageView)mview.findViewById(R.id.nav_search);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Dashboard.this,Search.class);
+                startActivity(i);
+                overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
+            }
+        });
+
         navigationView.setItemIconTintList(null);
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -105,6 +142,7 @@ public class Dashboard extends AppCompatActivity
 
     }
 
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -112,17 +150,7 @@ public class Dashboard extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         Menu menu = navigationView.getMenu();
         int id = item.getItemId();
-        if (id == R.id.nav_inbox) {
-            Intent i = new Intent(Dashboard.this, DefaultDialogsActivity.class);
-            startActivity(i);
-            overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
-
-        }else if (id == R.id.nav_search){
-            Intent i = new Intent(Dashboard.this,Search.class);
-            startActivity(i);
-            overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
-
-        }else if (id == R.id.nav_home){
+       if (id == R.id.nav_home){
                 onBackPressed();
         }else if (id == R.id.nav_interest){
             Intent i = new Intent(Dashboard.this,InterestActivity.class);

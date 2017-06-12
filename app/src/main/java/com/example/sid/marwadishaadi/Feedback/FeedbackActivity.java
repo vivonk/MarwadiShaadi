@@ -1,11 +1,16 @@
 package com.example.sid.marwadishaadi.Feedback;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.transition.Slide;
+import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -27,16 +32,19 @@ public class FeedbackActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         setContentView(R.layout.activity_feedback);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.feedback_toolbar);
+        toolbar.setTitle("Feedback");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
         fftext=(EditText) findViewById(R.id.edt_feedback);
+
         send=(Button) findViewById(R.id.sendFeedback);
         email_response = (CheckBox) findViewById(R.id.email_response);
-        fftext.setBackgroundResource(R.drawable.edit_text_border);
 
 
         send.setOnClickListener(new View.OnClickListener() {
@@ -99,5 +107,11 @@ public class FeedbackActivity extends AppCompatActivity {
                 +"\nUNKNOWN : "+Build.UNKNOWN
                 +"\nUSER : "+Build.USER;
         return details;
+    }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }

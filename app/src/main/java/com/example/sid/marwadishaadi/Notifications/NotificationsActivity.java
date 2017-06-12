@@ -23,7 +23,10 @@ public class NotificationsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_notifications);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.notify_toolbar);
+        toolbar.setTitle("Notifications");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
         notificationsAdapter =  new NotificationsAdapter(this, notificationsModelList);
@@ -60,5 +63,10 @@ public class NotificationsActivity extends AppCompatActivity {
         notificationsModelList.add(ne);
 
         notificationsAdapter.notifyDataSetChanged();
+    }
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }

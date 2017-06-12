@@ -10,13 +10,21 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SwitchCompat;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sid.marwadishaadi.About_Us.AboutUsActivity;
 import com.example.sid.marwadishaadi.Blocked_Members.BlockedActivity;
+import com.example.sid.marwadishaadi.Contact_Us.ContactUsActivity;
+import com.example.sid.marwadishaadi.Dashboard;
+import com.example.sid.marwadishaadi.Faq.FaqActivity;
+import com.example.sid.marwadishaadi.Payment_Policy.PaymentPolicyActivity;
+import com.example.sid.marwadishaadi.Privacy_Policy.PrivacyPolicyActivity;
 import com.example.sid.marwadishaadi.R;
 import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
@@ -30,11 +38,75 @@ public class SettingsActivity extends AppCompatActivity {
     protected TextView delete_acc;
     protected TextView blocked;
     protected TextView logout;
+    protected TextView faq;
+    protected TextView aboutus;
+    protected TextView privacypolicy;
+    protected TextView contactus;
+    protected TextView paymentpolicy;
+    protected LinearLayout morelinearlayout;
+    protected TextView more;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+
+        faq = (TextView) findViewById(R.id.faq);
+        aboutus = (TextView) findViewById(R.id.aboutus);
+        privacypolicy= (TextView) findViewById(R.id.privacypolicy);
+        paymentpolicy = (TextView) findViewById(R.id.paymentpolicy);
+        contactus= (TextView) findViewById(R.id.contactus);
+
+        faq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(SettingsActivity.this,FaqActivity.class);
+                startActivity(i);
+                overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
+
+            }
+        });
+
+        aboutus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(SettingsActivity.this,AboutUsActivity.class);
+                startActivity(i);
+                overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
+            }
+        });
+
+        privacypolicy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(SettingsActivity.this,PrivacyPolicyActivity.class);
+                startActivity(i);
+                overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
+
+            }
+        });
+
+        paymentpolicy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(SettingsActivity.this,PaymentPolicyActivity.class);
+                startActivity(i);
+                overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
+
+            }
+        });
+
+        contactus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(SettingsActivity.this,ContactUsActivity.class);
+                startActivity(i);
+                overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
+
+            }
+        });
 
 
         notifications = (SwitchCompat) findViewById(R.id.switchNot);
@@ -43,7 +115,20 @@ public class SettingsActivity extends AppCompatActivity {
         delete_acc = (TextView) findViewById(R.id.delete_acc);
         blocked = (TextView) findViewById(R.id.blocked);
         logout = (TextView) findViewById(R.id.Logout);
+        more = (TextView) findViewById(R.id.more);
+        morelinearlayout = (LinearLayout) findViewById(R.id.morelayout);
 
+
+        more.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (morelinearlayout.getVisibility() == View.GONE){
+                    morelinearlayout.setVisibility(View.VISIBLE);
+                }else{
+                    morelinearlayout.setVisibility(View.GONE);
+                }
+            }
+        });
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override

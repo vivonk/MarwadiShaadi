@@ -44,43 +44,6 @@
             android:icon="@drawable/ic_action_feedback"
             android:title="Send Feedback" />
 
-        <item
-            android:id="@+id/nav_more"
-            android:icon="@drawable/ic_expand_more_black_24dp"
-            android:title="More" />
 
     </group>
-
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_about_us"
-            android:icon="@drawable/ic_action_about_us"
-            android:visible="false"
-            android:title="About Us" />
-        <item
-            android:id="@+id/nav_faq"
-            android:icon="@drawable/ic_action_faq"
-            android:visible="false"
-            android:title="Faq" />
-        <item
-            android:id="@+id/nav_privacy_policy"
-            android:icon="@drawable/ic_action_privacy"
-            android:visible="false"
-            android:title="Privacy Policy" />
-        <item
-            android:id="@+id/nav_payment_policy"
-            android:icon="@drawable/ic_action_payment"
-            android:visible="false"
-            android:title="Payment Policy" />
-
-        <item
-            android:id="@+id/nav_contact_us"
-            android:icon="@drawable/ic_action_contact"
-            android:visible="false"
-            android:title="Contact Us" />
-
-    </group>
-
-
-
 </menu>

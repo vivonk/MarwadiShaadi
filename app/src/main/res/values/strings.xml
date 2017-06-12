@@ -32,7 +32,6 @@
     </string-array>
 
 
-
     <string-array name="children_array">
         <item>Yes</item>
         <item>No</item>
@@ -272,7 +271,7 @@
         <item>7ft 10in - 238cm</item>
         <item>7ft 11in - 241cm</item>
     </string-array>
-  <string-array name="aincome_array">
+    <string-array name="aincome_array">
         <item>Select Annual Income</item>
         <item>Upto 3L</item>
         <item>3L - 6L</item>
@@ -286,7 +285,8 @@
         <item>20L - 30L</item>
         <item>30L - 50L</item>
         <item>Above 50L</item>
-    </string-array>>
+    </string-array>
+    >
 
     <string-array name="education_array">
         <item>Select Education</item>
@@ -299,7 +299,7 @@
         <item>Graduate</item>
         <item>Undergraduate</item>
     </string-array>
-    
+
     <string-array name="occupation_array">
         <item>Occupation</item>
         <item>Self Employed</item>

@@ -1,14 +1,15 @@
 package com.example.sid.marwadishaadi.User_Profile;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.sid.marwadishaadi.EditPreferencesActivity;
 import com.example.sid.marwadishaadi.R;
 
 /**
@@ -72,9 +73,12 @@ public class PartnerPreferencesFragment extends Fragment {
         edit_prefs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                View view = getActivity().getLayoutInflater().inflate(R.layout.bottom_sheet_partner_prefs,null);
-                BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(view);
-                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+
+                Intent i = new Intent(getContext(), EditPreferencesActivity.class);
+                startActivity(i);
+                getActivity().overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
+                /*BottomSheetDialogFragment bottomSheetDialogFragment = new EditPreferencesBottomSheet();
+                bottomSheetDialogFragment.show(getFragmentManager(), bottomSheetDialogFragment.getTag());*/
             }
         });
 

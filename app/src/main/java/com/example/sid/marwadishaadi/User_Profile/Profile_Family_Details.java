@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.sid.marwadishaadi.R;
 
@@ -27,6 +28,9 @@ public class Profile_Family_Details extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private TextView edit_family;
+    private TextView edit_relatives;
 
     private OnFragmentInteractionListener mListener;
 
@@ -65,7 +69,25 @@ public class Profile_Family_Details extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile__family__details, container, false);
+        View mview = inflater.inflate(R.layout.fragment_profile__family__details, container, false);
+        edit_family=(TextView)mview.findViewById(R.id.family_clear);
+        edit_relatives=(TextView)mview.findViewById(R.id.relatives_clear);
+
+        edit_family.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        edit_relatives.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        return mview;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

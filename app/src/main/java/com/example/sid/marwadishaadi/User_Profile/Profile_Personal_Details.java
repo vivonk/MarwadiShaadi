@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.sid.marwadishaadi.R;
 
@@ -27,6 +28,9 @@ public class Profile_Personal_Details extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private TextView edit_individual;
+    private TextView edit_education;
+    private TextView edit_profession;
 
     private OnFragmentInteractionListener mListener;
 
@@ -65,7 +69,35 @@ public class Profile_Personal_Details extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile__personal__details, container, false);
+        View mview =  inflater.inflate(R.layout.fragment_profile__personal__details, container, false);
+
+        edit_individual = (TextView) mview.findViewById(R.id.individual_clear);
+        edit_education = (TextView) mview.findViewById(R.id.edu_clear);
+        edit_profession = (TextView) mview.findViewById(R.id.profession_clear);
+
+        edit_individual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        edit_profession.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
+        edit_profession.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        return mview;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

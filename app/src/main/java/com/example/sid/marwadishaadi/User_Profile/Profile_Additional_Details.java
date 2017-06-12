@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.sid.marwadishaadi.R;
 
@@ -18,6 +19,11 @@ public class Profile_Additional_Details extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private TextView edit_about;
+    private TextView edit_hobbies;
+    private TextView edit_lifestyle;
+    private TextView edit_horoscope;
 
     private OnFragmentInteractionListener mListener;
 
@@ -56,7 +62,43 @@ public class Profile_Additional_Details extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile__additional__details, container, false);
+        View mview = inflater.inflate(R.layout.fragment_profile__additional__details, container, false);
+        edit_about = (TextView) mview.findViewById(R.id.aboutme_clear);
+        edit_hobbies=(TextView) mview.findViewById(R.id.hobbies_clear);
+        edit_horoscope=(TextView)mview.findViewById(R.id.horoscope_clear);
+        edit_lifestyle=(TextView)mview.findViewById(R.id.lifestyle_clear);
+
+
+        edit_about.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        edit_hobbies.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
+        edit_horoscope.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        edit_lifestyle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        return mview;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

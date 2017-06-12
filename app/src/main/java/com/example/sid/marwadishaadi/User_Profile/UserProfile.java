@@ -1,10 +1,13 @@
 package com.example.sid.marwadishaadi.User_Profile;
 
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import com.github.clans.fab.FloatingActionButton;
+
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,10 +17,12 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.sid.marwadishaadi.R;
+import com.github.clans.fab.FloatingActionMenu;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 
@@ -37,7 +42,9 @@ public class UserProfile extends AppCompatActivity implements ViewPager.OnPageCh
     private FloatingActionButton sendinterest;
     private FloatingActionButton shareprofile;
     private FloatingActionButton sharesave;
-    private FloatingActionButton editprofile;
+    private FloatingActionMenu fab;
+    private CoordinatorLayout coordinatorLayout;
+    private FrameLayout frameLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,20 +56,29 @@ public class UserProfile extends AppCompatActivity implements ViewPager.OnPageCh
         CollapsingToolbarLayout toolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
         toolbarLayout.setTitle("Siddhesh Rane");
 
+        coordinatorLayout = (CoordinatorLayout) findViewById(R.id.entire_ui);
+        frameLayout = (FrameLayout) findViewById(R.id.fabmenu);
+
+        fab = (FloatingActionMenu) findViewById(R.id.menu_yellow);
         fav = (FloatingActionButton) findViewById(R.id.fab_favourite);
         sendmsg = (FloatingActionButton) findViewById(R.id.fab_send_message);
         sendinterest = (FloatingActionButton) findViewById(R.id.fab_send_interest);
         shareprofile = (FloatingActionButton) findViewById(R.id.fab_share_profile);
         sharesave = (FloatingActionButton) findViewById(R.id.fab_save);
-        editprofile = (FloatingActionButton) findViewById(R.id.fab_edit_profile);
 
 
-        editprofile.setOnClickListener(new View.OnClickListener() {
+        fab.setOnMenuToggleListener(new FloatingActionMenu.OnMenuToggleListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onMenuToggle(boolean opened) {
+                if (opened) {
+                    coordinatorLayout.setBackgroundColor(Color.parseColor("#1A2d2d2d"));
+                } else {
+                    coordinatorLayout.setBackgroundColor(Color.TRANSPARENT);
+                }
+                Toast.makeText(getApplicationContext(),"yay", Toast.LENGTH_SHORT).show();
             }
         });
+
 
 
         fav.setOnClickListener(new View.OnClickListener() {

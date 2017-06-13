@@ -63,4 +63,9 @@ public class SearchResultsActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
+    }
 }

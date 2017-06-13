@@ -3,6 +3,7 @@ package com.example.sid.marwadishaadi.Search;
 import android.animation.ObjectAnimator;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.design.widget.BottomSheetDialogFragment;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -28,16 +29,63 @@ public class Search extends AppCompatActivity {
     TextView statetextView;
     CardView advCV;
     Button addButton;
-    private static final String TAG = "Search";
-    ListView castList;
     EditText autoCompleteState;
     static String  addTextState,addPrevious="";
-    public SQLiteDatabase db;
-    boolean tvCollapsestate=false;
+    private  EditText maritalstatus;
+    private EditText familystatus;
+    private EditText annualincome;
+    private EditText physicalstatus;
+
+    public Search()
+    {
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
+        maritalstatus = (EditText) findViewById(R.id.search_Marital_status);
+        maritalstatus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                casebreak = 3;
+                BottomSheetDialogFragment btm= new BottomSheet(0);
+                btm.show(getSupportFragmentManager(),btm.getTag());
+            }
+        });
+
+        familystatus = (EditText) findViewById(R.id.search_Family_status);
+        familystatus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                casebreak=4;
+                BottomSheetDialogFragment btm= new BottomSheet(0);
+                btm.show(getSupportFragmentManager(),btm.getTag());
+            }
+        });
+
+        annualincome = (EditText) findViewById(R.id.search_Annual_income);
+        annualincome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                casebreak=5;
+                BottomSheetDialogFragment btm= new BottomSheet(0);
+                btm.show(getSupportFragmentManager(),btm.getTag());
+            }
+        });
+
+        physicalstatus = (EditText) findViewById(R.id.search_physical_status) ;
+        physicalstatus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                casebreak=6;
+                BottomSheetDialogFragment btm= new BottomSheet(0);
+                btm.show(getSupportFragmentManager(),btm.getTag());
+            }
+        });
+
+
         addButton=(Button)findViewById(R.id.search_add_state);
         statetextView=(TextView)findViewById(R.id.text_view_search_add_state);
         spinnerCastSearch=(EditText) findViewById(R.id.search_user_caste);
@@ -112,7 +160,7 @@ public class Search extends AppCompatActivity {
 
             }
         });
-        Button search=(Button)findViewById(R.id.search_Submit);
+        FloatingActionButton search=(FloatingActionButton)findViewById(R.id.search_Submit);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

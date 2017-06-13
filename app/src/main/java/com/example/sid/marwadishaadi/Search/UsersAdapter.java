@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.example.sid.marwadishaadi.R;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 public class UsersAdapter extends ArrayAdapter<User> {
      ArrayList<User> arraylist;
     private static final String TAG = "UsersAdapter";
+    private  CheckBox checkbox;
     public UsersAdapter(Context context, ArrayList<User> users) {
         super(context, R.layout.spinner_multiple_select, users);
         this.arraylist=users;
@@ -31,13 +33,19 @@ public class UsersAdapter extends ArrayAdapter<User> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.spinner_multiple_select, parent, false);
         }
 
+
+
         // Lookup view for data population
 
-        TextView tvName = (TextView) convertView.findViewById(R.id.checkBoxTextView);
+        checkbox=(CheckBox) convertView.findViewById(R.id.checkBox);
 //        TextView tvHome = (TextView) convertView.findViewById(R.id.tvHome);
         // Populate the data into the template view using the data object
 //        Log.d(TAG, "getView: get name is ------------------------------------ " +  user.getName());
-        tvName.setText(user.getName());
+        checkbox.setText(user.getName());
+        if (position == 0)
+        {
+            checkbox.setChecked(true);
+        }
 //        tvHome.setText(user.hometown);
         // Return the completed view to render on screen
         return convertView;

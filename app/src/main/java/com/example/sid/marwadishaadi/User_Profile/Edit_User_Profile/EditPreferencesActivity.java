@@ -1,9 +1,10 @@
-package com.example.sid.marwadishaadi;
+package com.example.sid.marwadishaadi.User_Profile.Edit_User_Profile;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +17,7 @@ import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener;
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarFinalValueListener;
 import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
 import com.example.sid.marwadishaadi.Otp_Verification.Otp_Verification;
+import com.example.sid.marwadishaadi.R;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 
@@ -32,6 +34,12 @@ public class EditPreferencesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_preferences);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.edit_prefs_toolbar);
+        toolbar.setTitle("Edit Partner Preferences");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         complete = (Button) findViewById(R.id.complete);
 
@@ -427,5 +435,11 @@ public class EditPreferencesActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }

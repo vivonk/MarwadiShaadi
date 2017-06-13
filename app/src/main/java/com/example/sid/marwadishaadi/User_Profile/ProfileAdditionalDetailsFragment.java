@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.example.sid.marwadishaadi.R;
 import com.example.sid.marwadishaadi.Search.BottomSheet;
 
-public class Profile_Additional_Details extends Fragment {
+public class ProfileAdditionalDetailsFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -25,10 +25,11 @@ public class Profile_Additional_Details extends Fragment {
     private TextView edit_about;
     private TextView edit_hobbies;
     private TextView edit_lifestyle;
+    private TextView edit_horoscope;
     private static  int casebreak;
     private OnFragmentInteractionListener mListener;
 
-    public Profile_Additional_Details() {
+    public ProfileAdditionalDetailsFragment() {
         // Required empty public constructor
     }
 
@@ -38,11 +39,11 @@ public class Profile_Additional_Details extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Profile_Additional_Details.
+     * @return A new instance of fragment ProfileAdditionalDetailsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static Profile_Additional_Details newInstance(String param1, String param2) {
-        Profile_Additional_Details fragment = new Profile_Additional_Details();
+    public static ProfileAdditionalDetailsFragment newInstance(String param1, String param2) {
+        ProfileAdditionalDetailsFragment fragment = new ProfileAdditionalDetailsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -67,7 +68,16 @@ public class Profile_Additional_Details extends Fragment {
         edit_about = (TextView) mview.findViewById(R.id.aboutme_clear);
         edit_hobbies=(TextView) mview.findViewById(R.id.hobbies_clear);
         edit_lifestyle=(TextView)mview.findViewById(R.id.lifestyle_clear);
+        edit_horoscope = (TextView) mview.findViewById(R.id.horoscope_clear);
 
+        edit_horoscope.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                casebreak=24;
+                BottomSheetDialogFragment btm= new BottomSheet(2);
+                btm.show(getFragmentManager(),btm.getTag());
+            }
+        });
 
         edit_about.setOnClickListener(new View.OnClickListener() {
             @Override

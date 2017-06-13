@@ -10,6 +10,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SwitchCompat;
+import android.support.v7.widget.Toolbar;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -51,6 +52,11 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.settings_toolbar);
+        toolbar.setTitle("Settings");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         faq = (TextView) findViewById(R.id.faq);
         aboutus = (TextView) findViewById(R.id.aboutus);
@@ -135,7 +141,8 @@ public class SettingsActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 AlertDialog.Builder logout_user = new AlertDialog.Builder(SettingsActivity.this);
-                logout_user.setMessage("Do you want to logout ?")
+                logout_user.setMessage("Are you sure you want to logout ?")
+                        .setIcon(R.drawable.setting_logout)
                         .setCancelable(true)
                         .setTitle("Logout")
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -170,8 +177,8 @@ public class SettingsActivity extends AppCompatActivity {
                 reset.setTitle("Reset Password");
                 reset.setView(reset_view);
 
-                final EditText email = (EditText) reset_view.findViewById(R.id.user_email);
-                final EditText newpass = (EditText) reset_view.findViewById(R.id.user_password);
+                final EditText oldpass = (EditText) reset_view.findViewById(R.id.user_old_pass);
+                final EditText newpass = (EditText) reset_view.findViewById(R.id.user_new_password);
                 Button resetbutton = (Button) reset_view.findViewById(R.id.user_reset);
                 final TextView call_us = (TextView) reset_view.findViewById(R.id.call_us);
 
@@ -179,8 +186,8 @@ public class SettingsActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
 
-                        String user_email = email.getText().toString();
-                        String user_pass = newpass.getText().toString();
+                        String user_old_pass = oldpass.getText().toString();
+                        String user_new_pass = newpass.getText().toString();
 
                         Toast.makeText(SettingsActivity.this, "yayay", Toast.LENGTH_SHORT).show();
                     }
@@ -227,7 +234,8 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                     AlertDialog.Builder deactivate = new AlertDialog.Builder(SettingsActivity.this);
-                    deactivate.setMessage("Are you sure you want to Deactivate your account ?")
+                    deactivate.setMessage("Deactivating will temporarily disable your account.")
+                            .setIcon(R.drawable.setting_blocked)
                             .setCancelable(false)
                             .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                 @Override
@@ -253,7 +261,8 @@ public class SettingsActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 AlertDialog.Builder delete = new AlertDialog.Builder(SettingsActivity.this);
-                delete.setMessage("Are you sure you want to Delete your account ?")
+                delete.setMessage("Deleting will permanently remove your account.")
+                        .setIcon(R.drawable.setting_delete)
                         .setCancelable(false)
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
@@ -284,5 +293,11 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }

@@ -61,6 +61,7 @@
                     android:textStyle="bold"
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
+                    android:textAllCaps="false"
                     android:layout_marginTop="30dp"
                     android:text="Update"
                     android:background="@color/colorPrimary"

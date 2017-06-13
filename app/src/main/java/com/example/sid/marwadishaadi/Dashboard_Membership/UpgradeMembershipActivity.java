@@ -1,21 +1,22 @@
-package com.example.sid.marwadishaadi;
+package com.example.sid.marwadishaadi.Dashboard_Membership;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.widget.Button;
-import android.widget.TextView;
 import android.view.View;
+
+import com.example.sid.marwadishaadi.Membership;
+import com.example.sid.marwadishaadi.R;
 
 /**
  * Created by Lawrence Dalmet on 12-06-2017.
  */
 
-public class UpgradeMembership extends AppCompatActivity {
+public class UpgradeMembershipActivity extends AppCompatActivity {
     Button upgrade;
     CardView maheshwari, agarwal, jain, khandelwal, others, all;
     boolean isMaheshwari,isAgarwal, isJain, isKhandelwal, isOthers, isAll;
@@ -71,7 +72,7 @@ public class UpgradeMembership extends AppCompatActivity {
         upgrade.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(UpgradeMembership.this,Membership.class);
+                Intent i = new Intent(UpgradeMembershipActivity.this,Membership.class);
                 startActivity(i);
             }
         });

@@ -30,30 +30,20 @@
                     android:layout_margin="20dp"
                     android:src="@drawable/reset" />
 
-                <TextView
-                    android:id="@+id/text3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="20dp"
-                    android:text="Please enter the email Address you used to register with."
-                    android:textAlignment="textStart"
-                    android:textSize="18dp"
-                    android:textStyle="italic" />
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/user_email"
+                        android:id="@+id/user_old_pass"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/text3"
                         android:layout_marginTop="20dp"
                         android:ems="10"
-                        android:hint="Email Address"
-                        android:inputType="textEmailAddress"
+                        android:hint="Old password"
+                        android:inputType="textPassword"
                         android:textSize="20dp" />
                 </android.support.design.widget.TextInputLayout>
 
@@ -62,7 +52,7 @@
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/user_password"
+                        android:id="@+id/user_new_password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/text3"
@@ -88,7 +78,8 @@
                         android:layout_weight="0.5"
                         android:background="@color/colorPrimary"
                         android:elevation="5dp"
-                        android:text="Reset Password"
+                        android:textAllCaps="false"
+                        android:text="Reset"
                         android:textColor="#fff"
                         android:textSize="20dp"
                         android:textStyle="bold" />
@@ -121,8 +112,9 @@
                         android:layout_gravity="bottom"
                         android:drawablePadding="6dp"
                         android:drawableRight="@drawable/phone"
-                        android:text="CONTACT US:"
+                        android:text="Contact  Us :"
                         android:textSize="18dp"
+                        android:textAllCaps="false"
                         android:textStyle="italic" />
 
                     <TextView

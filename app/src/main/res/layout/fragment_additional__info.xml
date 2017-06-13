@@ -116,6 +116,20 @@
                         android:background="#fff"
                         />
 
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:textSize="16dp"
+                        android:hint="Mama's Surname"
+                        android:textColorHint="#747474"
+                        android:drawableLeft="@drawable/lastname"
+                        android:drawablePadding="10dp"
+                        android:padding="6dp"
+                        android:inputType="textPersonName"
+                        android:ems="10"
+                        android:background="#fff"
+                        />
 
                     <Spinner
                         android:layout_width="match_parent"

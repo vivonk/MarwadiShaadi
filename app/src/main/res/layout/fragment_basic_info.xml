@@ -56,6 +56,20 @@
                         android:layout_marginTop="20dp"
                         android:layout_weight="1" />
 
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:textSize="16dp"
+                        android:hint="Weight"
+                        android:textColorHint="#747474"
+                        android:drawablePadding="10dp"
+                        android:padding="10dp"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:layout_marginLeft="10dp"
+                        android:background="#fff"
+                        />
                     <Spinner
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"

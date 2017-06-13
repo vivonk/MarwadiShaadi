@@ -185,18 +185,20 @@ public class Dashboard extends AppCompatActivity
     @Override
     public void onPageSelected(int position) {
 
+        int count = 35;
+
         switch (position){
             case 0:
-                getSupportActionBar().setTitle("Suggestions");
+                getSupportActionBar().setTitle("Suggestions ("+count+")");
                 break;
             case 1:
-                getSupportActionBar().setTitle("Recent Profiles");
+                getSupportActionBar().setTitle("Recent Profiles ("+count+")");
                 break;
             case 2:
-                getSupportActionBar().setTitle("Reverse Matching");
+                getSupportActionBar().setTitle("Reverse Matching ("+count+")");
                 break;
             case 3:
-                getSupportActionBar().setTitle("Favourites");
+                getSupportActionBar().setTitle("Favourites ("+count+")");
                 break;
 
         }

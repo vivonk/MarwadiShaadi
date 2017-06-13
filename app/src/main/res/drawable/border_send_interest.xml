@@ -2,5 +2,5 @@
     android:shape="rectangle" >
     <stroke
         android:width="2dp"
-        android:color="@color/border_send_interest" />
+        android:color="@color/colorPrimary" />
 </shape>

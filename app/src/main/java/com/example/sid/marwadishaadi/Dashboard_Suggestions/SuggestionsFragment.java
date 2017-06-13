@@ -1,15 +1,22 @@
 package com.example.sid.marwadishaadi.Dashboard_Suggestions;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.example.sid.marwadishaadi.Dashboard;
 import com.example.sid.marwadishaadi.R;
+import com.example.sid.marwadishaadi.Settings.SettingsActivity;
+import com.example.sid.marwadishaadi.User_Profile.Edit_User_Profile.EditPreferencesActivity;
+import com.example.sid.marwadishaadi.User_Profile.UserProfileActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +43,8 @@ public class SuggestionsFragment extends Fragment {
     private List<SuggestionModel> suggestionModelList = new ArrayList<>();
     private RecyclerView recyclerView;
     private SuggestionAdapter suggestionAdapter;
-
+    private TextView editprefs;
+    private TextView filter;
     private OnFragmentInteractionListener mListener;
 
     public SuggestionsFragment() {
@@ -75,6 +83,32 @@ public class SuggestionsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View mview = inflater.inflate(R.layout.fragment_suggestions, container, false);
+        editprefs = (TextView) mview.findViewById(R.id.preference);
+        filter = (TextView) mview.findViewById(R.id.filter);
+
+        editprefs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(getContext(), EditPreferencesActivity.class);
+                startActivity(i);
+                getActivity().overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
+            }
+        });
+
+        filter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                View filter_view =getActivity().getLayoutInflater().inflate(R.layout.filter_dialog,null);
+                AlertDialog.Builder filter = new AlertDialog.Builder(getContext());
+                filter.setTitle("Refine");
+                filter.setView(filter_view);
+                AlertDialog filterbox = filter.create();
+                filterbox.show();
+            }
+        });
+
         recyclerView = (RecyclerView) mview.findViewById(R.id.recycler);
 
         suggestionAdapter=  new SuggestionAdapter(getContext(), suggestionModelList);

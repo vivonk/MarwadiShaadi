@@ -11,6 +11,16 @@
         android:theme="@style/MyToolbartheme"
         android:background="?attr/colorPrimary"
         >
+        <Button
+            android:id="@+id/clearnotifications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clear"
+            android:background="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:layout_gravity="right"
+            />
     </android.support.v7.widget.Toolbar>
 
     <android.support.v7.widget.RecyclerView

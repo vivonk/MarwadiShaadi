@@ -1,8 +1,17 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.sid.marwadishaadi.Dashboard_Reverse_Matching.Reverse_MatchingActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:scaleType="fitXY"
+        android:layout_marginBottom="5dp"
+        android:src="@drawable/reverse"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/reverse"
@@ -12,4 +21,4 @@
 
     </android.support.v7.widget.RecyclerView>
 
-</FrameLayout>
+</LinearLayout>

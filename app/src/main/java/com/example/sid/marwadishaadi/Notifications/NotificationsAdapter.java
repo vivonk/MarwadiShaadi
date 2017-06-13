@@ -1,15 +1,23 @@
 package com.example.sid.marwadishaadi.Notifications;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.sid.marwadishaadi.Chat.DefaultDialogsActivity;
+import com.example.sid.marwadishaadi.Dashboard;
+import com.example.sid.marwadishaadi.Dashboard_Interest.InterestActivity;
+import com.example.sid.marwadishaadi.Dashboard_Membership.UpgradeMembershipActivity;
+import com.example.sid.marwadishaadi.Membership;
 import com.example.sid.marwadishaadi.R;
+import com.example.sid.marwadishaadi.User_Profile.UserProfileActivity;
 
 import java.util.List;
 
@@ -163,8 +171,36 @@ public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdap
             super(view);
             notiftext=(TextView)view.findViewById(R.id.notiftext);
             notifimage=(ImageView)view.findViewById(R.id.notifimage);
-
         }
+
+        AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    NotificationsModel notificationsModel = notificationsModelList.get(position);
+                    if (notificationsModel.isSuggested()){
+                        Intent i = new Intent(context, Dashboard.class);
+                        context.startActivity(i);
+                    }else if(notificationsModel.isPremMem()){
+                        Intent i = new Intent(context,Membership.class);
+                        context.startActivity(i);
+                    }else if(notificationsModel.isMemExp()){
+                        Intent i = new Intent(context,UpgradeMembershipActivity.class);
+                        context.startActivity(i);
+                    }else if(notificationsModel.isMsgRec()){
+                        Intent i = new Intent(context,DefaultDialogsActivity.class);
+                        context.startActivity(i);
+                    }else if(notificationsModel.isInterestAcc()){
+                        Intent i = new Intent(context,UserProfileActivity.class);
+                        context.startActivity(i);
+                    }else if(notificationsModel.isInterestRec()){
+                        Intent i = new Intent(context,InterestActivity.class);
+                        context.startActivity(i);
+                    }else if(notificationsModel.isOffers()){
+                        Intent i = new Intent(context,UpgradeMembershipActivity.class);
+                        context.startActivity(i);
+                    }
+            }
+        };
     }
 
     public NotificationsAdapter(Context context, List<NotificationsModel> notificationsModelList){

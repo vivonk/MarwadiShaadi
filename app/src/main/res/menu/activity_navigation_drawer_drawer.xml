@@ -1,24 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_interest"
-            android:icon="@drawable/ic_action_drawer_interest"
-            android:title="Interest"/>
-
-        <item
-            android:id="@+id/nav_inbox"
-            android:icon="@drawable/ic_action_inbox"
-            android:title="Inbox"/>
-
-        <item
-            android:id="@+id/nav_search"
-            android:icon="@drawable/ic_action_drawer_search"
-            android:title="Search"/>
-
-    </group>
-    <group android:checkableBehavior="single">
+    <group
+        android:id="@+id/sds"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_action_home"
@@ -43,7 +28,5 @@
             android:id="@+id/nav_feedback"
             android:icon="@drawable/ic_action_feedback"
             android:title="Send Feedback" />
-
-
     </group>
 </menu>

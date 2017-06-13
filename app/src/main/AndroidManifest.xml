@@ -59,7 +59,9 @@
             android:name=".Advanced_Signup_Details"
             android:label="Basic Details"
             android:theme="@style/AppTheme" />
-        <activity android:name=".Membership" />
+        <activity
+            android:name=".Membership"
+            android:label="Membership" />
         <activity
             android:name=".Dashboard"
             android:label="Dashboard"
@@ -73,31 +75,51 @@
         <activity
             android:name=".Blocked_Members.BlockedActivity"
             android:label="Blocked" />
-        <activity android:name=".Privacy_Policy.PrivacyPolicyActivity" />
         <activity
-            android:name=".User_Profile.UserProfile"
+            android:name=".Privacy_Policy.PrivacyPolicyActivity"
+            android:label="Privacy Policy" />
+        <activity
+            android:name=".User_Profile.UserProfileActivity"
             android:label="@string/title_activity_user_profile"
             android:theme="@style/AppTheme" />
-        <activity android:name=".Payment_Policy.PaymentPolicyActivity" />
+        <activity
+            android:name=".Payment_Policy.PaymentPolicyActivity"
+            android:label="Payment Policy" />
         <activity
             android:name=".Notifications.NotificationsActivity"
             android:label="Notifications" />
-        <activity android:name=".Search.Search" />
+        <activity
+            android:name=".Search.Search"
+            android:label="Search" />
         <activity
             android:name=".Dashboard_Interest.InterestActivity"
             android:label="Interest" />
-        <activity android:name=".About_Us.AboutUsActivity" />
-        <activity android:name=".Contact_Us.ContactUsActivity" />
-        <activity android:name=".Faq.FaqActivity"></activity>
-        <activity android:name=".UpgradeMembership"></activity>
+        <activity
+            android:name=".About_Us.AboutUsActivity"
+            android:label="About Us" />
+        <activity
+            android:name=".Contact_Us.ContactUsActivity"
+            android:label="Contact Us" />
+        <activity
+            android:name=".Faq.FaqActivity"
+            android:label="Faq" />
+        <activity
+            android:name=".Dashboard_Membership.UpgradeMembershipActivity"
+            android:label="Membership" />
+        <activity
+            android:name=".User_Profile.Edit_User_Profile.EditPreferencesActivity"
+            android:label="Edit Partner Preferences" />
 
-        <activity android:name=".EditPreferencesActivity"></activity>
-
-
-        <!--Chat Activities -->
-        <activity android:name=".Chat.DefaultDialogsActivity" android:label="Inbox"/>
-        <activity android:name=".Chat.DefaultMessagesActivity"/>
-
+        <!-- Chat Activities -->
+        <activity
+            android:name=".Chat.DefaultDialogsActivity"
+            android:label="Inbox" />
+        <activity android:name=".Chat.DefaultMessagesActivity" />
+        <activity
+            android:name=".Search.SearchResultsActivity"
+            android:label="Search Results" />
+        <activity android:name=".User_Profile.Edit_User_Profile.EditPersonalDetailsActivity" />
+        <activity android:name=".User_Profile.Edit_User_Profile.EditFamilyDetailsActivity"></activity>
     </application>
 
 </manifest>

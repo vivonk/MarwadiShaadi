@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.sid.marwadishaadi.EditPreferencesActivity;
+import com.example.sid.marwadishaadi.User_Profile.Edit_User_Profile.EditPreferencesActivity;
 import com.example.sid.marwadishaadi.R;
 
 /**
@@ -77,8 +77,7 @@ public class PartnerPreferencesFragment extends Fragment {
                 Intent i = new Intent(getContext(), EditPreferencesActivity.class);
                 startActivity(i);
                 getActivity().overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
-                /*BottomSheetDialogFragment bottomSheetDialogFragment = new EditPreferencesBottomSheet();
-                bottomSheetDialogFragment.show(getFragmentManager(), bottomSheetDialogFragment.getTag());*/
+
             }
         });
 

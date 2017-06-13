@@ -1,24 +1,16 @@
 package com.example.sid.marwadishaadi.Search;
 
 import android.app.Dialog;
-import android.content.res.XmlResourceParser;
 import android.support.design.widget.BottomSheetDialogFragment;
-import android.text.Layout;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.sid.marwadishaadi.R;
-import com.example.sid.marwadishaadi.User_Profile.Profile_Additional_Details;
-import com.example.sid.marwadishaadi.User_Profile.Profile_Family_Details;
-import com.example.sid.marwadishaadi.User_Profile.Profile_Personal_Details;
+import com.example.sid.marwadishaadi.User_Profile.ProfileAdditionalDetailsFragment;
+import com.example.sid.marwadishaadi.User_Profile.ProfileFamilyDetailsFragment;
+import com.example.sid.marwadishaadi.User_Profile.ProfilePersonalDetailsFragment;
 
 import java.util.ArrayList;
-
-import static android.icu.text.UnicodeSet.CASE;
-import static com.facebook.GraphRequest.TAG;
 
 /**
  * Created by vivonk on 01-06-2017.
@@ -34,14 +26,14 @@ public class BottomSheet extends BottomSheetDialogFragment {
             Search search = new Search();
             content=search.getCasebreak();
         }else if (i==1){
-            Profile_Personal_Details profile_personal_details = new Profile_Personal_Details();
-            content = profile_personal_details.getCasebreak();
+            ProfilePersonalDetailsFragment profile_personal_detailsFragment = new ProfilePersonalDetailsFragment();
+            content = profile_personal_detailsFragment.getCasebreak();
         }else if (i==2){
-            Profile_Additional_Details profile_additional_details = new Profile_Additional_Details();
-            content = profile_additional_details.getCasebreak();
+            ProfileAdditionalDetailsFragment profile_additional_detailsFragment = new ProfileAdditionalDetailsFragment();
+            content = profile_additional_detailsFragment.getCasebreak();
         }else{
-            Profile_Family_Details profile_family_details = new Profile_Family_Details();
-            content = profile_family_details.getCasebreak();
+            ProfileFamilyDetailsFragment profile_family_detailsFragment = new ProfileFamilyDetailsFragment();
+            content = profile_family_detailsFragment.getCasebreak();
         }
     }
 
@@ -131,9 +123,6 @@ public class BottomSheet extends BottomSheetDialogFragment {
 
 
             // edit profile - personal details
-            case 11:
-                contentView = View.inflate(getContext(),R.layout.bottom_sheet_personal,null);
-                break;
             case 12:
                 contentView = View.inflate(getContext(),R.layout.bottom_sheet_education,null);
                 break;
@@ -151,11 +140,11 @@ public class BottomSheet extends BottomSheetDialogFragment {
             case 23:
                 contentView = View.inflate(getContext(),R.layout.bottom_sheet_lifestyle,null);
                 break;
+            case 24:
+                contentView = View.inflate(getContext(),R.layout.bottom_sheet_horoscope,null);
+                break;
 
             // edit profile - family
-            case 31:
-                contentView = View.inflate(getContext(),R.layout.bottom_sheet_family,null);
-                break;
             case 32:
                 contentView = View.inflate(getContext(),R.layout.bottom_sheet_relatives,null);
                 break;

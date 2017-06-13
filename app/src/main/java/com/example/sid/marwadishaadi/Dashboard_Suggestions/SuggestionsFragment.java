@@ -17,6 +17,7 @@ import com.example.sid.marwadishaadi.R;
 import com.example.sid.marwadishaadi.Settings.SettingsActivity;
 import com.example.sid.marwadishaadi.User_Profile.Edit_User_Profile.EditPreferencesActivity;
 import com.example.sid.marwadishaadi.User_Profile.UserProfileActivity;
+import com.example.sid.marwadishaadi.filter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +45,7 @@ public class SuggestionsFragment extends Fragment {
     private RecyclerView recyclerView;
     private SuggestionAdapter suggestionAdapter;
     private TextView editprefs;
-    private TextView filter;
+    private TextView filters;
     private OnFragmentInteractionListener mListener;
 
     public SuggestionsFragment() {
@@ -84,7 +85,7 @@ public class SuggestionsFragment extends Fragment {
         // Inflate the layout for this fragment
         View mview = inflater.inflate(R.layout.fragment_suggestions, container, false);
         editprefs = (TextView) mview.findViewById(R.id.preference);
-        filter = (TextView) mview.findViewById(R.id.filter);
+        filters = (TextView) mview.findViewById(R.id.filter);
 
         editprefs.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,16 +97,15 @@ public class SuggestionsFragment extends Fragment {
             }
         });
 
-        filter.setOnClickListener(new View.OnClickListener() {
+        filters.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                View filter_view =getActivity().getLayoutInflater().inflate(R.layout.filter_dialog,null);
-                AlertDialog.Builder filter = new AlertDialog.Builder(getContext());
-                filter.setTitle("Refine");
-                filter.setView(filter_view);
-                AlertDialog filterbox = filter.create();
-                filterbox.show();
+
+                Intent i = new Intent(getContext(), filter.class);
+                startActivity(i);
+                getActivity().overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
+
             }
         });
 

@@ -173,34 +173,6 @@ public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdap
             notifimage=(ImageView)view.findViewById(R.id.notifimage);
         }
 
-        AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    NotificationsModel notificationsModel = notificationsModelList.get(position);
-                    if (notificationsModel.isSuggested()){
-                        Intent i = new Intent(context, Dashboard.class);
-                        context.startActivity(i);
-                    }else if(notificationsModel.isPremMem()){
-                        Intent i = new Intent(context,Membership.class);
-                        context.startActivity(i);
-                    }else if(notificationsModel.isMemExp()){
-                        Intent i = new Intent(context,UpgradeMembershipActivity.class);
-                        context.startActivity(i);
-                    }else if(notificationsModel.isMsgRec()){
-                        Intent i = new Intent(context,DefaultDialogsActivity.class);
-                        context.startActivity(i);
-                    }else if(notificationsModel.isInterestAcc()){
-                        Intent i = new Intent(context,UserProfileActivity.class);
-                        context.startActivity(i);
-                    }else if(notificationsModel.isInterestRec()){
-                        Intent i = new Intent(context,InterestActivity.class);
-                        context.startActivity(i);
-                    }else if(notificationsModel.isOffers()){
-                        Intent i = new Intent(context,UpgradeMembershipActivity.class);
-                        context.startActivity(i);
-                    }
-            }
-        };
     }
 
     public NotificationsAdapter(Context context, List<NotificationsModel> notificationsModelList){

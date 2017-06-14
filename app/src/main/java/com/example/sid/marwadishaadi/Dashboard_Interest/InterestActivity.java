@@ -29,8 +29,11 @@ InterestSentFragment.OnFragmentInteractionListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_interest);
 
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.interest_toolbar);
-        setSupportActionBar(myToolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.interest_toolbar);
+        toolbar.setTitle("Interest");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         interestSectionPagerAdaper = new InterestSectionPagerAdaper(getSupportFragmentManager());
         mviewpager = (ViewPager) findViewById(R.id.interest_container);
@@ -126,5 +129,11 @@ InterestSentFragment.OnFragmentInteractionListener{
 
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }

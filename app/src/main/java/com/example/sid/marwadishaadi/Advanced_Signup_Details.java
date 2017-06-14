@@ -72,12 +72,38 @@ public class Advanced_Signup_Details extends AppCompatActivity implements
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
         tabLayout.getTabAt(0).setIcon(tabIcons[0]);
         tabLayout.getTabAt(1).setIcon(tabIcons[1]);
         tabLayout.getTabAt(2).setIcon(tabIcons[2]);
 
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                if(tab.getPosition()==0){
+                    tab.setIcon(R.drawable.ic_action_basic_white);
+                }else if(tab.getPosition()==1){
+                    tab.setIcon(R.drawable.ic_action_additonal_white);
+                }else{
+                    tab.setIcon(R.drawable.ic_action_partner_white);
+                }
+            }
 
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                if(tab.getPosition()==0){
+                    tab.setIcon(R.drawable.basic);
+                }else if(tab.getPosition()==1){
+                    tab.setIcon(R.drawable.more);
+                }else{
+                    tab.setIcon(R.drawable.partner);
+                }
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 
 

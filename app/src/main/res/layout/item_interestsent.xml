@@ -64,14 +64,14 @@
 
     </LinearLayout>
     </LinearLayout>
-<View
-    android:layout_width="match_parent"
-    android:layout_height="0.5dp"
-    android:background="#592d2d2d"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
-    android:layout_marginTop="10dp"
-    ></View>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#59fb6542"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        ></View>
 
 
 </LinearLayout>

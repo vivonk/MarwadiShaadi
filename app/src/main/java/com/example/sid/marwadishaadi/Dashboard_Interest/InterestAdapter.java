@@ -1,6 +1,7 @@
 package com.example.sid.marwadishaadi.Dashboard_Interest;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -27,8 +28,8 @@ public class InterestAdapter extends RecyclerView.Adapter<InterestAdapter.MyView
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         public ImageView userImage;
-        public TextView name, age, highestDegree, location;
-        public ImageView status;
+        public TextView name, age, highestDegree, location, status;
+        public ImageView accept, reject;
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -36,7 +37,9 @@ public class InterestAdapter extends RecyclerView.Adapter<InterestAdapter.MyView
             name = (TextView) itemView.findViewById(R.id.textviewName);
             highestDegree = (TextView) itemView.findViewById(R.id.textviewHighestDegree);
             location = (TextView) itemView.findViewById(R.id.textviewLocation);
-            status = (ImageView) itemView.findViewById(R.id.members_status);
+            status = (TextView) itemView.findViewById(R.id.status);
+            accept = (ImageView)itemView.findViewById(R.id.interest_accept);
+            reject = (ImageView)itemView.findViewById(R.id.interest_reject);
         }
     }
 
@@ -66,11 +69,19 @@ public class InterestAdapter extends RecyclerView.Adapter<InterestAdapter.MyView
         holder.highestDegree.setText(interestModel.getHighestDegree());
         holder.location.setText(interestModel.getLocation());
         if(interestModel.getStatus() == 0){
-            holder.status.setImageResource(R.drawable.accepted);
+            holder.status.setText("Accepted");
+            holder.status.setBackgroundColor(Color.parseColor("#00c864"));
+            holder.accept.setVisibility(View.INVISIBLE);
+            holder.reject.setVisibility(View.INVISIBLE);
         }else if (interestModel.getStatus() == 1){
-            holder.status.setImageResource(R.drawable.rejected);
+            holder.status.setText("Rejected");
+            holder.status.setBackgroundColor(Color.parseColor("#ff0000"));
+            holder.accept.setVisibility(View.INVISIBLE);
+            holder.reject.setVisibility(View.INVISIBLE);
         }else {
-            holder.status.setImageResource(R.drawable.pending);
+            holder.status.setText("Pending");
+            holder.status.setBackgroundColor(Color.parseColor("#7faeff"));
+
         }
     }
 

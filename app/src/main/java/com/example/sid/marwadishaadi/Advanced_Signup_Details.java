@@ -93,13 +93,7 @@ public class Advanced_Signup_Details extends AppCompatActivity implements
 
     @Override
     public void onPageSelected(int position) {
-        try {
-            tabLayout.getTabAt(position).getCustomView().setBackgroundColor(Color.parseColor("#FE3202"));
-        }
-        catch(NullPointerException npe)
-        {
-            Toast.makeText(getApplicationContext(),"Null Pointer Exception", Toast.LENGTH_SHORT).show();
-        }
+
         switch (position){
             case 0:
                 getSupportActionBar().setTitle("Basic Details");

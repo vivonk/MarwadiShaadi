@@ -120,6 +120,11 @@
             android:label="Search Results" />
         <activity android:name=".User_Profile.Edit_User_Profile.EditPersonalDetailsActivity" />
         <activity android:name=".User_Profile.Edit_User_Profile.EditFamilyDetailsActivity"></activity>
+
+
+        <activity android:name=".Similar_Profiles.SimilarActivity"></activity>
+
+
     </application>
 
 </manifest>

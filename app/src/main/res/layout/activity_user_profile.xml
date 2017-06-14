@@ -66,6 +66,10 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
+
+
+
+
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_gravity="bottom|end"
@@ -155,6 +159,26 @@
 
         </com.github.clans.fab.FloatingActionMenu>
 
+
     </FrameLayout>
+
+
+<FrameLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|center"
+    >
+    <Button
+        android:visibility="gone"
+        android:background="@color/colorPrimary"
+        android:id="@+id/similar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Similar Profiles"
+        android:textColor="#fff"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textAllCaps="false"/>
+</FrameLayout>
 
 </android.support.design.widget.CoordinatorLayout>

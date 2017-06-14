@@ -1,9 +1,12 @@
 package com.example.sid.marwadishaadi.User_Profile;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
+
+import com.example.sid.marwadishaadi.Similar_Profiles.SimilarActivity;
 import com.github.clans.fab.FloatingActionButton;
 
 import android.support.design.widget.CoordinatorLayout;
@@ -15,6 +18,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -24,7 +28,8 @@ import com.github.clans.fab.FloatingActionMenu;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 
-public class UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener,
+public class
+UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener,
         ProfilePersonalDetailsFragment.OnFragmentInteractionListener,
         ProfileAdditionalDetailsFragment.OnFragmentInteractionListener,
         ProfileFamilyDetailsFragment.OnFragmentInteractionListener,PartnerPreferencesFragment.OnFragmentInteractionListener,
@@ -43,6 +48,7 @@ public class UserProfileActivity extends AppCompatActivity implements ViewPager.
     private FloatingActionMenu fab;
     private CoordinatorLayout coordinatorLayout;
     private FrameLayout frameLayout;
+    private Button similar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +70,15 @@ public class UserProfileActivity extends AppCompatActivity implements ViewPager.
         shareprofile = (FloatingActionButton) findViewById(R.id.fab_share_profile);
         sharesave = (FloatingActionButton) findViewById(R.id.fab_save);
 
+        similar = (Button)findViewById(R.id.similar);
+
+        similar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(UserProfileActivity.this, SimilarActivity.class);
+                startActivity(i);
+            }
+        });
 
         fab.setOnMenuToggleListener(new FloatingActionMenu.OnMenuToggleListener() {
             @Override

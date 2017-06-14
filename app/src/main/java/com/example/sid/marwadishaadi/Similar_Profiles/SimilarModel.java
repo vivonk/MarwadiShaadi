@@ -5,4 +5,57 @@ package com.example.sid.marwadishaadi.Similar_Profiles;
  */
 
 public class SimilarModel {
+
+    String name, city,education,imgAdd;
+    int age;
+
+    public String getImgAdd() {
+        return imgAdd;
+    }
+
+    public void setImgAdd(String imgAdd) {
+        this.imgAdd = imgAdd;
+    }
+
+    public SimilarModel(String name, String city, String education, String imgAdd, int age) {
+
+        this.name = name;
+        this.city = city;
+        this.education = education;
+        this.imgAdd = imgAdd;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getEducation() {
+        return education;
+    }
+
+    public void setEducation(String education) {
+        this.education = education;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
 }
+

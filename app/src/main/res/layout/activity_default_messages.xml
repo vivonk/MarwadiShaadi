@@ -5,11 +5,39 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/chat_msg_toolbar"
+            android:theme="@style/MyToolbartheme"
+            android:layout_width="match_parent"
+            android:titleTextColor="@android:color/white"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            >
+        </android.support.v7.widget.Toolbar>
+
+
     <com.stfalcon.chatkit.messages.MessagesList
         android:id="@+id/messagesList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/input"/>
+        android:layout_above="@+id/input"
+        app:incomingDefaultBubbleColor="#FED4CA"
+        app:incomingDefaultBubblePressedColor="#FE9077"
+        app:incomingDefaultBubbleSelectedColor="@color/gray"
+        app:incomingDefaultImageOverlayPressedColor="@color/black_10"
+        app:incomingDefaultImageOverlaySelectedColor="@color/gray_transparent"
+        app:incomingTextColor="@color/black"
+        app:incomingTextLinkColor="@color/colorPrimary"
+        app:incomingTextSize="18sp"
+        app:outcomingDefaultBubbleColor="@color/colorPrimary"
+        app:outcomingDefaultBubblePressedColor="@color/colorPrimaryDark"
+        app:outcomingDefaultBubbleSelectedColor="@color/gray_dark_transparent"
+        app:outcomingDefaultImageOverlayPressedColor="@color/black_10"
+        app:outcomingDefaultImageOverlaySelectedColor="@color/gray_transparent"
+        app:outcomingTextColor="@color/white"
+        app:outcomingTextLinkColor="@color/brown"
+        app:outcomingTextSize="18sp"
+        android:layout_below="@+id/chat_msg_toolbar" />
 
     <View
         android:layout_width="match_parent"
@@ -25,6 +53,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:inputHint="@string/hint_enter_a_message"
-        app:showAttachmentButton="true"/>
+        app:inputButtonDefaultBgColor="@color/colorPrimary"
+        app:inputButtonDefaultBgPressedColor="@color/colorPrimary"
+        app:showAttachmentButton="false"/>
 
 </RelativeLayout>

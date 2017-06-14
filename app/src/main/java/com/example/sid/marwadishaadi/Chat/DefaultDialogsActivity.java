@@ -26,9 +26,11 @@ public class DefaultDialogsActivity extends DemoDialogsActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_default_dialogs);
 
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.chat_toolbar);
-        setSupportActionBar(myToolbar);
-        myToolbar.setTitle("Inbox");
+        Toolbar toolbar = (Toolbar) findViewById(R.id.chat_toolbar);
+        toolbar.setTitle("Inbox");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         dialogsList = (DialogsList) findViewById(R.id.dialogsList);
         initAdapter();
@@ -60,5 +62,11 @@ public class DefaultDialogsActivity extends DemoDialogsActivity {
     //for example
     private void onNewDialog(Dialog dialog) {
         dialogsAdapter.addItem(dialog);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }

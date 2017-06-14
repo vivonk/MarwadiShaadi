@@ -24,21 +24,6 @@ abstract class FixturesData {
         }
     };
 
-    static final ArrayList<String> groupChatImages = new ArrayList<String>() {
-        {
-            add("http://i.imgur.com/hRShCT3.png");
-            add("http://i.imgur.com/zgTUcL3.png");
-            add("http://i.imgur.com/mRqh5w1.png");
-        }
-    };
-
-    static final ArrayList<String> groupChatTitles = new ArrayList<String>() {
-        {
-            add("Samuel, Michelle");
-            add("Jordan, Jordan, Zoe");
-            add("Julia, Angel, Kyle, Jordan");
-        }
-    };
 
     static final ArrayList<String> names = new ArrayList<String>() {
         {
@@ -87,13 +72,6 @@ abstract class FixturesData {
         return avatars.get(rnd.nextInt(avatars.size()));
     }
 
-    static String getRandomGroupChatImage() {
-        return groupChatImages.get(rnd.nextInt(groupChatImages.size()));
-    }
-
-    static String getRandomGroupChatTitle() {
-        return groupChatTitles.get(rnd.nextInt(groupChatTitles.size()));
-    }
 
     static String getRandomName() {
         return names.get(rnd.nextInt(names.size()));

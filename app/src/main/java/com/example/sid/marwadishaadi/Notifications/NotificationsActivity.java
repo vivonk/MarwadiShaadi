@@ -1,13 +1,6 @@
 package com.example.sid.marwadishaadi.Notifications;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.RectF;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -18,18 +11,14 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.sid.marwadishaadi.Chat.DefaultDialogsActivity;
 import com.example.sid.marwadishaadi.Dashboard;
 import com.example.sid.marwadishaadi.Dashboard_Interest.InterestActivity;
-import com.example.sid.marwadishaadi.Dashboard_Interest.InterestModel;
 import com.example.sid.marwadishaadi.Dashboard_Membership.UpgradeMembershipActivity;
 import com.example.sid.marwadishaadi.Membership;
 import com.example.sid.marwadishaadi.R;
-import com.example.sid.marwadishaadi.RecyclerTouchListener;
 import com.example.sid.marwadishaadi.User_Profile.UserProfileActivity;
 
 import java.util.ArrayList;

@@ -1,5 +1,6 @@
 package com.example.sid.marwadishaadi.Dashboard_Membership;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,6 +13,8 @@ import android.view.View;
 import com.example.sid.marwadishaadi.Membership;
 import com.example.sid.marwadishaadi.R;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 /**
  * Created by Lawrence Dalmet on 12-06-2017.
  */
@@ -20,6 +23,12 @@ public class UpgradeMembershipActivity extends AppCompatActivity {
     Button upgrade;
     CardView maheshwari, agarwal, jain, khandelwal, others, all;
     boolean isMaheshwari,isAgarwal, isJain, isKhandelwal, isOthers, isAll;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

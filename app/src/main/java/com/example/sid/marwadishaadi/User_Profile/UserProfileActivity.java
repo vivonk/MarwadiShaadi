@@ -1,5 +1,6 @@
 package com.example.sid.marwadishaadi.User_Profile;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -28,6 +29,8 @@ import com.github.clans.fab.FloatingActionMenu;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 public class
 UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener,
         ProfilePersonalDetailsFragment.OnFragmentInteractionListener,
@@ -49,6 +52,11 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
     private CoordinatorLayout coordinatorLayout;
     private FrameLayout frameLayout;
     private Button similar;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

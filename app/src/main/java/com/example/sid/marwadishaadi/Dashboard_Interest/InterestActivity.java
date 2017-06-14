@@ -1,5 +1,6 @@
 package com.example.sid.marwadishaadi.Dashboard_Interest;
 
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -15,6 +16,8 @@ import android.widget.TableLayout;
 
 import com.example.sid.marwadishaadi.R;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 public class InterestActivity extends AppCompatActivity implements
         ViewPager.OnPageChangeListener,
         InterestReceivedFragment.OnFragmentInteractionListener,
@@ -23,6 +26,12 @@ InterestSentFragment.OnFragmentInteractionListener{
 
     private InterestSectionPagerAdaper interestSectionPagerAdaper;
     private ViewPager mviewpager;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

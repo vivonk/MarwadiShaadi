@@ -1,5 +1,6 @@
 package com.example.sid.marwadishaadi.Similar_Profiles;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
@@ -13,6 +14,8 @@ import com.example.sid.marwadishaadi.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 /**
  * Created by Lawrence Dalmet on 13-06-2017.
  */
@@ -23,7 +26,10 @@ public class SimilarActivity extends AppCompatActivity{
     private List<SimilarModel> similarModelList = new ArrayList<>();;
     private RecyclerView recyclerView;
 
-
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,6 +1,7 @@
 package com.example.sid.marwadishaadi;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import java.text.DateFormat;
@@ -16,6 +17,8 @@ import android.view.View;
 import android.widget.*;
 import android.widget.DatePicker;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 
 public class signup_details extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
 
@@ -30,6 +33,11 @@ public class signup_details extends AppCompatActivity implements DatePickerDialo
 
     protected AutoCompleteTextView location;
 
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override

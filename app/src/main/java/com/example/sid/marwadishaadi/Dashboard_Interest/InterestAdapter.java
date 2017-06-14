@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.sid.marwadishaadi.R;
@@ -37,9 +38,30 @@ public class InterestAdapter extends RecyclerView.Adapter<InterestAdapter.MyView
             name = (TextView) itemView.findViewById(R.id.textviewName);
             highestDegree = (TextView) itemView.findViewById(R.id.textviewHighestDegree);
             location = (TextView) itemView.findViewById(R.id.textviewLocation);
-            status = (TextView) itemView.findViewById(R.id.status);
+            status = (TextView) itemView.findViewById(R.id.interest_status);
             accept = (ImageView)itemView.findViewById(R.id.interest_accept);
             reject = (ImageView)itemView.findViewById(R.id.interest_reject);
+
+            accept.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    InterestModel interestmodel = interestModelList.get(position);
+                    interestmodel.setStatus(0);
+                    notifyDataSetChanged();
+                }
+            });
+
+
+            reject.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    InterestModel interestmodel = interestModelList.get(position);
+                    interestmodel.setStatus(1);
+                    notifyDataSetChanged();
+                }
+            });
         }
     }
 

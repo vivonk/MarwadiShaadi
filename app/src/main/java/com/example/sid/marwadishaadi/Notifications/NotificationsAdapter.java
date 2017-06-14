@@ -1,15 +1,23 @@
 package com.example.sid.marwadishaadi.Notifications;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.sid.marwadishaadi.Chat.DefaultDialogsActivity;
+import com.example.sid.marwadishaadi.Dashboard;
+import com.example.sid.marwadishaadi.Dashboard_Interest.InterestActivity;
+import com.example.sid.marwadishaadi.Dashboard_Membership.UpgradeMembershipActivity;
+import com.example.sid.marwadishaadi.Membership;
 import com.example.sid.marwadishaadi.R;
+import com.example.sid.marwadishaadi.User_Profile.UserProfileActivity;
 
 import java.util.List;
 
@@ -163,8 +171,8 @@ public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdap
             super(view);
             notiftext=(TextView)view.findViewById(R.id.notiftext);
             notifimage=(ImageView)view.findViewById(R.id.notifimage);
-
         }
+
     }
 
     public NotificationsAdapter(Context context, List<NotificationsModel> notificationsModelList){

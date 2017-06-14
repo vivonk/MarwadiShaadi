@@ -9,6 +9,7 @@ import com.example.sid.marwadishaadi.R;
 import com.example.sid.marwadishaadi.User_Profile.ProfileAdditionalDetailsFragment;
 import com.example.sid.marwadishaadi.User_Profile.ProfileFamilyDetailsFragment;
 import com.example.sid.marwadishaadi.User_Profile.ProfilePersonalDetailsFragment;
+import com.example.sid.marwadishaadi.filter;
 
 import java.util.ArrayList;
 
@@ -31,6 +32,9 @@ public class BottomSheet extends BottomSheetDialogFragment {
         }else if (i==2){
             ProfileAdditionalDetailsFragment profile_additional_detailsFragment = new ProfileAdditionalDetailsFragment();
             content = profile_additional_detailsFragment.getCasebreak();
+        }else if (i==4){
+            filter mfilter = new filter();
+            content=mfilter.getCasebreak();
         }else{
             ProfileFamilyDetailsFragment profile_family_detailsFragment = new ProfileFamilyDetailsFragment();
             content = profile_family_detailsFragment.getCasebreak();

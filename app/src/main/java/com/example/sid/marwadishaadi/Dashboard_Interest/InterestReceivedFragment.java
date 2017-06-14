@@ -20,7 +20,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import com.example.sid.marwadishaadi.Chat.Message;
 import com.example.sid.marwadishaadi.R;
 
 import java.util.ArrayList;
@@ -53,6 +55,7 @@ public class InterestReceivedFragment extends Fragment {
     private CoordinatorLayout coordinatorLayout;
     private Paint p = new Paint();
     private OnFragmentInteractionListener mListener;
+
 
     public InterestReceivedFragment() {
         // Required empty public constructor
@@ -167,14 +170,14 @@ public class InterestReceivedFragment extends Fragment {
                         p.setColor(Color.parseColor("#388E3C"));
                         RectF background = new RectF((float) itemView.getLeft(), (float) itemView.getTop(), dX,(float) itemView.getBottom());
                         c.drawRect(background,p);
-                        icon = BitmapFactory.decodeResource(getResources(), R.drawable.accepted);
+                        icon = BitmapFactory.decodeResource(getResources(), R.mipmap.accepted);
                         RectF icon_dest = new RectF((float) itemView.getLeft() + width ,(float) itemView.getTop() + width,(float) itemView.getLeft()+ 2*width,(float)itemView.getBottom() - width);
                         c.drawBitmap(icon,null,icon_dest,p);
                     } else {
                         p.setColor(Color.parseColor("#D32F2F"));
                         RectF background = new RectF((float) itemView.getRight() + dX, (float) itemView.getTop(),(float) itemView.getRight(), (float) itemView.getBottom());
                         c.drawRect(background,p);
-                        icon = BitmapFactory.decodeResource(getResources(), R.drawable.rejected);
+                        icon = BitmapFactory.decodeResource(getResources(), R.mipmap.rejected);
                         RectF icon_dest = new RectF((float) itemView.getRight() - 2*width ,(float) itemView.getTop() + width,(float) itemView.getRight() - width,(float)itemView.getBottom() - width);
                         c.drawBitmap(icon,null,icon_dest,p);
                     }

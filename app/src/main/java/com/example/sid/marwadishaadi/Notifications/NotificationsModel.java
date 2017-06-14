@@ -24,7 +24,6 @@ public class NotificationsModel {
     public NotificationsModel(String name, int number, boolean suggested, boolean interestRec, boolean interestAcc, boolean msgRec, boolean premMem, boolean memExp, boolean reminders, boolean offers, boolean bday) {
         this.name = name;
         this.number=number;
-
         this.suggested = suggested;
         this.interestRec = interestRec;
         this.interestAcc = interestAcc;

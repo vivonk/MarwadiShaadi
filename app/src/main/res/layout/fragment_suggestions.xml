@@ -45,7 +45,7 @@
                 android:background="#b9b9b9"
                 android:text="Filter"
                 android:textColor="#000"
-                android:drawableLeft="@drawable/ic_user_edit"
+                android:drawableLeft="@drawable/ic_action_filter"
                 android:gravity="center_vertical"
                 />
 

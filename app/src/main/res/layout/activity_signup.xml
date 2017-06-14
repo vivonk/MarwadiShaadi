@@ -141,7 +141,8 @@
                 android:layout_gravity="center_horizontal"
                 android:text="Next"
                 android:textColor="#fff"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:textAllCaps="false"/>
 
         </LinearLayout>
 

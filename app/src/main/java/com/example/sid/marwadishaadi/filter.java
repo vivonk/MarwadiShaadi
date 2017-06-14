@@ -1,13 +1,10 @@
-package com.example.sid.marwadishaadi.Search;
+package com.example.sid.marwadishaadi;
 
-import android.animation.ObjectAnimator;
-import android.database.sqlite.SQLiteDatabase;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.design.widget.BottomSheetDialogFragment;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.util.TypedValue;
@@ -16,49 +13,57 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener;
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarFinalValueListener;
 import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
-import com.example.sid.marwadishaadi.R;
+import com.example.sid.marwadishaadi.Otp_Verification.Otp_Verification;
+import com.example.sid.marwadishaadi.Search.BottomSheet;
 
-public class Search extends AppCompatActivity {
+import static com.facebook.FacebookSdk.getApplicationContext;
+
+public class filter extends AppCompatActivity {
+
+
     ImageView idoctor, iengineer, imbamca, icacs, ipg, ig, iug, illb;
     boolean intdoctor = false, intengineer = false, intmbamca = false, intcacs = false, intpg = false, intg = false, intug = false, intllb = false;
     TextView tdoctor, tengineer, tmbamca, tcacs, tpg, tg, tug, tllb;
     LinearLayout ldoctor, lengineer, lmbamca, lcacs, lpg, lg, lug, lllb;
     int colorg, colorb;
-    EditText spinnerCastSearch;
-    Button mOpenIDSearchButton;
-    private static int casebreak;
-    TextView statetextView,citytextview;
-    CardView advCV;
-    Button addButton,searchaddbutton;
-    EditText autoCompleteState,autocompletecity;
     static String  addTextState,addPrevious="";
-    static String  addTextcity,addPreviousc="";
-    private  EditText maritalstatus;
-    private EditText familystatus;
+    Button complete,addButton;
+    TextView statetextView;
+    EditText autoCompleteState;
     private EditText annualincome;
-    private EditText physicalstatus;
 
-    public Search()
+    public static int getCasebreak() {
+        return casebreak;
+    }
+
+    public static void setCasebreak(int casebreak) {
+        filter.casebreak = casebreak;
+    }
+    public filter()
     {
 
     }
+    private static int casebreak;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+        setContentView(R.layout.activity_filter);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.search_toolbar);
-        toolbar.setTitle("Search");
+        Toolbar toolbar = (Toolbar) findViewById(R.id.filter_toolbar);
+        toolbar.setTitle("Filter");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        statetextView=(TextView)findViewById(R.id.text_view_search_add_state);
+        complete = (Button) findViewById(R.id.filter_submit);
 
         idoctor = (ImageView) findViewById(R.id.doctor);
         iengineer = (ImageView) findViewById(R.id.engineer);
@@ -87,83 +92,9 @@ public class Search extends AppCompatActivity {
         lg = (LinearLayout) findViewById(R.id.list_g);
         lug = (LinearLayout) findViewById(R.id.list_ug);
 
-        maritalstatus = (EditText) findViewById(R.id.search_Marital_status);
-        maritalstatus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                casebreak = 3;
-                BottomSheetDialogFragment btm= new BottomSheet(0);
-                btm.show(getSupportFragmentManager(),btm.getTag());
-            }
-        });
-
-        familystatus = (EditText) findViewById(R.id.search_Family_status);
-        familystatus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                casebreak=4;
-                BottomSheetDialogFragment btm= new BottomSheet(0);
-                btm.show(getSupportFragmentManager(),btm.getTag());
-            }
-        });
-
-        annualincome = (EditText) findViewById(R.id.search_Annual_income);
-        annualincome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                casebreak=5;
-                BottomSheetDialogFragment btm= new BottomSheet(0);
-                btm.show(getSupportFragmentManager(),btm.getTag());
-            }
-        });
-
-        physicalstatus = (EditText) findViewById(R.id.search_physical_status) ;
-        physicalstatus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                casebreak=6;
-                BottomSheetDialogFragment btm= new BottomSheet(0);
-                btm.show(getSupportFragmentManager(),btm.getTag());
-            }
-        });
-
-
+        autoCompleteState=(EditText)findViewById(R.id.filter_by_location);
         addButton=(Button)findViewById(R.id.search_add_state);
-        searchaddbutton=(Button)findViewById(R.id.search_add_city);
-        statetextView=(TextView)findViewById(R.id.text_view_search_add_state);
-        citytextview=(TextView)findViewById(R.id.text_view_search_add_city);
-        spinnerCastSearch=(EditText) findViewById(R.id.search_user_caste);
-        autoCompleteState=(EditText)findViewById(R.id.search_state);
-        autocompletecity=(EditText)findViewById(R.id.search_city);
-
-        advCV=(CardView)findViewById(R.id.advanced_search);
-        final CrystalRangeSeekbar rangeSeekbar = (CrystalRangeSeekbar) findViewById(R.id.rangeSeekbar);
-// get min and max text view
-        final TextView tvMin = (TextView) findViewById(R.id.textMin);
-        final TextView tvMax = (TextView) findViewById(R.id.textMax);
-        rangeSeekbar.setMinValue(18);
-        rangeSeekbar.setMaxValue(71);
-
-
-// set listener
-
-
-        rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
-            @Override
-            public void valueChanged(Number minValue, Number maxValue) {
-                tvMin.setText(String.valueOf(minValue));
-                tvMax.setText(String.valueOf(maxValue));
-            }
-        });
-
-
-        // set final value listener
-        rangeSeekbar.setOnRangeSeekbarFinalValueListener(new OnRangeSeekbarFinalValueListener() {
-            @Override
-            public void finalValue(Number minValue, Number maxValue) {
-                Log.d("CRS=>", String.valueOf(minValue) + " : " + String.valueOf(maxValue));
-            }
-        });
+        final TextView statetextView=(TextView)findViewById(R.id.text_view_search_add_state);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -182,23 +113,47 @@ public class Search extends AppCompatActivity {
                 }
             }
         });
-
-        searchaddbutton.setOnClickListener(new View.OnClickListener() {
+        annualincome = (EditText) findViewById(R.id.search_Annual_income);
+        annualincome.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                addTextcity = autocompletecity.getText().toString();
-                if(addTextcity.equals(""))
-                {
-                    Toast.makeText(getApplicationContext(),"Please click + button after city selection ",Toast.LENGTH_SHORT).show();
-                }
-                else {
+            public void onClick(View v) {
+                casebreak=5;
+                BottomSheetDialogFragment btm= new BottomSheet(4);
+                btm.show(getSupportFragmentManager(),btm.getTag());
+            }
+        });
 
-                    citytextview.setTextSize(TypedValue.COMPLEX_UNIT_SP,18);
-                    citytextview.setText(addPreviousc+"\n"+addTextcity);
-                    addPreviousc=citytextview.getText().toString();
-                    autocompletecity.setText("");
-                    Toast.makeText(getApplicationContext(),"Added successfully ", Toast.LENGTH_SHORT).show();
-                }
+        // TODO: 13-06-2017 implement filter logic below 
+        complete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(filter.this,Dashboard.class);
+                startActivity(i);
+            }
+        });
+
+        // get seekbar from view
+
+        final CrystalRangeSeekbar rangeSeekbar = (CrystalRangeSeekbar)findViewById(R.id.rangeSeekbar);
+// get min and max text view
+        final TextView tvMin = (TextView) findViewById(R.id.textMin);
+        final TextView tvMax = (TextView) findViewById(R.id.textMax);
+        rangeSeekbar.setMinValue(18);
+        rangeSeekbar.setMaxValue(71);
+// set listener
+        rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
+            @Override
+            public void valueChanged(Number minValue, Number maxValue) {
+                tvMin.setText(String.valueOf(minValue));
+                tvMax.setText(String.valueOf(maxValue));
+            }
+        });
+
+// set final value listener
+        rangeSeekbar.setOnRangeSeekbarFinalValueListener(new OnRangeSeekbarFinalValueListener() {
+            @Override
+            public void finalValue(Number minValue, Number maxValue) {
+                Log.d("CRS=>", String.valueOf(minValue) + " : " + String.valueOf(maxValue));
             }
         });
 
@@ -498,52 +453,6 @@ public class Search extends AppCompatActivity {
                 }
             }
         });
-
-        mOpenIDSearchButton = (Button) findViewById(R.id.search_by_id_name_open);
-        mOpenIDSearchButton.setFocusable(true);
-        spinnerCastSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                casebreak=1;
-                BottomSheetDialogFragment btm= new BottomSheet(0);
-                btm.show(getSupportFragmentManager(),btm.getTag());
-
-            }
-        });
-
-        mOpenIDSearchButton = (Button) findViewById(R.id.search_by_id_name_open);
-        mOpenIDSearchButton.setFocusable(true);
-        mOpenIDSearchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                casebreak=2;
-                //  Toast.makeText(getApplicationContext(),Integer.toString(getCasebreak())+" does this worked or not", Toast.LENGTH_LONG).show();
-                BottomSheetDialogFragment bottomSheetDialogFragment = new BottomSheet(0);
-                bottomSheetDialogFragment.show(getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
-
-            }
-        });
-        FloatingActionButton search=(FloatingActionButton)findViewById(R.id.search_Submit);
-        search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(dataChecker())
-                {
-
-                }
-                else{
-                    Toast.makeText(getApplicationContext(),"Please fill all search details correct",Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-    }
-    public int getCasebreak()
-    {
-        return this.casebreak;
-    }
-    boolean dataChecker()
-    {
-        return false;
     }
 
     @Override

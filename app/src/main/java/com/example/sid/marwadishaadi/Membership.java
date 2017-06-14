@@ -1,4 +1,5 @@
 package com.example.sid.marwadishaadi;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -16,6 +17,8 @@ import android.widget.Toast;
 
 import com.example.sid.marwadishaadi.Settings.SettingsActivity;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 
 public class Membership extends AppCompatActivity {
 
@@ -28,6 +31,11 @@ public class Membership extends AppCompatActivity {
     String str;
     TextView dash,clear1,clear2,clear3,clear4,clear5,clear6;
     TextView amount;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

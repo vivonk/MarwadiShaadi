@@ -1,5 +1,6 @@
 package com.example.sid.marwadishaadi.Search;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,12 +14,19 @@ import com.example.sid.marwadishaadi.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 public class SearchResultsActivity extends AppCompatActivity {
 
 
     private List<SuggestionModel> suggestionModelList = new ArrayList<>();
     private RecyclerView recyclerView;
     private SuggestionAdapter suggestionAdapter;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

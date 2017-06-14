@@ -1,5 +1,6 @@
 package com.example.sid.marwadishaadi;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.net.Uri;
 import android.support.design.widget.TabLayout;
@@ -24,6 +25,8 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 import static com.facebook.FacebookSdk.getApplicationContext;
 
 
@@ -42,6 +45,11 @@ public class Advanced_Signup_Details extends AppCompatActivity implements
             R.drawable.more,
             R.drawable.partner
     };
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,13 +93,7 @@ public class Advanced_Signup_Details extends AppCompatActivity implements
 
     @Override
     public void onPageSelected(int position) {
-        try {
-            tabLayout.getTabAt(position).getCustomView().setBackgroundColor(Color.parseColor("#FE3202"));
-        }
-        catch(NullPointerException npe)
-        {
-            Toast.makeText(getApplicationContext(),"Null Pointer Exception", Toast.LENGTH_SHORT).show();
-        }
+
         switch (position){
             case 0:
                 getSupportActionBar().setTitle("Basic Details");

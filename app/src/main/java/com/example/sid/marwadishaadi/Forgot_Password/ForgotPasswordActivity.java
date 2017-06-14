@@ -1,5 +1,6 @@
 package com.example.sid.marwadishaadi.Forgot_Password;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,10 +11,17 @@ import android.widget.Toast;
 
 import com.example.sid.marwadishaadi.R;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 public class ForgotPasswordActivity extends AppCompatActivity {
 
     protected EditText email;
     protected Button submit;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

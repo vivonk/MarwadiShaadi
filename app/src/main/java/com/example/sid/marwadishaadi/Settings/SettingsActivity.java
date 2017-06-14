@@ -1,6 +1,7 @@
 package com.example.sid.marwadishaadi.Settings;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -30,6 +31,8 @@ import com.example.sid.marwadishaadi.R;
 import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 public class SettingsActivity extends AppCompatActivity {
 
 
@@ -46,6 +49,11 @@ public class SettingsActivity extends AppCompatActivity {
     protected TextView paymentpolicy;
     protected LinearLayout morelinearlayout;
     protected TextView more;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

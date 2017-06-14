@@ -1,5 +1,6 @@
 package com.example.sid.marwadishaadi.User_Profile.Edit_User_Profile;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +20,8 @@ import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
 import com.example.sid.marwadishaadi.Otp_Verification.Otp_Verification;
 import com.example.sid.marwadishaadi.R;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class EditPreferencesActivity extends AppCompatActivity {
@@ -30,6 +33,11 @@ public class EditPreferencesActivity extends AppCompatActivity {
     int colorg,colorb;
 
     Button complete;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -11,6 +11,8 @@ import com.stfalcon.chatkit.dialogs.DialogsListAdapter;
 
 import java.util.ArrayList;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 public class DefaultDialogsActivity extends DemoDialogsActivity {
 
     private ArrayList<Dialog> dialogs;
@@ -22,13 +24,20 @@ public class DefaultDialogsActivity extends DemoDialogsActivity {
     private DialogsList dialogsList;
 
     @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_default_dialogs);
 
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.chat_toolbar);
-        setSupportActionBar(myToolbar);
-        myToolbar.setTitle("Inbox");
+        Toolbar toolbar = (Toolbar) findViewById(R.id.chat_toolbar);
+        toolbar.setTitle("Inbox");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         dialogsList = (DialogsList) findViewById(R.id.dialogsList);
         initAdapter();
@@ -60,5 +69,11 @@ public class DefaultDialogsActivity extends DemoDialogsActivity {
     //for example
     private void onNewDialog(Dialog dialog) {
         dialogsAdapter.addItem(dialog);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }

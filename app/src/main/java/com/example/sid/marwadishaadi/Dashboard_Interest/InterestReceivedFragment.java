@@ -96,7 +96,7 @@ public class InterestReceivedFragment extends Fragment {
         coordinatorLayout = (CoordinatorLayout) mview.findViewById(R.id.interest_layout);
         recyclerView = (RecyclerView) mview.findViewById(R.id.card_recycler_view);
         intererstList = new ArrayList<>();
-        interestAdapter = new InterestAdapter(getContext(), intererstList);
+        interestAdapter = new InterestAdapter(getContext(), intererstList,recyclerView);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);

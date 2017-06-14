@@ -1,6 +1,7 @@
 package com.example.sid.marwadishaadi.Otp_Verification;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -26,6 +27,9 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 // TO DO Please change mobile number , Use an internet connection try catch, Show the mobile number to user where OTP will be send and also give option to change mobile number
 public class Otp_Verification extends AppCompatActivity {
     private static final String TAG = "";
@@ -33,6 +37,12 @@ public class Otp_Verification extends AppCompatActivity {
     protected EditText otp;
     protected Button submit;
     protected TextView call_us,resend_otp;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +52,7 @@ public class Otp_Verification extends AppCompatActivity {
         otp = (EditText) findViewById(R.id.user_otp);
         submit = (Button) findViewById(R.id.Submit_otp);
         call_us = (TextView) findViewById(R.id.call_us);
-//        resend_otp=(TextView)findViewById(R.id.resend_otp);
+        resend_otp=(TextView)findViewById(R.id.resend_otp);
         new SendingSMS().execute("8006467951");
 
 

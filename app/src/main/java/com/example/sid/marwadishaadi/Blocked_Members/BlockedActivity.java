@@ -1,5 +1,6 @@
 package com.example.sid.marwadishaadi.Blocked_Members;
 
+import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,11 +13,18 @@ import com.example.sid.marwadishaadi.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 public class BlockedActivity extends AppCompatActivity {
 
     private List<BlockModel> blockModelList = new ArrayList<>();
     private RecyclerView recyclerView;
     private BlockAdapter blockAdapter;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

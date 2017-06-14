@@ -1,5 +1,6 @@
 package com.example.sid.marwadishaadi;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.Nullable;
@@ -8,9 +9,17 @@ import android.os.Bundle;
 
 import com.example.sid.marwadishaadi.Intro_Slides.Intro1Fragment;
 import com.example.sid.marwadishaadi.Intro_Slides.Intro2Fragment;
+import com.github.paolorotolo.appintro.AppIntro;
 import com.github.paolorotolo.appintro.AppIntro2;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 public class MainActivity extends AppIntro2 implements Intro1Fragment.OnFragmentInteractionListener,Intro2Fragment.OnFragmentInteractionListener{
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -22,6 +31,7 @@ public class MainActivity extends AppIntro2 implements Intro1Fragment.OnFragment
 
         // Hide Skip/Done button.
         showSkipButton(false);
+
         setProgressButtonEnabled(true);
 
         setFadeAnimation();

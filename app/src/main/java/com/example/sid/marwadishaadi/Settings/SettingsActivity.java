@@ -160,6 +160,15 @@ public class SettingsActivity extends AppCompatActivity {
                                 // perform check
                                 LoginManager.getInstance().logOut();
                                 AccessToken.setCurrentAccessToken(null);
+                                SharedPreferences sharedPre=getSharedPreferences("userinfo",MODE_PRIVATE);
+                                SharedPreferences.Editor editor=sharedPre.edit();
+                                editor.putBoolean("isLoggedIn",false);
+                                editor.putString("email","");
+                                editor.putString("password","");
+                                editor.putString("customer_id","");
+                                editor.commit();
+                                Intent i=new Intent(SettingsActivity.this, Login.class);
+                                startActivity(i);
 
                             }
                         })

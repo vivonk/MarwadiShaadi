@@ -140,7 +140,17 @@ public class Dashboard extends AppCompatActivity
             if (drawer.isDrawerOpen(GravityCompat.START)) {
                 drawer.closeDrawer(GravityCompat.START);
             } else {
-                super.onBackPressed();
+                click++;
+                if (click == 1) {
+                    Snackbar.make(suggestionFrameLayout,"Please press back again to exit",Snackbar.LENGTH_LONG).show();
+                } else if (click >=2) {
+                    click=0;
+                    Intent intent = new Intent(Intent.ACTION_MAIN);
+                    intent.addCategory(Intent.CATEGORY_HOME);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+
+                }
             }
 
 

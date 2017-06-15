@@ -199,23 +199,23 @@ public class NotificationsActivity extends AppCompatActivity {
     {
         NotificationsModel ne;
 
-        ne= new NotificationsModel("Mervin",3,true,false,false,false,false,false,false,false,false);
+        ne= new NotificationsModel("Mervin","12-9-17",3,true,false,false,false,false,false,false,false,false);
         notificationsModelList.add(ne);
-        ne= new NotificationsModel("Mervin",3,false,true,false,false,false,false,false,false,false);
+        ne= new NotificationsModel("Mervin","12-9-17",3,false,true,false,false,false,false,false,false,false);
         notificationsModelList.add(ne);
-        ne= new NotificationsModel("Mervin",3,false,false,true,false,false,false,false,false,false);
+        ne= new NotificationsModel("Mervin","12-9-17",3,false,false,true,false,false,false,false,false,false);
         notificationsModelList.add(ne);
-        ne= new NotificationsModel("Mervin",3,false,false,false,true,false,false,false,false,false);
+        ne= new NotificationsModel("Mervin","12-9-17",3,false,false,false,true,false,false,false,false,false);
         notificationsModelList.add(ne);
-        ne= new NotificationsModel("Mervin",3,false,false,false,false,true,false,false,false,false);
+        ne= new NotificationsModel("Mervin","12-9-17",3,false,false,false,false,true,false,false,false,false);
         notificationsModelList.add(ne);
-        ne= new NotificationsModel("Mervin",3,false,false,false,false,false,true,false,false,false);
+        ne= new NotificationsModel("Mervin","12-9-17",3,false,false,false,false,false,true,false,false,false);
         notificationsModelList.add(ne);
-        ne= new NotificationsModel("Mervin",3,false,false,false,false,false,false,true,false,false);
+        ne= new NotificationsModel("Mervin","12-9-17",3,false,false,false,false,false,false,true,false,false);
         notificationsModelList.add(ne);
-        ne= new NotificationsModel("Mervin",3,false,false,false,false,false,false,false,true,false);
+        ne= new NotificationsModel("Mervin","12-9-17",3,false,false,false,false,false,false,false,true,false);
         notificationsModelList.add(ne);
-        ne= new NotificationsModel("Mervin",3,false,false,false,false,false,false,false,false,true);
+        ne= new NotificationsModel("Mervin","12-9-17",3,false,false,false,false,false,false,false,false,true);
         notificationsModelList.add(ne);
 
         notificationsAdapter.notifyDataSetChanged();

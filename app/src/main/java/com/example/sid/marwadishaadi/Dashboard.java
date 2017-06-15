@@ -19,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.sid.marwadishaadi.Chat.DefaultDialogsActivity;
@@ -47,9 +48,9 @@ public class Dashboard extends AppCompatActivity
     private DashboardSectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
     private ImageView userdp;
-    private ImageView interest;
-    private ImageView inbox;
-    private ImageView search;
+    private LinearLayout interest;
+    private LinearLayout inbox;
+    private LinearLayout search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +79,7 @@ public class Dashboard extends AppCompatActivity
             }
         });
 
-        interest = (ImageView)mview.findViewById(R.id.nav_interest);
+        interest = (LinearLayout)mview.findViewById(R.id.nav_interest);
         interest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,7 +90,7 @@ public class Dashboard extends AppCompatActivity
         });
 
 
-        inbox = (ImageView)mview.findViewById(R.id.nav_inbox);
+        inbox = (LinearLayout)mview.findViewById(R.id.nav_inbox);
         inbox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,7 +101,7 @@ public class Dashboard extends AppCompatActivity
         });
 
 
-        search = (ImageView)mview.findViewById(R.id.nav_search);
+        search = (LinearLayout)mview.findViewById(R.id.nav_search);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -200,6 +201,10 @@ public class Dashboard extends AppCompatActivity
             case 3:
                 getSupportActionBar().setTitle("Favourites ("+count+")");
                 break;
+           /* case 4:
+                getSupportActionBar().setTitle("Super Match ("+count+")");
+                break;*/
+
 
         }
     }
@@ -238,6 +243,10 @@ public class Dashboard extends AppCompatActivity
                 case 3:
                    FavouritesFragment favouritesFragment = new FavouritesFragment();
                     return favouritesFragment;
+               /*case 4:
+                    SuperMatchFragment superMatchFragment = new SuperMatchFragment();
+                    return superMatchFragment;*/
+
             }
             return null;
         }
@@ -258,6 +267,9 @@ public class Dashboard extends AppCompatActivity
                     return "Reverse Matching";
                 case 3:
                     return "Favourites";
+               /* case 4:
+                    return "Super Match";*/
+
                 default:
                     return null;
             }

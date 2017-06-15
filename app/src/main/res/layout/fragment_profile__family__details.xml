@@ -70,10 +70,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:text="Employee at Universal Links (Father)"
+                    android:text="Employee (Father)"
                     android:textColor="#2d2d2d"
                     android:textSize="16dp"
                     android:drawableLeft="@drawable/profile_designation"
+                    android:gravity="center_vertical"
+                    android:drawablePadding="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="Jewellers (Father)"
+                    android:textColor="#2d2d2d"
+                    android:textSize="16dp"
+                    android:drawableLeft="@drawable/profile_occupation"
                     android:gravity="center_vertical"
                     android:drawablePadding="10dp"/>
 

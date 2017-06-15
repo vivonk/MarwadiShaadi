@@ -6,7 +6,7 @@ package com.example.sid.marwadishaadi.Notifications;
 
 public class NotificationsModel {
 
-    String name;
+    String name,timeStamp;
     int number;
     boolean suggested,interestRec,interestAcc,msgRec,premMem,memExp,reminders,offers,bday;
 
@@ -21,9 +21,19 @@ public class NotificationsModel {
         this.number = number;
     }
 
-    public NotificationsModel(String name, int number, boolean suggested, boolean interestRec, boolean interestAcc, boolean msgRec, boolean premMem, boolean memExp, boolean reminders, boolean offers, boolean bday) {
+    public String getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(String timeStamp) {
+        this.timeStamp = timeStamp;
+    }
+
+    public NotificationsModel(String name, String timeStamp, int number, boolean suggested, boolean interestRec, boolean interestAcc, boolean msgRec, boolean premMem, boolean memExp, boolean reminders, boolean offers, boolean bday) {
+
         this.name = name;
-        this.number=number;
+        this.timeStamp = timeStamp;
+        this.number = number;
         this.suggested = suggested;
         this.interestRec = interestRec;
         this.interestAcc = interestAcc;

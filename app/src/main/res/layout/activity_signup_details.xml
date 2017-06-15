@@ -37,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:hint="Name"
+                android:hint="First Name"
                 android:drawableLeft="@drawable/lastname"
                 android:drawablePadding="10dp"
                 android:padding="6dp"
@@ -71,6 +71,8 @@
                 android:orientation="horizontal"/>
 
             <EditText
+                android:windowSoftInputMode="stateHidden"
+                android:focusableInTouchMode="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -98,7 +100,7 @@
                 android:padding="6dp"
                 android:focusable="false"
                 android:focusableInTouchMode="false"
-                android:textColor="#747474"
+                android:textColor="#000"
                 android:background="@null"
                 android:layout_marginTop="15dp"
                 android:text="Gender"

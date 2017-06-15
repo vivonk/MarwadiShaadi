@@ -191,12 +191,19 @@
 
         <LinearLayout
             android:padding="10dp"
+            android:weightSum="2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <CheckBox
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:text="Dark"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            <CheckBox
+                android:layout_width="0dp"
+                android:text="Doesn't Matter"
+                android:layout_weight="1"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
@@ -252,16 +259,43 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
         </LinearLayout>
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp"
-            android:entries="@array/physicalstatus_array"
-            android:textSize="20dp"
-            android:layout_marginTop="15dp"
-            />
 
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:text="Doesn't Matter"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="textStart"
+                android:text="Physical Status"
+                android:padding="10dp"
+                android:layout_marginTop="15dp"
+                android:textSize="18dp"
+                android:textStyle="italic"
+                />
+            <EditText
+                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/search_physical_status"
+                android:textSize="16dp"
+                android:clickable="true"
+                android:hint="Select Physical Status"
+                android:background="#fff"
+                android:layout_marginTop="10dp"
+                android:focusableInTouchMode="false"
+                />
         <AutoCompleteTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -583,29 +617,70 @@
                 android:layout_height="match_parent" />
         </LinearLayout>
 
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:text="Doesn't Matter"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:padding="10dp"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="10dp"
-                android:entries="@array/status_array"
-                android:textSize="20dp"
-                android:layout_marginTop="20dp"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="textStart"
+                android:text="Marital Status"
+                android:layout_margin="10dp"
+                android:textSize="18dp"
+                android:textStyle="italic"
                 />
 
-            <Spinner
+            <EditText
+                android:layout_marginLeft="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="10dp"
+                android:id="@+id/search_Marital_status"
                 android:textSize="16dp"
-                android:entries="@array/aincome_array"
-                android:layout_marginTop="20dp"
-               />
+                android:clickable="true"
+                android:hint="Select Marital Status"
+                android:background="#fff"
+                android:layout_marginBottom="10dp"
+                android:focusableInTouchMode="false"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="textStart"
+                android:text="Annual Income"
+                android:layout_margin="10dp"
+                android:textSize="18dp"
+                android:textStyle="italic"
+                />
+
+
+            <EditText
+                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/search_Annual_income"
+                android:textSize="16dp"
+                android:clickable="true"
+                android:hint="Select Annual Income"
+                android:background="#fff"
+                android:layout_marginBottom="10dp"
+                android:focusableInTouchMode="false"
+                />
 
 
         </LinearLayout>

@@ -42,6 +42,8 @@ public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdap
     public void onBindViewHolder(MyViewHolder holder, int position) {
         NotificationsModel notificationsModel = notificationsModelList.get(position);
 
+        holder.timestamp.setText(notificationsModel.getTimeStamp());
+
         if(notificationsModel.isBday())
         {
             String notification = "Marwadishaadi.com wishes you a very happy birthday.";
@@ -164,11 +166,12 @@ public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdap
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView notiftext;
+        TextView notiftext,timestamp;
         ImageView notifimage;
 
         public MyViewHolder(View view){
             super(view);
+            timestamp=(TextView)view.findViewById(R.id.timestamp);
             notiftext=(TextView)view.findViewById(R.id.notiftext);
             notifimage=(ImageView)view.findViewById(R.id.notifimage);
         }

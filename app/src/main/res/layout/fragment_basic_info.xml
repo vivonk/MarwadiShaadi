@@ -61,7 +61,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:textSize="16dp"
-                        android:hint="Weight"
+                        android:hint="Weight (in kgs)"
                         android:textColorHint="#747474"
                         android:drawablePadding="10dp"
                         android:padding="10dp"
@@ -260,6 +260,22 @@
                     android:textSize="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_weight="1" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:hint="Father's Occupation Details"
+                    android:drawablePadding="10dp"
+                    android:padding="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColorHint="#747474"
+                    android:textSize="16dp"
+                    android:id="@+id/first_name"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:background="#fff"
+                    />
 
                 <Spinner
                     android:layout_width="match_parent"

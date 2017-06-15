@@ -420,6 +420,32 @@
             android:layout_height="0.5dp"
             android:layout_margin="10dp"
             android:background="#59fb6542"></View>
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sort by"
+            android:textColor="@color/black"
+            />
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:text="Registration"
+                android:layout_height="wrap_content" />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:text="Last Login"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
         <android.support.v7.widget.AppCompatButton
             android:layout_width="80dp"

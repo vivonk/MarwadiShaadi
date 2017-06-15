@@ -183,8 +183,13 @@ public class Membership extends AppCompatActivity {
                 dash.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if(gr1.getCheckedRadioButtonId() == -1 && gr2.getCheckedRadioButtonId() == -1 && gr3.getCheckedRadioButtonId() == -1 && gr4.getCheckedRadioButtonId() == -1 && gr5.getCheckedRadioButtonId() == -1 && gr6.getCheckedRadioButtonId() == -1)
+                        {
+                            Toast.makeText(getApplicationContext(),"Please select atleast one Membership or press Skip",Toast.LENGTH_LONG).show();
+                        }
+                       else{
                         Intent i = new Intent(Membership.this, Dashboard.class);
-                        startActivity(i);
+                        startActivity(i);}
                     }
                 });
 

@@ -237,11 +237,14 @@
 
     <string-array name="designation_array">
         <item>Select Designation</item>
-        <item>Employee</item>
+         <item>Proprietor</item>
+        <item>Partner</item>
         <item>Director</item>
-        <item>Founder</item>
-        <item>Co-Founder</item>
-    </string-array>
+        <item>Employee</item>
+        <item>Owner</item>
+        <item>Consultant</item>
+        <item>Other</item>
+</string-array>
 
 
     <string-array name="height_array">

@@ -80,6 +80,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Basic Search"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="6dp"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="18dp"
+                            android:layout_marginBottom="15dp"
+                            />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -556,6 +566,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Advanced Search"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="6dp"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18dp"
+                        android:layout_marginBottom="15dp"
+                        />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

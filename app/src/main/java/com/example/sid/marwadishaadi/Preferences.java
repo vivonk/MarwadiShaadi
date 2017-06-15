@@ -5,12 +5,14 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -20,6 +22,7 @@ import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener;
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarFinalValueListener;
 import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
 import com.example.sid.marwadishaadi.Otp_Verification.Otp_Verification;
+import com.example.sid.marwadishaadi.Search.BottomSheet;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 
@@ -43,6 +46,10 @@ public class Preferences extends Fragment {
     TextView tdoctor,tengineer,tmbamca,tcacs,tpg,tg,tug,tllb;
     LinearLayout ldoctor,lengineer,lmbamca,lcacs,lpg,lg,lug,lllb;
     int colorg,colorb;
+    private  EditText maritalstatus;
+    private EditText annualincome;
+    private EditText physicalstatus;
+    private static int casebreak;
 
     Button complete;
 
@@ -72,6 +79,10 @@ public class Preferences extends Fragment {
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    public int getCasebreak() {
+        return casebreak;
     }
 
     @Override
@@ -165,6 +176,37 @@ public class Preferences extends Fragment {
         tg.setTextColor(colorb);
         tug.setTextColor(colorb);
 
+        maritalstatus = (EditText) view.findViewById(R.id.search_Marital_status);
+        maritalstatus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                casebreak = 3;
+                BottomSheetDialogFragment btm= new BottomSheet(7);
+                btm.show(getFragmentManager(),btm.getTag());
+            }
+        });
+
+
+
+        annualincome = (EditText) view.findViewById(R.id.search_Annual_income);
+        annualincome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                casebreak=5;
+                BottomSheetDialogFragment btm= new BottomSheet(7);
+                btm.show(getFragmentManager(),btm.getTag());
+            }
+        });
+
+        physicalstatus = (EditText) view.findViewById(R.id.search_physical_status) ;
+        physicalstatus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                casebreak=6;
+                BottomSheetDialogFragment btm= new BottomSheet(7);
+                btm.show(getFragmentManager(),btm.getTag());
+            }
+        });
 
 
         ldoctor.setOnClickListener(new View.OnClickListener() {

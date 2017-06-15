@@ -5,6 +5,7 @@ import android.support.design.widget.BottomSheetDialogFragment;
 import android.view.View;
 import android.widget.ListView;
 
+import com.example.sid.marwadishaadi.Preferences;
 import com.example.sid.marwadishaadi.R;
 import com.example.sid.marwadishaadi.User_Profile.ProfileAdditionalDetailsFragment;
 import com.example.sid.marwadishaadi.User_Profile.ProfileFamilyDetailsFragment;
@@ -35,7 +36,13 @@ public class BottomSheet extends BottomSheetDialogFragment {
         }else if (i==4){
             filter mfilter = new filter();
             content=mfilter.getCasebreak();
-        }else{
+        }
+        else if(i == 7)
+        {
+            Preferences preferences = new Preferences();
+            content = preferences.getCasebreak();
+        }
+        else{
             ProfileFamilyDetailsFragment profile_family_detailsFragment = new ProfileFamilyDetailsFragment();
             content = profile_family_detailsFragment.getCasebreak();
         }

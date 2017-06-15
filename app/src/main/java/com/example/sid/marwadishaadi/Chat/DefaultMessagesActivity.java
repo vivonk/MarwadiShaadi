@@ -11,6 +11,8 @@ import com.stfalcon.chatkit.messages.MessageInput;
 import com.stfalcon.chatkit.messages.MessagesList;
 import com.stfalcon.chatkit.messages.MessagesListAdapter;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 public class DefaultMessagesActivity extends DemoMessagesActivity
         implements MessageInput.InputListener,
         MessageInput.AttachmentsListener {
@@ -20,6 +22,11 @@ public class DefaultMessagesActivity extends DemoMessagesActivity
     }
 
     private MessagesList messagesList;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

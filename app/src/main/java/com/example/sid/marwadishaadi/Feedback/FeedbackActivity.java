@@ -1,5 +1,6 @@
 package com.example.sid.marwadishaadi.Feedback;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -23,12 +24,18 @@ import android.widget.Toast;
 
 import com.example.sid.marwadishaadi.R;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 public class FeedbackActivity extends AppCompatActivity {
 
     protected EditText fftext;
     protected Button send;
     protected CheckBox email_response;
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,5 +1,6 @@
 package com.example.sid.marwadishaadi;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +26,8 @@ import org.json.JSONObject;
 
 import java.util.Arrays;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 public class Signup extends AppCompatActivity {
 
     protected EditText email;
@@ -36,6 +39,10 @@ public class Signup extends AppCompatActivity {
 
     CallbackManager callbackManager;
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

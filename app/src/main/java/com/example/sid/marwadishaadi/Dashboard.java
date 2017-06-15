@@ -1,5 +1,6 @@
 package com.example.sid.marwadishaadi;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -37,6 +38,8 @@ import com.example.sid.marwadishaadi.Search.SearchResultsActivity;
 import com.example.sid.marwadishaadi.Settings.SettingsActivity;
 import com.example.sid.marwadishaadi.User_Profile.UserProfileActivity;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 public class Dashboard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         ViewPager.OnPageChangeListener,
@@ -51,6 +54,11 @@ public class Dashboard extends AppCompatActivity
     private LinearLayout interest;
     private LinearLayout inbox;
     private LinearLayout search;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

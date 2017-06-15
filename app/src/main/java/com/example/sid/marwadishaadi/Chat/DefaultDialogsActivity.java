@@ -11,6 +11,8 @@ import com.stfalcon.chatkit.dialogs.DialogsListAdapter;
 
 import java.util.ArrayList;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 public class DefaultDialogsActivity extends DemoDialogsActivity {
 
     private ArrayList<Dialog> dialogs;
@@ -20,6 +22,11 @@ public class DefaultDialogsActivity extends DemoDialogsActivity {
     }
 
     private DialogsList dialogsList;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

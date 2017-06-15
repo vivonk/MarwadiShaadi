@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/uploadimage"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.sid.marwadishaadi.UploadPhotoActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#fb6542"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center_horizontal"
+        android:text="TAP TO ADD A PHOTO"
+        android:gravity="center_vertical"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:src="@mipmap/photo"
+            android:layout_gravity="center_horizontal"/>
+
+    <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="30dp"
+    android:layout_marginLeft="30dp"
+    android:orientation="horizontal"
+    android:layout_gravity="center_horizontal"
+    >
+
+    <ImageView
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_margin="10dp"
+        android:clickable="true"
+        android:src="@mipmap/photo"/>
+
+    <ImageView
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_margin="10dp"
+        android:clickable="true"
+        android:src="@mipmap/photo"/>
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+
+        >
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_margin="10dp"
+            android:clickable="true"
+            android:src="@mipmap/photo" />
+
+        <ImageView
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_margin="10dp"
+            android:clickable="true"
+            android:src="@mipmap/photo"/>
+    </LinearLayout>
+    </LinearLayout>
+
+
+            <Button
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/submit_photo"
+                android:text="Finish"
+                android:textColor="#fff"
+                android:background="@layout/button_border_corner_circle_"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="30dp"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

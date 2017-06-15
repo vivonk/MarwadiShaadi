@@ -1,5 +1,6 @@
 package com.example.sid.marwadishaadi.Notifications;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -30,6 +31,8 @@ import com.example.sid.marwadishaadi.User_Profile.UserProfileActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 public class NotificationsActivity extends AppCompatActivity {
 
     private List<NotificationsModel> notificationsModelList =new ArrayList<>();
@@ -37,6 +40,12 @@ public class NotificationsActivity extends AppCompatActivity {
     private NotificationsAdapter notificationsAdapter;
     private View ChildView ;
     Paint p = new Paint();
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,5 +1,6 @@
 package com.example.sid.marwadishaadi;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.net.Uri;
 import android.support.design.widget.TabLayout;
@@ -24,6 +25,8 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 import static com.facebook.FacebookSdk.getApplicationContext;
 
 
@@ -42,6 +45,11 @@ public class Advanced_Signup_Details extends AppCompatActivity implements
             R.drawable.more,
             R.drawable.partner
     };
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,12 +72,38 @@ public class Advanced_Signup_Details extends AppCompatActivity implements
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
         tabLayout.getTabAt(0).setIcon(tabIcons[0]);
         tabLayout.getTabAt(1).setIcon(tabIcons[1]);
         tabLayout.getTabAt(2).setIcon(tabIcons[2]);
 
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                if(tab.getPosition()==0){
+                    tab.setIcon(R.drawable.ic_action_basic_white);
+                }else if(tab.getPosition()==1){
+                    tab.setIcon(R.drawable.ic_action_additonal_white);
+                }else{
+                    tab.setIcon(R.drawable.ic_action_partner_white);
+                }
+            }
 
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                if(tab.getPosition()==0){
+                    tab.setIcon(R.drawable.basic);
+                }else if(tab.getPosition()==1){
+                    tab.setIcon(R.drawable.more);
+                }else{
+                    tab.setIcon(R.drawable.partner);
+                }
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 
 
@@ -85,13 +119,7 @@ public class Advanced_Signup_Details extends AppCompatActivity implements
 
     @Override
     public void onPageSelected(int position) {
-        try {
-            tabLayout.getTabAt(position).getCustomView().setBackgroundColor(Color.parseColor("#FE3202"));
-        }
-        catch(NullPointerException npe)
-        {
-            Toast.makeText(getApplicationContext(),"Null Pointer Exception", Toast.LENGTH_SHORT).show();
-        }
+
         switch (position){
             case 0:
                 getSupportActionBar().setTitle("Basic Details");

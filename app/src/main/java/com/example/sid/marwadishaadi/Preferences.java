@@ -24,6 +24,8 @@ import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
 import com.example.sid.marwadishaadi.Otp_Verification.Otp_Verification;
 import com.example.sid.marwadishaadi.Search.BottomSheet;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 import static com.facebook.FacebookSdk.getApplicationContext;
 
 
@@ -81,9 +83,11 @@ public class Preferences extends Fragment {
         return fragment;
     }
 
+
     public int getCasebreak() {
         return casebreak;
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

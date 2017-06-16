@@ -5,6 +5,13 @@
     <color name="colorAccent">#FB6542</color>
     <color name="colorHiya">#FEC3B5</color>
 
+    <color name="heart_primary_color">#da4439</color>
+    <color name="heart_secondary_color">#8a098c</color>
+    <color name="fav_primary_color">#ffd000</color>
+    <color name="fav_secondary_color">#d9b412</color>
+    <color name="chat_primary_color">#00c864</color>
+    <color name="chat_secondary_color">#00c864</color>
+
     <color name="cornflower_blue">#6274e2</color>
     <color name="cornflower_blue_dark">#303F9F</color>
     <color name="cornflower_blue_darkest">#2d3a93</color>

@@ -18,6 +18,7 @@ import com.example.sid.marwadishaadi.Settings.SettingsActivity;
 import com.example.sid.marwadishaadi.User_Profile.Edit_User_Profile.EditPreferencesActivity;
 import com.example.sid.marwadishaadi.User_Profile.UserProfileActivity;
 import com.example.sid.marwadishaadi.filter;
+import com.varunest.sparkbutton.SparkButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +48,6 @@ public class SuggestionsFragment extends Fragment {
     private TextView editprefs;
     private TextView filters;
     private OnFragmentInteractionListener mListener;
-
     public SuggestionsFragment() {
         // Required empty public constructor
     }
@@ -111,7 +111,7 @@ public class SuggestionsFragment extends Fragment {
 
         recyclerView = (RecyclerView) mview.findViewById(R.id.recycler);
 
-        suggestionAdapter=  new SuggestionAdapter(getContext(), suggestionModelList);
+        suggestionAdapter=  new SuggestionAdapter(getContext(), suggestionModelList,recyclerView);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);

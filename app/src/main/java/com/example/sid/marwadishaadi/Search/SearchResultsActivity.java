@@ -41,7 +41,7 @@ public class SearchResultsActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
 
-        suggestionAdapter=  new SuggestionAdapter(getApplicationContext(), suggestionModelList);
+        suggestionAdapter=  new SuggestionAdapter(getApplicationContext(), suggestionModelList, recyclerView);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);

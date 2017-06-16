@@ -2,10 +2,12 @@ package com.example.sid.marwadishaadi;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.sid.marwadishaadi.Intro_Slides.Intro1Fragment;
 import com.example.sid.marwadishaadi.Intro_Slides.Intro2Fragment;

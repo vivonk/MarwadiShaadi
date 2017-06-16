@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -43,9 +44,6 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 public class Dashboard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         ViewPager.OnPageChangeListener,
-        BasicInfo.OnFragmentInteractionListener,
-        Additional_Info.OnFragmentInteractionListener,
-        Preferences.OnFragmentInteractionListener,
         SuperMatchFragment.OnFragmentInteractionListener{
 
     private DashboardSectionsPagerAdapter mSectionsPagerAdapter;
@@ -54,6 +52,7 @@ public class Dashboard extends AppCompatActivity
     private LinearLayout interest;
     private LinearLayout inbox;
     private LinearLayout search;
+    private int click=0;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -142,7 +141,7 @@ public class Dashboard extends AppCompatActivity
             } else {
                 click++;
                 if (click == 1) {
-                    Snackbar.make(suggestionFrameLayout,"Please press back again to exit",Snackbar.LENGTH_LONG).show();
+                    Toast.makeText(Dashboard.this, "Please press back button twice to exit", Toast.LENGTH_SHORT).show();
                 } else if (click >=2) {
                     click=0;
                     Intent intent = new Intent(Intent.ACTION_MAIN);

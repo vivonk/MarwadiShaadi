@@ -8,6 +8,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -18,7 +19,11 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.ScaleAnimation;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.sid.marwadishaadi.Chat.DefaultDialogsActivity;
 import com.example.sid.marwadishaadi.Dashboard;
@@ -131,6 +136,15 @@ public class NotificationsActivity extends AppCompatActivity {
                         Intent i = new Intent(NotificationsActivity.this,UpgradeMembershipActivity.class);
                         startActivity(i);
                         overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
+                    }
+                    else if(notificationsModel.isBday())
+                    {
+
+                        View bday_view = getLayoutInflater().inflate(R.layout.birthday_dialog, null);
+                        AlertDialog.Builder bday = new AlertDialog.Builder(NotificationsActivity.this);
+                        bday.setView(bday_view);
+                        AlertDialog bdaybox = bday.create();
+                        bdaybox.show();
                     }
                 }
 

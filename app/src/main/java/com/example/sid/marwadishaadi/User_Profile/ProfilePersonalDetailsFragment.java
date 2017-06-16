@@ -8,8 +8,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.sid.marwadishaadi.Similar_Profiles.SimilarActivity;
 import com.example.sid.marwadishaadi.User_Profile.Edit_User_Profile.EditPersonalDetailsActivity;
 import com.example.sid.marwadishaadi.R;
 import com.example.sid.marwadishaadi.Search.BottomSheet;
@@ -37,6 +39,7 @@ public class ProfilePersonalDetailsFragment extends Fragment {
     private TextView edit_profession;
     private static int casebreak;
     private OnFragmentInteractionListener mListener;
+    private Button similar;
 
     public ProfilePersonalDetailsFragment() {
         // Required empty public constructor
@@ -78,6 +81,16 @@ public class ProfilePersonalDetailsFragment extends Fragment {
         edit_individual = (TextView) mview.findViewById(R.id.individual_clear);
         edit_education = (TextView) mview.findViewById(R.id.edu_clear);
         edit_profession = (TextView) mview.findViewById(R.id.profession_clear);
+        similar = (Button) mview.findViewById(R.id.similar);
+
+        similar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getContext(), SimilarActivity.class);
+                startActivity(i);
+                getActivity().overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
+            }
+        });
 
         edit_individual.setOnClickListener(new View.OnClickListener() {
             @Override

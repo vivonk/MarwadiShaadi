@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -35,14 +36,20 @@ public class FavouritesAdapter extends RecyclerView.Adapter<FavouritesAdapter.My
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
         FavouriteModel favouriteModel = fav.get(position);
         String name_age = favouriteModel.getName()+", "+ favouriteModel.getAge();
         holder.fav_name_age.setText(name_age);
         holder.fav_education.setText(favouriteModel.getHighest_degree());
         holder.fav_city.setText(favouriteModel.getLocation());
         Glide.with(context).load(favouriteModel.getImageurl()).into(holder.fav_profile_image);
-
+        holder.remove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fav.remove(position);
+                notifyDataSetChanged();
+            }
+        });
     }
 
     @Override
@@ -54,7 +61,7 @@ public class FavouritesAdapter extends RecyclerView.Adapter<FavouritesAdapter.My
 
         TextView fav_name_age, fav_city, fav_education;
         ImageView fav_profile_image;
-
+        Button remove,sendInterest;
         public MyViewHolder(View view){
 
         super(view);
@@ -62,10 +69,9 @@ public class FavouritesAdapter extends RecyclerView.Adapter<FavouritesAdapter.My
             fav_city= (TextView) view.findViewById(R.id.fav_city);
             fav_education= (TextView) view.findViewById(R.id.fav_education);
             fav_profile_image = (ImageView) view.findViewById(R.id.fav_profile_image);
-
-
-
-    }
+            remove=(Button)view.findViewById(R.id.remove);
+            sendInterest=(Button)view.findViewById(R.id.send_interest);
+        }
 
 
 }}

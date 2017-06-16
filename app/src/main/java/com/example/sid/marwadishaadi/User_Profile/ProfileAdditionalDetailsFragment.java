@@ -1,5 +1,6 @@
 package com.example.sid.marwadishaadi.User_Profile;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.BottomSheetDialogFragment;
@@ -7,10 +8,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.sid.marwadishaadi.R;
 import com.example.sid.marwadishaadi.Search.BottomSheet;
+import com.example.sid.marwadishaadi.Similar_Profiles.SimilarActivity;
 
 public class ProfileAdditionalDetailsFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -28,7 +31,7 @@ public class ProfileAdditionalDetailsFragment extends Fragment {
     private TextView edit_horoscope;
     private static  int casebreak;
     private OnFragmentInteractionListener mListener;
-
+    private Button similar;
     public ProfileAdditionalDetailsFragment() {
         // Required empty public constructor
     }
@@ -69,6 +72,16 @@ public class ProfileAdditionalDetailsFragment extends Fragment {
         edit_hobbies=(TextView) mview.findViewById(R.id.hobbies_clear);
         edit_lifestyle=(TextView)mview.findViewById(R.id.lifestyle_clear);
         edit_horoscope = (TextView) mview.findViewById(R.id.horoscope_clear);
+        similar = (Button) mview.findViewById(R.id.similar);
+
+        similar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getContext(), SimilarActivity.class);
+                startActivity(i);
+                getActivity().overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
+            }
+        });
 
         edit_horoscope.setOnClickListener(new View.OnClickListener() {
             @Override

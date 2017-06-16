@@ -10,12 +10,15 @@
         android:layout_height="wrap_content"
         android:elevation="10dp"
         app:cardCornerRadius="10dp"
+        android:clipToPadding="false"
+        android:clipChildren="false"
         android:layout_margin="6dp"
-        >
-
+>
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:clipChildren="false"
+            android:clipToPadding="false"
             tools:layout_editor_absoluteY="8dp"
             tools:layout_editor_absoluteX="8dp"
             android:layout_marginBottom="10dp">
@@ -45,6 +48,8 @@
                 android:layout_marginTop="244dp"
                 app:cardCornerRadius="20dp"
                 android:elevation="10dp"
+                android:clipToPadding="false"
+                android:clipChildren="false"
                 app:cardBackgroundColor="@color/colorHiya"
                 app:layout_constraintHorizontal_bias="0.4"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -54,6 +59,8 @@
                 <android.support.constraint.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
                     >
 
                      <TextView
@@ -169,41 +176,53 @@
                 android:layout_marginTop="16dp"
                 app:layout_constraintTop_toBottomOf="@+id/mariSta" />
 
-
-            <ImageView
+            <com.varunest.sparkbutton.SparkButton
                 android:id="@+id/fav"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
-                app:srcCompat="@mipmap/ic_fav"
                 android:layout_marginLeft="89dp"
-                android:clickable="true"
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:elevation="10dp"
                 app:layout_constraintTop_toTopOf="@+id/cardView"
-                android:layout_marginTop="56dp" />
+                android:layout_marginTop="56dp"
+                app:sparkbutton_activeImage="@mipmap/heart_disable"
+                app:sparkbutton_inActiveImage="@mipmap/ic_fav"
+                app:sparkbutton_iconSize="56dp"
+                app:sparkbutton_primaryColor="@color/fav_primary_color"
+                app:sparkbutton_secondaryColor="@color/fav_secondary_color"/>
 
-            <ImageView
+            <com.varunest.sparkbutton.SparkButton
                 android:id="@+id/chat"
                 android:layout_width="72dp"
                 android:clickable="true"
                 android:layout_height="72dp"
-                app:srcCompat="@mipmap/ic_chat"
+                app:sparkbutton_activeImage="@mipmap/ic_chat"
+                app:sparkbutton_iconSize="56dp"
                 app:layout_constraintLeft_toRightOf="@+id/fav"
                 android:layout_marginLeft="9dp"
                 android:elevation="10dp"
                 app:layout_constraintTop_toTopOf="@+id/cardView"
-                android:layout_marginTop="56dp" />
+                android:layout_marginTop="56dp"
+                app:sparkbutton_primaryColor="@color/chat_primary_color"
+                app:sparkbutton_secondaryColor="@color/chat_secondary_color" />
 
-            <ImageView
+
+            <com.varunest.sparkbutton.SparkButton
                 android:clickable="true"
+                android:id="@+id/interest"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
-                app:srcCompat="@mipmap/ic_heart"
                 app:layout_constraintLeft_toRightOf="@+id/chat"
                 android:layout_marginLeft="7dp"
                 android:elevation="10dp"
                 app:layout_constraintTop_toTopOf="@+id/cardView"
-                android:layout_marginTop="56dp" />
+                android:layout_marginTop="56dp"
+                app:sparkbutton_activeImage="@mipmap/heart_disable1"
+                app:sparkbutton_inActiveImage="@mipmap/ic_heart"
+                app:sparkbutton_iconSize="56dp"
+                app:sparkbutton_primaryColor="@color/heart_primary_color"
+                app:sparkbutton_secondaryColor="@color/heart_secondary_color" />
+
 
             <ImageView
                 android:layout_width="22dp"

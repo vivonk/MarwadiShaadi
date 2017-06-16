@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,6 +19,7 @@ import com.example.sid.marwadishaadi.Settings.SettingsActivity;
 import com.example.sid.marwadishaadi.User_Profile.Edit_User_Profile.EditPreferencesActivity;
 import com.example.sid.marwadishaadi.User_Profile.UserProfileActivity;
 import com.example.sid.marwadishaadi.filter;
+import com.varunest.sparkbutton.SparkButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +49,7 @@ public class SuggestionsFragment extends Fragment {
     private TextView editprefs;
     private TextView filters;
     private OnFragmentInteractionListener mListener;
-
+    private SwipeRefreshLayout swipeRefreshLayout;
     public SuggestionsFragment() {
         // Required empty public constructor
     }
@@ -109,25 +111,28 @@ public class SuggestionsFragment extends Fragment {
             }
         });
 
-        recyclerView = (RecyclerView) mview.findViewById(R.id.recycler);
 
-        suggestionAdapter=  new SuggestionAdapter(getContext(), suggestionModelList);
+        recyclerView = (RecyclerView) mview.findViewById(R.id.swipe_recyclerview);
+        swipeRefreshLayout=(SwipeRefreshLayout)mview.findViewById(R.id.swipe);
+        suggestionAdapter=  new SuggestionAdapter(getContext(), suggestionModelList,recyclerView);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(suggestionAdapter);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshContent();
+            }
+        });
         prepareBlockData();
 
         return mview;
     }
-    public void  prepareBlockData()
-    {
-        SuggestionModel recentAttri=new SuggestionModel(19,"https://lh3.googleusercontent.com/-8D2J9cZOoG8/WTUSKeS-6iI/AAAAAAAAIHY/fv2ETqvW1WMegWYpleca_bacQO8IjZDKACK8B/s512/2017-06-05.jpg","Maitree Pasad", "M1234","B.Tech","Mumbai","5'7 feet","Shaadi.com","INR 25000","Unmarried","Mulund","Software Engineer");
+
+    private void refreshContent() {
+        SuggestionModel recentAttri=new SuggestionModel(19,"https://lh3.googleusercontent.com/-8D2J9cZOoG8/WTUSKeS-6iI/AAAAAAAAIHY/fv2ETqvW1WMegWYpleca_bacQO8IjZDKACK8B/s512/2017-06-05.jpg","Max Payne", "M1234","B.Tech","Mumbai","5'7 feet","Shaadi.com","INR 25000","Unmarried","Mulund","Software Engineer");
         suggestionModelList.add(recentAttri);
-
-        SuggestionModel recentAttri1=new SuggestionModel(22,"https://avatars2.githubusercontent.com/u/13920107?v=3&s=460","Siddhesh Rane", "S1234","B.Tech","Mumbai","5'11","Shaadi.com","25000","Unmarried","Thane","Software Engineer");
-        suggestionModelList.add(recentAttri1);
-
         SuggestionModel recentAttri2=new SuggestionModel(22,"https://lh3.googleusercontent.com/-XcUWlzpPfc8/WTUTyRwiTXI/AAAAAAAAIHs/E4zMBLDuWLwdiZ93WuMjQPfk5Ols_HZTwCK8B/s512/2017-06-05.jpg","Mervin Dalmet", "M1233","B.Tech","Mumbai","5'7","Shaadi.com","25000","Unmarried","Vasai","Software Engineer");
         suggestionModelList.add(recentAttri2);
 
@@ -136,6 +141,19 @@ public class SuggestionsFragment extends Fragment {
 
         SuggestionModel recentAttri4=new SuggestionModel(22,"https://lh3.googleusercontent.com/-_2FnlCFcgfA/WTUS3yDAXII/AAAAAAAAIHg/IRXv4NgTIcMlyoDaGfr8IYdVR2y_9ccugCK8B/s512/2017-06-05.jpg","Pranay Parmar", "M1233","B.Tech","Mumbai","5'7","Shaadi.com","25000","Unmarried","Vasai","Software Engineer");
         suggestionModelList.add(recentAttri4);
+        suggestionAdapter.notifyDataSetChanged();
+        swipeRefreshLayout.setRefreshing(false);
+    }
+
+    public void  prepareBlockData()
+    {
+        SuggestionModel recentAttri=new SuggestionModel(19,"https://lh3.googleusercontent.com/-8D2J9cZOoG8/WTUSKeS-6iI/AAAAAAAAIHY/fv2ETqvW1WMegWYpleca_bacQO8IjZDKACK8B/s512/2017-06-05.jpg","Maitree Pasad", "M1234","B.Tech","Mumbai","5'7 feet","Shaadi.com","INR 25000","Unmarried","Mulund","Software Engineer");
+        suggestionModelList.add(recentAttri);
+
+        SuggestionModel recentAttri1=new SuggestionModel(22,"https://avatars2.githubusercontent.com/u/13920107?v=3&s=460","Siddhesh Rane", "S1234","B.Tech","Mumbai","5'11","Shaadi.com","25000","Unmarried","Thane","Software Engineer");
+        suggestionModelList.add(recentAttri1);
+
+
 
         suggestionAdapter.notifyDataSetChanged();
     }

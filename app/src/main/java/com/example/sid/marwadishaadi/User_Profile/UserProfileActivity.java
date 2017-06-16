@@ -56,7 +56,7 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
     private FloatingActionMenu fab;
     private CoordinatorLayout coordinatorLayout;
     private FrameLayout frameLayout;
-    private Button similar;
+
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -82,6 +82,7 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
         sendinterest = (FloatingActionButton) findViewById(R.id.fab_send_interest);
         shareprofile = (FloatingActionButton) findViewById(R.id.fab_share_profile);
         sharesave = (FloatingActionButton) findViewById(R.id.fab_save);
+
         editphotos = (FloatingActionButton) findViewById(R.id.fab_edit_photos);
         similar = (Button)findViewById(R.id.similar);
 
@@ -102,6 +103,7 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
                 startActivity(i);
             }
         });
+
 
         fab.setOnMenuToggleListener(new FloatingActionMenu.OnMenuToggleListener() {
             @Override

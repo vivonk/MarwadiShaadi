@@ -3,6 +3,7 @@ package com.example.sid.marwadishaadi.Dashboard_Favourites;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -30,6 +31,7 @@ public class FavouritesFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private List<FavouriteModel> favouritesList= new ArrayList<>();
     private RecyclerView recyclerView;
+    private SwipeRefreshLayout swipeRefreshLayout;
     private FavouritesAdapter favouritesAdapter;
 
     // TODO: Rename and change types of parameters
@@ -73,15 +75,32 @@ public class FavouritesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View mview =  inflater.inflate(R.layout.fragment_favourites, container, false);
-        recyclerView = (RecyclerView) mview.findViewById(R.id.recycler_view);
+        View mview =  inflater.inflate(R.layout.swipe_to_refresh, container, false);
+        recyclerView = (RecyclerView) mview.findViewById(R.id.swipe_recyclerview);
+        swipeRefreshLayout=(SwipeRefreshLayout)mview.findViewById(R.id.swipe);
         favouritesAdapter = new FavouritesAdapter(getContext(), favouritesList);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(favouritesAdapter);
-        prepareBlockData();
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshContent();
+
+            }});
+
+
+
+    prepareBlockData();
         return mview;
+    }
+
+    private void refreshContent() {
+        FavouriteModel favouriteModel = new FavouriteModel("Mervin", "Vasai", "B.A", 21, "https://avatars2.githubusercontent.com/u/13920107?v=3&s=460");
+        favouritesList.add(favouriteModel);
+        favouritesAdapter.notifyDataSetChanged();
+        swipeRefreshLayout.setRefreshing(false);
     }
 
     public void prepareBlockData(){

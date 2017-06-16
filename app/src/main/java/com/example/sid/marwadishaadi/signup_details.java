@@ -7,6 +7,8 @@ import android.content.res.Resources;
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+
+import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
@@ -26,7 +28,7 @@ public class signup_details extends AppCompatActivity implements DatePickerDialo
     protected EditText surname;
     protected EditText dob;
     protected EditText mobile;
-
+    protected ArrayAdapter<String> casteSpinnerAdapter;
     protected Button next;
 
     protected  Spinner caste;
@@ -53,9 +55,11 @@ public class signup_details extends AppCompatActivity implements DatePickerDialo
 
         caste = (Spinner) findViewById(R.id.user_caste);
 
+
         location = (AutoCompleteTextView) findViewById(R.id.location);
 
         next = (Button) findViewById(R.id.advnext);
+
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override

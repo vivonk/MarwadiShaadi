@@ -3,6 +3,7 @@ package com.example.sid.marwadishaadi.Dashboard_Reverse_Matching;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
@@ -38,7 +39,7 @@ public class Reverse_MatchingActivity extends Fragment {
     private ReverseAdapter reverseAdapter;
     private StaggeredGridLayoutManager staggeredGridLayoutManager;
     private OnFragmentInteractionListener mListener;
-
+    private SwipeRefreshLayout swipeRefreshLayout;
     public Reverse_MatchingActivity() {
         // Required empty public constructor
     }
@@ -76,18 +77,24 @@ public class Reverse_MatchingActivity extends Fragment {
         // Inflate the layout for this fragment
         View mview =  inflater.inflate(R.layout.fragment_reverse__matching, container, false);
 
-        reverseRecyclerView = (RecyclerView) mview.findViewById(R.id.reverse);
+        reverseRecyclerView = (RecyclerView) mview.findViewById(R.id.swipe_recyclerview);
+        swipeRefreshLayout = (SwipeRefreshLayout)mview.findViewById(R.id.swipe);
         reverseRecyclerView.setHasFixedSize(true);
         staggeredGridLayoutManager = new StaggeredGridLayoutManager(2,1);
         reverseRecyclerView.setLayoutManager(staggeredGridLayoutManager);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshContent();
+            }
+        });
         getData();
         reverseAdapter = new ReverseAdapter(reverseModelList,getContext());
         reverseRecyclerView.setAdapter(reverseAdapter);
         return mview;
     }
 
-    public void getData(){
-
+    private void refreshContent() {
         ReverseModel rev1 = new ReverseModel("https://lh3.googleusercontent.com/-_2FnlCFcgfA/WTUS3yDAXII/AAAAAAAAIHg/IRXv4NgTIcMlyoDaGfr8IYdVR2y_9ccugCK8B/s512/2017-06-05.jpg","Arya Stark",20);
         reverseModelList.add(rev1);
 
@@ -99,6 +106,12 @@ public class Reverse_MatchingActivity extends Fragment {
 
         ReverseModel rev4 = new ReverseModel("https://lh3.googleusercontent.com/-_2FnlCFcgfA/WTUS3yDAXII/AAAAAAAAIHg/IRXv4NgTIcMlyoDaGfr8IYdVR2y_9ccugCK8B/s512/2017-06-05.jpg","Pranay Parmar",20);
         reverseModelList.add(rev4);
+        reverseAdapter.notifyDataSetChanged();
+        swipeRefreshLayout.setRefreshing(false);
+    }
+
+    public void getData(){
+
 
         ReverseModel rev5 = new ReverseModel("https://avatars2.githubusercontent.com/u/13920107?v=3&s=460","Siddhesh Rane",20);
         reverseModelList.add(rev5);
@@ -114,7 +127,7 @@ public class Reverse_MatchingActivity extends Fragment {
 
         ReverseModel rev9 = new ReverseModel("https://lh3.googleusercontent.com/-fuehKVkteYg/WTUn0PG0exI/AAAAAAAAIIM/FDP13YTCdqguOHXL08kP5pdxlPDnzZXtwCK8B/s512/2017-06-05.jpg","Rutuja Bagul",20);
         reverseModelList.add(rev9);
-
+        reverseAdapter.notifyDataSetChanged();
     }
 
     // TODO: Rename method, update argument and hook method into UI event

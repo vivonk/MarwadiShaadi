@@ -174,5 +174,17 @@
                     android:gravity="center_vertical"
                     />
             </LinearLayout>
+        <Button
+            android:id="@+id/similar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View Similar Profiles"
+            android:textAllCaps="false"
+            android:layout_gravity="bottom|center"
+            android:background="@layout/button_border_corner_circle_"
+            android:textColor="@color/white"
+            android:layout_marginBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"/>
     </LinearLayout>
     </android.support.v4.widget.NestedScrollView>

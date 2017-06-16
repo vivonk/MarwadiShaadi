@@ -26,7 +26,7 @@ public class signup_details extends AppCompatActivity implements DatePickerDialo
     protected EditText surname;
     protected EditText dob;
     protected EditText mobile;
-
+    protected ArrayAdapter<String> casteSpinnerAdapter;
     protected Button next;
 
     protected  Spinner caste;
@@ -56,6 +56,7 @@ public class signup_details extends AppCompatActivity implements DatePickerDialo
         location = (AutoCompleteTextView) findViewById(R.id.location);
 
         next = (Button) findViewById(R.id.advnext);
+
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override

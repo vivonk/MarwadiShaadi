@@ -11,5 +11,17 @@
         android:layout_height="match_parent"
         android:src="@drawable/slider2min"
         android:scaleType="centerCrop"/>
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/get_started"
+        android:background="@layout/button_border_corner_circle_"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="bottom|center"
+        android:text="Get Started"
+        android:textColor="#fff"
+        android:textSize="16dp"
+        android:textAllCaps="false"/>
 
 </FrameLayout>

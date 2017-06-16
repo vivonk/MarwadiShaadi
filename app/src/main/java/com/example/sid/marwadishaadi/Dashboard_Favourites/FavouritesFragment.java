@@ -82,6 +82,7 @@ public class FavouritesFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
         recyclerView.setAdapter(favouritesAdapter);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -89,10 +90,7 @@ public class FavouritesFragment extends Fragment {
                 refreshContent();
 
             }});
-
-
-
-    prepareBlockData();
+        prepareBlockData();
         return mview;
     }
 

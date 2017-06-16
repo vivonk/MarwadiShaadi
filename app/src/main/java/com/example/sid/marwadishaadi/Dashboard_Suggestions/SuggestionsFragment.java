@@ -1,6 +1,7 @@
 package com.example.sid.marwadishaadi.Dashboard_Suggestions;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -83,9 +84,9 @@ public class SuggestionsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View mview = inflater.inflate(R.layout.fragment_suggestions, container, false);
+                Bundle savedInstanceState) {
+            // Inflate the layout for this fragment
+            View mview = inflater.inflate(R.layout.fragment_suggestions, container, false);
         editprefs = (TextView) mview.findViewById(R.id.preference);
         filters = (TextView) mview.findViewById(R.id.filter);
 
@@ -114,11 +115,15 @@ public class SuggestionsFragment extends Fragment {
 
         recyclerView = (RecyclerView) mview.findViewById(R.id.swipe_recyclerview);
         swipeRefreshLayout=(SwipeRefreshLayout)mview.findViewById(R.id.swipe);
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
         suggestionAdapter=  new SuggestionAdapter(getContext(), suggestionModelList,recyclerView);
+
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(suggestionAdapter);
+
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -126,7 +131,6 @@ public class SuggestionsFragment extends Fragment {
             }
         });
         prepareBlockData();
-
         return mview;
     }
 

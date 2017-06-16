@@ -79,9 +79,15 @@ public class Reverse_MatchingActivity extends Fragment {
 
         reverseRecyclerView = (RecyclerView) mview.findViewById(R.id.swipe_recyclerview);
         swipeRefreshLayout = (SwipeRefreshLayout)mview.findViewById(R.id.swipe);
+
         reverseRecyclerView.setHasFixedSize(true);
         staggeredGridLayoutManager = new StaggeredGridLayoutManager(2,1);
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
+
+        reverseAdapter = new ReverseAdapter(reverseModelList,getContext());
         reverseRecyclerView.setLayoutManager(staggeredGridLayoutManager);
+        reverseRecyclerView.setAdapter(reverseAdapter);
+
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -89,8 +95,6 @@ public class Reverse_MatchingActivity extends Fragment {
             }
         });
         getData();
-        reverseAdapter = new ReverseAdapter(reverseModelList,getContext());
-        reverseRecyclerView.setAdapter(reverseAdapter);
         return mview;
     }
 
@@ -127,6 +131,7 @@ public class Reverse_MatchingActivity extends Fragment {
 
         ReverseModel rev9 = new ReverseModel("https://lh3.googleusercontent.com/-fuehKVkteYg/WTUn0PG0exI/AAAAAAAAIIM/FDP13YTCdqguOHXL08kP5pdxlPDnzZXtwCK8B/s512/2017-06-05.jpg","Rutuja Bagul",20);
         reverseModelList.add(rev9);
+
         reverseAdapter.notifyDataSetChanged();
     }
 

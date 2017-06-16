@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -42,6 +43,7 @@ public class InterestSentFragment extends Fragment {
     private RecyclerView recyclerView;
     private InterestAdapterSent interestAdapterSent;
     private View view;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     private OnFragmentInteractionListener mListener;
 
@@ -81,18 +83,37 @@ public class InterestSentFragment extends Fragment {
                              Bundle savedInstanceState) {
         View mview = inflater.inflate(R.layout.fragment_interest_received, container, false);
 
-
-        recyclerView = (RecyclerView) mview.findViewById(R.id.card_recycler_view);
+        swipeRefreshLayout = (SwipeRefreshLayout)mview.findViewById(R.id.swipe);
+        recyclerView = (RecyclerView) mview.findViewById(R.id.swipe_recyclerview);
         intererstListSent = new ArrayList<>();
         interestAdapterSent = new InterestAdapterSent(getContext(), intererstListSent);
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(interestAdapterSent);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshData();
+            }
+        });
         prepareInterest();
 
         return mview;
+    }
+
+    private void refreshData() {
+        InterestModelSent interestModelSent=new InterestModelSent("Mervin Dalmet","Mumbai","B. Tech","https://avatars2.githubusercontent.com/u/13920107?v=3&s=460","Seen your request and decided to respond later ",18,"05-Jul-2017");
+        intererstListSent.add(interestModelSent);
+        interestModelSent=new InterestModelSent("Maitree Pasad","Mumbai","B. Tech","https://scontent.fbom1-1.fna.fbcdn.net/v/t1.0-9/542932_1870229913255094_1073152164360738877_n.jpg?oh=414cb9683ac4daa8f7a67f63316215f6&oe=59ABFA15","Not seen your request  ",18,"05-Jul-2017");
+        intererstListSent.add(interestModelSent);
+        interestModelSent=new InterestModelSent("Siddhesh Rane","Mumbai","B. Tech","https://lh3.googleusercontent.com/-_2FnlCFcgfA/WTUS3yDAXII/AAAAAAAAIHg/IRXv4NgTIcMlyoDaGfr8IYdVR2y_9ccugCK8B/s512/2017-06-05.jpg","Seen your request and accepted ",18,"05-Jul-2017");
+        intererstListSent.add(interestModelSent);
+
+        interestAdapterSent.notifyDataSetChanged();
+        swipeRefreshLayout.setRefreshing(false);
     }
 
     public void prepareInterest(){

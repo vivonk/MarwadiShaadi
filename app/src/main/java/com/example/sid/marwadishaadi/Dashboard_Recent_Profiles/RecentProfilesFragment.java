@@ -82,6 +82,7 @@ public class RecentProfilesFragment extends Fragment {
         swipeRefreshLayout = (SwipeRefreshLayout)mview.findViewById(R.id.swipe);
         recentList = new ArrayList<>();
         recentAdapter = new RecentAdapter(getContext(), recentList);
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recentRecyclerView.setLayoutManager(layoutManager);

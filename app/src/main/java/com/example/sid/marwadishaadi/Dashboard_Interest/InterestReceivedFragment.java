@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -54,7 +55,7 @@ public class InterestReceivedFragment extends Fragment {
     private View view;
     private CoordinatorLayout coordinatorLayout;
     private OnFragmentInteractionListener mListener;
-
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     public InterestReceivedFragment() {
         // Required empty public constructor
@@ -93,10 +94,18 @@ public class InterestReceivedFragment extends Fragment {
         // Inflate the layout for this fragment
         View mview = inflater.inflate(R.layout.fragment_interest_received, container, false);
 
+        swipeRefreshLayout = (SwipeRefreshLayout)mview.findViewById(R.id.swipe);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshData();
+            }
+        });
         coordinatorLayout = (CoordinatorLayout) mview.findViewById(R.id.interest_layout);
-        recyclerView = (RecyclerView) mview.findViewById(R.id.card_recycler_view);
+        recyclerView = (RecyclerView) mview.findViewById(R.id.swipe_recyclerview);
         intererstList = new ArrayList<>();
         interestAdapter = new InterestAdapter(getContext(), intererstList,recyclerView);
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
@@ -105,6 +114,13 @@ public class InterestReceivedFragment extends Fragment {
         prepareInterest();
 
         return mview;
+    }
+
+    private void refreshData() {
+        InterestModel interestModelF = new InterestModel("Tyrion,", "18", "Former Hand of Kind", "Seven Kingdom","https://avatars2.githubusercontent.com/u/13920107?v=3&s=460",0);
+        intererstList.add(interestModelF);
+        interestAdapter.notifyDataSetChanged();
+        swipeRefreshLayout.setRefreshing(false);
     }
 
     private void prepareInterest() {

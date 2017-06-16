@@ -84,7 +84,6 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
         sharesave = (FloatingActionButton) findViewById(R.id.fab_save);
 
         editphotos = (FloatingActionButton) findViewById(R.id.fab_edit_photos);
-        similar = (Button)findViewById(R.id.similar);
 
         editphotos.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,13 +95,7 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
             }
         });
 
-        similar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(UserProfileActivity.this, SimilarActivity.class);
-                startActivity(i);
-            }
-        });
+
 
 
         fab.setOnMenuToggleListener(new FloatingActionMenu.OnMenuToggleListener() {

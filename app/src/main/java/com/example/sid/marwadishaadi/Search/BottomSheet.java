@@ -3,16 +3,22 @@ package com.example.sid.marwadishaadi.Search;
 import android.app.Dialog;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
-import com.example.sid.marwadishaadi.Preferences;
 import com.example.sid.marwadishaadi.R;
 import com.example.sid.marwadishaadi.User_Profile.ProfileAdditionalDetailsFragment;
 import com.example.sid.marwadishaadi.User_Profile.ProfileFamilyDetailsFragment;
 import com.example.sid.marwadishaadi.User_Profile.ProfilePersonalDetailsFragment;
-import com.example.sid.marwadishaadi.filter;
 
 import java.util.ArrayList;
+
+import static com.example.sid.marwadishaadi.Search.Search.annualincome;
+import static com.example.sid.marwadishaadi.Search.Search.familystatus;
+import static com.example.sid.marwadishaadi.Search.Search.maritalstatus;
+import static com.example.sid.marwadishaadi.Search.Search.physicalstatus;
+import static com.example.sid.marwadishaadi.Search.Search.spinnerCastSearch;
 
 /**
  * Created by vivonk on 01-06-2017.
@@ -20,9 +26,14 @@ import java.util.ArrayList;
 
 
 public class BottomSheet extends BottomSheetDialogFragment {
-     int content;
-     View contentView;
+    int content;
+    View contentView;
+    UsersAdapter usersAdapter;
+    static String s;
+    public BottomSheet()
+    {
 
+    }
     public BottomSheet(int i) {
         if(i==0){
             Search search = new Search();
@@ -33,19 +44,18 @@ public class BottomSheet extends BottomSheetDialogFragment {
         }else if (i==2){
             ProfileAdditionalDetailsFragment profile_additional_detailsFragment = new ProfileAdditionalDetailsFragment();
             content = profile_additional_detailsFragment.getCasebreak();
-        }else if (i==4){
-            filter mfilter = new filter();
-            content=mfilter.getCasebreak();
-        }
-        else if(i == 7)
-        {
-            Preferences preferences = new Preferences();
-            content = preferences.getCasebreak();
-        }
-        else{
+        }else{
             ProfileFamilyDetailsFragment profile_family_detailsFragment = new ProfileFamilyDetailsFragment();
             content = profile_family_detailsFragment.getCasebreak();
         }
+    }
+
+    public String getS() {
+        return s;
+    }
+
+    public void setS(String s) {
+        this.s = s;
     }
 
     @Override
@@ -53,6 +63,8 @@ public class BottomSheet extends BottomSheetDialogFragment {
         super.setupDialog(dialog, style);
         switch (content)
         {
+            case 0:
+                break;
             // search
             case 1:
                 ArrayList<User> arrayOfUsers = new ArrayList<>();
@@ -65,6 +77,7 @@ public class BottomSheet extends BottomSheetDialogFragment {
                 UsersAdapter adapter = new UsersAdapter(getContext(), arrayOfUsers);
                 View mview = View.inflate(getContext(),R.layout.custom_list_view, null) ;
                 ListView listView = (ListView) mview.findViewById(R.id.list_view);
+                usersAdapter=adapter;
                 listView.setAdapter(adapter);
                 contentView=mview;
                 break;
@@ -84,6 +97,7 @@ public class BottomSheet extends BottomSheetDialogFragment {
                 View msview = View.inflate(getContext(),R.layout.custom_list_view, null) ;
                 ListView listView1 = (ListView) msview.findViewById(R.id.list_view);
                 listView1.setAdapter(adapters);
+                usersAdapter=adapters;
                 contentView=msview;
                 break;
 
@@ -99,6 +113,7 @@ public class BottomSheet extends BottomSheetDialogFragment {
                 View mwview = View.inflate(getContext(),R.layout.custom_list_view, null) ;
                 ListView listView3 = (ListView) mwview.findViewById(R.id.list_view);
                 listView3.setAdapter(adapterq);
+                usersAdapter=adapterq;
                 contentView=mwview;
                 break;
 
@@ -114,6 +129,7 @@ public class BottomSheet extends BottomSheetDialogFragment {
                 View mqview = View.inflate(getContext(),R.layout.custom_list_view, null) ;
                 ListView listView4 = (ListView) mqview.findViewById(R.id.list_view);
                 listView4.setAdapter(adaptera);
+                usersAdapter=adaptera;
                 contentView=mqview;
                 break;
 
@@ -129,6 +145,7 @@ public class BottomSheet extends BottomSheetDialogFragment {
                 View pview = View.inflate(getContext(),R.layout.custom_list_view, null) ;
                 ListView listView5 = (ListView) pview.findViewById(R.id.list_view);
                 listView5.setAdapter(adapterp);
+                usersAdapter=adapterp;
                 contentView=pview;
                 break;
 
@@ -165,6 +182,46 @@ public class BottomSheet extends BottomSheetDialogFragment {
                 break;
         }
         dialog.setContentView(contentView);
-    }
 
+        Button btn=(Button)contentView.findViewById(R.id.ok);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String result = "";
+
+                for (User p : usersAdapter.getBox()) {
+                    if (p.box){
+
+                        result +=  p.name+",";
+
+                    }
+                }
+//                Toast.makeText(getContext(), result+"\n"+"Total Amount:="+totalAmount, Toast.LENGTH_LONG).show();
+                Search srch =new Search();
+//                srch.setStr(result);
+                switch (content)
+                {
+                    case  1:
+                        spinnerCastSearch.setText(result);
+                        break;
+                    case 3:
+                        maritalstatus.setText(result);
+                        break;
+                    case 4:
+                        familystatus.setText(result);
+                        break;
+                    case 5:
+                        annualincome.setText(result);
+                        break;
+                    case 6:
+                        physicalstatus.setText(result);
+                        break;
+                }
+                dialog.dismiss();
+            }
+        });
+
+
+    }
 }
+

@@ -3,11 +3,14 @@ package com.example.sid.marwadishaadi.User_Profile;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 
+import com.example.sid.marwadishaadi.Dashboard;
 import com.example.sid.marwadishaadi.Similar_Profiles.SimilarActivity;
+import com.example.sid.marwadishaadi.UploadPhotoActivity;
 import com.github.clans.fab.FloatingActionButton;
 
 import android.support.design.widget.CoordinatorLayout;
@@ -27,6 +30,7 @@ import android.widget.Toast;
 import com.example.sid.marwadishaadi.R;
 import com.github.clans.fab.FloatingActionMenu;
 import com.synnapps.carouselview.CarouselView;
+import com.synnapps.carouselview.ImageClickListener;
 import com.synnapps.carouselview.ImageListener;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -48,6 +52,7 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
     private FloatingActionButton sendinterest;
     private FloatingActionButton shareprofile;
     private FloatingActionButton sharesave;
+    private FloatingActionButton editphotos;
     private FloatingActionMenu fab;
     private CoordinatorLayout coordinatorLayout;
     private FrameLayout frameLayout;
@@ -77,8 +82,18 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
         sendinterest = (FloatingActionButton) findViewById(R.id.fab_send_interest);
         shareprofile = (FloatingActionButton) findViewById(R.id.fab_share_profile);
         sharesave = (FloatingActionButton) findViewById(R.id.fab_save);
-
+        editphotos = (FloatingActionButton) findViewById(R.id.fab_edit_photos);
         similar = (Button)findViewById(R.id.similar);
+
+        editphotos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(UserProfileActivity.this,UploadPhotoActivity.class);
+                startActivity(i);
+                overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
+            }
+        });
 
         similar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,6 +156,11 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
         carouselView = (CarouselView) findViewById(R.id.carouselView);
         carouselView.setPageCount(sampleImages.length);
         carouselView.setImageListener(this);
+        carouselView.setImageClickListener(new ImageClickListener() {
+            @Override
+            public void onClick(int position) {
+            }
+        });
 
         profilePageAdapter = new ProfilePageAdapter(getSupportFragmentManager());
         userinfo = (ViewPager) findViewById(R.id.profile_container);

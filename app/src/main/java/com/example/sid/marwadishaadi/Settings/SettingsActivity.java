@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.support.v4.app.ActivityCompat;
@@ -25,6 +26,7 @@ import com.example.sid.marwadishaadi.Blocked_Members.BlockedActivity;
 import com.example.sid.marwadishaadi.Contact_Us.ContactUsActivity;
 import com.example.sid.marwadishaadi.Dashboard;
 import com.example.sid.marwadishaadi.Faq.FaqActivity;
+import com.example.sid.marwadishaadi.Login;
 import com.example.sid.marwadishaadi.Payment_Policy.PaymentPolicyActivity;
 import com.example.sid.marwadishaadi.Privacy_Policy.PrivacyPolicyActivity;
 import com.example.sid.marwadishaadi.R;
@@ -160,6 +162,15 @@ public class SettingsActivity extends AppCompatActivity {
                                 // perform check
                                 LoginManager.getInstance().logOut();
                                 AccessToken.setCurrentAccessToken(null);
+                                SharedPreferences sharedPre=getSharedPreferences("userinfo",MODE_PRIVATE);
+                                SharedPreferences.Editor editor=sharedPre.edit();
+                                editor.putBoolean("isLoggedIn",false);
+                                editor.putString("email","");
+                                editor.putString("password","");
+                                editor.putString("customer_id","");
+                                editor.commit();
+                                Intent i=new Intent(SettingsActivity.this, Login.class);
+                                startActivity(i);
 
                             }
                         })

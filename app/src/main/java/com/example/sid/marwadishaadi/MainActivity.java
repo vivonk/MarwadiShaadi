@@ -2,10 +2,12 @@ package com.example.sid.marwadishaadi;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.sid.marwadishaadi.Intro_Slides.Intro1Fragment;
 import com.example.sid.marwadishaadi.Intro_Slides.Intro2Fragment;
@@ -50,10 +52,22 @@ public class MainActivity extends AppIntro2 implements Intro1Fragment.OnFragment
     public void onDonePressed(Fragment currentFragment) {
         super.onDonePressed(currentFragment);
 
-        Intent i = new Intent(MainActivity.this,Login.class);
-        startActivity(i);
-        overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
-        finish();
+        SharedPreferences sharedpref=getSharedPreferences("userinfo",MODE_PRIVATE);
+        boolean check = sharedpref.getBoolean("isLoggedIn",false);
+
+        Log.d(":", "onDonePressed:--------------------------- bool is  "+check);
+        if(check){
+            Intent i = new Intent(MainActivity.this, Dashboard.class);
+            startActivity(i);
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            finish();
+        }
+        else {
+            Intent i = new Intent(MainActivity.this, Login.class);
+            startActivity(i);
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            finish();
+        }
     }
 
     @Override

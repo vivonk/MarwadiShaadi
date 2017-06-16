@@ -156,6 +156,17 @@
                 app:fab_label="Save as PDF"
                 style="@style/MenuButtonsStyle" />
 
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/fab_edit_photos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                app:fab_colorNormal="#386AFF"
+                app:fab_colorPressed="#386AFF"
+                app:fab_colorRipple="#386AFF"
+                android:src="@drawable/ic_user_edit"
+                app:fab_label="Edit Photos"
+                style="@style/MenuButtonsStyle" />
 
         </com.github.clans.fab.FloatingActionMenu>
 

@@ -36,6 +36,7 @@ import com.example.sid.marwadishaadi.User_Profile.UserProfileActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.wasabeef.recyclerview.animators.FadeInLeftAnimator;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class NotificationsActivity extends AppCompatActivity {
@@ -65,6 +66,8 @@ public class NotificationsActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
         notificationsAdapter =  new NotificationsAdapter(this, notificationsModelList);
         recyclerView.setHasFixedSize(true);
+        FadeInLeftAnimator fadeInLeftAnimator = new FadeInLeftAnimator();
+        recyclerView.setItemAnimator(fadeInLeftAnimator);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);

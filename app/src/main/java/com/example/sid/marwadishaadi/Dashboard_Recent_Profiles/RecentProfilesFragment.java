@@ -16,6 +16,8 @@ import com.example.sid.marwadishaadi.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.wasabeef.recyclerview.animators.FadeInLeftAnimator;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -83,7 +85,8 @@ public class RecentProfilesFragment extends Fragment {
         recentList = new ArrayList<>();
         recentAdapter = new RecentAdapter(getContext(), recentList);
         swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
-
+        FadeInLeftAnimator fadeInLeftAnimator = new FadeInLeftAnimator();
+        recentRecyclerView.setItemAnimator(fadeInLeftAnimator);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recentRecyclerView.setLayoutManager(layoutManager);
         recentRecyclerView.setAdapter(recentAdapter);

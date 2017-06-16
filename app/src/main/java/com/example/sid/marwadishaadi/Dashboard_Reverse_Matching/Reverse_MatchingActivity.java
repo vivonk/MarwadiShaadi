@@ -15,6 +15,8 @@ import com.example.sid.marwadishaadi.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.wasabeef.recyclerview.animators.FadeInLeftAnimator;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -83,7 +85,8 @@ public class Reverse_MatchingActivity extends Fragment {
         reverseRecyclerView.setHasFixedSize(true);
         staggeredGridLayoutManager = new StaggeredGridLayoutManager(2,1);
         swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
-
+        FadeInLeftAnimator fadeInLeftAnimator = new FadeInLeftAnimator();
+        reverseRecyclerView.setItemAnimator(fadeInLeftAnimator);
         reverseAdapter = new ReverseAdapter(reverseModelList,getContext());
         reverseRecyclerView.setLayoutManager(staggeredGridLayoutManager);
         reverseRecyclerView.setAdapter(reverseAdapter);

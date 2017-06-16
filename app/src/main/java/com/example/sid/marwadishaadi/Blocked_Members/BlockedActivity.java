@@ -13,6 +13,7 @@ import com.example.sid.marwadishaadi.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.wasabeef.recyclerview.animators.FadeInLeftAnimator;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class BlockedActivity extends AppCompatActivity {
@@ -37,7 +38,8 @@ public class BlockedActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         recyclerView = (RecyclerView) findViewById(R.id.recycle);
-
+        FadeInLeftAnimator fadeInLeftAnimator = new FadeInLeftAnimator();
+        recyclerView.setItemAnimator(fadeInLeftAnimator);
         blockAdapter = new BlockAdapter(getApplicationContext(), blockModelList);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(BlockedActivity.this);

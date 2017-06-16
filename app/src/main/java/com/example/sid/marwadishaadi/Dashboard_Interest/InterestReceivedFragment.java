@@ -29,6 +29,8 @@ import com.example.sid.marwadishaadi.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.wasabeef.recyclerview.animators.FadeInLeftAnimator;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -106,7 +108,8 @@ public class InterestReceivedFragment extends Fragment {
         intererstList = new ArrayList<>();
         interestAdapter = new InterestAdapter(getContext(), intererstList,recyclerView);
         swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
-
+        FadeInLeftAnimator fadeInLeftAnimator = new FadeInLeftAnimator();
+        recyclerView.setItemAnimator(fadeInLeftAnimator);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());

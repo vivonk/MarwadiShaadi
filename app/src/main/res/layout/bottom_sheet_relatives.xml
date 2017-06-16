@@ -44,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:hint="Name"
-                    android:drawableLeft="@drawable/lastname"
+                    android:drawableLeft="@drawable/signup_name"
                     android:drawablePadding="10dp"
                     android:padding="6dp"
                     android:textColorHint="#747474"

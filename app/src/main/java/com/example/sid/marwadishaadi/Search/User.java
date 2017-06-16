@@ -7,7 +7,7 @@ package com.example.sid.marwadishaadi.Search;
 public class User {
     public String name;
     public String hometown;
-
+     boolean box;
     public String getName() {
         return name;
     }

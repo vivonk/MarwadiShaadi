@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,36 +8,19 @@
     android:fitsSystemWindows="true"
     tools:context="com.example.sid.marwadishaadi.Advanced_Signup_Details">
 
-    <android.support.design.widget.AppBarLayout
+    <com.stepstone.stepper.StepperLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/stepperLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/appbar_padding_top"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
-
-        </android.support.v7.widget.Toolbar>
-
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tabs"
-            app:tabIndicatorColor="@android:color/white"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </android.support.design.widget.AppBarLayout>
-
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/container"
-        android:layout_width="match_parent"
+        app:ms_bottomNavigationBackground="@color/colorPrimary"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
-
-</android.support.design.widget.CoordinatorLayout>
+        app:ms_backButtonColor="@color/white"
+        app:ms_nextButtonColor="@color/white"
+        app:ms_completeButtonColor="@color/white"
+        app:ms_tabStepDividerWidth="35dp"
+        app:ms_tabNavigationEnabled="@bool/default_circle_indicator_centered"
+        app:ms_showBackButtonOnFirstStep="true"
+        app:ms_activeStepColor="@color/colorPrimary"
+        app:ms_stepperType="tabs" />
+</LinearLayout>

@@ -38,11 +38,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_marginTop="10dp"
             android:clickable="true"
+            android:id="@+id/photo1"
+            android:scaleType="centerCrop"
             android:src="@mipmap/photo"
             android:layout_gravity="center_horizontal"/>
 
@@ -55,16 +57,18 @@
     android:layout_gravity="center_horizontal"
     >
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:layout_margin="10dp"
         android:clickable="true"
+        android:id="@+id/photo2"
         android:src="@mipmap/photo"/>
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="96dp"
         android:layout_height="96dp"
+        android:id="@+id/photo3"
         android:layout_margin="10dp"
         android:clickable="true"
         android:src="@mipmap/photo"/>
@@ -81,19 +85,20 @@
 
         >
 
-        <ImageView
-            android:id="@+id/imageView7"
+        <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="96dp"
             android:layout_height="96dp"
             android:layout_margin="10dp"
+            android:id="@+id/photo4"
             android:clickable="true"
             android:src="@mipmap/photo" />
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="96dp"
             android:layout_height="96dp"
             android:layout_margin="10dp"
             android:clickable="true"
+            android:id="@+id/photo5"
             android:src="@mipmap/photo"/>
     </LinearLayout>
     </LinearLayout>

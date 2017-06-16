@@ -1,6 +1,7 @@
 package com.example.sid.marwadishaadi;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.support.design.widget.TabLayout;
@@ -25,176 +26,56 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sid.marwadishaadi.Otp_Verification.Otp_Verification;
+import com.example.sid.marwadishaadi.Search.SearchResultsActivity;
+import com.stepstone.stepper.StepperLayout;
+import com.stepstone.stepper.VerificationError;
+
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 
-
-public class Advanced_Signup_Details extends AppCompatActivity implements
-        ViewPager.OnPageChangeListener,
-        BasicInfo.OnFragmentInteractionListener,
-        Additional_Info.OnFragmentInteractionListener,
-        Preferences.OnFragmentInteractionListener{
-    private TabLayout tabLayout;
-    private SectionsPagerAdapter mSectionsPagerAdapter;
-
-    private ViewPager mViewPager;
-
-    private int[] tabIcons = {
-            R.drawable.basic,
-            R.drawable.more,
-            R.drawable.partner
-    };
+public class Advanced_Signup_Details extends AppCompatActivity implements StepperLayout.StepperListener{
 
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
+    private StepperLayout mStepperLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         setContentView(R.layout.activity_advanced__signup__details);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
-        mViewPager = (ViewPager) findViewById(R.id.container);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
-        mViewPager.setOnPageChangeListener(this);
-
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);
-        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
-        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
-        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
-
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                if(tab.getPosition()==0){
-                    tab.setIcon(R.drawable.ic_action_basic_white);
-                }else if(tab.getPosition()==1){
-                    tab.setIcon(R.drawable.ic_action_additonal_white);
-                }else{
-                    tab.setIcon(R.drawable.ic_action_partner_white);
-                }
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-                if(tab.getPosition()==0){
-                    tab.setIcon(R.drawable.basic);
-                }else if(tab.getPosition()==1){
-                    tab.setIcon(R.drawable.more);
-                }else{
-                    tab.setIcon(R.drawable.partner);
-                }
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
+        mStepperLayout = (StepperLayout) findViewById(R.id.stepperLayout);
+        mStepperLayout.setAdapter(new MyStepperAdapter(getSupportFragmentManager(), this));
+        mStepperLayout.setListener(this);
     }
 
+    @Override
+    public void onCompleted(View completeButton) {
+        Intent i = new Intent(Advanced_Signup_Details.this,Otp_Verification.class);
+        startActivity(i);
+        overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
+    }
 
     @Override
-    public void onFragmentInteraction(Uri uri) {
+    public void onError(VerificationError verificationError) {
 
     }
 
     @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+    public void onStepSelected(int newStepPosition) {
 
     }
 
     @Override
-    public void onPageSelected(int position) {
-
-        switch (position){
-            case 0:
-                getSupportActionBar().setTitle("Basic Details");
-                break;
-            case 1:
-                getSupportActionBar().setTitle("Additional Details");
-                break;
-            case 2:
-                getSupportActionBar().setTitle("Partner Preferences");
-                break;
-        }
-    }
-
-    @Override
-    public void onPageScrollStateChanged(int state) {
-
-    }
-
-    public static class PlaceholderFragment extends Fragment {
-
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        public PlaceholderFragment() {
-        }
-
-
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_advanced__signup__details, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
-            return rootView;
-        }
-    }
-
-
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
-
-
-
-        public SectionsPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-
-            switch (position){
-                case 0:
-                    BasicInfo info = new BasicInfo();
-                    return info;
-                case 1:
-                    Additional_Info ainfo = new Additional_Info();
-                    return ainfo;
-                case 2:
-                    Preferences pref = new Preferences();
-                    return pref;
-            }
-            return null;
-        }
-
-        @Override
-        public int getCount() {
-            return 3;
-        }
-
-
+    public void onReturn() {
+        Intent i = new Intent(Advanced_Signup_Details.this,signup_details.class);
+        startActivity(i);
+        overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
     }
 }

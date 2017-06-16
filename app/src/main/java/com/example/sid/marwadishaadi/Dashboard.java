@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -43,9 +44,6 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 public class Dashboard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         ViewPager.OnPageChangeListener,
-        BasicInfo.OnFragmentInteractionListener,
-        Additional_Info.OnFragmentInteractionListener,
-        Preferences.OnFragmentInteractionListener,
         SuperMatchFragment.OnFragmentInteractionListener{
 
     private DashboardSectionsPagerAdapter mSectionsPagerAdapter;
@@ -54,6 +52,7 @@ public class Dashboard extends AppCompatActivity
     private LinearLayout interest;
     private LinearLayout inbox;
     private LinearLayout search;
+    private int click=0;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -140,7 +139,17 @@ public class Dashboard extends AppCompatActivity
             if (drawer.isDrawerOpen(GravityCompat.START)) {
                 drawer.closeDrawer(GravityCompat.START);
             } else {
-                super.onBackPressed();
+                click++;
+                if (click == 1) {
+                    Toast.makeText(Dashboard.this, "Please press back button twice to exit", Toast.LENGTH_SHORT).show();
+                } else if (click >=2) {
+                    click=0;
+                    Intent intent = new Intent(Intent.ACTION_MAIN);
+                    intent.addCategory(Intent.CATEGORY_HOME);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+
+                }
             }
 
 
@@ -284,32 +293,7 @@ public class Dashboard extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu( Menu menu) {
-        getMenuInflater().inflate(R.menu.navigation_drawer, menu);
 
-        final MenuItem myActionMenuItem = menu.findItem( R.id.action_search);
-        final SearchView searchView = (SearchView) myActionMenuItem.getActionView();
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                Toast.makeText(Dashboard.this,query, Toast.LENGTH_SHORT).show();
-                if( ! searchView.isIconified()) {
-                    searchView.setIconified(true);
-                }
-                myActionMenuItem.collapseActionView();
-                Intent i = new Intent(Dashboard.this,SearchResultsActivity.class);
-                startActivity(i);
-                overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
-                return false;
-            }
-            @Override
-            public boolean onQueryTextChange(String s) {
-                return false;
-            }
-        });
-        return true;
-    }
 
 
 }

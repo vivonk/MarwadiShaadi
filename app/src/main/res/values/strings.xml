@@ -45,6 +45,7 @@
     </string-array>
 
     <string-array name="caste_array">
+        <item>Select caste</item>
         <item>Maheshwari</item>
         <item>Agarwal</item>
         <item>Jain</item>

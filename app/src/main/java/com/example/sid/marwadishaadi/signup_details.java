@@ -7,6 +7,8 @@ import android.content.res.Resources;
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+
+import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
@@ -52,6 +54,7 @@ public class signup_details extends AppCompatActivity implements DatePickerDialo
         mobile = (EditText) findViewById(R.id.mobile);
 
         caste = (Spinner) findViewById(R.id.user_caste);
+
 
         location = (AutoCompleteTextView) findViewById(R.id.location);
 

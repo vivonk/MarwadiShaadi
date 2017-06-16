@@ -59,7 +59,7 @@
                 android:layout_weight="4"
                 android:background="#fff"
                 android:clickable="true"
-                android:drawableLeft="@drawable/userlocation"
+                android:drawableLeft="@drawable/signup_location"
                 android:drawablePadding="10dp"
                 android:ems="10"
                 android:hint="Type State"

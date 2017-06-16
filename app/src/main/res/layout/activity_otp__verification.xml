@@ -1,31 +1,38 @@
-<android.support.v7.widget.CardView
-    app:cardCornerRadius="10dp"
-    android:layout_margin="10dp"
-    android:elevation="10dp"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    xmlns:tools="http://schemas.android.com/tools"
+    >
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:focusableInTouchMode="true">
+        android:layout_height="wrap_content"
+        android:background="#ffede9"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
 
-        <ScrollView
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="100dp"
+            app:cardBackgroundColor="#fff"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp"
+            app:cardUseCompatPadding="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
+                android:layout_margin="10dp"
                 android:orientation="vertical">
 
-
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="20dp"
                     android:src="@drawable/msg" />
@@ -34,12 +41,10 @@
                     android:id="@+id/text3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="20dp"
+                    android:layout_margin="10dp"
                     android:text="Please enter the OTP below in case we fail to detect the SMS automatically"
                     android:textAlignment="textStart"
-                    android:textSize="18dp"
-                    android:textStyle="italic" />
+                    android:textSize="14dp" />
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
@@ -50,34 +55,22 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/text3"
-                        android:layout_marginTop="20dp"
-                        android:ems="10"
+                        android:layout_marginTop="10dp"
                         android:hint=" Enter OTP"
                         android:inputType="textEmailAddress"
-                        android:textSize="20dp" />
+                        android:textSize="12dp" />
                 </android.support.design.widget.TextInputLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="25dp">
 
                     <Button
                         android:id="@+id/Submit_otp"
-                        android:layout_width="match_parent"
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="5dp"
-                        android:layout_weight="0.5"
-                        android:background="@color/colorPrimary"
-                        android:elevation="5dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@layout/button_shadow"
+                        android:layout_marginTop="40dp"
                         android:text="Submit"
                         android:textColor="#fff"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
+                        android:textSize="16dp"/>
 
 
                 <TextView
@@ -86,13 +79,11 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="20dp"
-                    android:layout_weight="1"
                     android:clickable="true"
                     android:onClick="resend"
                     android:text="Resend OTP"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="18dp"
-                    android:textStyle="italic" />
+                    android:textSize="14dp" />
 
 
                 <TextView
@@ -101,47 +92,42 @@
                     android:layout_marginTop="20dp"
                     android:text="Or"
                     android:textAlignment="center"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
+                    android:textSize="12dp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:orientation="horizontal">
 
 
                     <TextView
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:drawablePadding="6dp"
-                        android:drawableRight="@drawable/phone"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
                         android:text="CONTACT US:"
-                        android:textSize="18dp"
-                        android:textStyle="italic" />
+                        android:textSize="14dp"
+                        android:textColor="#000"/>
 
                     <TextView
 
                         android:id="@+id/call_us"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:layout_marginLeft="6dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginLeft="10dp"
                         android:clickable="true"
                         android:text="90221 12277"
-                        android:textSize="18dp"
-                        android:textStyle="italic"
-
+                        android:textSize="14dp"
+                        android:textColor="#000"
                         />
                 </LinearLayout>
-
             </LinearLayout>
-
-        </ScrollView>
+        </android.support.v7.widget.CardView>
 
     </LinearLayout>
 
-</android.support.v7.widget.CardView>
+        </ScrollView>
+

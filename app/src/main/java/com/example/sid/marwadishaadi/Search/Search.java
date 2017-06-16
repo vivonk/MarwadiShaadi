@@ -2,8 +2,10 @@ package com.example.sid.marwadishaadi.Search;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +16,7 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -21,12 +24,26 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONArrayRequestListener;
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener;
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarFinalValueListener;
 import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
+import com.example.sid.marwadishaadi.Dashboard_Suggestions.SuggestionModel;
+import com.example.sid.marwadishaadi.Login;
 import com.example.sid.marwadishaadi.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
+import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 public class Search extends AppCompatActivity {
     ImageView idoctor, iengineer, imbamca, icacs, ipg, ig, iug, illb;
@@ -34,7 +51,6 @@ public class Search extends AppCompatActivity {
     TextView tdoctor, tengineer, tmbamca, tcacs, tpg, tg, tug, tllb;
     LinearLayout ldoctor, lengineer, lmbamca, lcacs, lpg, lg, lug, lllb;
     int colorg, colorb;
-    EditText spinnerCastSearch;
     Button mOpenIDSearchButton;
     private static int casebreak;
     TextView statetextView,citytextview;
@@ -43,10 +59,21 @@ public class Search extends AppCompatActivity {
     EditText autoCompleteState,autocompletecity;
     static String  addTextState,addPrevious="";
     static String  addTextcity,addPreviousc="";
-    private  EditText maritalstatus;
-    private EditText familystatus;
-    private EditText annualincome;
-    private EditText physicalstatus;
+    public static  EditText maritalstatus;
+    public static EditText familystatus;
+    public static EditText annualincome;
+    public static EditText physicalstatus;
+    public static  EditText spinnerCastSearch;
+    public static List<SuggestionModel> suggestionModelList;
+
+
+
+    boolean int_very_fair, int_fair, int_wheatish, int_wheatish_brown, int_dark, int_doesnt_matter=true,int_profession,int_job,int_retired,int_business,int_not_employed,int_studying,int_dont_matter=true,intSlim,intAthletic,intHeavy,intAverage,intDoesntMatter=true;
+    CheckBox very_fair,fair,wheatish,wheatish_brown,dark,doesnt_matter,profession,job,retired,business,not_employed,studying,dont_matter,slim,athletic,average,heavy,doesntMatter;
+   public static List<String> complexion= new ArrayList<>();
+    public static List<String> occupation=new ArrayList<>();
+   public static List<String> education=new ArrayList<>();
+   public static List<String> bodyType=new ArrayList<>();
 
     public Search()
     {
@@ -62,7 +89,7 @@ public class Search extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-
+        suggestionModelList=new ArrayList<>();
         Toolbar toolbar = (Toolbar) findViewById(R.id.search_toolbar);
         toolbar.setTitle("Search");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
@@ -95,6 +122,10 @@ public class Search extends AppCompatActivity {
         lpg = (LinearLayout) findViewById(R.id.list_pg);
         lg = (LinearLayout) findViewById(R.id.list_g);
         lug = (LinearLayout) findViewById(R.id.list_ug);
+        occupation.add("Doesn't Matter");
+        bodyType.add("Doesn't Matter");
+        complexion.add("Doesn't Matter");
+        education.add("Doesn't Matter");
 
         maritalstatus = (EditText) findViewById(R.id.search_Marital_status);
         maritalstatus.setOnClickListener(new View.OnClickListener() {
@@ -230,11 +261,14 @@ public class Search extends AppCompatActivity {
                 if (intdoctor) {
                     intdoctor = false;
                     tdoctor.setTextColor(colorb);
+                    education.remove(tdoctor.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "Doctor Removed", Toast.LENGTH_SHORT).show();
                     idoctor.setImageResource(R.drawable.doctor_black);
                 } else if (!intdoctor) {
                     intdoctor = true;
                     tdoctor.setTextColor(colorg);
+                    education.add(tdoctor.getText().toString());
                     Toast.makeText(getApplicationContext(), "Doctor Added", Toast.LENGTH_SHORT).show();
                     idoctor.setImageResource(R.drawable.doctor);
                 }
@@ -247,11 +281,15 @@ public class Search extends AppCompatActivity {
                 if (intengineer) {
                     intengineer = false;
                     tengineer.setTextColor(colorb);
+                    education.remove(tengineer.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "Engineer Removed", Toast.LENGTH_SHORT).show();
                     iengineer.setImageResource(R.drawable.engineer_black);
                 } else if (!intengineer) {
                     intengineer = true;
                     tengineer.setTextColor(colorg);
+                    education.add(tengineer.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "Engineer Added", Toast.LENGTH_SHORT).show();
                     iengineer.setImageResource(R.drawable.engineer);
                 }
@@ -265,11 +303,15 @@ public class Search extends AppCompatActivity {
                 if (intmbamca) {
                     intmbamca = false;
                     tmbamca.setTextColor(colorb);
+                    education.remove(tmbamca.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "MBA/MCA Removed", Toast.LENGTH_SHORT).show();
                     imbamca.setImageResource(R.drawable.mba_black);
                 } else if (!intmbamca) {
                     intmbamca = true;
                     tmbamca.setTextColor(colorg);
+                    education.add(tmbamca.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "MBA/MCA Added", Toast.LENGTH_SHORT).show();
                     imbamca.setImageResource(R.drawable.mba);
                 }
@@ -283,11 +325,15 @@ public class Search extends AppCompatActivity {
                 if (intcacs) {
                     intcacs = false;
                     tcacs.setTextColor(colorb);
+                    education.remove(tcacs.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "CA/CS Removed", Toast.LENGTH_SHORT).show();
                     icacs.setImageResource(R.drawable.ca_black);
                 } else if (!intcacs) {
                     intcacs = true;
                     tcacs.setTextColor(colorg);
+                    education.add(tcacs.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "CA/CS Added", Toast.LENGTH_SHORT).show();
                     icacs.setImageResource(R.drawable.ca);
                 }
@@ -301,11 +347,15 @@ public class Search extends AppCompatActivity {
                 if (intpg) {
                     intpg = false;
                     tpg.setTextColor(colorb);
+                    education.remove(tpg.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "PostGraduate Removed", Toast.LENGTH_SHORT).show();
                     ipg.setImageResource(R.drawable.mba_black);
                 } else if (!intpg) {
                     intpg = true;
                     tpg.setTextColor(colorg);
+                    education.add(tpg.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "PostGraduate Added", Toast.LENGTH_SHORT).show();
                     ipg.setImageResource(R.drawable.mba);
                 }
@@ -319,11 +369,15 @@ public class Search extends AppCompatActivity {
                 if (intg) {
                     intg = false;
                     tg.setTextColor(colorb);
+                    education.remove(tg.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "Graduate Removed", Toast.LENGTH_SHORT).show();
                     ig.setImageResource(R.drawable.grad_black);
                 } else if (!intg) {
                     intg = true;
                     tg.setTextColor(colorg);
+                    education.add(tg.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "Graduate Added", Toast.LENGTH_SHORT).show();
                     ig.setImageResource(R.drawable.grad);
                 }
@@ -337,10 +391,14 @@ public class Search extends AppCompatActivity {
                 if (intug) {
                     intug = false;
                     tug.setTextColor(colorb);
+                    education.remove(tug.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "UnderGraduate Removed", Toast.LENGTH_SHORT).show();
                     iug.setImageResource(R.drawable.undergrad_black);
                 } else if (!intug) {
                     intug = true;
+                    education.add(tug.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "UnderGraduate Added", Toast.LENGTH_SHORT).show();
                     tug.setTextColor(colorg);
                     iug.setImageResource(R.drawable.undergrad);
@@ -355,10 +413,14 @@ public class Search extends AppCompatActivity {
                 if (intllb) {
                     intllb = false;
                     tllb.setTextColor(colorb);
+                    education.remove(tllb.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "LLB Removed", Toast.LENGTH_SHORT).show();
                     illb.setImageResource(R.drawable.llb_black);
                 } else if (!intllb) {
                     intllb = true;
+                    education.add(tllb.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "LLB Added", Toast.LENGTH_SHORT).show();
                     tllb.setTextColor(colorg);
                     illb.setImageResource(R.drawable.llb);
@@ -372,11 +434,15 @@ public class Search extends AppCompatActivity {
                 if (intdoctor) {
                     intdoctor = false;
                     tdoctor.setTextColor(colorb);
+                    education.remove(tdoctor.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "Doctor Removed", Toast.LENGTH_SHORT).show();
                     idoctor.setImageResource(R.drawable.doctor_black);
                 } else if (!intdoctor) {
                     intdoctor = true;
                     tdoctor.setTextColor(colorg);
+                    education.add(tdoctor.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "Doctor Added", Toast.LENGTH_SHORT).show();
                     idoctor.setImageResource(R.drawable.doctor);
                 }
@@ -389,11 +455,15 @@ public class Search extends AppCompatActivity {
                 if (intengineer) {
                     intengineer = false;
                     tengineer.setTextColor(colorb);
+                    education.remove(tengineer.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "Engineer Removed", Toast.LENGTH_SHORT).show();
                     iengineer.setImageResource(R.drawable.engineer_black);
                 } else if (!intengineer) {
                     intengineer = true;
                     tengineer.setTextColor(colorg);
+                    education.add(tengineer.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "Engineer Added", Toast.LENGTH_SHORT).show();
                     iengineer.setImageResource(R.drawable.engineer);
                 }
@@ -407,11 +477,15 @@ public class Search extends AppCompatActivity {
                 if (intmbamca) {
                     intmbamca = false;
                     tmbamca.setTextColor(colorb);
+                    education.remove(tmbamca.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "MBA/MCA Removed", Toast.LENGTH_SHORT).show();
                     imbamca.setImageResource(R.drawable.mba_black);
                 } else if (!intmbamca) {
                     intmbamca = true;
                     tmbamca.setTextColor(colorg);
+                    education.add(tmbamca.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "MBA/MCA Added", Toast.LENGTH_SHORT).show();
                     imbamca.setImageResource(R.drawable.mba);
                 }
@@ -425,11 +499,15 @@ public class Search extends AppCompatActivity {
                 if (intcacs) {
                     intcacs = false;
                     tcacs.setTextColor(colorb);
+                    education.remove(tcacs.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "CA/CS Removed", Toast.LENGTH_SHORT).show();
                     icacs.setImageResource(R.drawable.ca_black);
                 } else if (!intcacs) {
                     intcacs = true;
                     tcacs.setTextColor(colorg);
+                    education.add(tcacs.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "CA/CS Added", Toast.LENGTH_SHORT).show();
                     icacs.setImageResource(R.drawable.ca);
                 }
@@ -443,11 +521,15 @@ public class Search extends AppCompatActivity {
                 if (intpg) {
                     intpg = false;
                     tpg.setTextColor(colorb);
+                    education.remove(tpg.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "PostGraduate Removed", Toast.LENGTH_SHORT).show();
                     ipg.setImageResource(R.drawable.mba_black);
                 } else if (!intpg) {
                     intpg = true;
                     tpg.setTextColor(colorg);
+                    education.add(tpg.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "PostGraduate Added", Toast.LENGTH_SHORT).show();
                     ipg.setImageResource(R.drawable.mba);
                 }
@@ -461,11 +543,15 @@ public class Search extends AppCompatActivity {
                 if (intg) {
                     intg = false;
                     tg.setTextColor(colorb);
+                    education.remove(tg.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "Graduate Removed", Toast.LENGTH_SHORT).show();
                     ig.setImageResource(R.drawable.grad_black);
                 } else if (!intg) {
                     intg = true;
                     tg.setTextColor(colorg);
+                    education.add(tg.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "Graduate Added", Toast.LENGTH_SHORT).show();
                     ig.setImageResource(R.drawable.grad);
                 }
@@ -479,10 +565,14 @@ public class Search extends AppCompatActivity {
                 if (intug) {
                     intug = false;
                     tug.setTextColor(colorb);
+                    education.remove(tug.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "UnderGraduate Removed", Toast.LENGTH_SHORT).show();
                     iug.setImageResource(R.drawable.undergrad_black);
                 } else if (!intug) {
                     intug = true;
+                    education.add(tug.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "UnderGraduate Added", Toast.LENGTH_SHORT).show();
                     tug.setTextColor(colorg);
                     iug.setImageResource(R.drawable.undergrad);
@@ -497,10 +587,14 @@ public class Search extends AppCompatActivity {
                 if (intllb) {
                     intllb = false;
                     tllb.setTextColor(colorb);
+                    education.remove(tllb.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "LLB Removed", Toast.LENGTH_SHORT).show();
                     illb.setImageResource(R.drawable.llb_black);
                 } else if (!intllb) {
                     intllb = true;
+                    education.add(tllb.getText().toString());
+
                     Toast.makeText(getApplicationContext(), "LLB Added", Toast.LENGTH_SHORT).show();
                     tllb.setTextColor(colorg);
                     illb.setImageResource(R.drawable.llb);
@@ -536,15 +630,378 @@ public class Search extends AppCompatActivity {
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(dataChecker())
-                {
+//                 new BackEnd().execute("","","","","","","","","");
+//                Intent i=new Intent(Search.this,SearchResultsActivity.class);
+//                i.putStringArrayListExtra("value",);
+                Toast.makeText(getApplicationContext(),"Education are :------" + education.toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Complexion are :------" + complexion.toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Body Type are :------" + bodyType.toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Occupation are :------" + occupation.toString(),Toast.LENGTH_SHORT).show();
+              /*  Toast.makeText(getApplicationContext(),"Education are :------" + education.toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Education are :------" + education.toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Education are :------" + education.toString(),Toast.LENGTH_SHORT).show();
+*/
+            }
+        });
 
-                }
-                else{
-                    Toast.makeText(getApplicationContext(),"Please fill all search details correct",Toast.LENGTH_SHORT).show();
+
+
+        very_fair = (CheckBox) findViewById(R.id.search_check_very_fair);
+        fair = (CheckBox) findViewById(R.id.search_check_fair);
+        wheatish = (CheckBox) findViewById(R.id.search_check_wheatish);
+        wheatish_brown = (CheckBox) findViewById(R.id.search_check_wheatish_brown);
+        dark = (CheckBox) findViewById(R.id.search_check_dark);
+        doesnt_matter = (CheckBox) findViewById(R.id.complexion_doesnt_matter);
+
+        profession=(CheckBox)findViewById(R.id.check_profession);
+        job=(CheckBox)findViewById(R.id.check_job);
+        retired=(CheckBox)findViewById(R.id.check_retired);
+        business=(CheckBox)findViewById(R.id.check_business);
+        studying=(CheckBox)findViewById(R.id.check_studying_not_employed);
+        not_employed=(CheckBox)findViewById(R.id.check_not_employed);
+        dont_matter=(CheckBox)findViewById(R.id.occupation_doesnt_matter);
+
+        slim=(CheckBox)findViewById(R.id.search_check_slim);
+        athletic=(CheckBox)findViewById(R.id.search_check_athletic);
+        heavy=(CheckBox)findViewById(R.id.search_check_heavy);
+        average=(CheckBox)findViewById(R.id.search_check_average);
+        doesntMatter=(CheckBox)findViewById(R.id.bodytype_doesnt_matter);
+
+        very_fair.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (int_very_fair) {
+                    int_very_fair = false;
+                    complexion.remove(very_fair.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
+
+                } else if (!int_very_fair) {
+                    int_very_fair = true;
+                    complexion.add(very_fair.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Added", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
+        fair.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (int_fair) {
+                    int_fair = false;
+                    complexion.remove(fair.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
+
+                } else if (!int_fair) {
+                    int_fair = true;
+                    complexion.add(fair.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Added", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+        wheatish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (int_wheatish) {
+                    int_wheatish = false;
+                    complexion.remove(wheatish.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
+
+                } else if (!int_wheatish) {
+                    int_wheatish = true;
+                    complexion.add(wheatish.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Added", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+        wheatish_brown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (int_wheatish_brown) {
+                    int_wheatish_brown = false;
+                    complexion.remove(wheatish_brown.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
+
+                } else if (!int_wheatish_brown) {
+                    int_wheatish_brown = true;
+                    complexion.add(wheatish_brown.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Added", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+        very_fair.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (int_very_fair) {
+                    int_very_fair = false;
+                    complexion.remove(very_fair.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
+
+                } else if (!int_very_fair) {
+                    int_very_fair = true;
+                    complexion.add(very_fair.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Added", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+        dark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (int_dark) {
+                    int_dark = false;
+                    complexion.remove(dark.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
+
+                } else if (!int_dark) {
+                    int_dark = true;
+                    complexion.add(dark.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Added", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+        doesnt_matter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (int_doesnt_matter) {
+                    int_doesnt_matter = false;
+
+                    complexion.remove(doesnt_matter.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
+
+                } else if (!int_doesnt_matter) {
+                    int_doesnt_matter = true;
+                    complexion.add(doesnt_matter.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Added", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+
+
+        profession.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (int_profession) {
+                    int_profession= false;
+                    occupation.remove(profession.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
+
+                } else if (!int_profession) {
+                    int_profession = true;
+                    occupation.add(profession.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Added", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+        job.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (int_job) {
+                    int_job= false;
+                    occupation.remove(job.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
+
+                } else if (!int_job) {
+                    int_job = true;
+                    occupation.add(job.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Added", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+        retired.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (int_retired) {
+                    int_retired= false;
+                    occupation.remove(retired.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
+
+                } else if (!int_retired) {
+                    int_retired = true;
+                    occupation.add(retired.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Added", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+        business.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (int_business) {
+                    int_business= false;
+                    occupation.remove(business.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
+
+                } else if (!int_business) {
+                    int_business = true;
+                    occupation.add(business.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Added", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+        not_employed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (int_not_employed) {
+                    int_not_employed= false;
+                    occupation.remove(not_employed.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
+
+                } else if (!int_not_employed) {
+                    int_not_employed = true;
+                    occupation.add(not_employed.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Added", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        studying.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (int_studying) {
+                    int_studying= false;
+                    occupation.remove(studying.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
+
+                } else if (!int_studying) {
+                    int_studying = true;
+                    occupation.add(studying.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Added", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+        dont_matter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (int_dont_matter) {
+                    int_dont_matter= false;
+                    occupation.remove(dont_matter.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Added", Toast.LENGTH_SHORT).show();
+
+                } else if (!int_dont_matter) {
+                    int_dont_matter = true;
+                    occupation.add(dont_matter.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+
+
+        slim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (intSlim) {
+                    intSlim= false;
+                    bodyType.remove(slim.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
+
+                } else if (!intSlim) {
+                    intSlim = true;
+                    bodyType.add(slim.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Added", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+        athletic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (intAthletic) {
+                    intAthletic= false;
+                    bodyType.remove(athletic.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
+
+                } else if (!intAthletic) {
+                    intAthletic = true;
+                    bodyType.add(athletic.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Added", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+        average.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (intAverage) {
+                    intAverage= false;
+                    bodyType.remove(average.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
+
+                } else if (!intAverage) {
+                    intAverage = true;
+                    bodyType.add(average.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Added", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+        heavy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (intHeavy) {
+                    intHeavy= false;
+                    bodyType.remove(heavy.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
+
+                } else if (!intHeavy) {
+                    intHeavy = true;
+                    bodyType.add(heavy.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Added", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+        doesntMatter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (intDoesntMatter) {
+                    intDoesntMatter= false;
+                    bodyType.remove(doesntMatter.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
+
+                } else if (!intDoesntMatter) {
+                    intDoesntMatter = true;
+                    bodyType.add(doesntMatter.getText().toString());
+                    Toast.makeText(getApplicationContext(), "Added", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+
+
+
+
+
+
+
+
     }
     public int getCasebreak()
     {
@@ -559,5 +1016,32 @@ public class Search extends AppCompatActivity {
     public boolean onSupportNavigateUp(){
         finish();
         return true;
+    }
+}
+class BackEnd extends AsyncTask<String,String,String>
+{
+
+    @Override
+    protected String doInBackground(String... strings) {
+        AndroidNetworking.post("http://192.168.221.50:5050/checkLogin")
+                .addBodyParameter("email",strings[1])
+                .addBodyParameter("password", strings[2])
+                .setPriority(Priority.HIGH)
+                .build()
+                .getAsJSONArray(new JSONArrayRequestListener() {
+
+                    @Override
+                    public void onResponse(JSONArray response) {
+
+
+                    }
+
+                    @Override
+                    public void onError(ANError error) {
+
+                    }
+                });
+
+        return null;
     }
 }

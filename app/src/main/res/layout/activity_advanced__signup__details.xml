@@ -22,5 +22,6 @@
         app:ms_tabNavigationEnabled="@bool/default_circle_indicator_centered"
         app:ms_showBackButtonOnFirstStep="true"
         app:ms_activeStepColor="@color/colorPrimary"
-        app:ms_stepperType="tabs" />
+        app:ms_stepperType="tabs"
+        />
 </LinearLayout>

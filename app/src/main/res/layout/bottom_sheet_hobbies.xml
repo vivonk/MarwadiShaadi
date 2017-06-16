@@ -40,7 +40,7 @@
                     android:textSize="16dp"
                     android:hint="Hobbies/Interest (Reading, Cooking)"
                     android:textColorHint="#747474"
-                    android:drawableLeft="@drawable/hobby"
+                    android:drawableLeft="@drawable/signup_hobby"
                     android:drawablePadding="10dp"
                     android:padding="6dp"
                     android:inputType="textImeMultiLine"

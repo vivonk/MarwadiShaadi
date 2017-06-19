@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:background="@drawable/uploadimage"
     android:fitsSystemWindows="true"
-    tools:context="com.example.sid.marwadishaadi.UploadPhotoActivity">
+    xmlns:tools="http://schemas.android.com/tools">
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -18,18 +18,17 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#fb6542"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:layout_marginRight="50dp"
         android:layout_marginLeft="50dp"
         android:layout_marginBottom="10dp"
         android:layout_gravity="center_horizontal"
         android:text="TAP TO ADD A PHOTO"
-        android:gravity="center_vertical"
+        android:gravity="center_horizontal"
         android:textSize="16dp"
-        android:textStyle="bold"
-        android:textAlignment="center"
-
+        android:textColor="@color/colorPrimary"
+        fontPath="fonts/OpenSans-Bold.ttf"
+        tools:ignore="MissingPrefix"
         />
 
 
@@ -45,7 +44,7 @@
             android:clickable="true"
             android:id="@+id/photo1"
             android:scaleType="centerCrop"
-            android:src="@mipmap/photo"
+            android:src="@drawable/photo"
             android:layout_gravity="center_horizontal"/>
 
     <LinearLayout
@@ -63,7 +62,7 @@
         android:layout_margin="10dp"
         android:clickable="true"
         android:id="@+id/photo2"
-        android:src="@mipmap/photo"/>
+        android:src="@drawable/photo"/>
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="96dp"
@@ -71,7 +70,7 @@
         android:id="@+id/photo3"
         android:layout_margin="10dp"
         android:clickable="true"
-        android:src="@mipmap/photo"/>
+        android:src="@drawable/photo"/>
 </LinearLayout>
 
     <LinearLayout
@@ -91,7 +90,7 @@
             android:layout_margin="10dp"
             android:id="@+id/photo4"
             android:clickable="true"
-            android:src="@mipmap/photo" />
+            android:src="@drawable/photo"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="96dp"
@@ -99,13 +98,13 @@
             android:layout_margin="10dp"
             android:clickable="true"
             android:id="@+id/photo5"
-            android:src="@mipmap/photo"/>
+            android:src="@drawable/photo"/>
     </LinearLayout>
     </LinearLayout>
 
 
             <Button
-                android:layout_width="240dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/submit_photo"
                 android:text="Finish"

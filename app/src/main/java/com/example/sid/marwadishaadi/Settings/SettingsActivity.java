@@ -193,7 +193,6 @@ public class SettingsActivity extends AppCompatActivity {
 
                 View reset_view = getLayoutInflater().inflate(R.layout.reset_dialog,null);
                 AlertDialog.Builder reset = new AlertDialog.Builder(SettingsActivity.this);
-                reset.setTitle("Reset Password");
                 reset.setView(reset_view);
 
                 final EditText oldpass = (EditText) reset_view.findViewById(R.id.user_old_pass);

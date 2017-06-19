@@ -19,6 +19,7 @@
 <ScrollView android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
@@ -37,14 +38,16 @@
             android:text="Notifications"
             android:drawableLeft="@drawable/setting_notif"
             android:drawablePadding="10dp"
-            android:textSize="16dp"
+            android:textSize="14dp"
             />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_margin="10dp"
-            android:background="#59fb6542">
+            android:background="#59fb6542"
+            >
+
         </View>
 
         <TextView
@@ -53,12 +56,11 @@
             android:id="@+id/reset_password"
             android:text="Reset password"
             android:clickable="true"
-            android:textSize="16dp"
+            android:textSize="14dp"
             android:textColor="#000"
             android:drawableLeft="@drawable/setting_reset"
             android:drawablePadding="10dp"
             android:gravity="center_vertical"
-            android:layout_marginTop="10dp"
             />
 
         <View
@@ -74,12 +76,11 @@
             android:id="@+id/deactivate_acc"
             android:clickable="true"
             android:text="Deactivate account"
-            android:textSize="16dp"
+            android:textSize="14dp"
             android:textColor="#000"
             android:drawableLeft="@drawable/setting_deactivate"
             android:drawablePadding="10dp"
             android:gravity="center_vertical"
-            android:layout_marginTop="10dp"
             />
 
         <View
@@ -95,12 +96,11 @@
             android:id="@+id/delete_acc"
             android:text="Delete account"
             android:clickable="true"
-            android:textSize="16dp"
+            android:textSize="14dp"
             android:textColor="#000"
             android:drawableLeft="@drawable/setting_delete"
             android:drawablePadding="10dp"
             android:gravity="center_vertical"
-            android:layout_marginTop="10dp"
             />
 
         <View
@@ -116,12 +116,11 @@
             android:id="@+id/blocked"
             android:text="Blocked"
             android:clickable="true"
-            android:textSize="16dp"
+            android:textSize="14dp"
             android:textColor="#000"
             android:drawableLeft="@drawable/setting_blocked"
             android:drawablePadding="10dp"
             android:gravity="center_vertical"
-            android:layout_marginTop="10dp"
             />
 
         <View
@@ -137,12 +136,11 @@
             android:id="@+id/more"
             android:text="More"
             android:clickable="true"
-            android:textSize="16dp"
+            android:textSize="14dp"
             android:textColor="#000"
             android:drawableLeft="@drawable/settings_more"
             android:drawablePadding="10dp"
             android:gravity="center_vertical"
-            android:layout_marginTop="10dp"
             />
 
         <View
@@ -166,12 +164,11 @@
                 android:id="@+id/faq"
                 android:text="Faq"
                 android:clickable="true"
-                android:textSize="16dp"
+                android:textSize="14dp"
                 android:textColor="#000"
                 android:drawableLeft="@drawable/ic_action_faq"
                 android:drawablePadding="10dp"
                 android:gravity="center_vertical"
-                android:layout_marginTop="10dp"
                 />
 
             <View
@@ -188,12 +185,11 @@
                 android:id="@+id/aboutus"
                 android:text="About Us"
                 android:clickable="true"
-                android:textSize="16dp"
+                android:textSize="14dp"
                 android:textColor="#000"
                 android:drawableLeft="@drawable/ic_action_about_us"
                 android:drawablePadding="10dp"
                 android:gravity="center_vertical"
-                android:layout_marginTop="10dp"
                 />
 
             <View
@@ -209,12 +205,11 @@
                 android:id="@+id/privacypolicy"
                 android:text="Privacy Policy"
                 android:clickable="true"
-                android:textSize="16dp"
+                android:textSize="14dp"
                 android:textColor="#000"
                 android:drawableLeft="@drawable/ic_action_privacy"
                 android:drawablePadding="10dp"
                 android:gravity="center_vertical"
-                android:layout_marginTop="10dp"
                 />
 
             <View
@@ -230,12 +225,11 @@
                 android:id="@+id/contactus"
                 android:text="Contact Us"
                 android:clickable="true"
-                android:textSize="16dp"
+                android:textSize="14dp"
                 android:textColor="#000"
                 android:drawableLeft="@drawable/ic_action_contact"
                 android:drawablePadding="10dp"
                 android:gravity="center_vertical"
-                android:layout_marginTop="10dp"
                 />
 
             <View
@@ -252,12 +246,11 @@
                 android:id="@+id/paymentpolicy"
                 android:text="Payment Policy"
                 android:clickable="true"
-                android:textSize="16dp"
+                android:textSize="14dp"
                 android:textColor="#000"
                 android:drawableLeft="@drawable/ic_action_payment"
                 android:drawablePadding="10dp"
                 android:gravity="center_vertical"
-                android:layout_marginTop="10dp"
                 />
 
             <View
@@ -274,12 +267,11 @@
             android:id="@+id/Logout"
             android:text="Logout"
             android:clickable="true"
-            android:textSize="16dp"
+            android:textSize="14dp"
             android:textColor="#000"
             android:drawableLeft="@drawable/setting_logout"
             android:drawablePadding="10dp"
             android:gravity="center_vertical"
-            android:layout_marginTop="10dp"
             />
     </LinearLayout>
 </ScrollView>

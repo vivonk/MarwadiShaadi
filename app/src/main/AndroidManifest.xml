@@ -75,7 +75,6 @@
             android:name=".Otp_Verification.Otp_Verification" />
 
         <activity
-            android:hardwareAccelerated="false"
             android:screenOrientation="portrait"
             android:name=".signup_details" />
 

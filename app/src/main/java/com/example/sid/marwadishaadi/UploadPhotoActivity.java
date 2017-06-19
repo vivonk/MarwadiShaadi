@@ -1,6 +1,7 @@
 package com.example.sid.marwadishaadi;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -26,6 +27,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class UploadPhotoActivity extends AppCompatActivity {
 
@@ -36,6 +38,10 @@ public class UploadPhotoActivity extends AppCompatActivity {
     private CircleImageView img;
     private boolean isSelected = false;
     private CircleImageView photo1,photo2,photo3,photo4,photo5;
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

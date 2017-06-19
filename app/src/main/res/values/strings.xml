@@ -39,7 +39,7 @@
     </string-array>
 
     <string-array name="sort_by_array">
-        <item>Recent Profiles</item>
+        <item>Recently Registered</item>
         <item>Recent Active</item>
         <item>Doesn\'t Matter</item>
     </string-array>

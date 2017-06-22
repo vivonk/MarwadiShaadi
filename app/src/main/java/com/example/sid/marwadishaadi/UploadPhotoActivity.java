@@ -46,7 +46,7 @@ public class UploadPhotoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(isSelected){
-                         Intent i = new Intent(UploadPhotoActivity.this,Dashboard.class);
+                         Intent i = new Intent(UploadPhotoActivity.this,Membership.class);
                         startActivity(i);
                 }else{
                     Toast.makeText(UploadPhotoActivity.this, "Minimum 1 photo required ", Toast.LENGTH_SHORT).show();
@@ -125,7 +125,7 @@ public class UploadPhotoActivity extends AppCompatActivity {
                 } else if (items[item].equals("Choose from Library")) {
                         galleryIntent();
                 } else if (items[item].equals("Cancel")) {
-                    dialog.dismiss();
+                        dialog.dismiss();
                 }
             }
         });

@@ -45,6 +45,7 @@ public abstract class DemoMessagesActivity extends AppCompatActivity
                 Picasso.with(DemoMessagesActivity.this).load(url).into(imageView);
             }
         };
+
     }
 
     @Override

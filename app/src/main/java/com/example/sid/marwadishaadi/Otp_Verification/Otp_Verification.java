@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.sid.marwadishaadi.Membership;
 import com.example.sid.marwadishaadi.R;
+import com.example.sid.marwadishaadi.UploadPhotoActivity;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -71,7 +72,7 @@ public class Otp_Verification extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "OTP created is"+ Integer.toString(OTP), Toast.LENGTH_SHORT).show();
                 if(user_otp.equals(Integer.toString(OTP)))
                 {
-                    Intent i = new Intent(Otp_Verification.this,Membership.class);
+                    Intent i = new Intent(Otp_Verification.this,UploadPhotoActivity.class);
                     startActivity(i);
                 }
                 else if(user_otp.equals(""))

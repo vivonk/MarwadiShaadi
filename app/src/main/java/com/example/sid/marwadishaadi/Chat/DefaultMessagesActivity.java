@@ -93,22 +93,18 @@ public class DefaultMessagesActivity extends DemoMessagesActivity
             case R.id.search:
                 return true;
 
-            case R.id.home:
-                onBackPressed();
-                return true;
-
         }
         return super.onOptionsItemSelected(item);
     }
 
     private void onUnblockPressed(int id) {
         MenuItem menuItem = menu.findItem(id);
-        menuItem.setTitle("Unblock");
+        menuItem.setTitle("Block");
     }
 
     private void onBlockPressed(int id) {
         MenuItem menuItem = menu.findItem(id);
-        menuItem.setTitle("Block");
+        menuItem.setTitle("Unblock");
     }
 
     @Override

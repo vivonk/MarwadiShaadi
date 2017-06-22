@@ -24,11 +24,9 @@ public class Membership extends AppCompatActivity {
 
     RadioButton radio1, radio2, radio3, radio4, radio5, radio6, radio7, radio8, radio9, radio10, radio11, radio12, radio13, radio14, radio15, radio16, radio17, radio18;
     RadioGroup gr1, gr2, gr3, gr4, gr5, gr6;
-    LinearLayout linear1,linear2,linear3,linear4,linear5,linear6;
     static int c = 0, c1 = 0, c2 = 0, c3 = 0, c4 = 0, c5 = 0, c6 = 0;
     int id;
     Button skip,coupon;
-    String str;
     TextView dash,clear1,clear2,clear3,clear4,clear5,clear6;
     TextView amount;
 
@@ -72,7 +70,7 @@ public class Membership extends AppCompatActivity {
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Membership.this,UploadPhotoActivity.class);
+                Intent i = new Intent(Membership.this,Dashboard.class);
                 startActivity(i);
             }
         });

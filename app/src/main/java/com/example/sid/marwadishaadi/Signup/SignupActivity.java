@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.sid.marwadishaadi.Analytics_Util;
 import com.example.sid.marwadishaadi.Otp_Verification.Otp_VerificationActivity;
 import com.example.sid.marwadishaadi.R;
 import com.facebook.CallbackManager;
@@ -21,6 +22,7 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,7 +39,7 @@ public class SignupActivity extends AppCompatActivity {
     protected Button next;
 
     protected LoginButton fblogin;
-
+    private FirebaseAnalytics mFirebaseAnalytics;
     CallbackManager callbackManager;
 
     @Override
@@ -51,7 +53,9 @@ public class SignupActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_signup);
 
-       email=(EditText)findViewById(R.id.signup_email);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
+        email=(EditText)findViewById(R.id.signup_email);
         pass=(EditText)findViewById(R.id.signup_password);
         confirm=(EditText)findViewById(R.id.confirm_password);
 
@@ -113,6 +117,9 @@ public class SignupActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"SignupNext","button");
 
                 String uemail = email.getText().toString();
                 String upass =pass.getText().toString();

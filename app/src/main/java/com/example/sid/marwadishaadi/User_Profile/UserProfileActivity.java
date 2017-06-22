@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 
+import com.example.sid.marwadishaadi.Analytics_Util;
 import com.example.sid.marwadishaadi.Upload_User_Photos.UploadPhotoActivity;
 import com.github.clans.fab.FloatingActionButton;
 
@@ -25,6 +26,7 @@ import android.widget.Toast;
 
 import com.example.sid.marwadishaadi.R;
 import com.github.clans.fab.FloatingActionMenu;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageClickListener;
 import com.synnapps.carouselview.ImageListener;
@@ -47,6 +49,7 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
     private FloatingActionButton sharesave;
     private FloatingActionButton editphotos;
     private FloatingActionMenu fab;
+    private FirebaseAnalytics mFirebaseAnalytics;
     private CoordinatorLayout coordinatorLayout;
     private FrameLayout frameLayout;
 
@@ -118,6 +121,8 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -139,6 +144,8 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
         editphotos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Edit photos","button");
 
                 Intent i = new Intent(UserProfileActivity.this,UploadPhotoActivity.class);
                 startActivity(i);
@@ -166,35 +173,40 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
         fav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Favourites","button");
             }
         });
 
         sendmsg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Sent Message","button");
             }
         });
 
         sendinterest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Sent Interest","button");
             }
         });
 
         shareprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Share Profile","button");
             }
         });
 
         sharesave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Save as PDF","button");
             }
         });
 

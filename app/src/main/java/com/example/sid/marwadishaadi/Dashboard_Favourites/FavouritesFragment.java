@@ -9,7 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.sid.marwadishaadi.Analytics_Util;
 import com.example.sid.marwadishaadi.R;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,12 +25,19 @@ public class FavouritesFragment extends Fragment {
     private RecyclerView recyclerView;
     private SwipeRefreshLayout swipeRefreshLayout;
     private FavouritesAdapter favouritesAdapter;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View mview =  inflater.inflate(R.layout.swipe_to_refresh, container, false);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(getContext());
+
+
+        // analytics
+        Analytics_Util.logAnalytic(mFirebaseAnalytics,"Favourites","view");
+
         recyclerView = (RecyclerView) mview.findViewById(R.id.swipe_recyclerview);
         swipeRefreshLayout=(SwipeRefreshLayout)mview.findViewById(R.id.swipe);
         favouritesAdapter = new FavouritesAdapter(getContext(), favouritesList);

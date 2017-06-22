@@ -12,12 +12,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.sid.marwadishaadi.Analytics_Util;
 import com.example.sid.marwadishaadi.Dashboard.DashboardActivity;
 import com.example.sid.marwadishaadi.Forgot_Password.ForgotPasswordActivity;
 import com.example.sid.marwadishaadi.R;
 import com.example.sid.marwadishaadi.Signup.SignupActivity;
 import com.facebook.CallbackManager;
 import com.facebook.login.widget.LoginButton;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -32,6 +34,8 @@ public class LoginActivity extends AppCompatActivity {
     protected TextView signup;
     protected LoginButton fblogin;
 
+    private FirebaseAnalytics mFirebaseAnalytics;
+
     CallbackManager callbackManager;
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -45,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
 
-
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         callbackManager = CallbackManager.Factory.create();
 
 
@@ -111,6 +115,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Forgot","button");
                 Intent i = new Intent(LoginActivity.this,ForgotPasswordActivity.class);
                 startActivity(i);
 
@@ -122,6 +128,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Signup","button");
                 Intent i = new Intent(LoginActivity.this,SignupActivity.class);
                 startActivity(i);
             }
@@ -130,6 +138,9 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Login","button");
 
                 String email = login_email.getText().toString();
                 String pass = login_pass.getText().toString();

@@ -10,7 +10,10 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import com.bumptech.glide.Glide;
+import com.example.sid.marwadishaadi.Analytics_Util;
 import com.example.sid.marwadishaadi.R;
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 /**
  * Created by Lawrence Dalmet on 07-06-2017.
  */
@@ -18,6 +21,7 @@ import com.example.sid.marwadishaadi.R;
 
 public class InterestSentAdapter extends RecyclerView.Adapter<InterestSentAdapter.MyViewHolder> {
 
+    private FirebaseAnalytics mFirebaseAnalytics;
     private Context context;
     private List<InterestSentModel> interestSentModelList;
 
@@ -44,6 +48,10 @@ public class InterestSentAdapter extends RecyclerView.Adapter<InterestSentAdapte
     public InterestSentAdapter(Context context, List<InterestSentModel> interestSentModelList) {
         this.context = context;
         this.interestSentModelList = interestSentModelList;
+        this.mFirebaseAnalytics = FirebaseAnalytics.getInstance(context);
+
+        // analytics
+        Analytics_Util.logAnalytic(mFirebaseAnalytics,"Sent Interest view","view");
     }
 
     @Override

@@ -238,7 +238,7 @@ public class BottomSheet extends BottomSheetDialogFragment {
                     strfname = fname.getText().toString();
                     strlname = lname.getText().toString();
                     strid = id.getText().toString();
-                    if (!strid.isEmpty() & (!strlname.isEmpty() | !strfname.isEmpty())) {
+                    if (!strid.trim().isEmpty() & (!strlname.trim().isEmpty() | !strfname.trim().isEmpty())) {
                         Toast.makeText(getContext(), " Please use either ID or Name ", Toast.LENGTH_SHORT).show();
                         fname.setText("");
                         lname.setText("");
@@ -246,7 +246,7 @@ public class BottomSheet extends BottomSheetDialogFragment {
                         strfname = null;
                         strlname = null;
                         strid = null;
-                    } else if (!strid.isEmpty()) {
+                    } else if (!strid.trim().isEmpty()) {
                         new BackNd().execute("select YEAR(tbl_user.birthdate),tbl_user_files.file_name,tbl_user.first_name,tbl_user.customer_no,tbl_user.edu_degree,tbl_user.occup_location,tbl_user.height,tbl_user.occup_company,tbl_user.anuual_income,tbl_user.marrital_status,tbl_user.city,tbl_user.occup_designation  from tbl_user INNER JOIN tbl_user_files ON tbl_user.customer_no=tbl_user_files.customer_no and tbl_user.customer_no=\"" + strid + "\" ; ");
                         if (success == "success") {
                             if (size == 0) {
@@ -269,7 +269,7 @@ public class BottomSheet extends BottomSheetDialogFragment {
                         } else {
                             Toast.makeText(getContext(), err, Toast.LENGTH_SHORT).show();
                         }
-                    } else if ((!strlname.isEmpty() & !strfname.isEmpty())) {
+                    } else if ((!strlname.trim().isEmpty() & !strfname.trim().isEmpty())) {
                         new BackNd().execute("select YEAR(tbl_user.birthdate),tbl_user_files.file_name,tbl_user.first_name,tbl_user.customer_no,tbl_user.edu_degree,tbl_user.occup_location,tbl_user.height,tbl_user.occup_company,tbl_user.anuual_income,tbl_user.marrital_status,tbl_user.city,tbl_user.occup_designation  from tbl_user  INNER JOIN tbl_user_files ON tbl_user.customer_no=tbl_user_files.customer_no and tbl_user.first_name=\" " + strfname + "\"and tbl_user.surname=\"" + strlname + "\" order by created_on asc ;");
                         if (success == "success") {
                             if (size == 0) {
@@ -293,9 +293,9 @@ public class BottomSheet extends BottomSheetDialogFragment {
                         } else {
                             Toast.makeText(getContext(), err, Toast.LENGTH_SHORT).show();
                         }
-                    } else if ((!strlname.isEmpty() | !strfname.isEmpty())) {
+                    } else if ((!strlname.trim().isEmpty() | !strfname.trim().isEmpty())) {
 
-                        if (!strlname.isEmpty()) {
+                        if (!strlname.trim().isEmpty()) {
                             new BackNd().execute("select YEAR(tbl_user.birthdate),tbl_user_files.file_name,tbl_user.first_name,tbl_user.customer_no,tbl_user.edu_degree,tbl_user.occup_location,tbl_user.height,tbl_user.occup_company,tbl_user.anuual_income,tbl_user.marrital_status,tbl_user.city,tbl_user.occup_designation from tbl_user INNER JOIN tbl_user_files ON tbl_user.customer_no=tbl_user_files.customer_no and tbl_user.surname=\"" + strlname + "\"   order by created_on asc ;");
                             if (success == "success") {
                                 if (size == 0) {

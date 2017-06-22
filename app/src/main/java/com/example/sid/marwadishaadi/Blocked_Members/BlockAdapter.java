@@ -3,13 +3,19 @@ package com.example.sid.marwadishaadi.Blocked_Members;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.StringRequestListener;
 import com.example.sid.marwadishaadi.R;
 import com.example.sid.marwadishaadi.User_Profile.UserProfileActivity;
 
@@ -56,7 +62,7 @@ public class BlockAdapter extends RecyclerView.Adapter<BlockAdapter.MyViewHolder
 
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, final int position) {
+    public void onBindViewHolder(final MyViewHolder holder, final int position) {
         BlockModel blocked= (BlockModel) blockModelList.get(position);
 
         holder.name.setText(blocked.getName());
@@ -72,8 +78,7 @@ public class BlockAdapter extends RecyclerView.Adapter<BlockAdapter.MyViewHolder
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                BlockModel b= blockModelList.get(position);
-                                blockModelList.remove(position);
+                                new bckend().execute("customer_id",holder.cusId.getText().toString(),Integer.toString(position));
                                 notifyItemRemoved(position);
                                 notifyItemRangeChanged(position, blockModelList.size());
                             }
@@ -106,6 +111,49 @@ public class BlockAdapter extends RecyclerView.Adapter<BlockAdapter.MyViewHolder
     public int getItemCount() {
         return blockModelList.size();
     }
+        class bckend extends AsyncTask<String,String,String>
+        {
 
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+            }
+
+            @Override
+            protected String doInBackground(final String... strings) {
+                AndroidNetworking.post("http://192.168.43.61:5050/unBlock")
+                        .addBodyParameter("customer_id", strings[0])
+                        .addBodyParameter("unblock_id",strings[1])
+                        .setPriority(Priority.HIGH)
+                        .build()
+                        .getAsString(new StringRequestListener()
+                        {
+
+                            @Override
+                            public void onResponse(String response) {
+                                if(response.equals("success")){
+                                    Toast.makeText(context, "Unblocked", Toast.LENGTH_SHORT).show();
+                                    BlockModel b= blockModelList.get(Integer.parseInt(strings[2]));
+                                    blockModelList.remove(Integer.parseInt(strings[2]));
+                                }
+                                else{
+                                    Toast.makeText(context, "Try Again, Unable to remove", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+
+                            @Override
+                            public void onError(ANError anError) {
+                                Toast.makeText(context, "Network Error", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                return null;
+            }
+        }
 
 }

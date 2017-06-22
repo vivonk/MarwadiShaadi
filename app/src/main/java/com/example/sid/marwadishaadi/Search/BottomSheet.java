@@ -125,7 +125,7 @@ public class BottomSheet extends BottomSheetDialogFragment {
                 contentView = View.inflate(getContext(), R.layout.bottom_sheet_search, null);
                 count = 1;
                 sm = new ArrayList<>();
-                SA = new SuggestionAdapter(getContext(), sm);
+                SA = new SuggestionAdapter(getContext(), sm, SearchResultsActivity.recyclerView);
                 break;
 
             case 3:

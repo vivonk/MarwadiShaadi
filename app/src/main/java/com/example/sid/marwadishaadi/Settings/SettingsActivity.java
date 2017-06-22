@@ -268,9 +268,12 @@ public class SettingsActivity extends AppCompatActivity {
                                 }
                             });
 
+
+
                 AlertDialog box = deactivate.create();
                 box.setTitle("Deactivate Account ?");
                 box.show();
+
             }
         });
 

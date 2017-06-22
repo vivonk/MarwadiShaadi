@@ -24,7 +24,7 @@ public class SearchResultsActivity extends AppCompatActivity {
 
 
     private ArrayList<SuggestionModel> suggestionModelList = new ArrayList<>();
-    private RecyclerView recyclerView;
+    public static RecyclerView recyclerView;
     private SuggestionAdapter suggestionAdapter;
 
     @Override
@@ -42,11 +42,11 @@ public class SearchResultsActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.search_results_toolbar);
         String str=bundle.get("which").toString();
         if(str.equals("advSearch")) {
-            suggestionAdapter = new SuggestionAdapter(getApplicationContext(), suggestionModelList2);
+            suggestionAdapter = new SuggestionAdapter(getApplicationContext(), suggestionModelList2, recyclerView);
             toolbar.setTitle("Results ("+suggestionAdapter.getItemCount()+")");
         }
         else {
-            suggestionAdapter = new SuggestionAdapter(getApplicationContext(), sm);
+            suggestionAdapter = new SuggestionAdapter(getApplicationContext(), sm, recyclerView);
             toolbar.setTitle("Results ("+ suggestionAdapter.getItemCount()+")");
         }
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));

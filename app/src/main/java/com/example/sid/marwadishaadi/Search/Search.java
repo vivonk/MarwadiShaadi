@@ -50,7 +50,6 @@ import java.util.List;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
-import static com.example.sid.marwadishaadi.Login.dialog;
 
 public class Search extends AppCompatActivity {
     ImageView idoctor, iengineer, imbamca, icacs, ipg, ig, iug, illb;

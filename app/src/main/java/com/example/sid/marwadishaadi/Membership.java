@@ -82,7 +82,6 @@ public class Membership extends AppCompatActivity {
 
                 View reset_view = getLayoutInflater().inflate(R.layout.coupon_dialog, null);
                 AlertDialog.Builder reset = new AlertDialog.Builder(Membership.this);
-                reset.setTitle("Redeem Coupon");
                 reset.setView(reset_view);
 
                 final EditText code = (EditText) reset_view.findViewById(R.id.code);
@@ -353,7 +352,7 @@ public class Membership extends AppCompatActivity {
                     public void onClick(View v) {
                         gr6.clearCheck();
 
-                        c1 = 2500;
+                        c5 = 2500;
                         c = c1 + c2 + c3 + c4 + c5;
                         amount.setText(String.valueOf(c));
                     }

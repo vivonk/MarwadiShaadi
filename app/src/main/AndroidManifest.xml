@@ -75,7 +75,6 @@
             android:name=".Otp_Verification.Otp_Verification" />
 
         <activity
-            android:hardwareAccelerated="false"
             android:screenOrientation="portrait"
             android:name=".signup_details" />
 
@@ -170,7 +169,8 @@
         <activity android:name=".filter" android:screenOrientation="portrait" />
         <activity android:name=".UploadPhotoActivity" android:screenOrientation="portrait"
             android:hardwareAccelerated="false"></activity>
-
+<activity android:name=".Payment.activity.WebViewActivity"/>
+        <activity android:name=".Payment.activity.StatusActivity"/>
     </application>
 
 </manifest>

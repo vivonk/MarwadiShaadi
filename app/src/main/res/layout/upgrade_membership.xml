@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -20,6 +21,8 @@
         >
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical" android:layout_width="match_parent"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
         android:layout_height="match_parent">
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_marginTop="30dp"
@@ -31,34 +34,35 @@
         <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello, Mervin Dalmet."
-        android:textAlignment="center"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:layout_marginTop="20dp"/>
+            android:text="Hello, Mervin Dalmet"
+            android:textAlignment="center"
+            android:textSize="16dp"
+            android:textColor="@color/black"
+             android:layout_marginTop="20dp"
+            fontPath="fonts/OpenSans-Bold.ttf"
+            tools:ignore="MissingPrefix"/>
 
 
         <TextView
-            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:textColor="#000"
             android:text="Member ID : M123"
-            android:textStyle="bold"/>
+            android:textSize="14dp"/>
 
 
         <android.support.v7.widget.CardView
             android:id="@+id/maheshwari"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            app:cardBackgroundColor = "@color/maheshwari"
-            app:cardCornerRadius="20dp"
-            >
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="8dp"
+            app:cardUseCompatPadding="true"            >
             <LinearLayout
-                android:layout_margin="5dp"
+                android:padding="16dp"
+                android:background="@color/maheshwari"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -68,25 +72,25 @@
                     android:text="MAHESHWARI "
                     android:textColor="@color/black"
                     android:padding="2dp"
-                    android:textSize="15dp"/>
+                    android:textSize="14dp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Type : "
                     android:padding="2dp"
-                    android:textSize="15dp"/>
+                    android:textSize="14dp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Stated On : "
                     android:padding="2dp"
-                    android:textSize="15dp"/>
+                    android:textSize="14dp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Ends On : "
                     android:padding="2dp"
-                    android:textSize="15dp"/>
+                    android:textSize="14dp"/>
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -95,14 +99,16 @@
             android:id="@+id/agarwal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            app:cardBackgroundColor = "@color/agarwal"
-            app:cardCornerRadius="20dp"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="8dp"
+            app:cardUseCompatPadding="true"
             >
             <LinearLayout
-                android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:background="@color/agarwal"
                 android:orientation="vertical">
 
                 <TextView
@@ -111,25 +117,25 @@
                     android:text="AGARWAL "
                     android:textColor="@color/black"
                     android:padding="2dp"
-                    android:textSize="15dp"/>
+                    android:textSize="14dp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Type : "
                     android:padding="2dp"
-                    android:textSize="15dp"/>
+                    android:textSize="14dp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Stated On : "
                     android:padding="2dp"
-                    android:textSize="15dp"/>
+                    android:textSize="14dp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Ends On : "
                     android:padding="2dp"
-                    android:textSize="15dp"/>
+                    android:textSize="14dp"/>
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -137,15 +143,17 @@
             android:id="@+id/jain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            app:cardBackgroundColor = "@color/jain"
-            app:cardCornerRadius="20dp"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="8dp"
+            app:cardUseCompatPadding="true"
             >
 
             <LinearLayout
-                android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:background="@color/jain"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="match_parent"
@@ -153,25 +161,25 @@
                     android:text="JAIN "
                     android:textColor="@color/black"
                     android:padding="2dp"
-                    android:textSize="15dp"/>
+                    android:textSize="14dp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Type : "
                     android:padding="2dp"
-                    android:textSize="15dp"/>
+                    android:textSize="14dp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Stated On : "
                     android:padding="2dp"
-                    android:textSize="15dp"/>
+                    android:textSize="14dp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Ends On : "
                     android:padding="2dp"
-                    android:textSize="15dp"/>
+                    android:textSize="14dp"/>
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -179,14 +187,16 @@
             android:id="@+id/khandelwal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            app:cardBackgroundColor = "@color/khandelwal"
-            app:cardCornerRadius="20dp"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="8dp"
+            app:cardUseCompatPadding="true"
             >
             <LinearLayout
-                android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:background="@color/khandelwal"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="match_parent"
@@ -194,25 +204,25 @@
                     android:text="KHANDELWAL "
                     android:textColor="@color/black"
                     android:padding="2dp"
-                    android:textSize="15dp"/>
+                    android:textSize="14dp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Type : "
                     android:padding="2dp"
-                    android:textSize="15dp"/>
+                    android:textSize="14dp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Stated On : "
                     android:padding="2dp"
-                    android:textSize="15dp"/>
+                    android:textSize="14dp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Ends On : "
                     android:padding="2dp"
-                    android:textSize="15dp"/>
+                    android:textSize="14dp"/>
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -220,14 +230,16 @@
             android:id="@+id/others"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            app:cardBackgroundColor = "@color/others"
-            app:cardCornerRadius="20dp"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="8dp"
+            app:cardUseCompatPadding="true"
             >
             <LinearLayout
-                android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:background="@color/others"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="match_parent"
@@ -235,25 +247,25 @@
                     android:text="OTHER "
                     android:textColor="@color/black"
                     android:padding="2dp"
-                    android:textSize="15dp"/>
+                    android:textSize="14dp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Type : "
                     android:padding="2dp"
-                    android:textSize="15dp"/>
+                    android:textSize="14dp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Stated On : "
                     android:padding="2dp"
-                    android:textSize="15dp"/>
+                    android:textSize="14dp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Ends On : "
                     android:padding="2dp"
-                    android:textSize="15dp"/>
+                    android:textSize="14dp"/>
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -262,14 +274,16 @@
             android:id="@+id/all"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            app:cardBackgroundColor = "@color/all"
-            app:cardCornerRadius="20dp"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="8dp"
+            app:cardUseCompatPadding="true"
             >
             <LinearLayout
-                android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:background="@color/all"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="match_parent"
@@ -277,40 +291,42 @@
                     android:text="ALL "
                     android:textColor="@color/black"
                     android:padding="2dp"
-                    android:textSize="15dp"/>
+                    android:textSize="14dp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Type : "
                     android:padding="2dp"
-                    android:textSize="15dp"/>
+                    android:textSize="14dp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Stated On : "
                     android:padding="2dp"
-                    android:textSize="15dp"/>
+                    android:textSize="14dp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Ends On : "
                     android:padding="2dp"
-                    android:textSize="15dp"/>
+                    android:textSize="14dp"/>
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
         <Button
             android:layout_marginBottom="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:id="@+id/upgrade"
-            android:layout_width="wrap_content"
+            android:layout_width="240dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@layout/button_border_corner_circle_"
+            android:layout_gravity="center_horizontal"
             android:text="Upgrade Membership"
-            android:padding="10dp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            android:background="@layout/button_border_corner_circle_"
+            android:stateListAnimator="@null"
+            android:elevation="8dp"/>
     </LinearLayout>
     </ScrollView>
 

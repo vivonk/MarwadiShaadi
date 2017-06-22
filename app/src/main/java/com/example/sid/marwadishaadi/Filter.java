@@ -20,14 +20,12 @@ import android.widget.Toast;
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener;
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarFinalValueListener;
 import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
-import com.example.sid.marwadishaadi.Otp_Verification.Otp_Verification;
+import com.example.sid.marwadishaadi.Dashboard.DashboardActivity;
 import com.example.sid.marwadishaadi.Search.BottomSheet;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-import static com.facebook.FacebookSdk.getApplicationContext;
-
-public class filter extends AppCompatActivity {
+public class Filter extends AppCompatActivity {
 
 
     ImageView idoctor, iengineer, imbamca, icacs, ipg, ig, iug, illb;
@@ -46,9 +44,9 @@ public class filter extends AppCompatActivity {
     }
 
     public static void setCasebreak(int casebreak) {
-        filter.casebreak = casebreak;
+        Filter.casebreak = casebreak;
     }
-    public filter()
+    public Filter()
     {
 
     }
@@ -131,11 +129,11 @@ public class filter extends AppCompatActivity {
             }
         });
 
-        // TODO: 13-06-2017 implement filter logic below 
+        // TODO: 13-06-2017 implement Filter logic below
         complete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(filter.this,Dashboard.class);
+                Intent i = new Intent(Filter.this,DashboardActivity.class);
                 startActivity(i);
             }
         });

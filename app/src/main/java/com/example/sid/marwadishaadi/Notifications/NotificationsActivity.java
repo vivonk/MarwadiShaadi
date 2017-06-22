@@ -19,17 +19,13 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.ScaleAnimation;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.example.sid.marwadishaadi.Chat.DefaultDialogsActivity;
-import com.example.sid.marwadishaadi.Dashboard;
+import com.example.sid.marwadishaadi.Dashboard.DashboardActivity;
 import com.example.sid.marwadishaadi.Dashboard_Interest.InterestActivity;
-import com.example.sid.marwadishaadi.Dashboard_Membership.UpgradeMembershipActivity;
-import com.example.sid.marwadishaadi.Membership;
+import com.example.sid.marwadishaadi.Membership.MembershipActivity;
+import com.example.sid.marwadishaadi.Membership.UpgradeMembershipActivity;
 import com.example.sid.marwadishaadi.R;
 import com.example.sid.marwadishaadi.User_Profile.UserProfileActivity;
 
@@ -112,15 +108,15 @@ public class NotificationsActivity extends AppCompatActivity {
                     int position  = recyclerView.getChildAdapterPosition(ChildView);
                     NotificationsModel notificationsModel = notificationsModelList.get(position);
                     if (notificationsModel.isSuggested()){
-                        Intent i = new Intent(NotificationsActivity.this, Dashboard.class);
+                        Intent i = new Intent(NotificationsActivity.this, DashboardActivity.class);
                         startActivity(i);
                         overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
                     }else if(notificationsModel.isPremMem()){
-                        Intent i = new Intent(NotificationsActivity.this,Membership.class);
+                        Intent i = new Intent(NotificationsActivity.this,MembershipActivity.class);
                         startActivity(i);
                         overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
                     }else if(notificationsModel.isMemExp()){
-                        Intent i = new Intent(NotificationsActivity.this,UpgradeMembershipActivity.class);
+                        Intent i = new Intent(NotificationsActivity.this, UpgradeMembershipActivity.class);
                         startActivity(i);
                         overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
                     }else if(notificationsModel.isMsgRec()){

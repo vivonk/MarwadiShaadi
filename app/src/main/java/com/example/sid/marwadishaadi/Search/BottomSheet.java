@@ -5,12 +5,12 @@ import android.support.design.widget.BottomSheetDialogFragment;
 import android.view.View;
 import android.widget.ListView;
 
-import com.example.sid.marwadishaadi.Preferences;
+import com.example.sid.marwadishaadi.Filter;
+import com.example.sid.marwadishaadi.Signup.Signup_Partner_Preferences_Fragment;
 import com.example.sid.marwadishaadi.R;
 import com.example.sid.marwadishaadi.User_Profile.ProfileAdditionalDetailsFragment;
 import com.example.sid.marwadishaadi.User_Profile.ProfileFamilyDetailsFragment;
 import com.example.sid.marwadishaadi.User_Profile.ProfilePersonalDetailsFragment;
-import com.example.sid.marwadishaadi.filter;
 
 import java.util.ArrayList;
 
@@ -23,6 +23,10 @@ public class BottomSheet extends BottomSheetDialogFragment {
      int content;
      View contentView;
 
+
+    public BottomSheet() {
+    }
+
     public BottomSheet(int i) {
         if(i==0){
             Search search = new Search();
@@ -34,13 +38,13 @@ public class BottomSheet extends BottomSheetDialogFragment {
             ProfileAdditionalDetailsFragment profile_additional_detailsFragment = new ProfileAdditionalDetailsFragment();
             content = profile_additional_detailsFragment.getCasebreak();
         }else if (i==4){
-            filter mfilter = new filter();
+            Filter mfilter = new Filter();
             content=mfilter.getCasebreak();
         }
         else if(i == 7)
         {
-            Preferences preferences = new Preferences();
-            content = preferences.getCasebreak();
+            Signup_Partner_Preferences_Fragment signupPartnerPreferencesFragment = new Signup_Partner_Preferences_Fragment();
+            content = signupPartnerPreferencesFragment.getCasebreak();
         }
         else{
             ProfileFamilyDetailsFragment profile_family_detailsFragment = new ProfileFamilyDetailsFragment();

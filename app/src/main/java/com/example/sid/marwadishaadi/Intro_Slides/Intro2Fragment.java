@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.sid.marwadishaadi.Login;
+import com.example.sid.marwadishaadi.Login.LoginActivity;
 import com.example.sid.marwadishaadi.R;
 
 public class Intro2Fragment extends Fragment {
@@ -23,7 +23,7 @@ public class Intro2Fragment extends Fragment {
         getStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getContext(), Login.class);
+                Intent i = new Intent(getContext(), LoginActivity.class);
                 startActivity(i);
                 getActivity().overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
             }

@@ -1,8 +1,7 @@
-package com.example.sid.marwadishaadi;
+package com.example.sid.marwadishaadi.Membership;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -15,12 +14,14 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.sid.marwadishaadi.Settings.SettingsActivity;
+import com.example.sid.marwadishaadi.Dashboard.DashboardActivity;
+import com.example.sid.marwadishaadi.R;
+import com.example.sid.marwadishaadi.Upload_User_Photos.UploadPhotoActivity;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
-public class Membership extends AppCompatActivity {
+public class MembershipActivity extends AppCompatActivity {
 
     RadioButton radio1, radio2, radio3, radio4, radio5, radio6, radio7, radio8, radio9, radio10, radio11, radio12, radio13, radio14, radio15, radio16, radio17, radio18;
     RadioGroup gr1, gr2, gr3, gr4, gr5, gr6;
@@ -42,7 +43,7 @@ public class Membership extends AppCompatActivity {
         setContentView(R.layout.activity_membership);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.membership_toolbar);
-        toolbar.setTitle("Membership");
+        toolbar.setTitle("MembershipActivity");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -72,7 +73,7 @@ public class Membership extends AppCompatActivity {
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Membership.this,UploadPhotoActivity.class);
+                Intent i = new Intent(MembershipActivity.this,UploadPhotoActivity.class);
                 startActivity(i);
             }
         });
@@ -83,7 +84,7 @@ public class Membership extends AppCompatActivity {
 
 
                 View reset_view = getLayoutInflater().inflate(R.layout.coupon_dialog, null);
-                AlertDialog.Builder reset = new AlertDialog.Builder(Membership.this);
+                AlertDialog.Builder reset = new AlertDialog.Builder(MembershipActivity.this);
                 reset.setTitle("Redeem Coupon");
                 reset.setView(reset_view);
 
@@ -98,7 +99,7 @@ public class Membership extends AppCompatActivity {
                         String user_code = code.getText().toString();
 
 
-                        Toast.makeText(Membership.this, "yayay", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MembershipActivity.this, "yayay", Toast.LENGTH_SHORT).show();
                     }
                 });
                 AlertDialog resetbox = reset.create();
@@ -193,10 +194,10 @@ public class Membership extends AppCompatActivity {
                     public void onClick(View v) {
                         if(gr1.getCheckedRadioButtonId() == -1 && gr2.getCheckedRadioButtonId() == -1 && gr3.getCheckedRadioButtonId() == -1 && gr4.getCheckedRadioButtonId() == -1 && gr5.getCheckedRadioButtonId() == -1 && gr6.getCheckedRadioButtonId() == -1)
                         {
-                            Toast.makeText(getApplicationContext(),"Please select atleast one Membership or press Skip",Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),"Please select atleast one MembershipActivity or press Skip",Toast.LENGTH_LONG).show();
                         }
                        else{
-                        Intent i = new Intent(Membership.this, Dashboard.class);
+                        Intent i = new Intent(MembershipActivity.this, DashboardActivity.class);
                         startActivity(i);}
                     }
                 });

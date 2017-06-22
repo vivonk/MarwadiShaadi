@@ -1,4 +1,4 @@
-package com.example.sid.marwadishaadi.Dashboard_Membership;
+package com.example.sid.marwadishaadi.Membership;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,7 +10,6 @@ import android.support.v7.widget.Toolbar;
 import android.widget.Button;
 import android.view.View;
 
-import com.example.sid.marwadishaadi.Membership;
 import com.example.sid.marwadishaadi.R;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -35,7 +34,7 @@ public class UpgradeMembershipActivity extends AppCompatActivity {
         setContentView(R.layout.upgrade_membership);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.upgrademembership_toolbar);
-        toolbar.setTitle("Membership");
+        toolbar.setTitle("MembershipActivity");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -81,7 +80,7 @@ public class UpgradeMembershipActivity extends AppCompatActivity {
         upgrade.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(UpgradeMembershipActivity.this,Membership.class);
+                Intent i = new Intent(UpgradeMembershipActivity.this,MembershipActivity.class);
                 startActivity(i);
             }
         });

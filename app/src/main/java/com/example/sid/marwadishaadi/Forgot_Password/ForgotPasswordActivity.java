@@ -18,7 +18,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.sid.marwadishaadi.Otp_Verification.Otp_Verification;
 import com.example.sid.marwadishaadi.R;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;

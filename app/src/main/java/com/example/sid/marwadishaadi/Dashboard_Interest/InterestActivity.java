@@ -12,16 +12,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TableLayout;
 
+import com.example.sid.marwadishaadi.Dashboard_Interest_Received.InterestReceivedFragment;
+import com.example.sid.marwadishaadi.Dashboard_Interest_Sent.InterestSentFragment;
 import com.example.sid.marwadishaadi.R;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class InterestActivity extends AppCompatActivity implements
-        ViewPager.OnPageChangeListener,
-        InterestReceivedFragment.OnFragmentInteractionListener,
-InterestSentFragment.OnFragmentInteractionListener{
+        ViewPager.OnPageChangeListener{
 
 
     private InterestSectionPagerAdaper interestSectionPagerAdaper;
@@ -77,10 +76,7 @@ InterestSentFragment.OnFragmentInteractionListener{
 
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
 
-    }
 
     public class InterestSectionPagerAdaper extends FragmentStatePagerAdapter{
 

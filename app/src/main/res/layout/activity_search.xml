@@ -622,7 +622,7 @@
                     <TextView
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
-                        android:id="@+id/text_view_search_add_city"
+                        android:id="@+id/text_view_search_city"
                         android:textStyle="bold"
                         android:paddingLeft="10dp"
                         />

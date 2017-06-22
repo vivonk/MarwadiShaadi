@@ -3,14 +3,11 @@ package com.example.sid.marwadishaadi.User_Profile;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 
-import com.example.sid.marwadishaadi.Dashboard;
-import com.example.sid.marwadishaadi.Similar_Profiles.SimilarActivity;
-import com.example.sid.marwadishaadi.UploadPhotoActivity;
+import com.example.sid.marwadishaadi.Upload_User_Photos.UploadPhotoActivity;
 import com.github.clans.fab.FloatingActionButton;
 
 import android.support.design.widget.CoordinatorLayout;
@@ -22,7 +19,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -37,9 +33,6 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class
 UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener,
-        ProfilePersonalDetailsFragment.OnFragmentInteractionListener,
-        ProfileAdditionalDetailsFragment.OnFragmentInteractionListener,
-        ProfileFamilyDetailsFragment.OnFragmentInteractionListener,PartnerPreferencesFragment.OnFragmentInteractionListener,
         ImageListener{
 
     private ProfilePageAdapter profilePageAdapter;
@@ -173,12 +166,12 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
                 View preferences_view = getLayoutInflater().inflate(R.layout.profile_preferences,null);
 
                 AlertDialog.Builder prefs = new AlertDialog.Builder(UserProfileActivity.this);
-                prefs.setTitle("Partner Preferences");
+                prefs.setTitle("Partner Signup_Partner_Preferences_Fragment");
                 prefs.setView(preferences_view);
 
                 // creating
                 AlertDialog uprefs = prefs.create();
-                uprefs.setTitle("Partner Preferences");
+                uprefs.setTitle("Partner Signup_Partner_Preferences_Fragment");
                 uprefs.show();
             }
         });*/
@@ -197,11 +190,6 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
 
     @Override
     public void onPageScrollStateChanged(int state) {
-
-    }
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
 
     }
 
@@ -254,7 +242,7 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
                 case 2:
                     return "Family Details";
                 case 3:
-                    return "Partner Preferences";
+                    return "Partner Signup_Partner_Preferences_Fragment";
                 default:
                     return null;
             }

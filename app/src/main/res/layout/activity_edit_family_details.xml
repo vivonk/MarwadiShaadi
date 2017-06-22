@@ -93,7 +93,7 @@
                     android:layout_marginLeft="10dp"
                     android:textColorHint="#747474"
                     android:textSize="16dp"
-                    android:id="@+id/mama_surname"
+                    android:id="@+id/father_occupation"
                     android:inputType="textPersonName"
                     android:ems="10"
                     android:background="#fff"

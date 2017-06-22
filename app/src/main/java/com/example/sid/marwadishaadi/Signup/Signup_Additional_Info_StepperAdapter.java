@@ -1,7 +1,6 @@
-package com.example.sid.marwadishaadi;
+package com.example.sid.marwadishaadi.Signup;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
@@ -13,9 +12,9 @@ import com.stepstone.stepper.viewmodel.StepViewModel;
 /**
  * Created by Sid on 15-Jun-17.
  */
-public class MyStepperAdapter extends AbstractFragmentStepAdapter {
+public class Signup_Additional_Info_StepperAdapter extends AbstractFragmentStepAdapter {
 
-    public MyStepperAdapter(FragmentManager fm, Context context) {
+    public Signup_Additional_Info_StepperAdapter(FragmentManager fm, Context context) {
         super(fm, context);
     }
 
@@ -23,14 +22,14 @@ public class MyStepperAdapter extends AbstractFragmentStepAdapter {
     public Step createStep(int position) {
         switch (position){
             case 0:
-                BasicInfo basicInfo = new BasicInfo();
-                return basicInfo;
+                Signup_Basic_Info_Fragment signupBasicInfoFragment = new Signup_Basic_Info_Fragment();
+                return signupBasicInfoFragment;
             case 1:
-                Additional_Info additional_info = new Additional_Info();
-                return additional_info;
+                Signup_Additional_Info_Fragment signupAdditional_infoFragment = new Signup_Additional_Info_Fragment();
+                return signupAdditional_infoFragment;
             case 2:
-                Preferences preferences = new Preferences();
-                return preferences;
+                Signup_Partner_Preferences_Fragment signupPartnerPreferencesFragment = new Signup_Partner_Preferences_Fragment();
+                return signupPartnerPreferencesFragment;
         }
         return null;
     }

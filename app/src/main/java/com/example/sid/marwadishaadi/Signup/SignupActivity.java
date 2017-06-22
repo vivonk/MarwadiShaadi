@@ -1,4 +1,4 @@
-package com.example.sid.marwadishaadi;
+package com.example.sid.marwadishaadi.Signup;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.sid.marwadishaadi.Otp_Verification.Otp_Verification;
+import com.example.sid.marwadishaadi.Otp_Verification.Otp_VerificationActivity;
+import com.example.sid.marwadishaadi.R;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -28,7 +29,7 @@ import java.util.Arrays;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class Signup extends AppCompatActivity {
+public class SignupActivity extends AppCompatActivity {
 
     protected EditText email;
     protected EditText pass;
@@ -81,7 +82,7 @@ public class Signup extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(),first_name + last_name + gender + birthday,Toast.LENGTH_LONG).show();
 
                             // MUST GO TO dashboard
-                            Intent i = new Intent(Signup.this,Otp_Verification.class);
+                            Intent i = new Intent(SignupActivity.this,Otp_VerificationActivity.class);
                             startActivity(i);
 
                         } catch (JSONException e) {
@@ -117,7 +118,7 @@ public class Signup extends AppCompatActivity {
                 String upass =pass.getText().toString();
                 String cpass = confirm.getText().toString();
 
-                Intent i = new Intent(Signup.this,signup_details.class);
+                Intent i = new Intent(SignupActivity.this,SignupDetailsActivity.class);
                 startActivity(i);
 
                 // rest

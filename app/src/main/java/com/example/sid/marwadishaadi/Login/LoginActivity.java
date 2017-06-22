@@ -1,38 +1,28 @@
-package com.example.sid.marwadishaadi;
+package com.example.sid.marwadishaadi.Login;
 
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.sid.marwadishaadi.Dashboard.DashboardActivity;
 import com.example.sid.marwadishaadi.Forgot_Password.ForgotPasswordActivity;
-import com.example.sid.marwadishaadi.Otp_Verification.Otp_Verification;
+import com.example.sid.marwadishaadi.R;
+import com.example.sid.marwadishaadi.Signup.SignupActivity;
 import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
-import com.facebook.GraphRequest;
-import com.facebook.GraphResponse;
-import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.Arrays;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
-public class Login extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
 
     protected EditText login_email;
@@ -87,7 +77,7 @@ public class Login extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(),first_name + last_name + gender + birthday,Toast.LENGTH_LONG).show();
 
                             // MUST GO TO dashboard
-                            Intent i = new Intent(Login.this,Otp_Verification.class);
+                            Intent i = new Intent(LoginActivity.this,Otp_VerificationActivity.class);
                             startActivity(i);
 
                         } catch (JSONException e) {
@@ -121,7 +111,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(Login.this,ForgotPasswordActivity.class);
+                Intent i = new Intent(LoginActivity.this,ForgotPasswordActivity.class);
                 startActivity(i);
 
             }
@@ -132,7 +122,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(Login.this,Signup.class);
+                Intent i = new Intent(LoginActivity.this,SignupActivity.class);
                 startActivity(i);
             }
         });
@@ -144,7 +134,7 @@ public class Login extends AppCompatActivity {
                 String email = login_email.getText().toString();
                 String pass = login_pass.getText().toString();
                 // @TODO to be changed
-                Intent intent = new Intent(Login.this,Dashboard.class);
+                Intent intent = new Intent(LoginActivity.this,DashboardActivity.class);
                 startActivity(intent);
 
                 // rest

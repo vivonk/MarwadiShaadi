@@ -1,14 +1,13 @@
-package com.example.sid.marwadishaadi;
+package com.example.sid.marwadishaadi.Signup;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
+
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
@@ -19,10 +18,12 @@ import android.view.View;
 import android.widget.*;
 import android.widget.DatePicker;
 
+import com.example.sid.marwadishaadi.R;
+
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
-public class signup_details extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
+public class SignupDetailsActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
 
     protected EditText name;
     protected EditText surname;
@@ -72,7 +73,7 @@ public class signup_details extends AppCompatActivity implements DatePickerDialo
                 String user_caste = caste.getSelectedItem().toString();
                 String user_location = location.getText().toString();
 
-                Intent i = new Intent(signup_details.this,Advanced_Signup_Details.class);
+                Intent i = new Intent(SignupDetailsActivity.this,AdvancedSignupDetailsActivity.class);
                 startActivity(i);
 
 

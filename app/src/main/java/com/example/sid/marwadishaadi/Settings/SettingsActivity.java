@@ -13,7 +13,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,9 +23,8 @@ import android.widget.Toast;
 import com.example.sid.marwadishaadi.About_Us.AboutUsActivity;
 import com.example.sid.marwadishaadi.Blocked_Members.BlockedActivity;
 import com.example.sid.marwadishaadi.Contact_Us.ContactUsActivity;
-import com.example.sid.marwadishaadi.Dashboard;
 import com.example.sid.marwadishaadi.Faq.FaqActivity;
-import com.example.sid.marwadishaadi.Login;
+import com.example.sid.marwadishaadi.Login.LoginActivity;
 import com.example.sid.marwadishaadi.Payment_Policy.PaymentPolicyActivity;
 import com.example.sid.marwadishaadi.Privacy_Policy.PrivacyPolicyActivity;
 import com.example.sid.marwadishaadi.R;
@@ -169,7 +167,7 @@ public class SettingsActivity extends AppCompatActivity {
                                 editor.putString("password","");
                                 editor.putString("customer_id","");
                                 editor.commit();
-                                Intent i=new Intent(SettingsActivity.this, Login.class);
+                                Intent i=new Intent(SettingsActivity.this, LoginActivity.class);
                                 startActivity(i);
 
                             }

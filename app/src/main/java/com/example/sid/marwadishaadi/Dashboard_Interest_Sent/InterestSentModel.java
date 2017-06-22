@@ -1,10 +1,10 @@
-package com.example.sid.marwadishaadi.Dashboard_Interest;
+package com.example.sid.marwadishaadi.Dashboard_Interest_Sent;
 
 /**
  * Created by Lawrence Dalmet on 07-06-2017.
  */
 
-public class InterestModelSent {
+public class InterestSentModel {
     String name,city,degree,imgAdd,reqStatus,date;
     int age;
 
@@ -16,7 +16,7 @@ public class InterestModelSent {
         this.date = date;
     }
 
-    public InterestModelSent(String name, String city, String degree, String imgAdd, String reqStatus, int age, String date) {
+    public InterestSentModel(String name, String city, String degree, String imgAdd, String reqStatus, int age, String date) {
         this.name = name;
         this.city = city;
         this.degree = degree;

@@ -1,9 +1,6 @@
 package com.example.sid.marwadishaadi.Search;
 
-import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.design.widget.BottomSheetDialogFragment;
@@ -20,7 +17,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,18 +28,14 @@ import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener;
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarFinalValueListener;
 import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
 import com.example.sid.marwadishaadi.Dashboard_Suggestions.SuggestionModel;
-import com.example.sid.marwadishaadi.Login;
 import com.example.sid.marwadishaadi.R;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
-
-import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 public class Search extends AppCompatActivity {
     ImageView idoctor, iengineer, imbamca, icacs, ipg, ig, iug, illb;

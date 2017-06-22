@@ -1,8 +1,7 @@
-package com.example.sid.marwadishaadi.Dashboard_Interest;
+package com.example.sid.marwadishaadi.Dashboard_Interest_Sent;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,10 +16,10 @@ import com.example.sid.marwadishaadi.R;
  */
 
 
-public class InterestAdapterSent extends RecyclerView.Adapter<InterestAdapterSent.MyViewHolder> {
+public class InterestSentAdapter extends RecyclerView.Adapter<InterestSentAdapter.MyViewHolder> {
 
     private Context context;
-    private List<InterestModelSent> interestModelSentList;
+    private List<InterestSentModel> interestSentModelList;
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
@@ -42,9 +41,9 @@ public class InterestAdapterSent extends RecyclerView.Adapter<InterestAdapterSen
 
     }
 
-    public InterestAdapterSent(Context context, List<InterestModelSent> interestModelSentList) {
+    public InterestSentAdapter(Context context, List<InterestSentModel> interestSentModelList) {
         this.context = context;
-        this.interestModelSentList = interestModelSentList;
+        this.interestSentModelList = interestSentModelList;
     }
 
     @Override
@@ -59,20 +58,20 @@ public class InterestAdapterSent extends RecyclerView.Adapter<InterestAdapterSen
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
-        InterestModelSent interestModelSent = interestModelSentList.get(position);
+        InterestSentModel interestSentModel = interestSentModelList.get(position);
 
-        String ag=interestModelSent.getName()+", "+interestModelSent.getAge()+" yrs";
-        Glide.with(context).load(interestModelSent.getImgAdd()).into(holder.profilepic);
+        String ag= interestSentModel.getName()+", "+ interestSentModel.getAge()+" yrs";
+        Glide.with(context).load(interestSentModel.getImgAdd()).into(holder.profilepic);
         holder.name_age.setText(ag);
-        holder.degree.setText(interestModelSent.getDegree());
-        holder.location.setText(interestModelSent.getCity());
-        holder.req_status.setText((CharSequence) interestModelSent.getReqStatus());
-        holder.date.setText(interestModelSent.getDate());
+        holder.degree.setText(interestSentModel.getDegree());
+        holder.location.setText(interestSentModel.getCity());
+        holder.req_status.setText((CharSequence) interestSentModel.getReqStatus());
+        holder.date.setText(interestSentModel.getDate());
     }
 
     @Override
     public int getItemCount() {
-        return interestModelSentList.size();
+        return interestSentModelList.size();
     }
 
 

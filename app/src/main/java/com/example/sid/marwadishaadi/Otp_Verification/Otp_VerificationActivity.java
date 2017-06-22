@@ -18,7 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.sid.marwadishaadi.Membership;
+import com.example.sid.marwadishaadi.Membership.MembershipActivity;
 import com.example.sid.marwadishaadi.R;
 
 import java.io.BufferedReader;
@@ -31,7 +31,7 @@ import java.net.URLEncoder;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 // TO DO Please change mobile number , Use an internet connection try catch, Show the mobile number to user where OTP will be send and also give option to change mobile number
-public class Otp_Verification extends AppCompatActivity {
+public class Otp_VerificationActivity extends AppCompatActivity {
     private static final String TAG = "";
     static int OTP=0;
     protected EditText otp;
@@ -71,7 +71,7 @@ public class Otp_Verification extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "OTP created is"+ Integer.toString(OTP), Toast.LENGTH_SHORT).show();
                 if(user_otp.equals(Integer.toString(OTP)))
                 {
-                    Intent i = new Intent(Otp_Verification.this,Membership.class);
+                    Intent i = new Intent(Otp_VerificationActivity.this,MembershipActivity.class);
                     startActivity(i);
                 }
                 else if(user_otp.equals(""))
@@ -96,7 +96,7 @@ public class Otp_Verification extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Permission for Call Denied!",Toast.LENGTH_LONG).show();
                     return;
                 }else{
-                    AlertDialog.Builder discarduser = new AlertDialog.Builder(Otp_Verification.this);
+                    AlertDialog.Builder discarduser = new AlertDialog.Builder(Otp_VerificationActivity.this);
                     discarduser.setMessage("Do you want to call " + call_us.getText().toString() + " ? ")
                             .setCancelable(false)
                             .setPositiveButton("Yes", new DialogInterface.OnClickListener() {

@@ -1,9 +1,6 @@
-package com.example.sid.marwadishaadi;
+package com.example.sid.marwadishaadi.Signup;
 
-import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetDialogFragment;
@@ -12,7 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -22,16 +18,14 @@ import android.widget.Toast;
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener;
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarFinalValueListener;
 import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
-import com.example.sid.marwadishaadi.Otp_Verification.Otp_Verification;
+import com.example.sid.marwadishaadi.R;
 import com.example.sid.marwadishaadi.Search.BottomSheet;
 import com.stepstone.stepper.Step;
 import com.stepstone.stepper.VerificationError;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
-
 import static com.facebook.FacebookSdk.getApplicationContext;
 
-public class Preferences extends Fragment implements Step{
+public class Signup_Partner_Preferences_Fragment extends Fragment implements Step{
 
     ImageView idoctor,iengineer,imbamca,icacs,ipg,ig,iug,illb;
     boolean intdoctor=false,intengineer=false,intmbamca=false,intcacs=false,intpg=false,intg=false,intug=false,intllb=false;
@@ -45,7 +39,7 @@ public class Preferences extends Fragment implements Step{
 
 
 
-    public Preferences() {
+    public Signup_Partner_Preferences_Fragment() {
         // Required empty public constructor
     }
 

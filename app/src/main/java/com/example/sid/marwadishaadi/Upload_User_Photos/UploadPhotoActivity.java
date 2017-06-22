@@ -1,4 +1,4 @@
-package com.example.sid.marwadishaadi;
+package com.example.sid.marwadishaadi.Upload_User_Photos;
 
 import android.app.Activity;
 import android.content.DialogInterface;
@@ -11,13 +11,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.sid.marwadishaadi.Settings.SettingsActivity;
-import com.facebook.AccessToken;
-import com.facebook.internal.Utility;
-import com.facebook.login.LoginManager;
+import com.example.sid.marwadishaadi.Dashboard.DashboardActivity;
+import com.example.sid.marwadishaadi.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -36,6 +33,7 @@ public class UploadPhotoActivity extends AppCompatActivity {
     private CircleImageView img;
     private boolean isSelected = false;
     private CircleImageView photo1,photo2,photo3,photo4,photo5;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +44,7 @@ public class UploadPhotoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(isSelected){
-                         Intent i = new Intent(UploadPhotoActivity.this,Dashboard.class);
+                         Intent i = new Intent(UploadPhotoActivity.this,DashboardActivity.class);
                         startActivity(i);
                 }else{
                     Toast.makeText(UploadPhotoActivity.this, "Minimum 1 photo required ", Toast.LENGTH_SHORT).show();

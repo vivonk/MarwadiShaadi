@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@drawable/uploadimage"
     android:fitsSystemWindows="true"
-    tools:context="com.example.sid.marwadishaadi.UploadPhotoActivity">
+    tools:context="com.example.sid.marwadishaadi.Upload_User_Photos.UploadPhotoActivity">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

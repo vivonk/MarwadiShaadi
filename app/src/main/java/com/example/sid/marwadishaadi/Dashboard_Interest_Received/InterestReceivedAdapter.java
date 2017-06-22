@@ -1,8 +1,7 @@
-package com.example.sid.marwadishaadi.Dashboard_Interest;
+package com.example.sid.marwadishaadi.Dashboard_Interest_Received;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -11,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.sid.marwadishaadi.R;
@@ -22,12 +20,12 @@ import java.util.List;
  * Created by USER on 01-06-2017.
  */
 
-public class InterestAdapter extends RecyclerView.Adapter<InterestAdapter.MyViewHolder>{
+public class InterestReceivedAdapter extends RecyclerView.Adapter<InterestReceivedAdapter.MyViewHolder>{
 
     private RecyclerView rv;
     private Context context;
-    private List<InterestModel> interestModelList;
-    private static final String TAG = "InterestAdapter";
+    private List<InterestReceivedModel> interestReceivedModelList;
+    private static final String TAG = "InterestReceivedAdapter";
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         public ImageView userImage;
@@ -48,7 +46,7 @@ public class InterestAdapter extends RecyclerView.Adapter<InterestAdapter.MyView
                 @Override
                 public void onClick(View v) {
                     final int position = getAdapterPosition();
-                    final InterestModel interestmodel = interestModelList.get(position);
+                    final InterestReceivedModel interestmodel = interestReceivedModelList.get(position);
                     interestmodel.setStatus(0);
                     notifyItemChanged(position);
                     Snackbar snackbar = Snackbar
@@ -72,7 +70,7 @@ public class InterestAdapter extends RecyclerView.Adapter<InterestAdapter.MyView
                 @Override
                 public void onClick(View v) {
                     final int position = getAdapterPosition();
-                    final InterestModel interestmodel = interestModelList.get(position);
+                    final InterestReceivedModel interestmodel = interestReceivedModelList.get(position);
                     interestmodel.setStatus(1);
                     notifyItemChanged(position);
 
@@ -95,9 +93,9 @@ public class InterestAdapter extends RecyclerView.Adapter<InterestAdapter.MyView
         }
     }
 
-    public InterestAdapter(Context context, List<InterestModel> interestModelList,RecyclerView rv) {
+    public InterestReceivedAdapter(Context context, List<InterestReceivedModel> interestReceivedModelList, RecyclerView rv) {
         this.context = context;
-        this.interestModelList = interestModelList;
+        this.interestReceivedModelList = interestReceivedModelList;
         this.rv = rv;
     }
 
@@ -113,20 +111,20 @@ public class InterestAdapter extends RecyclerView.Adapter<InterestAdapter.MyView
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
-        InterestModel interestModel = interestModelList.get(position);
+        InterestReceivedModel interestReceivedModel = interestReceivedModelList.get(position);
 
-        Log.d(TAG, "onBindViewHolder: values are " + interestModel.getAge().toString() + " " + interestModel.getLocation().toString() + " "+ interestModel.getName().toString() + " ");
-        String ag=interestModel.getName()+", "+interestModel.getAge();
-        Glide.with(context).load(interestModel.getUserImage()).into(holder.userImage);
+        Log.d(TAG, "onBindViewHolder: values are " + interestReceivedModel.getAge().toString() + " " + interestReceivedModel.getLocation().toString() + " "+ interestReceivedModel.getName().toString() + " ");
+        String ag= interestReceivedModel.getName()+", "+ interestReceivedModel.getAge();
+        Glide.with(context).load(interestReceivedModel.getUserImage()).into(holder.userImage);
         holder.name.setText(ag);
-        holder.highestDegree.setText(interestModel.getHighestDegree());
-        holder.location.setText(interestModel.getLocation());
-        if(interestModel.getStatus() == 0){
+        holder.highestDegree.setText(interestReceivedModel.getHighestDegree());
+        holder.location.setText(interestReceivedModel.getLocation());
+        if(interestReceivedModel.getStatus() == 0){
             holder.status.setText("Accepted");
             holder.status.setBackgroundColor(Color.parseColor("#00c864"));
             holder.accept.setVisibility(View.INVISIBLE);
             holder.reject.setVisibility(View.INVISIBLE);
-        }else if (interestModel.getStatus() == 1){
+        }else if (interestReceivedModel.getStatus() == 1){
             holder.status.setText("Rejected");
             holder.status.setBackgroundColor(Color.parseColor("#ff0000"));
             holder.accept.setVisibility(View.INVISIBLE);
@@ -139,7 +137,7 @@ public class InterestAdapter extends RecyclerView.Adapter<InterestAdapter.MyView
 
     @Override
     public int getItemCount() {
-        return interestModelList.size();
+        return interestReceivedModelList.size();
     }
 
 

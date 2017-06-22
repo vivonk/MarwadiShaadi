@@ -1,10 +1,10 @@
-package com.example.sid.marwadishaadi.Dashboard_Interest;
+package com.example.sid.marwadishaadi.Dashboard_Interest_Received;
 
 /**
  * Created by USER on 01-06-2017.
  */
 
-public class InterestModel {
+public class InterestReceivedModel {
 
     private String name, age, highestDegree, location;
     private  String userImage;
@@ -19,7 +19,7 @@ public class InterestModel {
 
     private int status;
 
-    public InterestModel(String name, String age, String highestDegree, String location, String userImage,int status) {
+    public InterestReceivedModel(String name, String age, String highestDegree, String location, String userImage, int status) {
 
         this.name = name;
         this.age = age;

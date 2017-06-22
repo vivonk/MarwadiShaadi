@@ -7,10 +7,10 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -18,8 +18,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.sid.marwadishaadi.Membership.MembershipActivity;
 import com.example.sid.marwadishaadi.R;
+import com.example.sid.marwadishaadi.Upload_User_Photos.UploadPhotoActivity;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -48,7 +48,6 @@ public class Otp_VerificationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_otp__verification);
-
         otp = (EditText) findViewById(R.id.user_otp);
         submit = (Button) findViewById(R.id.Submit_otp);
         call_us = (TextView) findViewById(R.id.call_us);
@@ -71,7 +70,7 @@ public class Otp_VerificationActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "OTP created is"+ Integer.toString(OTP), Toast.LENGTH_SHORT).show();
                 if(user_otp.equals(Integer.toString(OTP)))
                 {
-                    Intent i = new Intent(Otp_VerificationActivity.this,MembershipActivity.class);
+                    Intent i = new Intent(Otp_VerificationActivity.this,UploadPhotoActivity.class);
                     startActivity(i);
                 }
                 else if(user_otp.equals(""))

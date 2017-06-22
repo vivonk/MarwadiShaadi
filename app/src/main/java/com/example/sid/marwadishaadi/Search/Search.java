@@ -1,6 +1,9 @@
 package com.example.sid.marwadishaadi.Search;
 
+
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.design.widget.BottomSheetDialogFragment;
@@ -17,6 +20,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,12 +31,18 @@ import com.androidnetworking.interfaces.JSONArrayRequestListener;
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener;
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarFinalValueListener;
 import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
+import com.example.sid.marwadishaadi.Chat.Dialog;
+import com.example.sid.marwadishaadi.Dashboard_Suggestions.SuggestionAdapter;
 import com.example.sid.marwadishaadi.Dashboard_Suggestions.SuggestionModel;
 import com.example.sid.marwadishaadi.R;
 
+import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 import org.json.JSONArray;
+import org.json.JSONException;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -45,30 +55,67 @@ public class Search extends AppCompatActivity {
     int colorg, colorb;
     Button mOpenIDSearchButton;
     private static int casebreak;
-    TextView statetextView,citytextview;
+    TextView statetextView, citytextview;
     CardView advCV;
-    Button addButton,searchaddbutton;
-    EditText autoCompleteState,autocompletecity;
-    static String  addTextState,addPrevious="";
-    static String  addTextcity,addPreviousc="";
-    public static  EditText maritalstatus;
+    public ProgressDialog dialog;
+    TextView tvMin, tvMax;
+    Button addButton, searchaddbutton;
+    EditText autoCompleteState, autocompletecity;
+    static String addTextState, addPrevious = "";
+    static String addTextcity, addPreviousc = "";
+    public static EditText maritalstatus;
     public static EditText familystatus;
     public static EditText annualincome;
     public static EditText physicalstatus;
-    public static  EditText spinnerCastSearch;
-    public static List<SuggestionModel> suggestionModelList;
+    public static EditText spinnerCastSearch;
+    public static ArrayList<SuggestionModel> suggestionModelSearch=new ArrayList<SuggestionModel>();
+    public  static SuggestionAdapter suggestionAdapter;
+    public static int countmaritalstatus = 0, countfamilystatus = 0, countannualincome = 0, countphysicalstatus = 0, countspinnerCastSearch = 0;
+    public static List<SuggestionModel> suggestionModelList2;
 
 
+    boolean int_very_fair, int_fair, int_wheatish, int_wheatish_brown, int_dark, int_doesnt_matter = true, int_profession, int_job, int_retired, int_business, int_not_employed, int_studying, int_dont_matter = true, intSlim, intAthletic, intHeavy, intAverage, intDoesntMatter = true;
+    CheckBox very_fair, fair, wheatish, wheatish_brown, dark, doesnt_matter, profession, job, retired, business, not_employed, studying, dont_matter, slim, athletic, average, heavy, doesntMatter;
+    public List<String> complexion = new ArrayList<>();
+    public List<String> occupation = new ArrayList<>();
+    public List<String> statesList = new ArrayList<>();
+    public List<String> cityList = new ArrayList<>();
+    public List<String> education = new ArrayList<>();
+    public List<String> bodyType = new ArrayList<>();
+    public List<String> complexionAll = new ArrayList<>();
+    public List<String> occupationAll = new ArrayList<>();
+    public List<String> educationAll = new ArrayList<>();
+    public List<String> bodyTypeAll = new ArrayList<>();
+    public static List<String> CastList = new ArrayList<>();
+    public static List<String> familystatusList = new ArrayList<>();
+    public static List<String> maritalstatusList = new ArrayList<>();
+    public static List<String> AIList = new ArrayList<>();
+    public static List<String> physicalstatusList = new ArrayList<>();
 
-    boolean int_very_fair, int_fair, int_wheatish, int_wheatish_brown, int_dark, int_doesnt_matter=true,int_profession,int_job,int_retired,int_business,int_not_employed,int_studying,int_dont_matter=true,intSlim,intAthletic,intHeavy,intAverage,intDoesntMatter=true;
-    CheckBox very_fair,fair,wheatish,wheatish_brown,dark,doesnt_matter,profession,job,retired,business,not_employed,studying,dont_matter,slim,athletic,average,heavy,doesntMatter;
-   public static List<String> complexion= new ArrayList<>();
-    public static List<String> occupation=new ArrayList<>();
-   public static List<String> education=new ArrayList<>();
-   public static List<String> bodyType=new ArrayList<>();
 
-    public Search()
-    {
+    Spinner height_from, height_to, sort_by, manglik, children;
+
+    public Search() {
+
+    }
+
+    public void init() {
+        String[] ar = getResources().getStringArray(R.array.complexion_array);
+        for (int i = 1; i < ar.length; i++) {
+            complexionAll.add(ar[i]);
+        }
+        ar = getResources().getStringArray(R.array.built_array);
+        for (int i = 1; i < ar.length; i++) {
+            bodyTypeAll.add(ar[i]);
+        }
+        ar = getResources().getStringArray(R.array.education_array);
+        for (int i = 1; i < ar.length; i++) {
+            educationAll.add(ar[i]);
+        }
+        ar = getResources().getStringArray(R.array.occupation_array);
+        for (int i = 1; i < ar.length; i++) {
+            occupationAll.add(ar[i]);
+        }
 
     }
 
@@ -81,12 +128,18 @@ public class Search extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        suggestionModelList=new ArrayList<>();
+        suggestionModelList2 = new ArrayList<>();
         Toolbar toolbar = (Toolbar) findViewById(R.id.search_toolbar);
         toolbar.setTitle("Search");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        init();
+        height_from = (Spinner) findViewById(R.id.height_from);
+        height_to = (Spinner) findViewById(R.id.height_to);
+        sort_by = (Spinner) findViewById(R.id.spinner_sort_by);
+        manglik = (Spinner) findViewById(R.id.search_manglik_status);
+        children = (Spinner) findViewById(R.id.search_children);
 
         idoctor = (ImageView) findViewById(R.id.doctor);
         iengineer = (ImageView) findViewById(R.id.engineer);
@@ -124,8 +177,8 @@ public class Search extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 casebreak = 3;
-                BottomSheetDialogFragment btm= new BottomSheet(0);
-                btm.show(getSupportFragmentManager(),btm.getTag());
+                BottomSheetDialogFragment btm = new BottomSheet(0);
+                btm.show(getSupportFragmentManager(), btm.getTag());
             }
         });
 
@@ -133,9 +186,9 @@ public class Search extends AppCompatActivity {
         familystatus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                casebreak=4;
-                BottomSheetDialogFragment btm= new BottomSheet(0);
-                btm.show(getSupportFragmentManager(),btm.getTag());
+                casebreak = 4;
+                BottomSheetDialogFragment btm = new BottomSheet(0);
+                btm.show(getSupportFragmentManager(), btm.getTag());
             }
         });
 
@@ -143,36 +196,36 @@ public class Search extends AppCompatActivity {
         annualincome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                casebreak=5;
-                BottomSheetDialogFragment btm= new BottomSheet(0);
-                btm.show(getSupportFragmentManager(),btm.getTag());
+                casebreak = 5;
+                BottomSheetDialogFragment btm = new BottomSheet(0);
+                btm.show(getSupportFragmentManager(), btm.getTag());
             }
         });
 
-        physicalstatus = (EditText) findViewById(R.id.search_physical_status) ;
+        physicalstatus = (EditText) findViewById(R.id.search_physical_status);
         physicalstatus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                casebreak=6;
-                BottomSheetDialogFragment btm= new BottomSheet(0);
-                btm.show(getSupportFragmentManager(),btm.getTag());
+                casebreak = 6;
+                BottomSheetDialogFragment btm = new BottomSheet(0);
+                btm.show(getSupportFragmentManager(), btm.getTag());
             }
         });
 
 
-        addButton=(Button)findViewById(R.id.search_add_state);
-        searchaddbutton=(Button)findViewById(R.id.search_add_city);
-        statetextView=(TextView)findViewById(R.id.text_view_search_add_state);
-        citytextview=(TextView)findViewById(R.id.text_view_search_add_city);
-        spinnerCastSearch=(EditText) findViewById(R.id.search_user_caste);
-        autoCompleteState=(EditText)findViewById(R.id.search_state);
-        autocompletecity=(EditText)findViewById(R.id.search_city);
+        addButton = (Button) findViewById(R.id.search_add_state);
+        searchaddbutton = (Button) findViewById(R.id.search_add_city);
+        statetextView = (TextView) findViewById(R.id.text_view_search_add_state);
+        citytextview = (TextView) findViewById(R.id.text_view_search_add_city);
+        spinnerCastSearch = (EditText) findViewById(R.id.search_user_caste);
+        autoCompleteState = (EditText) findViewById(R.id.search_state);
+        autocompletecity = (EditText) findViewById(R.id.search_city);
 
-        advCV=(CardView)findViewById(R.id.advanced_search);
+        advCV = (CardView) findViewById(R.id.advanced_search);
         final CrystalRangeSeekbar rangeSeekbar = (CrystalRangeSeekbar) findViewById(R.id.rangeSeekbar);
 // get min and max text view
-        final TextView tvMin = (TextView) findViewById(R.id.textMin);
-        final TextView tvMax = (TextView) findViewById(R.id.textMax);
+        tvMin = (TextView) findViewById(R.id.textMin);
+        tvMax = (TextView) findViewById(R.id.textMax);
         rangeSeekbar.setMinValue(18);
         rangeSeekbar.setMaxValue(71);
 
@@ -200,17 +253,16 @@ public class Search extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 addTextState = autoCompleteState.getText().toString();
-                if(addTextState.equals(""))
-                {
-                    Toast.makeText(getApplicationContext(),"Please click + button after state selection ",Toast.LENGTH_SHORT).show();
-                }
-                else {
-
-                    statetextView.setTextSize(TypedValue.COMPLEX_UNIT_SP,18);
-                    statetextView.setText(addPrevious+"\n"+addTextState);
-                    addPrevious=statetextView.getText().toString();
+                if (addTextState.trim().isEmpty()) {
                     autoCompleteState.setText("");
-                    Toast.makeText(getApplicationContext(),"Added successfully ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Please click + button after state selection ", Toast.LENGTH_SHORT).show();
+                } else {
+                    statesList.add(addTextState);
+                    statetextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+                    statetextView.setText((addPrevious + "\n" + addTextState));
+                    addPrevious = statetextView.getText().toString();
+                    autoCompleteState.setText("");
+                    Toast.makeText(getApplicationContext(), "Added successfully ", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -219,17 +271,16 @@ public class Search extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 addTextcity = autocompletecity.getText().toString();
-                if(addTextcity.equals(""))
-                {
-                    Toast.makeText(getApplicationContext(),"Please click + button after city selection ",Toast.LENGTH_SHORT).show();
-                }
-                else {
-
-                    citytextview.setTextSize(TypedValue.COMPLEX_UNIT_SP,18);
-                    citytextview.setText(addPreviousc+"\n"+addTextcity);
-                    addPreviousc=citytextview.getText().toString();
+                if (addTextcity.trim().isEmpty()) {
                     autocompletecity.setText("");
-                    Toast.makeText(getApplicationContext(),"Added successfully ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Please click + button after city selection ", Toast.LENGTH_SHORT).show();
+                } else {
+                    cityList.add(addTextcity);
+                    citytextview.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+                    citytextview.setText(addPreviousc + "\n" + addTextcity);
+                    addPreviousc = citytextview.getText().toString();
+                    autocompletecity.setText("");
+                    Toast.makeText(getApplicationContext(), "Added successfully ", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -274,7 +325,6 @@ public class Search extends AppCompatActivity {
                     intengineer = false;
                     tengineer.setTextColor(colorb);
                     education.remove(tengineer.getText().toString());
-
                     Toast.makeText(getApplicationContext(), "Engineer Removed", Toast.LENGTH_SHORT).show();
                     iengineer.setImageResource(R.drawable.engineer_black);
                 } else if (!intengineer) {
@@ -302,7 +352,7 @@ public class Search extends AppCompatActivity {
                 } else if (!intmbamca) {
                     intmbamca = true;
                     tmbamca.setTextColor(colorg);
-                    education.add(tmbamca.getText().toString());
+                    education.add(tmbamca.getText().toString() + "/MS/MA/MSC/M.Arch");
 
                     Toast.makeText(getApplicationContext(), "MBA/MCA Added", Toast.LENGTH_SHORT).show();
                     imbamca.setImageResource(R.drawable.mba);
@@ -317,14 +367,14 @@ public class Search extends AppCompatActivity {
                 if (intcacs) {
                     intcacs = false;
                     tcacs.setTextColor(colorb);
-                    education.remove(tcacs.getText().toString());
+                    education.remove(tcacs.getText().toString() + "/ICWA");
 
                     Toast.makeText(getApplicationContext(), "CA/CS Removed", Toast.LENGTH_SHORT).show();
                     icacs.setImageResource(R.drawable.ca_black);
                 } else if (!intcacs) {
                     intcacs = true;
                     tcacs.setTextColor(colorg);
-                    education.add(tcacs.getText().toString());
+                    education.add(tcacs.getText().toString() + "/ICWA");
 
                     Toast.makeText(getApplicationContext(), "CA/CS Added", Toast.LENGTH_SHORT).show();
                     icacs.setImageResource(R.drawable.ca);
@@ -469,14 +519,14 @@ public class Search extends AppCompatActivity {
                 if (intmbamca) {
                     intmbamca = false;
                     tmbamca.setTextColor(colorb);
-                    education.remove(tmbamca.getText().toString());
+                    education.remove(tmbamca.getText().toString() + "/MS/MA/MSC/M.Arch");
 
                     Toast.makeText(getApplicationContext(), "MBA/MCA Removed", Toast.LENGTH_SHORT).show();
                     imbamca.setImageResource(R.drawable.mba_black);
                 } else if (!intmbamca) {
                     intmbamca = true;
                     tmbamca.setTextColor(colorg);
-                    education.add(tmbamca.getText().toString());
+                    education.add(tmbamca.getText().toString() + "/MS/MA/MSC/M.Arch");
 
                     Toast.makeText(getApplicationContext(), "MBA/MCA Added", Toast.LENGTH_SHORT).show();
                     imbamca.setImageResource(R.drawable.mba);
@@ -491,14 +541,14 @@ public class Search extends AppCompatActivity {
                 if (intcacs) {
                     intcacs = false;
                     tcacs.setTextColor(colorb);
-                    education.remove(tcacs.getText().toString());
+                    education.remove(tcacs.getText().toString() + "/ICWA");
 
                     Toast.makeText(getApplicationContext(), "CA/CS Removed", Toast.LENGTH_SHORT).show();
                     icacs.setImageResource(R.drawable.ca_black);
                 } else if (!intcacs) {
                     intcacs = true;
                     tcacs.setTextColor(colorg);
-                    education.add(tcacs.getText().toString());
+                    education.add(tcacs.getText().toString() + "/ICWA");
 
                     Toast.makeText(getApplicationContext(), "CA/CS Added", Toast.LENGTH_SHORT).show();
                     icacs.setImageResource(R.drawable.ca);
@@ -599,9 +649,9 @@ public class Search extends AppCompatActivity {
         spinnerCastSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                casebreak=1;
-                BottomSheetDialogFragment btm= new BottomSheet(0);
-                btm.show(getSupportFragmentManager(),btm.getTag());
+                casebreak = 1;
+                BottomSheetDialogFragment btm = new BottomSheet(0);
+                btm.show(getSupportFragmentManager(), btm.getTag());
 
             }
         });
@@ -611,31 +661,279 @@ public class Search extends AppCompatActivity {
         mOpenIDSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                casebreak=2;
+                casebreak = 2;
                 //  Toast.makeText(getApplicationContext(),Integer.toString(getCasebreak())+" does this worked or not", Toast.LENGTH_LONG).show();
                 BottomSheetDialogFragment bottomSheetDialogFragment = new BottomSheet(0);
                 bottomSheetDialogFragment.show(getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
 
             }
         });
-        FloatingActionButton search=(FloatingActionButton)findViewById(R.id.search_Submit);
+        FloatingActionButton search = (FloatingActionButton) findViewById(R.id.search_Submit);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 //                 new BackEnd().execute("","","","","","","","","");
 //                Intent i=new Intent(Search.this,SearchResultsActivity.class);
-//                i.putStringArrayListExtra("value",);
-                Toast.makeText(getApplicationContext(),"Education are :------" + education.toString(),Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(),"Complexion are :------" + complexion.toString(),Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(),"Body Type are :------" + bodyType.toString(),Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(),"Occupation are :------" + occupation.toString(),Toast.LENGTH_SHORT).show();
+             /*  i.putStringArrayListExtra("value",);
+                Toast.makeText(getApplicationContext(),"Education are :------" + education.toString(),Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Complexion are :------" + complexion.toString(),Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Body Type are :------" + bodyType.toString(),Toast.LENGTH_LONG).show();
+
+                Toast.makeText(getApplicationContext(),"Occupation are :------" + occupation.toString(),Toast.LENGTH_LONG).show();
+                */
+
+                String query = "";
+                query = "select YEAR(tbl_user.birthdate),tbl_user_files.file_name,tbl_user.first_name,tbl_user.customer_no,tbl_user.edu_degree, tbl_user.occup_location,tbl_user.height,tbl_user.occup_company,tbl_user.anuual_income,tbl_user.marrital_status,tbl_user.city,tbl_user.occup_designation from tbl_user INNER JOIN tbl_user_files ON tbl_user.customer_no=tbl_user_files.customer_no INNER join tbl_state on tbl_state.state_id=tbl_user.state INNER JOIN tbl_login ON tbl_user.customer_no=tbl_login.customer_no where tbl_user_files.file_type='profile_image'";
+//                ON tbl_user.customer_no=tbl_user_files.customer_no
+                int year = Calendar.getInstance().get(Calendar.YEAR);
+                query += "and ( YEAR(tbl_user.birthdate)>=" + Integer.toString(year - Integer.parseInt(tvMax.getText().toString())) + " and YEAR(tbl_user.birthdate)<=" + Integer.toString(year - Integer.parseInt(tvMin.getText().toString())) + ")";
+                String s1, s2;
+                s1 = height_from.getSelectedItem().toString();
+                s2 = height_to.getSelectedItem().toString();
+                Log.e(TAG, "onClick: ------" + s1 + "----" + s2);
+
+                if (s1.equals("Doesn't matter") && s2.equals("Doesn't matter")) {
+                    //no code is here *********** remove space from cm in first entry
+                    Log.e(TAG, "onClick: --why it loged");
+                } else {
+                    if (s1.equals("Doesn't matter") & !s2.equals("Doesn't matter")) {
+                        query += "and  tbl_user.height<=" + s2.substring(s2.length() - 5, s2.length() - 2);
+                        Log.e(TAG, "onClick: ----------------------" + s2.substring(s2.length() - 5, s2.length() - 2));
+                    } else if (!s1.equals("Doesn't matter") & s2.equals("Doesn't matter")) {
+                        query += "and tbl_user.height>=" + s1.substring(s1.length() - 5, s1.length() - 2);
+                    } else {
+                        query += "and ( tbl_user.height<=" + s2.substring(s2.length() - 5, s2.length() - 2) + " and tbl_user.height>=" + s1.substring(s1.length() - 5, s1.length() - 2) + ")";
+                    }
+                }
+                String str = "";
+                str = spinnerCastSearch.getText().toString();
+
+                if (str.equals("[]") || str.equals("")) {
+                    //no code is here
+                } else if (str.contains("Doesn't Matter")) {
+                    query += " and (";
+                    String[] arrayString = getResources().getStringArray(R.array.caste_array);
+                    for (int i = 1; i < arrayString.length - 1; i++) {
+                        query += "tbl_user.customer_no like \"" + arrayString[i].toCharArray()[0] + "%\" or ";
+                    }
+                    query += "tbl_user.customer_no like \"" + arrayString[arrayString.length - 1].toCharArray()[0] + "%\" )  ";
+                } else {
+                    query += "and ( ";
+                    for (int i = 0; i < countspinnerCastSearch - 1; i++) {
+                        query += "tbl_user.customer_no like \"" + CastList.get(i).toCharArray()[0] + "%\" or ";
+                    }
+                    query += "tbl_user.customer_no like \"" + CastList.get(countspinnerCastSearch - 1).toCharArray()[0] + "%\" )  ";
+                }
+
+                str = maritalstatus.getText().toString();
+
+                if (str.equals("[]") || str.equals("")) {
+                    //no code is here
+                } else if (str.contains("Doesn't Matter")) {
+                    query += " and (";
+                    String[] arrayString = getResources().getStringArray(R.array.status_search_array);
+                    for (int i = 1; i < arrayString.length - 1; i++) {
+                        query += "tbl_user.marrital_status = \"" + arrayString[i] + "\" or ";
+                    }
+                    query += "tbl_user.marrital_status = \"" + arrayString[arrayString.length - 1] + "\")";
+                } else {
+                    query += "and ( ";
+                    for (int i = 0; i < countmaritalstatus - 1; i++) {
+                        query += "tbl_user.marrital_status = \"" + maritalstatusList.get(i) + "\" or ";
+                    }
+                    query += "tbl_user.marrital_status = \"" + maritalstatusList.get(countmaritalstatus - 1) + "\") ";
+                }
+                str = familystatus.getText().toString();
+
+                if (str.equals("[]") || str.equals("")) {
+                    //no code is here
+                } else if (str.contains("Doesn't Matter")) {
+                    query += " and (";
+                    String[] arrayString = getResources().getStringArray(R.array.fstatus_array);
+                    for (int i = 1; i < arrayString.length - 1; i++) {
+                        query += "tbl_user.family_status = \"" + arrayString[i] + "\" or ";
+                    }
+                    query += "tbl_user.family_status = \"" + arrayString[arrayString.length - 1] + "\") ";
+
+                } else {
+                    query += "and ( ";
+                    for (int i = 0; i < countfamilystatus - 1; i++) {
+                        query += "tbl_user.family_status = \"" + familystatusList.get(i) + "\" or ";
+                    }
+                    query += "tbl_user.family_status = \"" + familystatusList.get(countfamilystatus - 1) + "\") ";
+                }
+                str = annualincome.getText().toString();
+
+                if (str.equals("[]") || str.equals("")) {
+                    //no code is here
+                } else if (str.contains("Doesn't Matter")) {
+                    query += " and (";
+                    String[] arrayString = getResources().getStringArray(R.array.fstatus_array);
+                    for (int i = 0; i < arrayString.length; i++) {
+                        String string = arrayString[i];
+                        String s = string.replace("L", "00000");
+                        arrayString[i] = s;
+                        Log.e(TAG, "onClick: ----------- list is ----" + arrayString.toString());
+                    }
+                    for (int i = 1; i < arrayString.length - 1; i++) {
+                        query += "tbl_user.anuual_income = \"" + arrayString[i] + "\" or ";
+
+                    }
+                    query += "tbl_user.anuual_income = \"" + arrayString[arrayString.length - 1] + "\") ";
+                } else {
+                    query += "and ( ";
+                    for (int i = 0; i < countannualincome; i++) {
+                        String string = AIList.get(i);
+                        String s = string.replace("L", "00000");
+                        AIList.set(i, s);
+                        Log.e(TAG, "onClick: ----------- list is ----" + AIList.toString());
+                    }
+                    for (int i = 0; i < countannualincome - 1; i++) {
+                        query += "tbl_user.anuual_income = \"" + AIList.get(i) + "\" or ";
+                    }
+                    query += "tbl_user.anuual_income = \"" + AIList.get(countannualincome - 1) + "\") ";
+                }
+                str = physicalstatus.getText().toString();
+
+                if (str.equals("[]") || str.equals("")) {
+                    //no code is here
+                } else if (str.contains("Doesn't Matter")) {
+                    query += " and (";
+                    String[] arrayString = getResources().getStringArray(R.array.physicalstatus_search_array);
+                    for (int i = 1; i < arrayString.length - 1; i++) {
+                        query += "tbl_user.special_cases = \"" + arrayString[i] + "\" or ";
+                    }
+                    query += "tbl_user.special_cases = \"" + arrayString[arrayString.length - 1] + "\") ";
+
+                } else {
+                    query += "and ( ";
+                    for (int i = 0; i < countphysicalstatus - 1; i++) {
+                        query += "tbl_user.special_cases = \"" + physicalstatusList.get(i) + "\" or ";
+                    }
+                    query += "tbl_user.special_cases = \"" + physicalstatusList.get(countphysicalstatus - 1) + "\") ";
+                }
+                if (education.indexOf("Doesn't Matter") != -1 && education.size() != 1) {
+                    query += (" and  ( tbl_user.education=\"" + education.get(1).toString() + "\"");
+                    for (int i = 2; i < education.size(); i++) {
+                        query += (" or tbl_user.education =\"" + education.get(i).toString() + "\"");
+                    }
+
+                } else {
+                    query += (" and ( tbl_user.education=\"" + educationAll.get(0).toString() + "\"");
+
+                    for (int i = 1; i < educationAll.size(); i++) {
+                        query += (" or tbl_user.education=\" " + educationAll.get(i).toString() + "\"");
+                    }
+
+                }
+                query += ")";
+
+                if (complexion.indexOf("Doesn't Matter") == -1) {
+                    query += (" and ( tbl_user.complexion=\"" + complexion.get(0).toString() + "\"");
+
+                    for (int i = 1; i < complexion.size(); i++) {
+                        query += (" or tbl_user.complexion=\" " + complexion.get(i).toString() + "\"");
+                    }
+
+                } else {
+                    query += (" and ( tbl_user.complexion=\"" + complexionAll.get(0).toString() + "\"");
+
+                    for (int i = 1; i < complexionAll.size(); i++) {
+                        query += (" or tbl_user.complexion= \"" + complexionAll.get(i).toString() + "\"");
+                    }
+
+                }
+                query += ")";
+
+                if (bodyType.indexOf("Doesn't Matter") == -1) {
+                    query += (" and (  tbl_user.body_structure=\"" + complexion.get(0).toString() + "\"");
+
+                    for (int i = 1; i < bodyType.size(); i++) {
+                        query += (" or tbl_user.body_structure=\" " + bodyType.get(i).toString() + "\"");
+                    }
+
+                } else {
+                    query += (" and  ( tbl_user.body_structure=\"" + bodyTypeAll.get(0).toString() + "\"");
+
+                    for (int i = 1; i < bodyTypeAll.size(); i++) {
+                        query += (" or tbl_user.body_structure= \"" + bodyTypeAll.get(i).toString() + "\"");
+                    }
+
+                }
+                query += ")";
+
+                if (occupation.indexOf("Doesn't Matter") == -1) {
+                    query += (" and ( tbl_user.current_occup=\"" + occupation.get(0).toString() + "\"");
+                    for (int i = 1; i < occupation.size(); i++) {
+                        query += (" or tbl_user.current_occup= \"" + occupation.get(i).toString() + "\"");
+                    }
+
+                } else {
+                    query += (" and ( tbl_user.current_occup=\"" + occupationAll.get(0).toString() + "\"");
+                    for (int i = 1; i < occupationAll.size(); i++) {
+                        query += (" or tbl_user.current_occup=\"" + occupationAll.get(i).toString() + "\"");
+                    }
+
+                }
+                query += ")";
+
+                if (statesList.size() == 0) {
+                    //no code here
+                } else {
+                    query += " and ( ";
+
+                    for (int i = 0; i < statesList.size() - 1; i++) {
+
+                        query += " tbl_user.state=" + "(select tbl_state.state_id from tbl_state where tbl_state.state_name=\"" + statesList.get(i) + "\") or ";
+                    }
+                    query += " tbl_user.state=" + "(select tbl_state.state_id from tbl_state where tbl_state.state_name=\"" + statesList.get(statesList.size() - 1) + "\" ) ) ";
+                }
+                if (cityList.size() == 0) {
+                    //no code here
+                } else {
+                    query += " and ( ";
+
+                    for (int i = 0; i < cityList.size() - 1; i++) {
+
+                        query += " tbl_user.city=" + "(select tbl_city.City_id from tbl_city where tbl_city.City_name=\"" + cityList.get(i) + "\") or ";
+                    }
+                    query += " tbl_user.city=" + "(select tbl_city.City_id from tbl_city where tbl_city.City_name=\"" + cityList.get(cityList.size() - 1) + "\" ) ) ";
+                }
+                String mangli = manglik.getSelectedItem().toString();
+                if (mangli.equals("Doesn't matter")) {
+                    //nothig is here for you
+                } else {
+                    query += " and tbl_user.manglik=\"" + mangli + "\"";
+                }
+                String childs = children.getSelectedItem().toString();
+                if (childs.equals("Doesn't Matter")) {
+                    //nthg is here for you
+                } else {
+                    query += " and tbl_user.children=\"" + childs + "\"";
+                }
+
+                String itm = sort_by.getSelectedItem().toString();
+
+                if (itm.equals("Doesn't Matter")) {
+                    //nothing is here for you
+                } else if (itm.equals("Recent Profiles")) {
+                    query += " order by tbl_user.created_on asc ";
+                } else {
+                    query += "order by tbl_login.last_activity_on asc ";
+                }
+
+                new BackEnd().execute(query);
+
+
+                Log.e(TAG, "onClick: ---------------------------query is\n  " + query);
+
               /*  Toast.makeText(getApplicationContext(),"Education are :------" + education.toString(),Toast.LENGTH_SHORT).show();
                 Toast.makeText(getApplicationContext(),"Education are :------" + education.toString(),Toast.LENGTH_SHORT).show();
                 Toast.makeText(getApplicationContext(),"Education are :------" + education.toString(),Toast.LENGTH_SHORT).show();
 */
+
             }
         });
-
 
 
         very_fair = (CheckBox) findViewById(R.id.search_check_very_fair);
@@ -645,19 +943,19 @@ public class Search extends AppCompatActivity {
         dark = (CheckBox) findViewById(R.id.search_check_dark);
         doesnt_matter = (CheckBox) findViewById(R.id.complexion_doesnt_matter);
 
-        profession=(CheckBox)findViewById(R.id.check_profession);
-        job=(CheckBox)findViewById(R.id.check_job);
-        retired=(CheckBox)findViewById(R.id.check_retired);
-        business=(CheckBox)findViewById(R.id.check_business);
-        studying=(CheckBox)findViewById(R.id.check_studying_not_employed);
-        not_employed=(CheckBox)findViewById(R.id.check_not_employed);
-        dont_matter=(CheckBox)findViewById(R.id.occupation_doesnt_matter);
+        profession = (CheckBox) findViewById(R.id.check_profession);
+        job = (CheckBox) findViewById(R.id.check_job);
+        retired = (CheckBox) findViewById(R.id.check_retired);
+        business = (CheckBox) findViewById(R.id.check_business);
+        studying = (CheckBox) findViewById(R.id.check_studying_not_employed);
+        not_employed = (CheckBox) findViewById(R.id.check_not_employed);
+        dont_matter = (CheckBox) findViewById(R.id.occupation_doesnt_matter);
 
-        slim=(CheckBox)findViewById(R.id.search_check_slim);
-        athletic=(CheckBox)findViewById(R.id.search_check_athletic);
-        heavy=(CheckBox)findViewById(R.id.search_check_heavy);
-        average=(CheckBox)findViewById(R.id.search_check_average);
-        doesntMatter=(CheckBox)findViewById(R.id.bodytype_doesnt_matter);
+        slim = (CheckBox) findViewById(R.id.search_check_slim);
+        athletic = (CheckBox) findViewById(R.id.search_check_athletic);
+        heavy = (CheckBox) findViewById(R.id.search_check_heavy);
+        average = (CheckBox) findViewById(R.id.search_check_average);
+        doesntMatter = (CheckBox) findViewById(R.id.bodytype_doesnt_matter);
 
         very_fair.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -786,7 +1084,7 @@ public class Search extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (int_profession) {
-                    int_profession= false;
+                    int_profession = false;
                     occupation.remove(profession.getText().toString());
                     Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
 
@@ -803,7 +1101,7 @@ public class Search extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (int_job) {
-                    int_job= false;
+                    int_job = false;
                     occupation.remove(job.getText().toString());
                     Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
 
@@ -820,7 +1118,7 @@ public class Search extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (int_retired) {
-                    int_retired= false;
+                    int_retired = false;
                     occupation.remove(retired.getText().toString());
                     Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
 
@@ -837,7 +1135,7 @@ public class Search extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (int_business) {
-                    int_business= false;
+                    int_business = false;
                     occupation.remove(business.getText().toString());
                     Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
 
@@ -854,7 +1152,7 @@ public class Search extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (int_not_employed) {
-                    int_not_employed= false;
+                    int_not_employed = false;
                     occupation.remove(not_employed.getText().toString());
                     Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
 
@@ -870,7 +1168,7 @@ public class Search extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (int_studying) {
-                    int_studying= false;
+                    int_studying = false;
                     occupation.remove(studying.getText().toString());
                     Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
 
@@ -887,7 +1185,7 @@ public class Search extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (int_dont_matter) {
-                    int_dont_matter= false;
+                    int_dont_matter = false;
                     occupation.remove(dont_matter.getText().toString());
                     Toast.makeText(getApplicationContext(), "Added", Toast.LENGTH_SHORT).show();
 
@@ -906,7 +1204,7 @@ public class Search extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (intSlim) {
-                    intSlim= false;
+                    intSlim = false;
                     bodyType.remove(slim.getText().toString());
                     Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
 
@@ -923,7 +1221,7 @@ public class Search extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (intAthletic) {
-                    intAthletic= false;
+                    intAthletic = false;
                     bodyType.remove(athletic.getText().toString());
                     Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
 
@@ -940,7 +1238,7 @@ public class Search extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (intAverage) {
-                    intAverage= false;
+                    intAverage = false;
                     bodyType.remove(average.getText().toString());
                     Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
 
@@ -957,7 +1255,7 @@ public class Search extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (intHeavy) {
-                    intHeavy= false;
+                    intHeavy = false;
                     bodyType.remove(heavy.getText().toString());
                     Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
 
@@ -974,7 +1272,7 @@ public class Search extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (intDoesntMatter) {
-                    intDoesntMatter= false;
+                    intDoesntMatter = false;
                     bodyType.remove(doesntMatter.getText().toString());
                     Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
 
@@ -988,52 +1286,75 @@ public class Search extends AppCompatActivity {
         });
 
 
-
-
-
-
-
-
     }
-    public int getCasebreak()
-    {
+
+    public int getCasebreak() {
         return this.casebreak;
     }
-    boolean dataChecker()
-    {
-        return false;
-    }
+
 
     @Override
-    public boolean onSupportNavigateUp(){
+    public boolean onSupportNavigateUp() {
         finish();
         return true;
     }
-}
-class BackEnd extends AsyncTask<String,String,String>
-{
 
-    @Override
-    protected String doInBackground(String... strings) {
-        AndroidNetworking.post("http://192.168.221.50:5050/checkLogin")
-                .addBodyParameter("email",strings[1])
-                .addBodyParameter("password", strings[2])
-                .setPriority(Priority.HIGH)
-                .build()
-                .getAsJSONArray(new JSONArrayRequestListener() {
+    private class BackEnd extends AsyncTask<String, String, String> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            dialog = new ProgressDialog(Search.this);
+            dialog.setCanceledOnTouchOutside(false);
+            dialog.setCancelable(false);
+            dialog.setMessage("Please Wait...");
+            dialog.show();
+        }
 
-                    @Override
-                    public void onResponse(JSONArray response) {
+        @Override
+        protected String doInBackground(String... strings) {
+            AndroidNetworking.post("http://192.168.43.61:5050/searchById")
+                    .addBodyParameter("query", strings[0])
+                    .setPriority(Priority.HIGH)
+                    .build()
+                    .getAsJSONArray(new JSONArrayRequestListener() {
 
+                        @Override
+                        public void onResponse(JSONArray response) {
+                            Log.e(TAG, "onResponse: -------------- "+response.toString());
+                            for(int i=0;i<response.length();i++){
+                                JSONArray user= null;
+                                try {
+                                    user = response.getJSONArray(i);
+                                    Calendar calender = Calendar.getInstance();
+                                    int year = calender.get(Calendar.YEAR);
+                                    SuggestionModel suggestionModel= new SuggestionModel(year-(int)user.get(0),"http://www.marwadishaadi.com/uploads/cust_"+user.get(3).toString()+"/thumb/"+user.get(1).toString(),user.get(2).toString(),user.get(3).toString(),user.get(4).toString(),user.get(5).toString(),user.get(6).toString(),user.get(7).toString(),user.get(8).toString(),user.get(9).toString(),user.get(10).toString(),user.get(11).toString());
+                                    suggestionModelList2.add(suggestionModel);
 
-                    }
+                                }
+                                catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
 
-                    @Override
-                    public void onError(ANError error) {
+                            }
+                        }
 
-                    }
-                });
+                        @Override
+                        public void onError(ANError error) {
+                            Toast.makeText(getApplicationContext(),"Network Error Occurder. Please check Internet",Toast.LENGTH_LONG);
+                        }
+                    });
 
-        return null;
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            dialog.dismiss();
+            Intent intent=new Intent(getApplicationContext(),SearchResultsActivity.class);
+            intent.putExtra("which","advSearch");
+            startActivity(intent);
+            finish();
+        }
     }
 }

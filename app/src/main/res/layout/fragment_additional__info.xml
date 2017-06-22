@@ -405,6 +405,8 @@
                         android:textSize="14dp"
                         android:textColorHint="#747474"
                         android:drawableLeft="@drawable/signup_dob"
+                        android:focusableInTouchMode="false"
+                        android:windowSoftInputMode="stateHidden"
                         android:drawablePadding="10dp"
                         android:id="@+id/dob"
                         android:inputType="datetime"

@@ -50,6 +50,64 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
     private CoordinatorLayout coordinatorLayout;
     private FrameLayout frameLayout;
 
+ /*   AndroidNetworking.post(URL + "prepareUserProfile")
+            .addBodyParameter("customerNo", "O1057")
+.setPriority(Priority.HIGH)
+.build()
+.getAsJSONArray(new JSONArrayRequestListener() {
+        public void onResponse(JSONArray response) {
+// do anything with response
+            try {
+                FavouriteModel[] favouriteModel = new FavouriteModel[response.length()];
+                for (int i = 0; i < response.length(); i++) {
+
+                    JSONArray array = response.getJSONArray(i);
+                    String customerNo = array.getString(0);
+                    String name = array.getString(1);
+                    String dateOfBirth = array.getString(2);
+// Thu, 18 Jan 1990 00:00:00 GMT
+                    DateFormat formatter = new SimpleDateFormat("E, dd MMM yyyy HH:mm:ss Z");
+                    Date date = formatter.parse(dateOfBirth);
+                    System.out.println(date);
+
+                    Calendar cal = Calendar.getInstance();
+                    cal.setTime(date);
+                    String formatedDate = cal.get(Calendar.DATE) + "-" + (cal.get(Calendar.MONTH) + 1) + "-" + cal.get(Calendar.YEAR);
+
+                    String[] partsOfDate = formatedDate.split("-");
+                    int day = Integer.parseInt(partsOfDate[0]);
+                    int month = Integer.parseInt(partsOfDate[1]);
+                    int year = Integer.parseInt(partsOfDate[2]);
+                    int a = getAge(year, month, day);
+                    String age = Integer.toString(a);
+                    String education = array.getString(3);
+                    String occupationLocation = array.getString(4);
+                    String imageUrl = array.getString(5);
+
+
+                    favouriteModel[i] = new FavouriteModel(customerNo, name, occupationLocation, education, Integer.parseInt(age), "http://www.marwadishaadi.com/uploads/cust_" + customerNo + "/thumb/" + imageUrl);
+
+                    favouritesList.add(favouriteModel[i]);
+                    favouritesAdapter.notifyDataSetChanged();
+                    Log.d(TAG, "onResponse: age of the user " + age);
+                    Log.d(TAG, "onResponse: element " + i + " " + array.getString(0));
+
+
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+
+        @Override
+        public void onError(ANError error) {
+            Log.d(TAG, "onResponse: json response array is " + error.toString());
+// handle error
+        }
+    });*/
 
     @Override
     protected void attachBaseContext(Context newBase) {

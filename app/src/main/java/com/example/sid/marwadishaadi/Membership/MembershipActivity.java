@@ -1,4 +1,5 @@
 package com.example.sid.marwadishaadi.Membership;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +9,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -16,7 +16,6 @@ import android.widget.Toast;
 
 import com.example.sid.marwadishaadi.Dashboard.DashboardActivity;
 import com.example.sid.marwadishaadi.R;
-import com.example.sid.marwadishaadi.Upload_User_Photos.UploadPhotoActivity;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -25,11 +24,9 @@ public class MembershipActivity extends AppCompatActivity {
 
     RadioButton radio1, radio2, radio3, radio4, radio5, radio6, radio7, radio8, radio9, radio10, radio11, radio12, radio13, radio14, radio15, radio16, radio17, radio18;
     RadioGroup gr1, gr2, gr3, gr4, gr5, gr6;
-    LinearLayout linear1,linear2,linear3,linear4,linear5,linear6;
     static int c = 0, c1 = 0, c2 = 0, c3 = 0, c4 = 0, c5 = 0, c6 = 0;
     int id;
     Button skip,coupon;
-    String str;
     TextView dash,clear1,clear2,clear3,clear4,clear5,clear6;
     TextView amount;
 
@@ -73,7 +70,7 @@ public class MembershipActivity extends AppCompatActivity {
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MembershipActivity.this,UploadPhotoActivity.class);
+                Intent i = new Intent(MembershipActivity.this,DashboardActivity.class);
                 startActivity(i);
             }
         });
@@ -85,7 +82,6 @@ public class MembershipActivity extends AppCompatActivity {
 
                 View reset_view = getLayoutInflater().inflate(R.layout.coupon_dialog, null);
                 AlertDialog.Builder reset = new AlertDialog.Builder(MembershipActivity.this);
-                reset.setTitle("Redeem Coupon");
                 reset.setView(reset_view);
 
                 final EditText code = (EditText) reset_view.findViewById(R.id.code);
@@ -356,7 +352,7 @@ public class MembershipActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         gr6.clearCheck();
 
-                        c1 = 2500;
+                        c5 = 2500;
                         c = c1 + c2 + c3 + c4 + c5;
                         amount.setText(String.valueOf(c));
                     }

@@ -1,6 +1,7 @@
 package com.example.sid.marwadishaadi.Search;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,11 +17,14 @@ import java.util.List;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
+import static com.example.sid.marwadishaadi.Search.BottomSheet.sm;
+import static com.example.sid.marwadishaadi.Search.Search.suggestionModelList2;
+
 public class SearchResultsActivity extends AppCompatActivity {
 
 
-    private List<SuggestionModel> suggestionModelList = new ArrayList<>();
-    private RecyclerView recyclerView;
+    private ArrayList<SuggestionModel> suggestionModelList = new ArrayList<>();
+    public static RecyclerView recyclerView;
     private SuggestionAdapter suggestionAdapter;
 
     @Override
@@ -32,22 +36,40 @@ public class SearchResultsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results);
+        Bundle bundle=getIntent().getExtras();
 
+//        sm.size();
         Toolbar toolbar = (Toolbar) findViewById(R.id.search_results_toolbar);
-        toolbar.setTitle("Results");
+        String str=bundle.get("which").toString();
+        if(str.equals("advSearch")) {
+            suggestionAdapter = new SuggestionAdapter(getApplicationContext(), suggestionModelList2, recyclerView);
+            toolbar.setTitle("Results ("+suggestionAdapter.getItemCount()+")");
+        }
+        else {
+            suggestionAdapter = new SuggestionAdapter(getApplicationContext(), sm, recyclerView);
+            toolbar.setTitle("Results ("+ suggestionAdapter.getItemCount()+")");
+        }
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
 
-        suggestionAdapter=  new SuggestionAdapter(getApplicationContext(), suggestionModelList, recyclerView);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(suggestionAdapter);
-        prepareBlockData();
 
+//        prepareBlockData();
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent i=new Intent(getApplicationContext(),Search.class);
+        startActivity(i);
     }
 
     private void prepareBlockData() {
@@ -74,6 +96,8 @@ public class SearchResultsActivity extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp(){
         finish();
+        Intent i=new Intent(getApplicationContext(),Search.class);
+        startActivity(i);
         return true;
     }
 }

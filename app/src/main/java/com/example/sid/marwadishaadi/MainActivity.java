@@ -12,8 +12,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 
+import com.example.sid.marwadishaadi.Dashboard.DashboardActivity;
 import com.example.sid.marwadishaadi.Intro_Slides.Intro1Fragment;
 import com.example.sid.marwadishaadi.Intro_Slides.Intro2Fragment;
+import com.example.sid.marwadishaadi.Login.LoginActivity;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -35,22 +37,6 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         mviewpager = (ViewPager) findViewById(R.id.main_container);
         mviewpager.setAdapter(sliderAdapter);
         mviewpager.setOnPageChangeListener(this);
- SharedPreferences sharedpref=getSharedPreferences("userinfo",MODE_PRIVATE);
-        boolean check = sharedpref.getBoolean("isLoggedIn",false);
-
-        Log.d(":", "onDonePressed:--------------------------- bool is  "+check);
-        if(check){
-            Intent i = new Intent(MainActivity.this, Dashboard.class);
-            startActivity(i);
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-            finish();
-        }
-        else {
-            Intent i = new Intent(MainActivity.this, Login.class);
-            startActivity(i);
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-            finish();
-        }
     }
 
     @Override

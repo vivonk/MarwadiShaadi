@@ -80,16 +80,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Basic Search"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginLeft="6dp"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="18dp"
-                            android:layout_marginBottom="15dp"
-                            />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -179,6 +169,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:id="@+id/height_from"
                                 android:layout_marginTop="10dp"
                                 android:entries="@array/height_search_array"
                                 />
@@ -187,6 +178,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:id="@+id/height_to"
                                 android:layout_marginTop="10dp"
                                 android:entries="@array/height_search_array"
                                 />
@@ -250,7 +242,7 @@
                                 android:layout_height="wrap_content"
                                 android:hint="Type State"
                                 android:textSize="16dp"
-                                android:drawableLeft="@drawable/signup_location"
+                                android:drawableLeft="@drawable/userlocation"
                                 android:drawablePadding="10dp"
                                 android:background="#fff"
                                 android:inputType="text"
@@ -569,16 +561,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Advanced Search"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="6dp"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="18dp"
-                        android:layout_marginBottom="15dp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:textAlignment="textStart"
                         android:text="City"
@@ -599,7 +581,7 @@
                             android:layout_height="wrap_content"
                             android:hint="Type City"
                             android:textSize="16dp"
-                            android:drawableLeft="@drawable/signup_location"
+                            android:drawableLeft="@drawable/userlocation"
                             android:drawablePadding="10dp"
                             android:background="#fff"
                             android:inputType="text"

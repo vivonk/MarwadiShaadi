@@ -41,7 +41,6 @@
             android:textColor="#fff"
             android:textSize="16dp"
             android:background="@layout/button_border_corner_circle_"
-            android:stateListAnimator="@null"
-            android:elevation="8dp"
+
             />
     </LinearLayout>

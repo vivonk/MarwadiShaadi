@@ -300,7 +300,7 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
                 case 2:
                     return "Family Details";
                 case 3:
-                    return "Partner Signup_Partner_Preferences_Fragment";
+                    return "Partner Preferences";
                 default:
                     return null;
             }

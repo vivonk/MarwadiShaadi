@@ -67,8 +67,6 @@
                         android:layout_marginTop="40dp"
                         android:text="Submit"
                       android:background="@layout/button_border_corner_circle_"
-                      android:stateListAnimator="@null"
-                        android:elevation="8dp"
                         android:textColor="#fff"
                         android:textSize="16dp"/>
 

@@ -22,7 +22,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sid.marwadishaadi.Analytics_Util;
 import com.example.sid.marwadishaadi.R;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -31,6 +33,7 @@ public class FeedbackActivity extends AppCompatActivity {
     protected EditText fftext;
     protected Button send;
     protected CheckBox email_response;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -40,6 +43,8 @@ public class FeedbackActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback);
+
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.feedback_toolbar);
         toolbar.setTitle("Feedback");
@@ -57,6 +62,10 @@ public class FeedbackActivity extends AppCompatActivity {
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Feedback","button");
+
                 boolean email_response_required = false;
                 if (email_response.isChecked()){
                     email_response_required = true;

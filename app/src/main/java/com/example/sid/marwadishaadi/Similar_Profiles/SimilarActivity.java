@@ -9,7 +9,9 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 
+import com.example.sid.marwadishaadi.Analytics_Util;
 import com.example.sid.marwadishaadi.R;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +24,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class SimilarActivity extends AppCompatActivity{
 
+    private FirebaseAnalytics mFirebaseAnalytics;
     private SimilarAdapter similarAdapter;
     private List<SimilarModel> similarModelList = new ArrayList<>();;
     private RecyclerView recyclerView;
@@ -34,6 +37,11 @@ public class SimilarActivity extends AppCompatActivity{
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_similar);
+
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
+        // analytics
+        Analytics_Util.logAnalytic(mFirebaseAnalytics,"Similar Profiles","button");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.similar_toolbar);
         toolbar.setTitle("Similar Profiles");

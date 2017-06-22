@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.sid.marwadishaadi.R;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.varunest.sparkbutton.SparkButton;
 import com.varunest.sparkbutton.SparkEventListener;
 
@@ -28,6 +29,7 @@ public class SuggestionAdapter extends RecyclerView.Adapter<SuggestionAdapter.My
     private final Context context;
     private List<SuggestionModel> suggestionModelList;
     private RecyclerView rv;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
@@ -146,6 +148,7 @@ public class SuggestionAdapter extends RecyclerView.Adapter<SuggestionAdapter.My
 
         this.suggestionModelList = suggestionModelList;
         this.context=context;
+        this.mFirebaseAnalytics=FirebaseAnalytics.getInstance(context);
         this.rv = recyclerView;
     }
 

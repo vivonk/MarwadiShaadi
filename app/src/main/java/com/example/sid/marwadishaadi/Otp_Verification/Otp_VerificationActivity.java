@@ -18,8 +18,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sid.marwadishaadi.Analytics_Util;
 import com.example.sid.marwadishaadi.R;
 import com.example.sid.marwadishaadi.Upload_User_Photos.UploadPhotoActivity;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -32,6 +34,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 // TO DO Please change mobile number , Use an internet connection try catch, Show the mobile number to user where OTP will be send and also give option to change mobile number
 public class Otp_VerificationActivity extends AppCompatActivity {
+    private FirebaseAnalytics mFirebaseAnalytics;
     private static final String TAG = "";
     static int OTP=0;
     protected EditText otp;
@@ -48,6 +51,9 @@ public class Otp_VerificationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_otp__verification);
+
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
         otp = (EditText) findViewById(R.id.user_otp);
         submit = (Button) findViewById(R.id.Submit_otp);
         call_us = (TextView) findViewById(R.id.call_us);
@@ -58,13 +64,18 @@ public class Otp_VerificationActivity extends AppCompatActivity {
         resend_otp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Resent OTP","button");
                 new SendingSMS().execute("8006467951");
             }
         });
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"OTP verification","button");
 
                 String user_otp = otp.getText().toString();
                 Toast.makeText(getApplicationContext(), "OTP created is"+ Integer.toString(OTP), Toast.LENGTH_SHORT).show();
@@ -88,6 +99,10 @@ public class Otp_VerificationActivity extends AppCompatActivity {
         call_us.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"OTP_Call_US","button");
+
                 final Intent callIntent = new Intent(Intent.ACTION_CALL);
                 callIntent.setData(Uri.parse("tel:" + call_us.getText().toString()));//change the number
                 if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {

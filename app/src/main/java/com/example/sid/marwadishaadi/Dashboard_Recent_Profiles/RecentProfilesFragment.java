@@ -11,7 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toolbar;
 
+import com.example.sid.marwadishaadi.Analytics_Util;
 import com.example.sid.marwadishaadi.R;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,12 +28,17 @@ public class RecentProfilesFragment extends Fragment {
     private RecyclerView recentRecyclerView;
     private RecentAdapter recentAdapter;
     private SwipeRefreshLayout swipeRefreshLayout;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View mview = inflater.inflate(R.layout.fragment_recent__profiles, container, false);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(getContext());
+
+        // analytics
+        Analytics_Util.logAnalytic(mFirebaseAnalytics,"Recent Profiles","button");
 
 
         recentRecyclerView = (RecyclerView) mview.findViewById(R.id.swipe_recyclerview);

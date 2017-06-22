@@ -14,8 +14,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.sid.marwadishaadi.Analytics_Util;
 import com.example.sid.marwadishaadi.Membership.MembershipActivity;
 import com.example.sid.marwadishaadi.R;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -28,6 +30,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class UploadPhotoActivity extends AppCompatActivity {
 
+    private FirebaseAnalytics mFirebaseAnalytics;
     private static final int REQUEST_CAMERA = 1;
     private static final int SELECT_FILE = 2;
     private static int number = 0;
@@ -45,10 +48,14 @@ public class UploadPhotoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_photo);
 
+
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         submit= (Button)findViewById(R.id.submit_photo);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Upload Photo","button");
                 if(isSelected){
                          Intent i = new Intent(UploadPhotoActivity.this, MembershipActivity.class);
                         startActivity(i);

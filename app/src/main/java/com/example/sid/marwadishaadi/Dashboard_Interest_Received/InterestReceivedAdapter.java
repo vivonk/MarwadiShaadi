@@ -12,7 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.sid.marwadishaadi.Analytics_Util;
 import com.example.sid.marwadishaadi.R;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.List;
 
@@ -24,6 +26,7 @@ public class InterestReceivedAdapter extends RecyclerView.Adapter<InterestReceiv
 
     private RecyclerView rv;
     private Context context;
+    private FirebaseAnalytics mFirebaseAnalytics;
     private List<InterestReceivedModel> interestReceivedModelList;
     private static final String TAG = "InterestReceivedAdapter";
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -45,6 +48,10 @@ public class InterestReceivedAdapter extends RecyclerView.Adapter<InterestReceiv
             accept.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+                    // analytics
+                    Analytics_Util.logAnalytic(mFirebaseAnalytics,"Interest Accepted","button");
+
                     final int position = getAdapterPosition();
                     final InterestReceivedModel interestmodel = interestReceivedModelList.get(position);
                     interestmodel.setStatus(0);
@@ -69,6 +76,10 @@ public class InterestReceivedAdapter extends RecyclerView.Adapter<InterestReceiv
             reject.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+                    // analytics
+                    Analytics_Util.logAnalytic(mFirebaseAnalytics,"Interest Rejected","button");
+
                     final int position = getAdapterPosition();
                     final InterestReceivedModel interestmodel = interestReceivedModelList.get(position);
                     interestmodel.setStatus(1);
@@ -97,6 +108,7 @@ public class InterestReceivedAdapter extends RecyclerView.Adapter<InterestReceiv
         this.context = context;
         this.interestReceivedModelList = interestReceivedModelList;
         this.rv = rv;
+        this.mFirebaseAnalytics = FirebaseAnalytics.getInstance(context);
     }
 
     @Override

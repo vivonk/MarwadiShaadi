@@ -14,8 +14,10 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sid.marwadishaadi.Analytics_Util;
 import com.example.sid.marwadishaadi.Dashboard.DashboardActivity;
 import com.example.sid.marwadishaadi.R;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -29,6 +31,7 @@ public class MembershipActivity extends AppCompatActivity {
     Button skip,coupon;
     TextView dash,clear1,clear2,clear3,clear4,clear5,clear6;
     TextView amount;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -38,6 +41,8 @@ public class MembershipActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_membership);
+
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.membership_toolbar);
         toolbar.setTitle("MembershipActivity");
@@ -70,6 +75,9 @@ public class MembershipActivity extends AppCompatActivity {
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Skip Membership","button");
+
                 Intent i = new Intent(MembershipActivity.this,DashboardActivity.class);
                 startActivity(i);
             }
@@ -91,6 +99,8 @@ public class MembershipActivity extends AppCompatActivity {
                 redeem.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        // analytics
+                        Analytics_Util.logAnalytic(mFirebaseAnalytics,"Coupon Code","button");
 
                         String user_code = code.getText().toString();
 

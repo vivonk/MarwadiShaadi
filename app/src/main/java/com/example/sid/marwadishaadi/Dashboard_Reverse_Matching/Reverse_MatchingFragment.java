@@ -9,7 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.sid.marwadishaadi.Analytics_Util;
 import com.example.sid.marwadishaadi.R;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +22,7 @@ import jp.wasabeef.recyclerview.animators.FadeInLeftAnimator;
 
 public class Reverse_MatchingFragment extends Fragment {
 
+    private FirebaseAnalytics mFirebaseAnalytics;
     private List<ReverseModel> reverseModelList = new ArrayList<>();
     private RecyclerView reverseRecyclerView;
     private ReverseAdapter reverseAdapter;
@@ -30,6 +33,11 @@ public class Reverse_MatchingFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View mview =  inflater.inflate(R.layout.fragment_reverse__matching, container, false);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(getContext());
+
+
+        // analytics
+        Analytics_Util.logAnalytic(mFirebaseAnalytics,"Reverse Matching","view");
 
         reverseRecyclerView = (RecyclerView) mview.findViewById(R.id.swipe_recyclerview);
         swipeRefreshLayout = (SwipeRefreshLayout)mview.findViewById(R.id.swipe);

@@ -1,32 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+<ScrollView android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    >
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ffede9"
-        android:focusableInTouchMode="true"
-        android:orientation="vertical">
+    android:background="#ffede9"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
+    android:focusableInTouchMode="true"
+    android:orientation="horizontal">
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="100dp"
+            android:layout_margin="10dp"
             app:cardBackgroundColor="#fff"
             app:cardCornerRadius="10dp"
             app:cardElevation="10dp"
-            app:cardUseCompatPadding="true">
+            app:cardUseCompatPadding="true"
+            android:layout_gravity="center_vertical"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:orientation="vertical">
 
@@ -61,14 +59,14 @@
                         android:textSize="12dp" />
                 </android.support.design.widget.TextInputLayout>
 
-                    <Button
+                  <Button
                         android:id="@+id/Submit_otp"
-                        android:layout_width="150dp"
+                        android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:background="@layout/button_shadow"
                         android:layout_marginTop="40dp"
                         android:text="Submit"
+                      android:background="@layout/button_border_corner_circle_"
                         android:textColor="#fff"
                         android:textSize="16dp"/>
 
@@ -76,9 +74,9 @@
                 <TextView
                     android:id="@+id/resend_otp"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="40dp"
                     android:clickable="true"
                     android:onClick="resend"
                     android:text="Resend OTP"
@@ -87,18 +85,18 @@
 
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:text="Or"
-                    android:textAlignment="center"
+                    android:layout_gravity="center_horizontal"
                     android:textSize="12dp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
 
@@ -129,5 +127,4 @@
 
     </LinearLayout>
 
-        </ScrollView>
-
+</ScrollView>

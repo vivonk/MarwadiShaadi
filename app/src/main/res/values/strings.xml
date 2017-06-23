@@ -33,13 +33,13 @@
 
 
     <string-array name="children_array">
+         <item>No</item>
         <item>Yes</item>
-        <item>No</item>
         <item>Doesn\'t Matter</item>
     </string-array>
 
     <string-array name="sort_by_array">
-        <item>Recent Profiles</item>
+        <item>Recently Registered</item>
         <item>Recent Active</item>
         <item>Doesn\'t Matter</item>
     </string-array>
@@ -83,7 +83,7 @@
     <string name="q9">How long does it take to activate my matrimonial account after I place an order?</string>
     <string name="a9">If you pay for the order using a credit card, then the account is activated within 12 hours.</string>
 
-    <string name="about1">Mumbai-based, Marwadi Shaadi Matrimonial Services (MS) is a firm established in the year 2012 by Dr Mohan T Karwa.\n\nThe entity is engaged in providing online and offline matrimonial services to the Marwadi community. The portal is called www.marwadishaadi.com and it is meant for all Marwadis, including the Oswals, Khandelwals, Jains and Maheshwari’s.\n\nIn addition to the portal, the entity also provides an exclusive offline service viz “Elite Marwadi Shaadi”. Elite Marwadi Shaadi is a personalized and premium service, offered to prospective brides and grooms, who desire to find a life-partner with very specific preferences. Criteria can include specific cities, elite class, family background, education and others.\n\nMS has an efficient and young backend office team comprising of tele callers, technical and skilled staff.</string>
+    <string name="about1">Mumbai-based, Marwadi Shaadi Matrimonial Services (MS) is a firm established in the year 2012 by Dr Mohan T Karwa.\n\nThe entity is engaged in providing online and offline matrimonial services to the Marwadi community. The portal is called www.marwadishaadi.com and it is meant for all Marwadis, including the Oswals, Khandelwals, Jains and Maheshwari’s.\n\nIn addition to the portal, the entity also provides an exclusive offline service viz “Elite Marwadi Shaadi”. Elite Marwadi Shaadi is a personalized and premium service, offered to prospective brides and grooms, who desire to find a life-partner with very specific signupPartnerPreferencesFragment. Criteria can include specific cities, elite class, family background, education and others.\n\nMS has an efficient and young backend office team comprising of tele callers, technical and skilled staff.</string>
     <string name="about2">Website has a huge database of around 10,000 online profiles from all over India especially for the close knit Marwadi community. It also has vast offline profiles who enjoy personalized services of MS. Online portal offers has a wide range of new features like instant horoscope matching, online chat and others. The portal offers quarterly, half yearly and yearly packages for its members, which entitles the paid members to benefits like screening through profiles, communicating with prospective members and others. The member has access to online and offline payment options. The entity has been improving its presence in cities like Mumbai, Pune, Hyderabad and others, and has been participating in several matrimonial and social events all over India.</string>
     <string name="mohan">The main promoter-founder Dr Mohan T Karwa, aged 65 years, has been the visionary of Marwadi Shaadi. Although Doctor by profession he has a vast experience of about four decades in diverse fields like construction, medical, finance and real estate. Having relinquished his Government service, he ventured into the Government infrastructure / construction contracts for roads, bridges and others in the state of Maharashtra. He gained reasonable experience in public sector and subsequently ventured into private sector. He successfully built various residential and commercial projects in Thane, Jalgaon, Pune and others. Later in 2009, Dr Karwa diversified into service sector through his brain-child, Marwadi Shaadi Matrimonial Services.</string>
     <string name="rishi">Our second generation entrepreneur and well known face of MS, Mr Rishi Karwa, aged 26 years, is an MBA - Finance, and has taken the operations of MS to a new level of growth with a modern outlook. He is actively involved in all social and community activities in Mumbai and Maharashtra. He has a well-established circle of friends, partners and collaborations all over the country which takes care of business development. He also has about five years of experience in real estate and service industry. Operations of the firm are primarily managed by Mr Rishi Karwa, while other partners extend support in finance and marketing activities.</string>
@@ -182,23 +182,15 @@
     <string-array name="physicalstatus_array">
         <item>Select Physical Status</item>
         <item>Normal</item>
-        <item>Physically challenged from birth</item>
-        <item>Physically challenged due to accident</item>
-        <item>Mentally challenged from birth</item>
-        <item>Mentally challenged due to accident</item>
-        <item>Physically abnormality affecting only looks</item>
-        <item>Physical abnormality affecting bodily functions</item>
+        <item>Physically Challenged</item>
+       
     </string-array>
 
     <string-array name="physicalstatus_search_array">
         <item>Doesn\'t Matter</item>
         <item>Normal</item>
-        <item>Physically challenged from birth</item>
-        <item>Physically challenged due to accident</item>
-        <item>Mentally challenged from birth</item>
-        <item>Mentally challenged due to accident</item>
-        <item>Physically abnormality affecting only looks</item>
-        <item>Physical abnormality affecting bodily functions</item>
+        <item>Physically Challenged</item>
+        
     </string-array>
 
     <string-array name="manglik_array">
@@ -250,8 +242,7 @@
 
     <string-array name="height_array">
         <item>Select Height</item>
-        <item>4ft - 121 cm</item>
-        <item>4ft - 121 cm</item>
+        <item>4ft - 121cm</item>
         <item>4ft 1in - 124cm</item>
         <item>4ft 2in - 127cm</item>
         <item>4ft 3in - 129cm</item>
@@ -303,8 +294,7 @@
 
     <string-array name="height_search_array">
         <item>Doesn\'t matter</item>
-        <item>4ft - 121 cm</item>
-        <item>4ft - 121 cm</item>
+        <item>4ft - 121cm</item>
         <item>4ft 1in - 124cm</item>
         <item>4ft 2in - 127cm</item>
         <item>4ft 3in - 129cm</item>
@@ -459,7 +449,14 @@
     <string name="privacy6">We may change this Privacy Policy from time to time based on your comments or as a result of a change of policy in our company. If you have any questions regarding our Privacy Statement, please write in to admin@marwadishaadi.com</string>
     <string name="terms">1. Marwadi Shaadi Matrimonial Services is a partnership firm based in Thane, Mumbai\n\n2. Personal Details and Photos are not verified by the website on personal basis. Members/Users are  requested to make thorough inquiries before proceeding any further.\n\n3. Marwadi Shaadi would not be liable for any kind of claims / compensation arising out of post-marriage accidents, divorce or similar unfortunate events.</string>
     <string name="section_format">Hello World from section: %1$d</string>
-
+    <string name="access_code">Access Code</string>
+    <string name="pay_button">Pay</string>
+    <string name="merchant_id">Merchant Id</string>
+    <string name="currency">Currency</string>
+    <string name="amount">Amount</string>
+    <string name="redirect_url">Redirect Url</string>
+    <string name="cancel_url">Cancel Url</string>
+    <string name="rsa_url">RSA Key Url</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="search">Search</string>

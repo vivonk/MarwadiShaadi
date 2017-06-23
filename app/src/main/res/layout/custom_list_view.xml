@@ -17,9 +17,10 @@
 
     </ListView>
 
-    <ImageView
+    <Button
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:src="@drawable/search_ok"
+        android:background="@drawable/search_ok"
+        android:id="@+id/ok"
         android:layout_margin="10dp"/>
 </LinearLayout>

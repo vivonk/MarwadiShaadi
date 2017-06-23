@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "351904794484",
+    "firebase_url": "https://marwadishaadi-d307a.firebaseio.com",
+    "project_id": "marwadishaadi-d307a",
+    "storage_bucket": "marwadishaadi-d307a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:351904794484:android:fc62203c72a837c5",
+        "android_client_info": {
+          "package_name": "com.example.sid.marwadishaadi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "351904794484-9abmd0bprrrp7nha4ub389vnklg27i6q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB16knKc_YZvKoNj1kICuzrjBrIKrX15RQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

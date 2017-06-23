@@ -19,19 +19,17 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.ScaleAnimation;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.Toast;
 
+import com.example.sid.marwadishaadi.Analytics_Util;
 import com.example.sid.marwadishaadi.Chat.DefaultDialogsActivity;
-import com.example.sid.marwadishaadi.Dashboard;
+import com.example.sid.marwadishaadi.Dashboard.DashboardActivity;
 import com.example.sid.marwadishaadi.Dashboard_Interest.InterestActivity;
-import com.example.sid.marwadishaadi.Dashboard_Membership.UpgradeMembershipActivity;
-import com.example.sid.marwadishaadi.Membership;
+import com.example.sid.marwadishaadi.Membership.MembershipActivity;
+import com.example.sid.marwadishaadi.Membership.UpgradeMembershipActivity;
 import com.example.sid.marwadishaadi.R;
 import com.example.sid.marwadishaadi.User_Profile.UserProfileActivity;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +43,8 @@ public class NotificationsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private NotificationsAdapter notificationsAdapter;
     private View ChildView ;
+    private FirebaseAnalytics mFirebaseAnalytics;
+
     Paint p = new Paint();
 
     @Override
@@ -56,6 +56,12 @@ public class NotificationsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications);
+
+
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
+        // analytics
+        Analytics_Util.logAnalytic(mFirebaseAnalytics,"Notifications","view");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.notify_toolbar);
         toolbar.setTitle("Notifications");
@@ -112,15 +118,15 @@ public class NotificationsActivity extends AppCompatActivity {
                     int position  = recyclerView.getChildAdapterPosition(ChildView);
                     NotificationsModel notificationsModel = notificationsModelList.get(position);
                     if (notificationsModel.isSuggested()){
-                        Intent i = new Intent(NotificationsActivity.this, Dashboard.class);
+                        Intent i = new Intent(NotificationsActivity.this, DashboardActivity.class);
                         startActivity(i);
                         overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
                     }else if(notificationsModel.isPremMem()){
-                        Intent i = new Intent(NotificationsActivity.this,Membership.class);
+                        Intent i = new Intent(NotificationsActivity.this,MembershipActivity.class);
                         startActivity(i);
                         overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
                     }else if(notificationsModel.isMemExp()){
-                        Intent i = new Intent(NotificationsActivity.this,UpgradeMembershipActivity.class);
+                        Intent i = new Intent(NotificationsActivity.this, UpgradeMembershipActivity.class);
                         startActivity(i);
                         overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
                     }else if(notificationsModel.isMsgRec()){
@@ -171,6 +177,8 @@ public class NotificationsActivity extends AppCompatActivity {
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Clear Notifications","button");
                 notificationsModelList.clear();
                 notificationsAdapter.notifyDataSetChanged();
             }

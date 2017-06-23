@@ -21,6 +21,8 @@ import com.example.sid.marwadishaadi.Similar_Profiles.SimilarActivity;
 import com.example.sid.marwadishaadi.User_Profile.Edit_User_Profile.EditFamilyDetailsActivity;
 import com.example.sid.marwadishaadi.R;
 import com.example.sid.marwadishaadi.Search.BottomSheet;
+import com.example.sid.marwadishaadi.Similar_Profiles.SimilarActivity;
+import com.example.sid.marwadishaadi.User_Profile.Edit_User_Profile.EditFamilyDetailsActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,23 +31,8 @@ import org.w3c.dom.Text;
 import static android.content.ContentValues.TAG;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link ProfileFamilyDetailsFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link ProfileFamilyDetailsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ProfileFamilyDetailsFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
     private static int casebreak;
     private TextView edit_family;
     private TextView edit_relatives;

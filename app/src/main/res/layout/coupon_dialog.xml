@@ -1,40 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
+
+<LinearLayout android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+    android:orientation="vertical"
+    android:focusableInTouchMode="true"
+    android:padding="16dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ImageView
-        android:layout_marginTop="40dp"
+        android:layout_margin="20dp"
         android:layout_gravity="center_horizontal"
         android:layout_width="72dp"
         android:layout_height="72dp"
-        android:src="@drawable/notif_offer"/>
+        android:src="@drawable/coupon"/>
 
-    <EditText
-        android:id="@+id/code"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Coupon Code"
-       android:textAlignment="center"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        />
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/text4"
+                android:hint="Enter Coupon Code"
+                android:textSize="12dp"
+                android:id="@+id/code"
+                android:inputType="text"
+                />
+        </android.support.design.widget.TextInputLayout>
+
         <Button
             android:id="@+id/redeem"
-            android:layout_width="wrap_content"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="40dp"
             android:layout_marginBottom="20dp"
-            android:background="@layout/button_border_corner_circle_"
             android:text="Redeem"
             android:textColor="#fff"
+            android:textSize="16dp"
+            android:background="@layout/button_border_corner_circle_"
+
             />
     </LinearLayout>
-</android.support.v7.widget.CardView>

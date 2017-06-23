@@ -37,28 +37,12 @@ import java.util.List;
 import static android.content.ContentValues.TAG;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link ProfilePersonalDetailsFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link ProfilePersonalDetailsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ProfilePersonalDetailsFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
     private TextView edit_individual;
     private TextView edit_education;
     private TextView edit_profession;
     private static int casebreak;
-    private OnFragmentInteractionListener mListener;
     private Button similar;
 
     TextView name_age,maritalStatus, birthdate, gender, address, mobileNo, caste, height, weight, complexion_build, physicalStatus, education, educationDegree, collegeName_collegeLocation, currentOccupation, designation_companyName, companyLocation, annualIncome;
@@ -303,7 +287,7 @@ public class ProfilePersonalDetailsFragment extends Fragment {
 
 
 
-                                
+
 
 
                             }

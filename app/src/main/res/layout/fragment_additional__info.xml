@@ -405,6 +405,8 @@
                         android:textSize="14dp"
                         android:textColorHint="#747474"
                         android:drawableLeft="@drawable/signup_dob"
+                        android:focusableInTouchMode="false"
+                        android:windowSoftInputMode="stateHidden"
                         android:drawablePadding="10dp"
                         android:id="@+id/dob"
                         android:inputType="datetime"
@@ -490,7 +492,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Relation Details"
+                        android:text="Relative Details"
                         android:textSize="16dp"
                         fontPath="fonts/OpenSans-Bold.ttf"
                         android:textColor="@color/colorPrimary"

@@ -135,12 +135,12 @@
             <android.support.v7.widget.AppCompatButton
                 android:id="@+id/next"
                 android:background="@layout/button_round_corner"
-                android:layout_width="240dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center_horizontal"
                 android:text="Next"
-                android:textColor="#fff"
+                android:textColor="@color/colorPrimary"
                 android:textSize="16dp"
                 android:textAllCaps="false"/>
 

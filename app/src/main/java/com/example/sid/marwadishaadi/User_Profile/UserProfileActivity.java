@@ -3,14 +3,12 @@ package com.example.sid.marwadishaadi.User_Profile;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 
-import com.example.sid.marwadishaadi.Dashboard;
-import com.example.sid.marwadishaadi.Similar_Profiles.SimilarActivity;
-import com.example.sid.marwadishaadi.UploadPhotoActivity;
+import com.example.sid.marwadishaadi.Analytics_Util;
+import com.example.sid.marwadishaadi.Upload_User_Photos.UploadPhotoActivity;
 import com.github.clans.fab.FloatingActionButton;
 
 import android.support.design.widget.CoordinatorLayout;
@@ -22,7 +20,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,6 +27,7 @@ import android.widget.Toast;
 
 import com.example.sid.marwadishaadi.R;
 import com.github.clans.fab.FloatingActionMenu;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageClickListener;
 import com.synnapps.carouselview.ImageListener;
@@ -38,9 +36,6 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class
 UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener,
-        ProfilePersonalDetailsFragment.OnFragmentInteractionListener,
-        ProfileAdditionalDetailsFragment.OnFragmentInteractionListener,
-        ProfileFamilyDetailsFragment.OnFragmentInteractionListener,PartnerPreferencesFragment.OnFragmentInteractionListener,
         ImageListener{
 
     private ProfilePageAdapter profilePageAdapter;
@@ -55,9 +50,68 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
     private FloatingActionButton sharesave;
     private FloatingActionButton editphotos;
     private FloatingActionMenu fab;
+    private FirebaseAnalytics mFirebaseAnalytics;
     private CoordinatorLayout coordinatorLayout;
     private FrameLayout frameLayout;
 
+ /*   AndroidNetworking.post(URL + "prepareUserProfile")
+            .addBodyParameter("customerNo", "O1057")
+.setPriority(Priority.HIGH)
+.build()
+.getAsJSONArray(new JSONArrayRequestListener() {
+        public void onResponse(JSONArray response) {
+// do anything with response
+            try {
+                FavouriteModel[] favouriteModel = new FavouriteModel[response.length()];
+                for (int i = 0; i < response.length(); i++) {
+
+                    JSONArray array = response.getJSONArray(i);
+                    String customerNo = array.getString(0);
+                    String name = array.getString(1);
+                    String dateOfBirth = array.getString(2);
+// Thu, 18 Jan 1990 00:00:00 GMT
+                    DateFormat formatter = new SimpleDateFormat("E, dd MMM yyyy HH:mm:ss Z");
+                    Date date = formatter.parse(dateOfBirth);
+                    System.out.println(date);
+
+                    Calendar cal = Calendar.getInstance();
+                    cal.setTime(date);
+                    String formatedDate = cal.get(Calendar.DATE) + "-" + (cal.get(Calendar.MONTH) + 1) + "-" + cal.get(Calendar.YEAR);
+
+                    String[] partsOfDate = formatedDate.split("-");
+                    int day = Integer.parseInt(partsOfDate[0]);
+                    int month = Integer.parseInt(partsOfDate[1]);
+                    int year = Integer.parseInt(partsOfDate[2]);
+                    int a = getAge(year, month, day);
+                    String age = Integer.toString(a);
+                    String education = array.getString(3);
+                    String occupationLocation = array.getString(4);
+                    String imageUrl = array.getString(5);
+
+
+                    favouriteModel[i] = new FavouriteModel(customerNo, name, occupationLocation, education, Integer.parseInt(age), "http://www.marwadishaadi.com/uploads/cust_" + customerNo + "/thumb/" + imageUrl);
+
+                    favouritesList.add(favouriteModel[i]);
+                    favouritesAdapter.notifyDataSetChanged();
+                    Log.d(TAG, "onResponse: age of the user " + age);
+                    Log.d(TAG, "onResponse: element " + i + " " + array.getString(0));
+
+
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+
+        @Override
+        public void onError(ANError error) {
+            Log.d(TAG, "onResponse: json response array is " + error.toString());
+// handle error
+        }
+    });*/
 
 
     @Override
@@ -69,6 +123,8 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -90,6 +146,8 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
         editphotos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Edit photos","button");
 
                 Intent i = new Intent(UserProfileActivity.this,UploadPhotoActivity.class);
                 startActivity(i);
@@ -117,35 +175,40 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
         fav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Favourites","button");
             }
         });
 
         sendmsg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Sent Message","button");
             }
         });
 
         sendinterest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Sent Interest","button");
             }
         });
 
         shareprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Share Profile","button");
             }
         });
 
         sharesave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Save as PDF","button");
             }
         });
 
@@ -177,12 +240,12 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
                 View preferences_view = getLayoutInflater().inflate(R.layout.profile_preferences,null);
 
                 AlertDialog.Builder prefs = new AlertDialog.Builder(UserProfileActivity.this);
-                prefs.setTitle("Partner Preferences");
+                prefs.setTitle("Partner Signup_Partner_Preferences_Fragment");
                 prefs.setView(preferences_view);
 
                 // creating
                 AlertDialog uprefs = prefs.create();
-                uprefs.setTitle("Partner Preferences");
+                uprefs.setTitle("Partner Signup_Partner_Preferences_Fragment");
                 uprefs.show();
             }
         });*/
@@ -201,11 +264,6 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
 
     @Override
     public void onPageScrollStateChanged(int state) {
-
-    }
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
 
     }
 

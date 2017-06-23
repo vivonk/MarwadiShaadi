@@ -16,9 +16,9 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONArrayRequestListener;
+import com.example.sid.marwadishaadi.R;
 import com.example.sid.marwadishaadi.Similar_Profiles.SimilarActivity;
 import com.example.sid.marwadishaadi.User_Profile.Edit_User_Profile.EditPreferencesActivity;
-import com.example.sid.marwadishaadi.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,16 +38,8 @@ import static android.content.ContentValues.TAG;
  * create an instance of this fragment.
  */
 public class PartnerPreferencesFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
     private TextView edit_prefs;
-    private OnFragmentInteractionListener mListener;
     private Button similar;
 
     private TextView age,height,build,complexion,physicalStatus,highestDegree,occup,maritalStatus,annualIncome,city;

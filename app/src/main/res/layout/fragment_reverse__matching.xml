@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.sid.marwadishaadi.Dashboard_Reverse_Matching.Reverse_MatchingActivity">
+    tools:context="com.example.sid.marwadishaadi.Dashboard_Reverse_Matching.Reverse_MatchingFragment">
 
     <include
         layout="@layout/swipe_to_refresh"></include>

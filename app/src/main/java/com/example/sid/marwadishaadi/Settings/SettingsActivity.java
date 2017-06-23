@@ -13,7 +13,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,22 +21,23 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sid.marwadishaadi.About_Us.AboutUsActivity;
+import com.example.sid.marwadishaadi.Analytics_Util;
 import com.example.sid.marwadishaadi.Blocked_Members.BlockedActivity;
 import com.example.sid.marwadishaadi.Contact_Us.ContactUsActivity;
-import com.example.sid.marwadishaadi.Dashboard;
 import com.example.sid.marwadishaadi.Faq.FaqActivity;
-import com.example.sid.marwadishaadi.Login;
+import com.example.sid.marwadishaadi.Login.LoginActivity;
 import com.example.sid.marwadishaadi.Payment_Policy.PaymentPolicyActivity;
 import com.example.sid.marwadishaadi.Privacy_Policy.PrivacyPolicyActivity;
 import com.example.sid.marwadishaadi.R;
 import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class SettingsActivity extends AppCompatActivity {
 
-
+    private FirebaseAnalytics mFirebaseAnalytics;
     protected SwitchCompat notifications;
     protected TextView reset_pass;
     protected TextView deactivate_acc;
@@ -62,6 +62,8 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.settings_toolbar);
         toolbar.setTitle("Settings");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
@@ -77,6 +79,9 @@ public class SettingsActivity extends AppCompatActivity {
         faq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"FAQ","textview");
+
                 Intent i = new Intent(SettingsActivity.this,FaqActivity.class);
                 startActivity(i);
                 overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
@@ -87,6 +92,9 @@ public class SettingsActivity extends AppCompatActivity {
         aboutus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"About US","textview");
+
                 Intent i = new Intent(SettingsActivity.this,AboutUsActivity.class);
                 startActivity(i);
                 overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
@@ -96,6 +104,9 @@ public class SettingsActivity extends AppCompatActivity {
         privacypolicy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Privacy Policy","textview");
+
                 Intent i = new Intent(SettingsActivity.this,PrivacyPolicyActivity.class);
                 startActivity(i);
                 overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
@@ -107,6 +118,8 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Payment Policy","textview");
                 Intent i = new Intent(SettingsActivity.this,PaymentPolicyActivity.class);
                 startActivity(i);
                 overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
@@ -117,6 +130,10 @@ public class SettingsActivity extends AppCompatActivity {
         contactus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Contact Us","textview");
+
                 Intent i = new Intent(SettingsActivity.this,ContactUsActivity.class);
                 startActivity(i);
                 overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
@@ -150,6 +167,8 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
+
                 AlertDialog.Builder logout_user = new AlertDialog.Builder(SettingsActivity.this);
                 logout_user.setMessage("Are you sure you want to logout ?")
                         .setIcon(R.drawable.setting_logout)
@@ -169,7 +188,11 @@ public class SettingsActivity extends AppCompatActivity {
                                 editor.putString("password","");
                                 editor.putString("customer_id","");
                                 editor.commit();
-                                Intent i=new Intent(SettingsActivity.this, Login.class);
+
+                                // analytics
+                                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Logout","textview");
+
+                                Intent i=new Intent(SettingsActivity.this, LoginActivity.class);
                                 startActivity(i);
 
                             }
@@ -191,9 +214,10 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
+
                 View reset_view = getLayoutInflater().inflate(R.layout.reset_dialog,null);
                 AlertDialog.Builder reset = new AlertDialog.Builder(SettingsActivity.this);
-                reset.setTitle("Reset Password");
                 reset.setView(reset_view);
 
                 final EditText oldpass = (EditText) reset_view.findViewById(R.id.user_old_pass);
@@ -204,6 +228,9 @@ public class SettingsActivity extends AppCompatActivity {
                 resetbutton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
+                        // analytics
+                        Analytics_Util.logAnalytic(mFirebaseAnalytics,"Reset Password","textview");
 
                         String user_old_pass = oldpass.getText().toString();
                         String user_new_pass = newpass.getText().toString();
@@ -252,6 +279,8 @@ public class SettingsActivity extends AppCompatActivity {
         deactivate_acc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                     AlertDialog.Builder deactivate = new AlertDialog.Builder(SettingsActivity.this);
                     deactivate.setMessage("Deactivating will temporarily disable your account.")
                             .setIcon(R.drawable.setting_blocked)
@@ -259,6 +288,10 @@ public class SettingsActivity extends AppCompatActivity {
                             .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
+
+                                    // analytics
+                                    Analytics_Util.logAnalytic(mFirebaseAnalytics,"Deactivate Acc","textview");
+
                                     Toast.makeText(SettingsActivity.this, "cool!", Toast.LENGTH_SHORT).show();
                                 }
                             })
@@ -269,15 +302,19 @@ public class SettingsActivity extends AppCompatActivity {
                                 }
                             });
 
+
+
                 AlertDialog box = deactivate.create();
                 box.setTitle("Deactivate Account ?");
                 box.show();
+
             }
         });
 
         delete_acc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
                 AlertDialog.Builder delete = new AlertDialog.Builder(SettingsActivity.this);
                 delete.setMessage("Deleting will permanently remove your account.")
@@ -287,6 +324,9 @@ public class SettingsActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 Toast.makeText(SettingsActivity.this, "cool!", Toast.LENGTH_SHORT).show();
+                                // analytics
+                                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Delete acc","textview");
+
                             }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -305,6 +345,9 @@ public class SettingsActivity extends AppCompatActivity {
         blocked.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Block view","textview");
 
                 Intent i = new Intent(SettingsActivity.this,BlockedActivity.class);
                 startActivity(i);

@@ -1,5 +1,7 @@
 package com.example.sid.marwadishaadi;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -7,10 +9,13 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 
+import com.example.sid.marwadishaadi.Dashboard.DashboardActivity;
 import com.example.sid.marwadishaadi.Intro_Slides.Intro1Fragment;
 import com.example.sid.marwadishaadi.Intro_Slides.Intro2Fragment;
+import com.example.sid.marwadishaadi.Login.LoginActivity;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -32,7 +37,6 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         mviewpager = (ViewPager) findViewById(R.id.main_container);
         mviewpager.setAdapter(sliderAdapter);
         mviewpager.setOnPageChangeListener(this);
-
     }
 
     @Override

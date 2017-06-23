@@ -17,12 +17,10 @@ import android.widget.Toast;
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener;
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarFinalValueListener;
 import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
-import com.example.sid.marwadishaadi.Otp_Verification.Otp_Verification;
+import com.example.sid.marwadishaadi.Otp_Verification.Otp_VerificationActivity;
 import com.example.sid.marwadishaadi.R;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
-
-import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class EditPreferencesActivity extends AppCompatActivity {
 
@@ -44,7 +42,7 @@ public class EditPreferencesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_preferences);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.edit_prefs_toolbar);
-        toolbar.setTitle("Edit Partner Preferences");
+        toolbar.setTitle("Edit Partner Signup_Partner_Preferences_Fragment");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -84,7 +82,7 @@ public class EditPreferencesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(getApplicationContext(),Otp_Verification.class);
+                Intent i = new Intent(getApplicationContext(),Otp_VerificationActivity.class);
                 startActivity(i);
             }
         });

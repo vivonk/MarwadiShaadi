@@ -56,6 +56,7 @@
 
                 </LinearLayout>
                 <TextView
+                    android:id="@+id/father_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -67,6 +68,7 @@
                     android:drawablePadding="10dp"/>
 
                 <TextView
+                    android:id="@+id/father_occupation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -78,6 +80,7 @@
                     android:drawablePadding="10dp"/>
 
                 <TextView
+                    android:id="@+id/father_occupation_details"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -89,6 +92,7 @@
                     android:drawablePadding="10dp"/>
 
                 <TextView
+                    android:id="@+id/family_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -100,6 +104,7 @@
                     android:drawablePadding="10dp"/>
 
                 <TextView
+                    android:id="@+id/family_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -111,6 +116,7 @@
                     android:drawablePadding="10dp"/>
 
                 <TextView
+                    android:id="@+id/native_place"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -122,6 +128,7 @@
                     android:drawablePadding="10dp"/>
 
                 <TextView
+                    android:id="@+id/subcaste"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -133,6 +140,7 @@
                     android:drawablePadding="10dp"/>
 
                 <TextView
+                    android:id="@+id/grandpa_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -144,6 +152,7 @@
                     android:drawablePadding="10dp"/>
 
                 <TextView
+                    android:id="@+id/mama_surname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -201,6 +210,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/relation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -212,6 +222,7 @@
                     android:drawablePadding="10dp"/>
 
                 <TextView
+                    android:id="@+id/relative_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -223,6 +234,7 @@
                     android:drawablePadding="10dp"/>
 
                 <TextView
+                    android:id="@+id/relative_occupation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Employee at Shaadi.com"
@@ -235,6 +247,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/relative_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Lives in Mumbai,Maharashtra,India"
@@ -247,6 +260,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/relative_mobile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"

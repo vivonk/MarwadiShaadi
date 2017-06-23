@@ -6,10 +6,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -18,17 +20,28 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONArrayRequestListener;
 import com.example.sid.marwadishaadi.Otp_Verification.Otp_Verification;
 import com.example.sid.marwadishaadi.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
 
+    private static final String TAG = "";
     protected EditText email;
     protected Button submit;
     protected LinearLayout call_us;
     protected TextView call_us_number;
+    private String user_email;
+    private boolean sentmail;
+
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
@@ -37,6 +50,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AndroidNetworking.initialize(getApplicationContext());
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_forgot_password);
@@ -44,7 +58,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         call_us = (LinearLayout) findViewById(R.id.call_us);
         email = (EditText) findViewById(R.id.user_email);
         submit = (Button) findViewById(R.id.Submit_forgot);
-        call_us_number = (TextView)findViewById((R.id.call_us_number));
+        call_us_number = (TextView) findViewById((R.id.call_us_number));
 
         call_us.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,17 +91,122 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
 
                 }
-            }});
+            }
+        });
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d(TAG, "onClick: clicked --------------------------------------------- ");
+                System.out.println("adfsjlkadsjklfj klasjfk as as ");
+                user_email = email.getText().toString();
+                new ForgotPassword().execute();
 
-                String user_email = email.getText().toString();
+            }
+        });
+    }
 
-                Toast.makeText(getApplicationContext(),user_email,Toast.LENGTH_LONG).show();
+    private class SendMail extends AsyncTask<Void, Void, Void> {
 
-                // rest
+        @Override
+        protected Void doInBackground(Void... params) {
+            Log.d(TAG, "doInBackground: called ----------------------------");
+            AndroidNetworking.post("http://192.168.43.143:5050/sendMail")
+                    .addBodyParameter("forgotPassEmail", user_email)
+                    .setTag(this)
+                    .setPriority(Priority.HIGH)
+                    .build()
+                    .getAsJSONArray(new JSONArrayRequestListener() {
+                        @Override
+                        public void onResponse(JSONArray response) {
+
+                        }
+
+                        @Override
+                        public void onError(ANError anError) {
+
+                        }
+                    });
+            return null;
+        }
+    }
+
+
+    private class ForgotPassword extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            AndroidNetworking.post("http://192.168.43.143:5050/forgotPassword")
+                    .addBodyParameter("forgotPassEmail", user_email)
+                    .setTag(this)
+                    .setPriority(Priority.MEDIUM)
+                    .build()
+                    .getAsJSONArray(new JSONArrayRequestListener() {
+                        @Override
+                        public void onResponse(JSONArray response) {
+                            try {
+                                JSONArray result = response.getJSONArray(0);
+                                int res = Integer.parseInt(result.get(0).toString());
+                                Log.d(TAG, "onResponse: ------------------------ " + res);
+
+                                if (res == 1) {
+                                    sentmail = true;
+                                    Log.d(TAG, "onResponse: in response ^^^^^^^^^^^^^^^^ ");
+                                    new SendMail().execute();
+                                    Log.d(TAG, "onResponse: end of response ");
+
+                                } else {
+                                     sentmail = false;
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+
+                        }
+
+                        @Override
+                        public void onError(ANError error) {
+                            Log.d(TAG, "onError: errr ------------- " + error.toString());
+                            // handle error
+                        }
+                    });
+
+
+
+
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            if (!sentmail) {
+                Toast.makeText(getApplicationContext(), "This email is not registered with us", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+}
+               /* new AsyncTask<String, String, String>() {
+                    @Override
+                    protected String doInBackground(String... strings) {
+
+
+
+
+
+
+                       /* if (user_email.equals()) {
+
+
+                        } else {
+                            Toast.makeText(getApplicationContext(), "This email-id is not registered!", Toast.LENGTH_SHORT);
+                        }
+                        return null;
+                    }
+            }.execute();
 
             }
         });
@@ -95,4 +214,4 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
     }
 
-}
+}*/

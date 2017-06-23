@@ -29,7 +29,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
-                        android:text="Your Preferences"
+                        android:text="Preferences"
                         android:layout_marginTop="2dp"
                         android:layout_weight="1.8"
                         android:textColor="@color/colorPrimary"
@@ -47,6 +47,7 @@
 
                 </LinearLayout>
                 <TextView
+                    android:id="@+id/age"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="23 yrs to 27 yrs"
@@ -60,6 +61,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/height"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="5 ft 4 inch to 5 ft 10 inch"
@@ -87,6 +89,7 @@
         />
 
                 <TextView
+                    android:id="@+id/complexion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Fair, Wheatish Brown,Very Fair"
@@ -98,6 +101,7 @@
 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/build"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Slim, Athletic"
@@ -112,6 +116,7 @@
 
 
                 <TextView
+                    android:id="@+id/physical_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Not physically Challenged"
@@ -124,6 +129,20 @@
                     />
 
                 <TextView
+                    android:id="@+id/city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mumbai"
+                    android:textSize="16dp"
+                    android:textColor="#2d2d2d"
+                    android:layout_marginBottom="10dp"
+                    android:drawableLeft="@drawable/profile_location"
+                    android:drawablePadding="10dp"
+                    android:gravity="center_vertical"
+                    />
+
+                <TextView
+                    android:id="@+id/highest_degree"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Engineer/Doctor/MBA"
@@ -137,6 +156,7 @@
 
 
                 <TextView
+                    android:id="@+id/occup"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Profession,Job,Business"
@@ -150,6 +170,7 @@
 
 
                 <TextView
+                    android:id="@+id/marital_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Never Married"
@@ -163,6 +184,7 @@
 
 
                 <TextView
+                    android:id="@+id/annual_income"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="INR 15L to 20L"

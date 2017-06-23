@@ -25,6 +25,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sid.marwadishaadi.R;
@@ -56,6 +57,7 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
     private FloatingActionMenu fab;
     private CoordinatorLayout coordinatorLayout;
     private FrameLayout frameLayout;
+
 
 
     @Override
@@ -156,6 +158,8 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
             public void onClick(int position) {
             }
         });
+
+
 
         profilePageAdapter = new ProfilePageAdapter(getSupportFragmentManager());
         userinfo = (ViewPager) findViewById(R.id.profile_container);

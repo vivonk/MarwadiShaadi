@@ -55,6 +55,7 @@
             </LinearLayout>
 
                 <TextView
+                    android:id="@+id/name_age"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -66,6 +67,7 @@
                     android:textSize="16dp" />
 
                 <TextView
+                    android:id="@+id/marital_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -77,6 +79,7 @@
                     android:textSize="16dp" />
 
                 <TextView
+                    android:id="@+id/birthdate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -88,6 +91,8 @@
                     android:textSize="16dp" />
 
                 <TextView
+
+                    android:id="@+id/gender"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -99,6 +104,7 @@
                     android:textSize="16dp" />
 
                 <TextView
+                    android:id="@+id/address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -110,6 +116,7 @@
                     android:textSize="16dp" />
 
                 <TextView
+                    android:id="@+id/contact_mob"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -121,6 +128,7 @@
                     android:textSize="16dp" />
 
                 <TextView
+                    android:id="@+id/caste"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -132,6 +140,7 @@
                     android:textSize="16dp" />
 
                 <TextView
+                    android:id="@+id/height"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -143,6 +152,7 @@
                     android:textSize="16dp" />
 
                 <TextView
+                    android:id="@+id/weight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -154,6 +164,7 @@
                     android:textSize="16dp" />
 
                 <TextView
+                    android:id="@+id/complexion_build"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -165,6 +176,7 @@
                     android:textSize="16dp" />
 
                 <TextView
+                    android:id="@+id/physical_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -223,6 +235,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/degree"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -234,6 +247,7 @@
                     android:textSize="16dp" />
 
                 <TextView
+                    android:id="@+id/edu_degree"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -244,6 +258,7 @@
                     android:gravity="center_vertical"
                     android:textSize="16dp" />
                 <TextView
+                    android:id="@+id/collegeName_collegeLocation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -303,6 +318,7 @@
 
             </LinearLayout>
                 <TextView
+                    android:id="@+id/current_occup"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Employee at Shaadi.com"
@@ -314,6 +330,7 @@
                     android:textSize="16dp" />
 
                 <TextView
+                    android:id="@+id/occupDesignation_occupCompany"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Working as Software Engineer"
@@ -325,6 +342,7 @@
                     android:textSize="16dp" />
 
                 <TextView
+                    android:id="@+id/occup_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Located in Thane"
@@ -336,6 +354,7 @@
                     android:textSize="16dp" />
 
                 <TextView
+                    android:id="@+id/annual_income"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Earns INR 15 Lakh to 20 lakh annually"

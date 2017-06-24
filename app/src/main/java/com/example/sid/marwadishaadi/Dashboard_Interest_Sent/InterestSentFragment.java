@@ -16,7 +16,9 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONArrayRequestListener;
+import com.example.sid.marwadishaadi.Analytics_Util;
 import com.example.sid.marwadishaadi.R;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -50,6 +52,9 @@ public class InterestSentFragment extends Fragment {
         View mview = inflater.inflate(R.layout.fragment_interest_received, container, false);
 
         swipeRefreshLayout = (SwipeRefreshLayout) mview.findViewById(R.id.swipe);
+
+
+        swipeRefreshLayout = (SwipeRefreshLayout)mview.findViewById(R.id.swipe);
         recyclerView = (RecyclerView) mview.findViewById(R.id.swipe_recyclerview);
         interestListSent = new ArrayList<>();
         interestSentAdapter = new InterestSentAdapter(getContext(), interestListSent);

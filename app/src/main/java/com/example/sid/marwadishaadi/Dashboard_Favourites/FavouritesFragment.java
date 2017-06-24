@@ -16,7 +16,9 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONArrayRequestListener;
+import com.example.sid.marwadishaadi.Analytics_Util;
 import com.example.sid.marwadishaadi.R;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,6 +44,7 @@ public class FavouritesFragment extends Fragment {
     private RecyclerView recyclerView;
     private SwipeRefreshLayout swipeRefreshLayout;
     private FavouritesAdapter favouritesAdapter;
+    private FirebaseAnalytics mFirebaseAnalytics;
 //    private TextView favouriteZero;
 
     @Override
@@ -52,6 +55,13 @@ public class FavouritesFragment extends Fragment {
         View mview = inflater.inflate(R.layout.swipe_to_refresh, container, false);
 
 //        favouriteZero = (TextView) mview.findViewById(R.id.favouriteZero);
+
+        View mview =  inflater.inflate(R.layout.swipe_to_refresh, container, false);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(getContext());
+
+
+        // analytics
+        Analytics_Util.logAnalytic(mFirebaseAnalytics,"Favourites","view");
 
         recyclerView = (RecyclerView) mview.findViewById(R.id.swipe_recyclerview);
         swipeRefreshLayout = (SwipeRefreshLayout) mview.findViewById(R.id.swipe);

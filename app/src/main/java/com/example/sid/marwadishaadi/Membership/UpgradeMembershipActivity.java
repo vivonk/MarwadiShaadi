@@ -10,7 +10,9 @@ import android.support.v7.widget.Toolbar;
 import android.widget.Button;
 import android.view.View;
 
+import com.example.sid.marwadishaadi.Analytics_Util;
 import com.example.sid.marwadishaadi.R;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -22,6 +24,7 @@ public class UpgradeMembershipActivity extends AppCompatActivity {
     Button upgrade;
     CardView maheshwari, agarwal, jain, khandelwal, others, all;
     boolean isMaheshwari,isAgarwal, isJain, isKhandelwal, isOthers, isAll;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -32,6 +35,7 @@ public class UpgradeMembershipActivity extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.upgrade_membership);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.upgrademembership_toolbar);
         toolbar.setTitle("MembershipActivity");
@@ -80,6 +84,8 @@ public class UpgradeMembershipActivity extends AppCompatActivity {
         upgrade.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Upgrade Membership","button");
                 Intent i = new Intent(UpgradeMembershipActivity.this,MembershipActivity.class);
                 startActivity(i);
             }

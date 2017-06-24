@@ -15,7 +15,9 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONArrayRequestListener;
+import com.example.sid.marwadishaadi.Analytics_Util;
 import com.example.sid.marwadishaadi.R;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,11 +45,16 @@ public class RecentProfilesFragment extends Fragment {
     private RecyclerView recentRecyclerView;
     private RecentAdapter recentAdapter;
     private SwipeRefreshLayout swipeRefreshLayout;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View mview = inflater.inflate(R.layout.fragment_recent__profiles, container, false);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(getContext());
+
+        // analytics
+        Analytics_Util.logAnalytic(mFirebaseAnalytics,"Recent Profiles","button");
 
 
         recentRecyclerView = (RecyclerView) mview.findViewById(R.id.swipe_recyclerview);
@@ -144,7 +151,7 @@ public class RecentProfilesFragment extends Fragment {
                                     String lastOnline = array.getString(6);
                                     Log.d(TAG, "onResponse: lastonline is ------------------ " + lastOnline);
 
-                                    
+
                                     recentModel[i] = new RecentModel(name, age, education, location, lastOnline, "http://www.marwadishaadi.com/uploads/cust_" + customerNo + "/thumb/" + imageUrl);
                                     recentList.add(recentModel[i]);
                                     recentAdapter.notifyDataSetChanged();

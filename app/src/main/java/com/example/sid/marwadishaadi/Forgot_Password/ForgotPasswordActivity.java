@@ -18,12 +18,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sid.marwadishaadi.Analytics_Util;
 import com.example.sid.marwadishaadi.R;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
 
+    private FirebaseAnalytics mFirebaseAnalytics;
     protected EditText email;
     protected Button submit;
     protected LinearLayout call_us;
@@ -40,6 +43,8 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_forgot_password);
 
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
         call_us = (LinearLayout) findViewById(R.id.call_us);
         email = (EditText) findViewById(R.id.user_email);
         submit = (Button) findViewById(R.id.Submit_forgot);
@@ -48,6 +53,10 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         call_us.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Call Us","button");
+
                 final Intent callIntent = new Intent(Intent.ACTION_CALL);
                 callIntent.setData(Uri.parse("tel:" + call_us_number.getText().toString()));//change the number
                 if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
@@ -81,6 +90,9 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"ForgotSubmit","button");
 
                 String user_email = email.getText().toString();
 

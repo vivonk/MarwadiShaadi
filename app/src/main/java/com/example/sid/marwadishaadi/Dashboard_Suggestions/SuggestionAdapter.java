@@ -20,6 +20,7 @@ import com.androidnetworking.interfaces.JSONArrayRequestListener;
 import com.bumptech.glide.Glide;
 import com.example.sid.marwadishaadi.Chat.DefaultMessagesActivity;
 import com.example.sid.marwadishaadi.R;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.varunest.sparkbutton.SparkButton;
 import com.varunest.sparkbutton.SparkEventListener;
 
@@ -40,6 +41,7 @@ public class SuggestionAdapter extends RecyclerView.Adapter<SuggestionAdapter.My
     private final Context context;
     private List<SuggestionModel> suggestionModelList;
     private RecyclerView rv;
+    private FirebaseAnalytics mFirebaseAnalytics;
     private String favouriteState, interestState;
     private static final String TAG = "SuggestionAdapter";
 
@@ -47,6 +49,8 @@ public class SuggestionAdapter extends RecyclerView.Adapter<SuggestionAdapter.My
 
         this.suggestionModelList = suggestionModelList;
         this.context = context;
+        this.mFirebaseAnalytics=FirebaseAnalytics.getInstance(context);
+
         this.rv = recyclerView;
     }
 
@@ -219,7 +223,10 @@ public class SuggestionAdapter extends RecyclerView.Adapter<SuggestionAdapter.My
         }
     }
 
+
+
     private class AddInterestFromSuggestion extends AsyncTask<String, Void, Void> {
+
 
         @Override
         protected Void doInBackground(String... params) {

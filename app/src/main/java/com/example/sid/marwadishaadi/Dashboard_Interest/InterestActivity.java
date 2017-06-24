@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import com.example.sid.marwadishaadi.Dashboard_Interest_Received.InterestReceivedFragment;
 import com.example.sid.marwadishaadi.Dashboard_Interest_Sent.InterestSentFragment;
 import com.example.sid.marwadishaadi.R;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -36,6 +37,7 @@ public class InterestActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_interest);
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.interest_toolbar);
         toolbar.setTitle("Interest");

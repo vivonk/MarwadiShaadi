@@ -24,13 +24,14 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONArrayRequestListener;
+import com.example.sid.marwadishaadi.Analytics_Util;
 import com.example.sid.marwadishaadi.Dashboard.DashboardActivity;
 import com.example.sid.marwadishaadi.Forgot_Password.ForgotPasswordActivity;
-//import com.example.sid.marwadishaadi.User_Profile.InterneT;
 import com.example.sid.marwadishaadi.R;
 import com.example.sid.marwadishaadi.Signup.SignupActivity;
 import com.facebook.CallbackManager;
 import com.facebook.login.widget.LoginButton;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 
 import org.json.JSONArray;
@@ -62,6 +63,9 @@ public class LoginActivity extends AppCompatActivity {
     protected TextView signup;
     protected LoginButton fblogin;
     public static String str="";
+
+    private FirebaseAnalytics mFirebaseAnalytics;
+
     CallbackManager callbackManager;
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -80,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
         dialog = new ProgressDialog(LoginActivity.this);
         dialog.setCanceledOnTouchOutside(false);
 
-
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         callbackManager = CallbackManager.Factory.create();
 
 
@@ -151,8 +155,10 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
-                startActivity(i);
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Forgot","button");
+                Intent intent = new Intent(LoginActivity.this,ForgotPasswordActivity.class);
+                startActivity(intent);
 
             }
         });
@@ -162,6 +168,9 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Signup","button");
+                Intent i = new Intent(LoginActivity.this,SignupActivity.class);
                 Intent i = new Intent(LoginActivity.this, SignupActivity.class);
                 startActivity(i);
 
@@ -205,6 +214,14 @@ public class LoginActivity extends AppCompatActivity {
                                          }
 
                                          // @TODO to be changed
+                // analytics
+                Analytics_Util.logAnalytic(mFirebaseAnalytics,"Login","button");
+
+                email = login_email.getText().toString();
+                 pass = login_pass.getText().toString();
+                // @TODO to be changed
+                Intent intent = new Intent(LoginActivity.this,DashboardActivity.class);
+                startActivity(intent);
 
                                          // rest
                                      }
@@ -213,9 +230,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
-
-
-
 
     @Override
     protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {

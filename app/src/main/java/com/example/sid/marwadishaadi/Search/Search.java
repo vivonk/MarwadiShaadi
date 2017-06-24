@@ -65,6 +65,7 @@ public class Search extends AppCompatActivity {
     static String addTextcity, addPreviousc = "";
     public static EditText maritalstatus;
     public static EditText familystatus;
+
     public static EditText annualincome;
     public static EditText physicalstatus;
     public static EditText spinnerCastSearch;

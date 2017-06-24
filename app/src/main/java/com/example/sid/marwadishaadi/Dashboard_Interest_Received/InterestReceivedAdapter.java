@@ -16,7 +16,9 @@ import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONArrayRequestListener;
 import com.bumptech.glide.Glide;
+import com.example.sid.marwadishaadi.Analytics_Util;
 import com.example.sid.marwadishaadi.R;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import org.json.JSONArray;
 
@@ -33,11 +35,14 @@ public class InterestReceivedAdapter extends RecyclerView.Adapter<InterestReceiv
     private static final String TAG = "InterestReceivedAdapter";
     private RecyclerView rv;
     private Context context;
+    private FirebaseAnalytics mFirebaseAnalytics;
+    private List<InterestReceivedModel> interestReceivedModelList;
     private List<InterestReceivedModel> mInterestReceivedModelList;
 
     public InterestReceivedAdapter(Context context, List<InterestReceivedModel> interestReceivedModelList, RecyclerView rv) {
         this.context = context;
         this.mInterestReceivedModelList = interestReceivedModelList;
+        this.mFirebaseAnalytics = FirebaseAnalytics.getInstance(context);
         this.rv = rv;
     }
 
@@ -105,6 +110,10 @@ public class InterestReceivedAdapter extends RecyclerView.Adapter<InterestReceiv
             accept.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+                    // analytics
+                    Analytics_Util.logAnalytic(mFirebaseAnalytics,"Interest Accepted","button");
+
                     final int position = getAdapterPosition();
                     final InterestReceivedModel interestmodel = mInterestReceivedModelList.get(position);
                     interestmodel.setStatus(0);
@@ -132,6 +141,10 @@ public class InterestReceivedAdapter extends RecyclerView.Adapter<InterestReceiv
             reject.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+                    // analytics
+                    Analytics_Util.logAnalytic(mFirebaseAnalytics,"Interest Rejected","button");
+
                     final int position = getAdapterPosition();
                     final InterestReceivedModel interestmodel = mInterestReceivedModelList.get(position);
                     interestmodel.setStatus(1);

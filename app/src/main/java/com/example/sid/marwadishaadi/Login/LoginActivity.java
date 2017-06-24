@@ -170,7 +170,6 @@ public class LoginActivity extends AppCompatActivity {
 
                 // analytics
                 Analytics_Util.logAnalytic(mFirebaseAnalytics,"Signup","button");
-                Intent i = new Intent(LoginActivity.this,SignupActivity.class);
                 Intent i = new Intent(LoginActivity.this, SignupActivity.class);
                 startActivity(i);
 

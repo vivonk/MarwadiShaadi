@@ -56,7 +56,6 @@ public class FavouritesFragment extends Fragment {
 
 //        favouriteZero = (TextView) mview.findViewById(R.id.favouriteZero);
 
-        View mview =  inflater.inflate(R.layout.swipe_to_refresh, container, false);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(getContext());
 
 

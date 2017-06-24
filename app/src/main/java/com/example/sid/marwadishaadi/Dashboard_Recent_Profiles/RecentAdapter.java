@@ -17,30 +17,11 @@ import java.util.List;
  * Created by USER on 02-06-2017.
  */
 
-public class RecentAdapter extends RecyclerView.Adapter<RecentAdapter.MyViewHolder>{
+public class RecentAdapter extends RecyclerView.Adapter<RecentAdapter.MyViewHolder> {
 
     private Context context;
     private List<RecentModel> recentModelList;
 
-
-
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-
-        public ImageView recentUserImage;
-        public TextView recentName, recentAge, recentHighestDegree, recentLocation, recentOnline;
-
-        public MyViewHolder(View itemView) {
-
-            super(itemView);
-            recentUserImage = (ImageView) itemView.findViewById(R.id.recentUserImage);
-            recentName = (TextView) itemView.findViewById(R.id.recentTextViewName);
-            recentAge = (TextView) itemView.findViewById(R.id.recentTextViewAge);
-            recentHighestDegree = (TextView) itemView.findViewById(R.id.recentTextViewEducation);
-            recentLocation = (TextView) itemView.findViewById(R.id.recentTextViewCity);
-            recentOnline = (TextView) itemView.findViewById(R.id.recentTextViewLastOnline);
-
-        }
-    }
 
     public RecentAdapter(Context context, List<RecentModel> recentModelList) {
         this.context = context;
@@ -68,6 +49,24 @@ public class RecentAdapter extends RecyclerView.Adapter<RecentAdapter.MyViewHold
     @Override
     public int getItemCount() {
         return recentModelList.size();
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+
+        public ImageView recentUserImage;
+        public TextView recentName, recentAge, recentHighestDegree, recentLocation, recentOnline;
+
+        public MyViewHolder(View itemView) {
+
+            super(itemView);
+            recentUserImage = (ImageView) itemView.findViewById(R.id.recentUserImage);
+            recentName = (TextView) itemView.findViewById(R.id.recentTextViewName);
+            recentAge = (TextView) itemView.findViewById(R.id.recentTextViewAge);
+            recentHighestDegree = (TextView) itemView.findViewById(R.id.recentTextViewEducation);
+            recentLocation = (TextView) itemView.findViewById(R.id.recentTextViewCity);
+            recentOnline = (TextView) itemView.findViewById(R.id.recentTextViewLastOnline);
+
+        }
     }
 
 }

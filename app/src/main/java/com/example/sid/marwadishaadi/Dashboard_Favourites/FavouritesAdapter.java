@@ -18,12 +18,13 @@ import java.util.List;
  * Created by pranay on 02-06-2017.
  */
 
-public class FavouritesAdapter extends RecyclerView.Adapter<FavouritesAdapter.MyViewHolder>{
-    private List<FavouriteModel> fav;
+public class FavouritesAdapter extends RecyclerView.Adapter<FavouritesAdapter.MyViewHolder> {
     Context context;
-    public FavouritesAdapter(Context context, List<FavouriteModel> fav){
-        this.context=context;
-        this.fav=fav;
+    private List<FavouriteModel> fav;
+
+    public FavouritesAdapter(Context context, List<FavouriteModel> fav) {
+        this.context = context;
+        this.fav = fav;
     }
 
     @Override
@@ -37,8 +38,12 @@ public class FavouritesAdapter extends RecyclerView.Adapter<FavouritesAdapter.My
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
+
         FavouriteModel favouriteModel = fav.get(position);
-        String name_age = favouriteModel.getName()+", "+ favouriteModel.getAge();
+
+        String name_age = favouriteModel.getName() + ", " + favouriteModel.getAge();
+
+        holder.favCustomerId.setText(favouriteModel.getCustomerId());
         holder.fav_name_age.setText(name_age);
         holder.fav_education.setText(favouriteModel.getHighest_degree());
         holder.fav_city.setText(favouriteModel.getLocation());
@@ -57,21 +62,24 @@ public class FavouritesAdapter extends RecyclerView.Adapter<FavouritesAdapter.My
         return fav.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView fav_name_age, fav_city, fav_education;
+        TextView fav_name_age, fav_city, fav_education, favCustomerId ;
         ImageView fav_profile_image;
-        Button remove,sendInterest;
-        public MyViewHolder(View view){
+        Button remove, sendInterest;
 
-        super(view);
-            fav_name_age= (TextView) view.findViewById(R.id.fav_name_age);
-            fav_city= (TextView) view.findViewById(R.id.fav_city);
-            fav_education= (TextView) view.findViewById(R.id.fav_education);
+        public MyViewHolder(View view) {
+
+            super(view);
+            favCustomerId = (TextView) view.findViewById(R.id.favCustomerId);
+            fav_name_age = (TextView) view.findViewById(R.id.fav_name_age);
+            fav_city = (TextView) view.findViewById(R.id.fav_city);
+            fav_education = (TextView) view.findViewById(R.id.fav_education);
             fav_profile_image = (ImageView) view.findViewById(R.id.fav_profile_image);
-            remove=(Button)view.findViewById(R.id.remove);
-            sendInterest=(Button)view.findViewById(R.id.send_interest);
+            remove = (Button) view.findViewById(R.id.remove);
+            sendInterest = (Button) view.findViewById(R.id.send_interest);
         }
 
 
-}}
+    }
+}

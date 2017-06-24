@@ -22,6 +22,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sid.marwadishaadi.R;
@@ -111,6 +112,7 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
 // handle error
         }
     });*/
+
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -219,6 +221,8 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
             public void onClick(int position) {
             }
         });
+
+
 
         profilePageAdapter = new ProfilePageAdapter(getSupportFragmentManager());
         userinfo = (ViewPager) findViewById(R.id.profile_container);

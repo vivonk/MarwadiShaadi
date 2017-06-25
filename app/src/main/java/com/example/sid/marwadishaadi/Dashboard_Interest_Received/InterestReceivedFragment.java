@@ -41,7 +41,7 @@ import static com.example.sid.marwadishaadi.User_Profile.Edit_User_Profile.EditP
 public class InterestReceivedFragment extends Fragment {
 
     private static final String TAG = "InterestActivity";
-    private List<InterestReceivedModel> interestList;
+    private List<InterestReceivedModel> interestReceivedModelList;
     private RecyclerView recyclerView;
     private InterestReceivedAdapter interestReceivedAdapter;
     private CoordinatorLayout coordinatorLayout;
@@ -75,8 +75,8 @@ public class InterestReceivedFragment extends Fragment {
         swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
         FadeInLeftAnimator fadeInLeftAnimator = new FadeInLeftAnimator();
         recyclerView.setItemAnimator(fadeInLeftAnimator);
-        interestList = new ArrayList<>();
-        interestReceivedAdapter = new InterestReceivedAdapter(getContext(), interestList, recyclerView);
+        interestReceivedModelList = new ArrayList<>();
+        interestReceivedAdapter = new InterestReceivedAdapter(getContext(), interestReceivedModelList, recyclerView);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
@@ -159,6 +159,7 @@ public class InterestReceivedFragment extends Fragment {
                                 Log.d(TAG, "onResponse: response from received interest ----------------------- " + response.toString());
 
                                 InterestReceivedModel[] interestReceivedModels = new InterestReceivedModel[response.length()];
+                                interestReceivedModelList.clear();
 
                                 for (int i = 0; i < response.length(); i++) {
 
@@ -200,7 +201,7 @@ public class InterestReceivedFragment extends Fragment {
 
                                     interestReceivedModels[i] = new InterestReceivedModel(customerNo, name, age, education, cityName, "http://www.marwadishaadi.com/uploads/cust_" + customerNo + "/thumb/" + imageUrl, resultReplyAction);
 
-                                    interestList.add(interestReceivedModels[i]);
+                                    interestReceivedModelList.add(interestReceivedModels[i]);
                                     interestReceivedAdapter.notifyDataSetChanged();
 
                                     Log.d(TAG, "onResponse: age of the user " + age);

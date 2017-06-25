@@ -215,8 +215,11 @@ public class SuggestionsFragment extends Fragment {
                                     String maritalStatus = array.getString(10);
                                     String hometown = array.getString(11);
 
+                                    String favouriteStatus = array.getString(12);
+                                    String interestStatus = array.getString(13);
 
-                                    SuggestionModel suggestionModel = new SuggestionModel(Integer.parseInt(age), "http://www.marwadishaadi.com/uploads/cust_" + customerNo + "/thumb/" + imageUrl, name, customerNo, education, occupationLocation, height, occupationCompany, annualIncome, maritalStatus, hometown, occupationDesignation);
+
+                                    SuggestionModel suggestionModel = new SuggestionModel(Integer.parseInt(age), "http://www.marwadishaadi.com/uploads/cust_" + customerNo + "/thumb/" + imageUrl, name, customerNo, education, occupationLocation, height, occupationCompany, annualIncome, maritalStatus, hometown, occupationDesignation, favouriteStatus, interestStatus);
 
 
 

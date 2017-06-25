@@ -92,6 +92,14 @@ public class SuggestionAdapter extends RecyclerView.Adapter<SuggestionAdapter.My
         holder.mariSta.setText(suggest.getMariSta());
         holder.company.setText(cd);
         holder.highDeg.setText(suggest.getHighDeg());
+        if (suggest.getFavouriteStatus().toCharArray()[0] == '1') {
+            holder.sparkButtonFav.setChecked(false);
+            holder.sparkButtonFav.setInactiveImage(R.mipmap.heart_disable);
+        }
+        if (!suggest.getInterestStatus().contains("Not")) {
+            holder.sparkButtonInterest.setChecked(false);
+            holder.sparkButtonInterest.setInactiveImage(R.mipmap.heart_disable1);
+        }
 
 
     }

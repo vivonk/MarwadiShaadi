@@ -37,7 +37,6 @@ public class ProfileFamilyDetailsFragment extends Fragment {
     private TextView edit_family;
     private TextView edit_relatives;
     private Button similar;
-    private OnFragmentInteractionListener mListener;
 
     TextView fatherName, grandpaName, mamaSurname, fatherOccupation, fatherOccupationDetails, nativePlace, subcaste, familyType, familyStatus, relation, relativeName, relativeOccupation, relativeLocation, relativeMobile;
 
@@ -45,10 +44,6 @@ public class ProfileFamilyDetailsFragment extends Fragment {
         // Required empty public constructor
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> a8418d1287fa0dff60b34aab8418fd9ac4d8c697
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -171,37 +166,6 @@ public class ProfileFamilyDetailsFragment extends Fragment {
 
     }
 
-   /* @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-*/
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
     public int getCasebreak()
     {
         return this.casebreak;

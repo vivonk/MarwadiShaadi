@@ -152,7 +152,7 @@ public class RecentProfilesFragment extends Fragment {
                                     Log.d(TAG, "onResponse: lastonline is ------------------ " + lastOnline);
 
 
-                                    recentModel[i] = new RecentModel(name, age, education, location, lastOnline, "http://www.marwadishaadi.com/uploads/cust_" + customerNo + "/thumb/" + imageUrl);
+                                    recentModel[i] = new RecentModel(customerNo, name, age, education, location, lastOnline, "http://www.marwadishaadi.com/uploads/cust_" + customerNo + "/thumb/" + imageUrl);
                                     recentList.add(recentModel[i]);
                                     recentAdapter.notifyDataSetChanged();
 

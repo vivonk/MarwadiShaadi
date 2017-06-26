@@ -29,10 +29,6 @@ import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a8418d1287fa0dff60b34aab8418fd9ac4d8c697
 public class PartnerPreferencesFragment extends Fragment {
 
     private TextView edit_prefs;
@@ -43,10 +39,6 @@ public class PartnerPreferencesFragment extends Fragment {
         // Required empty public constructor
     }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a8418d1287fa0dff60b34aab8418fd9ac4d8c697
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -208,35 +200,4 @@ public class PartnerPreferencesFragment extends Fragment {
 
     }
 
-<<<<<<< HEAD
-=======
-    
-
-    /*@Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }*/
-
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
->>>>>>> a8418d1287fa0dff60b34aab8418fd9ac4d8c697
 }

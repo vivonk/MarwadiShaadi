@@ -64,5 +64,6 @@ dependencies {
     compile 'com.amitshekhar.android:android-networking:1.0.0'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0-RC0'
+
 }
 apply plugin: 'com.google.gms.google-services'

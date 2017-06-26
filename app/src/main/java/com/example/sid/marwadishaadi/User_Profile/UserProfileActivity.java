@@ -1,47 +1,32 @@
 package com.example.sid.marwadishaadi.User_Profile;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.pdf.PdfDocument;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CollapsingToolbarLayout;
-
-import com.example.sid.marwadishaadi.Analytics_Util;
-import com.example.sid.marwadishaadi.Contact_Us.ContactUsActivity;
-import com.example.sid.marwadishaadi.Dashboard.DashboardActivity;
-import com.example.sid.marwadishaadi.PdfViewActivity;
-import com.example.sid.marwadishaadi.Upload_User_Photos.UploadPhotoActivity;
-import com.github.barteksc.pdfviewer.PDFView;
-import com.github.clans.fab.FloatingActionButton;
-
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.ShareCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Display;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.sid.marwadishaadi.Analytics_Util;
 import com.example.sid.marwadishaadi.R;
+import com.example.sid.marwadishaadi.Upload_User_Photos.UploadPhotoActivity;
+import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 import com.google.android.gms.appinvite.AppInvite;
 import com.google.android.gms.appinvite.AppInviteInvitationResult;
@@ -49,23 +34,16 @@ import com.google.android.gms.appinvite.AppInviteReferral;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageClickListener;
 import com.synnapps.carouselview.ImageListener;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-import static android.R.attr.bitmap;
 
-public class
-UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener,
+
+public class  UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener,
         ImageListener, GoogleApiClient.OnConnectionFailedListener {
 
     private static LinearLayout linearlayout;
@@ -146,6 +124,7 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
 // handle error
         }
     });*/
+
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -304,6 +283,8 @@ UserProfileActivity extends AppCompatActivity implements ViewPager.OnPageChangeL
             public void onClick(int position) {
             }
         });
+
+
 
         profilePageAdapter = new ProfilePageAdapter(getSupportFragmentManager());
         userinfo = (ViewPager) findViewById(R.id.profile_container);

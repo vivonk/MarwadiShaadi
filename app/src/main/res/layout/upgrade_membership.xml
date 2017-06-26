@@ -13,6 +13,7 @@
             android:titleTextColor="@android:color/white"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
+            android:elevation="8dp"
             >
         </android.support.v7.widget.Toolbar>
     <ScrollView
@@ -325,8 +326,7 @@
             android:textColor="@color/white"
             android:textSize="16dp"
             android:background="@layout/button_border_corner_circle_"
-            android:stateListAnimator="@null"
-            android:elevation="8dp"/>
+            />
     </LinearLayout>
     </ScrollView>
 

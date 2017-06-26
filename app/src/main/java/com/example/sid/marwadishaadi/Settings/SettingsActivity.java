@@ -350,6 +350,7 @@ public class SettingsActivity extends AppCompatActivity {
                 Analytics_Util.logAnalytic(mFirebaseAnalytics,"Block view","textview");
 
                 Intent i = new Intent(SettingsActivity.this,BlockedActivity.class);
+                i.putExtra("Message","setting");
                 startActivity(i);
                 overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
             }

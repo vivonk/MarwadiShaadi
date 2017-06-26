@@ -186,6 +186,7 @@ public class NotificationsActivity extends AppCompatActivity {
 
 
         ItemTouchHelper.SimpleCallback touchevents = new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT) {
+
             @Override
             public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
                 return false;
@@ -196,14 +197,15 @@ public class NotificationsActivity extends AppCompatActivity {
 
                 int position = viewHolder.getAdapterPosition();
 
-                if(direction == ItemTouchHelper.RIGHT | direction== ItemTouchHelper.LEFT) {
+
+                if (direction == ItemTouchHelper.RIGHT | direction == ItemTouchHelper.LEFT) {
                     notificationsModelList.remove(position);
                     notificationsAdapter.notifyDataSetChanged();
                 }
             }
-
-
             };
+
+
 
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(touchevents);
         itemTouchHelper.attachToRecyclerView(recyclerView);
@@ -237,6 +239,7 @@ public class NotificationsActivity extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp(){
         finish();
+        overridePendingTransition(R.anim.exit,0);
         return true;
     }
 }

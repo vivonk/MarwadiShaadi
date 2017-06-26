@@ -10,7 +10,6 @@
                                     android:elevation="10dp">
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,9 +20,10 @@
             android:id="@+id/favCustomerId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
-        <ImageView
+No        <ImageView
+            android:clickable="true"
             android:id="@+id/fav_profile_image"
             android:layout_width="175dp"
             android:layout_height="135dp"
@@ -31,7 +31,7 @@
             android:layout_weight="1"
             android:paddingLeft="10dp"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/profile"/>
+            app:srcCompat="@drawable/profile" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,6 +41,7 @@
             android:padding="2dp">
 
             <TextView
+                android:clickable="true"
                 android:id="@+id/fav_name_age"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -49,7 +50,7 @@
                 android:text="Siddhesh Rane , 20"
                 android:textColor="#2d2d2d"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/fav_education"
@@ -58,7 +59,7 @@
                 android:layout_marginTop="3dp"
                 android:paddingLeft="5dp"
                 android:text="Education : "
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/fav_city"
@@ -67,7 +68,7 @@
                 android:layout_marginTop="3dp"
                 android:paddingLeft="5dp"
                 android:text="City"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
 
             <LinearLayout
@@ -89,7 +90,7 @@
                     android:textAlignment="center"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="12dp"/>
+                    android:textSize="12dp" />
 
                 <Button
                     android:id="@+id/send_interest"
@@ -104,7 +105,7 @@
                     android:textAlignment="center"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="12dp"/>
+                    android:textSize="12dp" />
 
 
             </LinearLayout>

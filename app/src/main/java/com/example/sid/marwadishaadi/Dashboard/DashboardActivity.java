@@ -191,8 +191,8 @@ public class DashboardActivity extends AppCompatActivity
         } else if (id == R.id.nav_feedback) {
             Intent i = new Intent(DashboardActivity.this, FeedbackActivity.class);
             startActivity(i);
-            overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-        }
+           overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
+       }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

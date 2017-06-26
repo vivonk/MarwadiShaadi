@@ -6,11 +6,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
+import android.support.annotation.RequiresApi;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -30,16 +28,22 @@ import com.example.sid.marwadishaadi.Forgot_Password.ForgotPasswordActivity;
 import com.example.sid.marwadishaadi.R;
 import com.example.sid.marwadishaadi.Signup.SignupActivity;
 import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
-
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -90,8 +94,10 @@ public class LoginActivity extends AppCompatActivity {
 
         login_email = (EditText) findViewById(R.id.login_email);
         login_pass = (EditText) findViewById(R.id.login_password);
+        login = (Button ) findViewById(R.id.login);
+        fblogin = (LoginButton) findViewById(R.id.fb_login_button);
         login = (Button) findViewById(R.id.login);
-       /* fblogin = (LoginButton) findViewById(R.id.fb_login_button);
+        fblogin = (LoginButton) findViewById(R.id.fb_login_button);
 
         fblogin.setReadPermissions(Arrays.asList("email"));
         fblogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
@@ -113,10 +119,10 @@ public class LoginActivity extends AppCompatActivity {
                             // check must be performed here
                             //String email = object.getString("email");
                             String birthday = object.getString("birthday");
-                            Toast.makeText(getApplicationContext(),first_name + last_name + gender + birthday,Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),first_name + last_name + gender + birthday, Toast.LENGTH_LONG).show();
 
                             // MUST GO TO dashboard
-                            Intent i = new Intent(Login.this,Otp_Verification.class);
+                            Intent i = new Intent(LoginActivity.this,DashboardActivity.class);
                             startActivity(i);
 
                         } catch (JSONException e) {
@@ -141,7 +147,9 @@ public class LoginActivity extends AppCompatActivity {
             public void onError(FacebookException error) {
 
             }
-        });*/
+
+
+        });
 
         forgot = (TextView) findViewById(R.id.forgot_link);
         signup = (TextView) findViewById(R.id.signup_link);
@@ -193,7 +201,6 @@ public class LoginActivity extends AppCompatActivity {
 
                                              if (str.equals("success")) {
                                                  SharedPreferences sharedpref = getSharedPreferences("userinfo", MODE_PRIVATE);
-                                                 Log.d(TAG, "onClick: in success " + customer_id + " " + customer_gender);
                                                  SharedPreferences.Editor editor = sharedpref.edit();
                                                  editor.putBoolean("isLoggedIn", true);
                                                  editor.putString("email", email);
@@ -281,9 +288,9 @@ class BackGround extends AsyncTask<String,String,String> {
 
     @Override
     protected String doInBackground(String... strings) {
-        Log.d(TAG, "doInBackground:---------------------- email--"+strings[1]+"---pass is ---"+strings[2]);
+        Log.d(TAG, "doInBackground:---------------------- email--" + strings[1] + "---pass is ---" + strings[2]);
         AndroidNetworking.post("http://10.0.0.13:5050/checkLogin")
-                .addBodyParameter("email",strings[1])
+                .addBodyParameter("email", strings[1])
                 .addBodyParameter("password", strings[2])
                 .setPriority(Priority.HIGH)
                 .build()
@@ -293,11 +300,11 @@ class BackGround extends AsyncTask<String,String,String> {
                     public void onResponse(JSONArray response) {
                         try {
                             Log.d(TAG, "onResponse: response is ------------- " + response.toString());
-                            str =  response.getString(0);
-                            if(str=="success") {
+                            str = response.getString(0);
+                            if (str == "success") {
                                 customer_id = response.getString(1);
                                 customer_gender = response.getString(2);
-                                Log.d(TAG, "onResponse: -------------------"+LoginActivity.str+"---------"+ customer_id + " ------------------- " + customer_gender);
+                                Log.d(TAG, "onResponse: -------------------" + str + "---------" + customer_id + " ------------------- " + customer_gender);
                             }
 
                         } catch (JSONException e) {
@@ -317,12 +324,11 @@ class BackGround extends AsyncTask<String,String,String> {
     }
 
 
-
     @Override
     protected void onPostExecute(String s) {
         dialog.dismiss();
         super.onPostExecute(s);
     }
-
-
 }
+
+

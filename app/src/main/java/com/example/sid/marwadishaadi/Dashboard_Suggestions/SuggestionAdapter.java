@@ -20,6 +20,7 @@ import com.androidnetworking.interfaces.JSONArrayRequestListener;
 import com.bumptech.glide.Glide;
 import com.example.sid.marwadishaadi.Chat.DefaultMessagesActivity;
 import com.example.sid.marwadishaadi.R;
+import com.example.sid.marwadishaadi.User_Profile.UserProfileActivity;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.varunest.sparkbutton.SparkButton;
 import com.varunest.sparkbutton.SparkEventListener;
@@ -111,7 +112,7 @@ public class SuggestionAdapter extends RecyclerView.Adapter<SuggestionAdapter.My
         return suggestionModelList.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView name, cusId, highDeg, workLoc, height, company, annInc, mariSta, hometown;
         ImageView imgAdd;
@@ -135,6 +136,23 @@ public class SuggestionAdapter extends RecyclerView.Adapter<SuggestionAdapter.My
             sparkButtonFav = (SparkButton) view.findViewById(R.id.fav);
             sparkButtonInterest = (SparkButton) view.findViewById(R.id.interest);
 
+            imgAdd.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(context, UserProfileActivity.class);
+                    i.putExtra("customerNo","A1028");
+                    context.startActivity(i);
+                }
+            });
+
+            name.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(context, UserProfileActivity.class);
+                    context.startActivity(i);
+                }
+            });
+
             sparkButtonChat.setEventListener(new SparkEventListener() {
                 @Override
                 public void onEvent(ImageView button, boolean buttonState) {
@@ -148,6 +166,8 @@ public class SuggestionAdapter extends RecyclerView.Adapter<SuggestionAdapter.My
                     intent.putExtras(extras);
                     context.startActivity(intent);
                 }
+
+
 
                 @Override
                 public void onEventAnimationEnd(ImageView button, boolean buttonState) {
@@ -233,7 +253,7 @@ public class SuggestionAdapter extends RecyclerView.Adapter<SuggestionAdapter.My
 
 
 
-    private class AddInterestFromSuggestion extends AsyncTask<String, Void, Void> {
+    class AddInterestFromSuggestion extends AsyncTask<String, Void, Void> {
 
 
         @Override
@@ -268,7 +288,7 @@ public class SuggestionAdapter extends RecyclerView.Adapter<SuggestionAdapter.My
         }
     }
 
-    private class AddFavouriteFromSuggestion extends AsyncTask<String, Void, Void> {
+    class AddFavouriteFromSuggestion extends AsyncTask<String, Void, Void> {
 
         @Override
         protected Void doInBackground(String... params) {

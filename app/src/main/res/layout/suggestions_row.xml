@@ -27,6 +27,7 @@
             tools:layout_editor_absoluteY="8dp">
 
             <ImageView
+                android:clickable="true"
                 android:id="@+id/imgAdd"
                 android:layout_width="wrap_content"
                 android:layout_height="290dp"
@@ -67,6 +68,7 @@
                     >
 
                     <TextView
+                        android:clickable="true"
                         android:id="@+id/name"
                         fontPath="fonts/OpenSans-Bold.ttf"
                         android:layout_width="wrap_content"
@@ -82,7 +84,7 @@
 
 
                     <TextView
-
+                        android:clickable="true"
                         android:id="@+id/cusId"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

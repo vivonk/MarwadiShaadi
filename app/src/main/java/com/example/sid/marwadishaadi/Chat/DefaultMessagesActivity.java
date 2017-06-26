@@ -65,10 +65,26 @@ public class DefaultMessagesActivity extends DemoMessagesActivity
         super.onLoadMore(page, totalItemsCount);
 
     }
+ @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
 
+        getMenuInflater().inflate(R.menu.chat_toolbar_block,menu);
+        this.menu =menu;
+        return super.onCreateOptionsMenu(menu);
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+         case R.id.blocked:
+                 onBlockPressed(id);
+                 Snackbar snackbar = Snackbar.make(relative, "Added to Blocked List", Snackbar.LENGTH_LONG).setAction("UNBLOCK", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            onUnblockPressed(id);
+                        }
+                    });
+                    snackbar.show();
+                return true;
             case android.R.id.home:
                 onBackPressed();
                 return true;
@@ -76,7 +92,19 @@ public class DefaultMessagesActivity extends DemoMessagesActivity
 
         return super.onOptionsItemSelected(item);
     }
+private void onUnblockPressed(int id) {
+        MenuItem menuItem = menu.findItem(id);
+        menuItem.setTitle("Block");
+    }
 
+    private void onBlockPressed(int id) {
+        String customer_id="A1008";
+        MenuItem menuItem = menu.findItem(id);
+        Intent intent=new Intent(DefaultMessagesActivity.this,BlockedActivity.class);
+        intent.putExtra("ID",customer_id);
+        intent.putExtra("Name",toolbar.getTitle());
+        menuItem.setTitle("Unblock");
+    }
     @Override
     public boolean onSubmit(CharSequence input) {
 

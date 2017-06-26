@@ -31,7 +31,7 @@ public class SuggestionAdapter extends RecyclerView.Adapter<SuggestionAdapter.My
     private RecyclerView rv;
     private FirebaseAnalytics mFirebaseAnalytics;
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView name,cusId,highDeg,workLoc,height,company,annInc,mariSta,hometown;
         ImageView imgAdd;

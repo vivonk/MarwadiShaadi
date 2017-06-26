@@ -5,21 +5,34 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.sid.marwadishaadi.Analytics_Util;
 import com.example.sid.marwadishaadi.Dashboard.DashboardActivity;
 import com.example.sid.marwadishaadi.Forgot_Password.ForgotPasswordActivity;
+import com.example.sid.marwadishaadi.Otp_Verification.Otp_VerificationActivity;
 import com.example.sid.marwadishaadi.R;
 import com.example.sid.marwadishaadi.Signup.SignupActivity;
 import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.firebase.analytics.FirebaseAnalytics;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Arrays;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -56,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
         login_email = (EditText) findViewById(R.id.login_email);
         login_pass = (EditText) findViewById(R.id.login_password);
         login = (Button ) findViewById(R.id.login);
-       /* fblogin = (LoginButton) findViewById(R.id.fb_login_button);
+        fblogin = (LoginButton) findViewById(R.id.fb_login_button);
 
         fblogin.setReadPermissions(Arrays.asList("email"));
         fblogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
@@ -78,10 +91,10 @@ public class LoginActivity extends AppCompatActivity {
                             // check must be performed here
                             //String email = object.getString("email");
                             String birthday = object.getString("birthday");
-                            Toast.makeText(getApplicationContext(),first_name + last_name + gender + birthday,Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),first_name + last_name + gender + birthday, Toast.LENGTH_LONG).show();
 
                             // MUST GO TO dashboard
-                            Intent i = new Intent(LoginActivity.this,Otp_VerificationActivity.class);
+                            Intent i = new Intent(LoginActivity.this,DashboardActivity.class);
                             startActivity(i);
 
                         } catch (JSONException e) {
@@ -106,7 +119,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onError(FacebookException error) {
 
             }
-        });*/
+
+        });
 
         forgot = (TextView) findViewById(R.id.forgot_link);
         signup = (TextView) findViewById(R.id.signup_link);

@@ -43,10 +43,12 @@ public class SearchResultsActivity extends AppCompatActivity {
         String str=bundle.get("which").toString();
         if(str.equals("advSearch")) {
             suggestionAdapter = new SuggestionAdapter(getApplicationContext(), suggestionModelList2, recyclerView);
+            suggestionAdapter.notifyDataSetChanged();
             toolbar.setTitle("Results ("+suggestionAdapter.getItemCount()+")");
         }
         else {
             suggestionAdapter = new SuggestionAdapter(getApplicationContext(), sm, recyclerView);
+            suggestionAdapter.notifyDataSetChanged();
             toolbar.setTitle("Results ("+ suggestionAdapter.getItemCount()+")");
         }
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
@@ -70,6 +72,8 @@ public class SearchResultsActivity extends AppCompatActivity {
         super.onBackPressed();
         Intent i=new Intent(getApplicationContext(),Search.class);
         startActivity(i);
+        finish();
+
     }
 
 

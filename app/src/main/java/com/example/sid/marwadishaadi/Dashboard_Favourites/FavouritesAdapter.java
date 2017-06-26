@@ -1,6 +1,7 @@
 package com.example.sid.marwadishaadi.Dashboard_Favourites;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.sid.marwadishaadi.R;
+import com.example.sid.marwadishaadi.User_Profile.UserProfileActivity;
 
 import java.util.List;
 
@@ -78,6 +80,22 @@ public class FavouritesAdapter extends RecyclerView.Adapter<FavouritesAdapter.My
             fav_profile_image = (ImageView) view.findViewById(R.id.fav_profile_image);
             remove = (Button) view.findViewById(R.id.remove);
             sendInterest = (Button) view.findViewById(R.id.send_interest);
+
+            fav_name_age.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(context, UserProfileActivity.class);
+                    context.startActivity(i);
+                }
+            });
+
+            fav_profile_image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(context, UserProfileActivity.class);
+                    context.startActivity(i);
+                }
+            });
         }
 
 

@@ -361,6 +361,8 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp(){
         finish();
+        overridePendingTransition(R.anim.exit,0);
+
         return true;
     }
 }

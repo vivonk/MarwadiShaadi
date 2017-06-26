@@ -1,6 +1,7 @@
 package com.example.sid.marwadishaadi.Dashboard_Recent_Profiles;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
@@ -18,6 +19,7 @@ import com.androidnetworking.interfaces.JSONArrayRequestListener;
 import com.bumptech.glide.Glide;
 import com.example.sid.marwadishaadi.Dashboard_Suggestions.SuggestionAdapter;
 import com.example.sid.marwadishaadi.R;
+import com.example.sid.marwadishaadi.User_Profile.UserProfileActivity;
 import com.varunest.sparkbutton.SparkButton;
 import com.varunest.sparkbutton.SparkEventListener;
 
@@ -87,6 +89,25 @@ public class RecentAdapter extends RecyclerView.Adapter<RecentAdapter.MyViewHold
             recentOnline = (TextView) itemView.findViewById(R.id.recentTextViewLastOnline);
             sparkButtonFavourite = (SparkButton) itemView.findViewById(R.id.recentFav);
             sparkButtonInterest = (SparkButton) itemView.findViewById(R.id.recentInterest);
+
+
+            recentName.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Intent i = new Intent(context, UserProfileActivity.class);
+                    context.startActivity(i);
+                }
+            });
+
+            recentUserImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Intent i = new Intent(context, UserProfileActivity.class);
+                    context.startActivity(i);
+                }
+            });
 
             sparkButtonFavourite.setEventListener(new SparkEventListener() {
                 @Override

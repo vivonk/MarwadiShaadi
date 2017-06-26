@@ -170,7 +170,7 @@ public  AlertDialog.Builder reset;
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         PackageInfos=new ArrayList<>();
         Toolbar toolbar = (Toolbar) findViewById(R.id.membership_toolbar);
-        toolbar.setTitle("MembershipActivity");
+        toolbar.setTitle("Membership Status");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -601,6 +601,7 @@ public  AlertDialog.Builder reset;
             public boolean onSupportNavigateUp() {
                 counts=0;
                 finish();
+                overridePendingTransition(R.anim.exit,0);
                 return true;
             }
             class BCKND extends AsyncTask<String,String,String>

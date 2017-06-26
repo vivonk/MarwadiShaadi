@@ -45,7 +45,7 @@ public class MembershipActivity extends AppCompatActivity {
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.membership_toolbar);
-        toolbar.setTitle("MembershipActivity");
+        toolbar.setTitle("Membership");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

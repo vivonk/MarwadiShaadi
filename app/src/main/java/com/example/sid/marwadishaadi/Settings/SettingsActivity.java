@@ -223,7 +223,8 @@ public class SettingsActivity extends AppCompatActivity {
                 final EditText oldpass = (EditText) reset_view.findViewById(R.id.user_old_pass);
                 final EditText newpass = (EditText) reset_view.findViewById(R.id.user_new_password);
                 Button resetbutton = (Button) reset_view.findViewById(R.id.user_reset);
-                final TextView call_us = (TextView) reset_view.findViewById(R.id.call_us);
+                final TextView call_us = (TextView) reset_view.findViewById(R.id.reset_call_number);
+                final LinearLayout reset_contact = (LinearLayout) reset_view.findViewById(R.id.reset_call_us);
 
                 resetbutton.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -239,7 +240,7 @@ public class SettingsActivity extends AppCompatActivity {
                     }
                 });
 
-                call_us.setOnClickListener(new View.OnClickListener() {
+                reset_contact.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         final Intent callIntent = new Intent(Intent.ACTION_CALL);

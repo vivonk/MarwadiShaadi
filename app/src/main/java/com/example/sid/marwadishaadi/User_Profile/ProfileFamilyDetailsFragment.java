@@ -45,6 +45,10 @@ public class ProfileFamilyDetailsFragment extends Fragment {
         // Required empty public constructor
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a8418d1287fa0dff60b34aab8418fd9ac4d8c697
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

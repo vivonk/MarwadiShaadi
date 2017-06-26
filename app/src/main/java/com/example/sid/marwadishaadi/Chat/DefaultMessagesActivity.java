@@ -3,14 +3,19 @@ package com.example.sid.marwadishaadi.Chat;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.RelativeLayout;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONArrayRequestListener;
+import com.example.sid.marwadishaadi.Blocked_Members.BlockedActivity;
 import com.example.sid.marwadishaadi.R;
 import com.stfalcon.chatkit.messages.MessageInput;
 import com.stfalcon.chatkit.messages.MessagesList;
@@ -22,7 +27,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import static android.R.attr.id;
 import static com.example.sid.marwadishaadi.User_Profile.Edit_User_Profile.EditPreferencesActivity.URL;
+import static com.google.android.gms.R.id.toolbar;
 
 public class DefaultMessagesActivity extends DemoMessagesActivity
         implements MessageInput.InputListener {
@@ -31,6 +38,7 @@ public class DefaultMessagesActivity extends DemoMessagesActivity
     public static MessagesListAdapter<Message> adapter;
     private MessagesList messagesList;
     private String customerId, customerName;
+    private Menu menu;
 
     public static void open(Context context) {
         context.startActivity(new Intent(context, DefaultMessagesActivity.class));
@@ -77,6 +85,7 @@ public class DefaultMessagesActivity extends DemoMessagesActivity
         switch (item.getItemId()) {
          case R.id.blocked:
                  onBlockPressed(id);
+             RelativeLayout relative = (RelativeLayout) findViewById(R.id.relative_chat);
                  Snackbar snackbar = Snackbar.make(relative, "Added to Blocked List", Snackbar.LENGTH_LONG).setAction("UNBLOCK", new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -102,7 +111,7 @@ private void onUnblockPressed(int id) {
         MenuItem menuItem = menu.findItem(id);
         Intent intent=new Intent(DefaultMessagesActivity.this,BlockedActivity.class);
         intent.putExtra("ID",customer_id);
-        intent.putExtra("Name",toolbar.getTitle());
+        intent.putExtra("Name",getSupportActionBar().getTitle());
         menuItem.setTitle("Unblock");
     }
     @Override

@@ -71,7 +71,7 @@ public class FeedbackActivity extends AppCompatActivity {
 
                 boolean email_response_required = false;
                 if (email_response.isChecked()){
-                    email_response_required = true;
+                    email_response_required = true ;
                 }
 
                 String phone_details = getPhoneDetails();
